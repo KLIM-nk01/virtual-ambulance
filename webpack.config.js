@@ -7,10 +7,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 module.exports = {
     context: path.resolve(__dirname, "src"),
     mode: 'development',
-    entry: ["@babel/polyfill", './index.jsx'],
+    entry: ["@babel/polyfill", './index.tsx'],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "[name].[hash].js"
+    },
+    resolve: {
+        extensions: ['.js', '.jsx', '.tsx']
     },
     plugins: [
         new HTMLWebpackPlugin({template: "./index.html"}),
@@ -70,12 +73,18 @@ module.exports = {
                 }
             },
             {
-                test: /\.(ts|tsx)$/,
+                test: /\.(ts|js)x?$/,
                 exclude: /node_modules/,
-                use: [
-                    { loader: 'babel-loader' },
-                    { loader: 'ts-loader' },
-                ],
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: [
+                            "@babel/preset-env",
+                            "@babel/preset-react",
+                            "@babel/preset-typescript",
+                        ],
+                    },
+                },
             },
         ]
     }
