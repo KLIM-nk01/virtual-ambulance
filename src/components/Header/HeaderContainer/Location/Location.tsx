@@ -1,11 +1,11 @@
 import React from 'react';
 
-const App: React.FC = () => {
+const Location: React.FC = () => {
     return (
         <div>
-
+            location
         </div>
     );
 };
 
-export default App;
+export default Location;
