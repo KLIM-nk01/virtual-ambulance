@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
 import Nav from "../Nav/Nav";
-import Page from "../../styleComponents/Page";
 import LogInForm from "../LogInForm/LogInForm";
 
 const MainPageWrapper = styled.div`
   width: 100%;
-  height: 95%;
-
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: center;

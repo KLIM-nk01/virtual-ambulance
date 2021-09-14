@@ -1,43 +1,39 @@
 import React from 'react';
-import styled from "styled-components";
-import { NavLink } from 'react-router-dom';
-import medicneCenterLogo from '../../assets/medicneCenter.png'
-
-const NavWrapper = styled.div`
-  
-  display: grid;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 50px;
-  
-  a {
-    text-decoration: none;
-    color: #fff;
-  }
-`
-
-const NavItem = styled.div`
-  width: 300px;
-  height: 300px;
-  border: 1px solid black;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  img {
-    width: 100%;
-  }
-  
-`
+import {NavLink} from 'react-router-dom';
+import CenterLogo from '../../assets/Center.png';
+import DoctorsLogo from '../../assets/doctorsLogo.png';
+import Services from '../../assets/Services.png';
+import UserAccount from '../../assets/Account.png';
+import {NavWrapper, NavItem} from "./NavStyle";
 
 const Nav: React.FC = () => {
     return (
         <NavWrapper>
-            <NavLink to={'/medCentersPage'}><NavItem><img src={medicneCenterLogo} alt={'medCenter'}/></NavItem></NavLink>
-            <NavLink to={'/doctorsPage'}><NavItem>doctorsPage</NavItem></NavLink>
-            <NavLink to={'/servicesPage'}><NavItem>servicesPage</NavItem></NavLink>
-            <NavLink to={'/usersAccount'}><NavItem>usersAccount</NavItem></NavLink>
+            <NavLink to={'/medCentersPage'}>
+                <NavItem>
+                    {/*<CenterLogo/>*/}
+                    <img src={CenterLogo} alt={'medCenter'}/>
+                    <span>Finding a medical center</span>
+                </NavItem>
+            </NavLink>
+            <NavLink to={'/doctorsPage'}>
+                <NavItem>
+                    <img src={DoctorsLogo} alt={'medCenter'}/>
+                    <span>Finding a doctor</span>
+                </NavItem>
+            </NavLink>
+            <NavLink to={'/servicesPage'}>
+                <NavItem>
+                    <img src={Services} alt={'medCenter'}/>
+                    <span>View services</span>
+                </NavItem>
+            </NavLink>
+            <NavLink to={'/usersAccount'}>
+                <NavItem>
+                    <img src={UserAccount} alt={'medCenter'}/>
+                    <span>Personal Area</span>
+                </NavItem>
+            </NavLink>
         </NavWrapper>
     );
 };

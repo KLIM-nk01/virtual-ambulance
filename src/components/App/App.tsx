@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import GlobalStyle from "../../styleComponents/globalstyle";
+import GlobalStyle from "../../style/globalstyle"
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Header from "../Header/Header";
 import MainPage from "../MainPage/MainPage";

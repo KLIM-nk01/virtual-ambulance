@@ -5,10 +5,10 @@ const ContainerStyle = styled.div`
     
 `
 
-const Container: React.FC = (props:any) => {
+const Container: React.FC = () => {
     return (
         <ContainerStyle>
-            {props.children}
+
         </ContainerStyle>
     );
 };

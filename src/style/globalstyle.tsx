@@ -1,4 +1,6 @@
 import {createGlobalStyle} from "styled-components";
+import {fonts} from "./fonts";
+
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -6,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     outline:0;
     box-sizing:border-box;
+    ${fonts};
     font-family: 'Poppins', sans-serif;
     color: white;
     text-decoration: none;
