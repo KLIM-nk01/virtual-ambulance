@@ -12,7 +12,7 @@ module.exports = {
         filename: "[name].[hash].js"
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.tsx']
+        extensions: ['.js', '.jsx', '.tsx', '.png']
     },
     plugins: [
         new HTMLWebpackPlugin({template: "./index.html"}),

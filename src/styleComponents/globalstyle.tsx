@@ -7,6 +7,8 @@ const GlobalStyle = createGlobalStyle`
     outline:0;
     box-sizing:border-box;
     font-family: 'Poppins', sans-serif;
+    color: white;
+    text-decoration: none;
   }
   #root{
     margin:0 auto;

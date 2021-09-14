@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import Nav from "../Nav/Nav";
 import Page from "../../styleComponents/Page";
+import LogInForm from "../LogInForm/LogInForm";
 
 const MainPageWrapper = styled.div`
   width: 100%;
@@ -18,6 +19,7 @@ const MainPage: React.FC = () => {
     return (
         <MainPageWrapper >
             <Nav/>
+            {/*<LogInForm/>*/}
         </MainPageWrapper>
     );
 };

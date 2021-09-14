@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import medicneCenterLogo from '../../assets/medicneCenter.png'
 
 const NavWrapper = styled.div`
   
@@ -24,12 +25,16 @@ const NavItem = styled.div`
   align-items: center;
   justify-content: center;
   
+  img {
+    width: 100%;
+  }
+  
 `
 
 const Nav: React.FC = () => {
     return (
         <NavWrapper>
-            <NavLink to={'/medCentersPage'}><NavItem>medCentersPage</NavItem></NavLink>
+            <NavLink to={'/medCentersPage'}><NavItem><img src={medicneCenterLogo} alt={'medCenter'}/></NavItem></NavLink>
             <NavLink to={'/doctorsPage'}><NavItem>doctorsPage</NavItem></NavLink>
             <NavLink to={'/servicesPage'}><NavItem>servicesPage</NavItem></NavLink>
             <NavLink to={'/usersAccount'}><NavItem>usersAccount</NavItem></NavLink>

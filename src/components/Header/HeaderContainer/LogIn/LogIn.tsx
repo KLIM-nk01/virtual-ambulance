@@ -1,10 +1,11 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 
 const LogIn: React.FC = () => {
     return (
-        <div>
+        <NavLink to={'/logInForm'}>
             LogIn
-        </div>
+        </NavLink>
     );
 };
 

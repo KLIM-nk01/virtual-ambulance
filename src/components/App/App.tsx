@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
 import GlobalStyle from "../../styleComponents/globalstyle";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Header from "../Header/Header";
 import MainPage from "../MainPage/MainPage";
 import MedCentersPage from "../MedCentersPage/MedCentersPage";
 import DoctorsPage from "../DoctorsPage/DoctorsPage";
-
+import LogInForm from "../LogInForm/LogInForm";
 
 const AppWrapper = styled.div`
   width: 100%;
@@ -19,9 +19,13 @@ const App: React.FC = () => {
             <GlobalStyle/>
             <AppWrapper>
                 <Header/>
-                    <Route exact  path={'/'}  render={() => <MainPage/>}/>
+                <Switch>
+                    <Route exact path={'/'}  render={() => <MainPage/>}/>
                     <Route path={'/medCentersPage'} render={() => <MedCentersPage/>}/>
                     <Route path={'/doctorsPage'} render={() => <DoctorsPage/>}/>
+                </Switch>
+
+                {/*<LogInForm/>*/}
             </AppWrapper>
         </BrowserRouter>
     );
