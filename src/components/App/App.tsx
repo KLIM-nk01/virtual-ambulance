@@ -20,8 +20,8 @@ const App: React.FC = () => {
             <AppWrapper>
                 <Header/>
                 <Switch>
-                    <Route exact path={'/'}  render={() => <MainPage/>}/>
-                    <Route path={'/medCentersPage'} render={() => <MedCentersPage/>}/>
+                    <Route exact path={'/n'}  render={() => <MainPage/>}/>
+                    <Route  path={'/'} render={() => <MedCentersPage/>}/>
                     <Route path={'/doctorsPage'} render={() => <DoctorsPage/>}/>
                 </Switch>
 

@@ -1,21 +1,17 @@
 import React from 'react';
 import styled from "styled-components";
+import {MedCentersPageWrapper} from "./MedcentersPageStyle";
+import MedCentersList from "./MedCentersList/MedCentersList";
+import MedCentersMap from "./MedCentersMap/MedCentersMap";
+import Map from "./MedCentersMap/MedCentersMap";
 
-const MedCentersPageWrapper = styled.div`
-  width: 100%;
-  height: 90%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(-45deg, yellow, #7e57f0);
-`
 
 const MedCentersPage: React.FC = () => {
     return (
-        <MedCentersPageWrapper>
-            MedCentersPageWrapper
-        </MedCentersPageWrapper>
+       <MedCentersPageWrapper>
+           <MedCentersList></MedCentersList>
+           <MedCentersMap></MedCentersMap>
+       </MedCentersPageWrapper>
     );
 };
 
