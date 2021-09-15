@@ -1,34 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
-import {GoogleMap, withScriptjs, withGoogleMap} from 'react-google-maps'
+import ReactMapGL, {Marker} from 'react-map-gl';
+import marker from '../../../assets/marker.png'
 
 const MedCentersMapStyle = styled.div`
   width: 60%;
   height: 100%;
   color: black;
-  
+
 `
-const Map: React.FC = () => {
-    return (
-        <GoogleMap
-            defaultZoom={10}
-            defaultCenter={{lat: 53.904541, lng: 27.561523}}
-        />
-    );
+const MarkerStyle = styled.img`
+  width: 30px;
+  cursor: pointer;
+`
+interface IState {
+    latitude: number,
+    longitude: number,
+    zoom: number,
+    width: string,
+    height: string
 }
 
-const WrapperMap = withScriptjs(withGoogleMap(Map));
-
 const MedCentersMap: React.FC = () => {
+    const [viewport, setViewPort] = useState<IState>({
+        latitude: 53.900601,
+        longitude: 27.558972,
+        zoom: 11,
+        width: '100%',
+        height: '100%'
+    })
     return (
         <MedCentersMapStyle>
-            <WrapperMap
-                googleMapURL={'https://maps.googleapis.com/maps/api/js?key=AIzaSyBtXkDdxkVstEw67EwozHW5awXSPlCvd_I&callback=initMap'}
-                loadingElement={<div style={{height: '100%'}}/>}
-                containerElement={<div style={{ height: `100%` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-             />
+            <ReactMapGL
+                {...viewport}
+                mapboxApiAccessToken={'pk.eyJ1Ijoia2xpbS1uazAxIiwiYSI6ImNrdGx4eHI4azA2bGoybnM4b3d4aTlvZjMifQ.7cxgikPKgzMV2ZjWS97ehg'}
+                onViewportChange={(viewport: React.SetStateAction<IState>) => {
+                    setViewPort(viewport)
+                }}
+                mapStyle={'mapbox://styles/mapbox/streets-v11'}
+            ><Marker latitude={53.900601} longitude={27.558972} offsetLeft={-20} offsetTop={-10}>
+                <MarkerStyle src={marker} alt={''}></MarkerStyle>
+            </Marker></ReactMapGL>
         </MedCentersMapStyle>
-          );
+    );
 };
 export default MedCentersMap;
