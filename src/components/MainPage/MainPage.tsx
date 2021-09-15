@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import Nav from "../Nav/Nav";
+import Nav from "./Nav/Nav";
 import LogInForm from "../LogInForm/LogInForm";
 
 const MainPageWrapper = styled.div`
@@ -11,6 +11,7 @@ const MainPageWrapper = styled.div`
   justify-content: center;
   
   background: linear-gradient(45deg, #4a88ed, #7e57f0);
+  
 `
 
 const MainPage: React.FC = () => {

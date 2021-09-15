@@ -1,9 +1,9 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
-import AppLogo from '../../assets/Logo.png'
+import AppLogo from '../../../assets/Logo.png'
 import styled, {css} from "styled-components";
-import {fonts} from "../../style/fonts";
-import { flex } from "../../style/flex";
+import {fonts} from "../../../style/fonts";
+import { flex } from "../../../style/flex";
 
 
 // const flex = css`
@@ -15,6 +15,7 @@ import { flex } from "../../style/flex";
 const Container = styled.div`
   width: 180px;
   height: 100%;
+  padding: 0 5px;
   ${flex};
   border-bottom: 1px solid inherit;
   transition: 0.5s;

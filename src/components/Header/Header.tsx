@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import Container from "../Container/Container";
-import HeaderContainer from "./HeaderContainer/HeaderContainer";
+import Logo from "./Logo/Logo";
+import LogIn from "./LogIn/LogIn";
+import {HeaderContainer} from "./HeaderContainer";
+import Search from "./Search/Search";
 
 const HeaderWrapper = styled.div`
   height: 10%;
@@ -15,10 +17,16 @@ const HeaderWrapper = styled.div`
   background: linear-gradient(45deg, #4a88ed, #7e57f0);
   
 `
+
 const Header: React.FC = () => {
     return (
         <HeaderWrapper>
-            <HeaderContainer/>
+            <HeaderContainer>
+                {/*<Location/>*/}
+                <Logo/>
+                <Search/>
+                <LogIn/>
+            </HeaderContainer>
         </HeaderWrapper>
     );
 };
