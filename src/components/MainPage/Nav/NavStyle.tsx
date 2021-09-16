@@ -13,6 +13,7 @@ export const NavWrapper = styled.div`
     color: ${STYLE_CONSTANTS.COLORS.white};
   }
 `;
+
 export const NavItem = styled.div`
   width: 300px;
   height: 300px;
