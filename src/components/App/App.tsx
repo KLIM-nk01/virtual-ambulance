@@ -19,9 +19,9 @@ const App: React.FC = () => {
             <AppWrapper>
                 <Header/>
                 <Switch>
-                    <Route exact path={'/n'}  render={() => <MainPage/>}/>
-                    <Route  path={'/'} render={() => <MedCentersPage/>}/>
-                    <Route path={'/doctorsPage'} render={() => <DoctorsPage/>}/>
+                    <Route exact path={'/'}  render={() => <MainPage/>}/>
+                    <Route exact path={'/medCentersPage'} render={() => <MedCentersPage/>}/>
+                    <Route exact path={'/doctorsPage'} render={() => <DoctorsPage/>}/>
                 </Switch>
 
                 {/*<LogInForm/>*/}

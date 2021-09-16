@@ -9,7 +9,8 @@ module.exports = {
     entry: ["@babel/polyfill", './index.tsx'],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "[name].[hash].js"
+        filename: "[name].[hash].js",
+        publicPath: "/"
     },
     resolve: {
         extensions: ['.js', '.jsx', '.tsx', '.png', '.ts']
@@ -21,6 +22,9 @@ module.exports = {
             filename: '[name].[hash].css'
         })
     ],
+    devServer: {
+        historyApiFallback: true
+    },
     module: {
         rules: [
             {

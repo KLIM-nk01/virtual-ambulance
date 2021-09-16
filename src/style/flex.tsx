@@ -1,6 +1,6 @@
 import {css} from "styled-components";
 
-export const flex = css`
+export const flex = `
   display: flex;
   align-items: center;
   justify-content: space-between;
