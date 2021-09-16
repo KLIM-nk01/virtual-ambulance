@@ -22,6 +22,5 @@ export const SearchInput = styled.input`
     ::placeholder {
       color: transparent;
     }
-    
   }
 `

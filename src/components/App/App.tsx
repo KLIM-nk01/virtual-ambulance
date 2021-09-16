@@ -6,7 +6,6 @@ import Header from "../Header/Header";
 import MainPage from "../MainPage/MainPage";
 import MedCentersPage from "../MedCentersPage/MedCentersPage";
 import DoctorsPage from "../DoctorsPage/DoctorsPage";
-import LogInForm from "../LogInForm/LogInForm";
 
 const AppWrapper = styled.div`
   width: 100%;

@@ -18,4 +18,4 @@ const MedCentersList: React.FC = () => {
     );
 };
 
-export default MedCentersList ;
+export default MedCentersList;

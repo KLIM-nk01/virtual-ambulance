@@ -11,3 +11,4 @@ declare module '*.png' {
     export default svgUrl;
     export { svgComponent as ReactComponent };
 }
+

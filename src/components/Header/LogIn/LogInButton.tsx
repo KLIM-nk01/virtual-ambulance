@@ -21,5 +21,4 @@ export const LogInButton = styled.button`
     color: white;
     box-shadow: 0.4em 0.4em 5px rgba(69, 68, 68, 0.5);
   }
-  
 `

@@ -3,8 +3,6 @@ interface IMedCenter {
     address: string,
     locationCode: string,
     description: string,
-
-
 }
 
 export const medCenter = {

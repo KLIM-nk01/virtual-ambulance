@@ -8,5 +8,4 @@ export const MainPageWrapper = styled.div`
   justify-content: center;
   
   background: linear-gradient(45deg, #4a88ed, #7e57f0);
-  
 `

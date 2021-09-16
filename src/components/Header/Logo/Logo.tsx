@@ -5,13 +5,6 @@ import styled, {css} from "styled-components";
 import {fonts} from "../../../style/fonts";
 import { flex } from "../../../style/flex";
 
-
-// const flex = css`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-// `
-
 const Container = styled.div`
   width: 180px;
   height: 100%;
@@ -47,7 +40,7 @@ const Logo: React.FC = () => {
         <div>
             <NavLink to={'/'}>
                 <Container>
-                    <LogoStyle src={AppLogo} alt={'AppLogo'}/>
+                    <LogoStyle src={AppLogo} alt='AppLogo'/>
                     <div>
                         <span>Virtual</span>
                         <span>Ambulance</span>
