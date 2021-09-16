@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {STYLE_CONSTANTS} from "../../../../constants/styleConstants";
 
 
 export const MedCenterItem = styled.div`
@@ -10,11 +11,11 @@ export const MedCenterItem = styled.div`
 `
 
 export const MedcenterName = styled.span`
-  color: black;
+  color: ${STYLE_CONSTANTS.COLORS.black};
 `
 
 export const MedcenterPhoto = styled.img`
   width: 100%;
   height: 70%;
-  border: 1px solid black;
+  border: 1px solid ${STYLE_CONSTANTS.COLORS.black};
 `

@@ -2,17 +2,9 @@ import React, {useState} from 'react';
 import styled from "styled-components";
 import ReactMapGL, {Marker} from 'react-map-gl';
 import marker from '../../../assets/marker.png'
+import {MarkerStyle, MedCentersMapStyle} from "./MedCentersMapStyle";
 
-const MedCentersMapStyle = styled.div`
-  width: 60%;
-  height: 100%;
-  color: black;
 
-`
-const MarkerStyle = styled.img`
-  width: 30px;
-  cursor: pointer;
-`
 interface IState {
     latitude: number,
     longitude: number,

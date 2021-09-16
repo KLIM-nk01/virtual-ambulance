@@ -13,7 +13,10 @@ module.exports = {
         publicPath: "/"
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.tsx', '.png', '.ts']
+        extensions: ['.js', '.jsx', '.tsx', '.png', '.ts'],
+        alias: {
+            MainPage: path.resolve(__dirname, 'src/components/MainPage')
+        }
     },
     plugins: [
         new HTMLWebpackPlugin({template: "./index.html"}),

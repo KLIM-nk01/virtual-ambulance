@@ -1,13 +1,26 @@
 import React, {useState} from 'react';
-import {SearchInput} from "./SerchInput";
+import {Input} from "../../Input/Input";
+
+interface IInputAtributs {
+    type: string
+    value: string
+    placeholder: string
+    onChange: string
+    style: {
+        width: string
+        color: string
+        boxShadow: boolean
+        border: boolean
+    }
+}
 
 const Search: React.FC = () => {
-    let [stateInput, setStateInput] = useState('')
+    const [stateInput, setStateInput] = useState<string>('')
     return (
-        <SearchInput
-            type={'text'}
+        <Input
+            type='text'
             value={stateInput}
-            placeholder={'Search'}
+            placeholder='Search'
             onChange={(e) => setStateInput(e.target.value)}
             />
 

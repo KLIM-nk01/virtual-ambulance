@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {flex} from "../../../style/flex";
+import {STYLE_CONSTANTS} from "../../../constants/styleConstants";
 
 export const NavWrapper = styled.div`
   display: grid;
@@ -9,14 +10,14 @@ export const NavWrapper = styled.div`
 
   a {
     text-decoration: none;
-    color: #fff;
+    color: ${STYLE_CONSTANTS.COLORS.white};
   }
   
 `
 export const NavItem = styled.div`
   width: 300px;
   height: 300px;
-  box-shadow: 0 0 15px white;
+  box-shadow: 0 0 15px ${STYLE_CONSTANTS.COLORS.white};
   padding-bottom: 5px;
   transition: 0.5s;
 
@@ -34,7 +35,7 @@ export const NavItem = styled.div`
   }
 
   :hover {
-    box-shadow: 0.4em 0.4em 5px rgba(69, 68, 68, 0.5);
+    box-shadow: 0.4em 0.4em 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
   }
 `
 

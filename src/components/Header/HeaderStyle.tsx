@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import exp from "constants";
+import {STYLE_CONSTANTS} from "../../constants/styleConstants";
 
 export const HeaderWrapper = styled.div`
   height: 10%;
@@ -10,7 +11,10 @@ export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(45deg, #4a88ed, #7e57f0);
+  
+  background: linear-gradient(45deg, 
+  ${STYLE_CONSTANTS.COLORS.basil}, 
+  ${STYLE_CONSTANTS.COLORS.slateBlue});
   
 `
 

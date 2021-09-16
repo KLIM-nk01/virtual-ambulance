@@ -6,11 +6,10 @@ import Header from "../Header/Header";
 import MainPage from "../MainPage/MainPage";
 import MedCentersPage from "../MedCentersPage/MedCentersPage";
 import DoctorsPage from "../DoctorsPage/DoctorsPage";
+import {AppWrapper} from "./AppStyle";
+import {ROUTS} from "../../constants/routs";
 
-const AppWrapper = styled.div`
-  width: 100%;
-  height: 100vh;
-`
+
 
 const App: React.FC = () => {
     return (
@@ -19,9 +18,9 @@ const App: React.FC = () => {
             <AppWrapper>
                 <Header/>
                 <Switch>
-                    <Route exact path={'/'}  render={() => <MainPage/>}/>
-                    <Route exact path={'/medCentersPage'} render={() => <MedCentersPage/>}/>
-                    <Route exact path={'/doctorsPage'} render={() => <DoctorsPage/>}/>
+                    <Route exact path={ROUTS.MAIN_PAGE_PATH}  render={() => <MainPage/>}/>
+                    <Route exact path={ROUTS.MEDCENTERS_PAGE_PATH} render={() => <MedCentersPage/>}/>
+                    <Route exact path={ROUTS.DOCTORS_PAGE_PATH} render={() => <DoctorsPage/>}/>
                 </Switch>
 
                 {/*<LogInForm/>*/}
