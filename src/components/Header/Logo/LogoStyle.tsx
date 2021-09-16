@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import {flex} from "../../../style/flex";
-import {fonts} from "../../../style/fonts";
-import {STYLE_CONSTANTS} from "../../../constants/styleConstants";
+import styled from 'styled-components';
+import { flex } from '../../../style/flex';
+import { fonts } from '../../../style/fonts';
+import { STYLE_CONSTANTS } from '../../../constants/styleConstants';
 
 export const Container = styled.div`
   width: 180px;
@@ -11,7 +11,7 @@ export const Container = styled.div`
   border-bottom: 1px solid inherit;
   transition: 0.5s;
   border-radius: 25px;
-  
+
   div {
     ${flex};
     flex-direction: column;
@@ -22,12 +22,12 @@ export const Container = styled.div`
     font-family: 'Parisienne', cursive;
     font-size: 1.5em;
   }
-  
-  :hover{
+
+  :hover {
     box-shadow: 0.4em 0.4em 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
   }
-`
+`;
 
 export const LogoStyle = styled.img`
   height: 60px;
-`
+`;

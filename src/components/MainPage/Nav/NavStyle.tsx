@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import {flex} from "../../../style/flex";
-import {STYLE_CONSTANTS} from "../../../constants/styleConstants";
+import styled from 'styled-components';
+import { flex } from '../../../style/flex';
+import { STYLE_CONSTANTS } from '../../../constants/styleConstants';
 
 export const NavWrapper = styled.div`
   display: grid;
@@ -12,8 +12,7 @@ export const NavWrapper = styled.div`
     text-decoration: none;
     color: ${STYLE_CONSTANTS.COLORS.white};
   }
-  
-`
+`;
 export const NavItem = styled.div`
   width: 300px;
   height: 300px;
@@ -23,13 +22,13 @@ export const NavItem = styled.div`
 
   ${flex};
   flex-direction: column;
-  
+
   border-radius: 15px;
 
   img {
     height: 85%;
   }
-  
+
   span {
     font-size: 20px;
   }
@@ -37,6 +36,4 @@ export const NavItem = styled.div`
   :hover {
     box-shadow: 0.4em 0.4em 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
   }
-`
-
-
+`;

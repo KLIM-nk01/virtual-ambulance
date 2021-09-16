@@ -1,6 +1,5 @@
-import {createGlobalStyle} from "styled-components";
-import {fonts} from "./fonts";
-
+import { createGlobalStyle } from 'styled-components';
+import { fonts } from './fonts';
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -16,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
   #root{
     margin:0 auto;
   }
-`
+`;
 
 export default GlobalStyle;
-

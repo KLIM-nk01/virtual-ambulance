@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import {flex} from "../../../style/flex";
-import {STYLE_CONSTANTS} from "../../../constants/styleConstants";
+import styled from 'styled-components';
+import { flex } from '../../../style/flex';
+import { STYLE_CONSTANTS } from '../../../constants/styleConstants';
 
 export const LogInButton = styled.button`
   width: 95px;
@@ -15,11 +15,10 @@ export const LogInButton = styled.button`
 
   font-size: 16px;
   font-weight: 700;
-  
 
   :hover {
     background: ${STYLE_CONSTANTS.COLORS.darkYellowGreen};
     color: ${STYLE_CONSTANTS.COLORS.white};
     box-shadow: 0.4em 0.4em 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
   }
-`
+`;

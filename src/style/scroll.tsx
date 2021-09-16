@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const scroll = css`
   ::-webkit-scrollbar {
@@ -14,4 +14,4 @@ export const scroll = css`
     background-color: #d3d3d3;
     border-radius: 10px;
   }
-`
+`;

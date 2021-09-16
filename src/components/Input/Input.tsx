@@ -1,13 +1,13 @@
-import styled from "styled-components";
-import {STYLE_CONSTANTS} from "../../constants/styleConstants";
+import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '../../constants/styleConstants';
 
 interface IInput {
-    style: {
-        width: string
-        color: string
-        boxShadow: boolean
-        border: boolean
-    }
+  style: {
+    width: string;
+    color: string;
+    boxShadow: boolean;
+    border: boolean;
+  };
 }
 
 export const Input = styled.input`
@@ -31,4 +31,4 @@ export const Input = styled.input`
       color: transparent;
     }
   }
-`
+`;

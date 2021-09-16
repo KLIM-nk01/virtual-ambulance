@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import {STYLE_CONSTANTS} from "../../constants/styleConstants";
+import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '../../constants/styleConstants';
 
 export const MainPageWrapper = styled.div`
   width: 100%;
@@ -8,7 +8,9 @@ export const MainPageWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(45deg,
-  ${STYLE_CONSTANTS.COLORS.basil},
-  ${STYLE_CONSTANTS.COLORS.slateBlue});
-`
+  background: linear-gradient(
+    45deg,
+    ${STYLE_CONSTANTS.COLORS.basil},
+    ${STYLE_CONSTANTS.COLORS.slateBlue}
+  );
+`;
