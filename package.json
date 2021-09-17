@@ -7,7 +7,7 @@
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open",
-    "eslint": "eslint"
+    "lint": "eslint ./src/* --fix"
   },
   "prettier": {
     "singleQuote": true,

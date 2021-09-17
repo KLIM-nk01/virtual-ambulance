@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import exp from 'constants';
 import { STYLE_CONSTANTS } from '../../constants/styleConstants';
 
 export const HeaderWrapper = styled.div`

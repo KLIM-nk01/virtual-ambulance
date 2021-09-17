@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '../../constants/styleConstants';
 
-interface IInput {
-  style: {
-    width: string;
-    color: string;
-    boxShadow: boolean;
-    border: boolean;
-  };
-}
+// interface IInput {
+//   style: {
+//     width: string;
+//     color: string;
+//     boxShadow: boolean;
+//     border: boolean;
+//   };
+// }
 
 export const Input = styled.input`
   height: 40px;
