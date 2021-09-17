@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing:border-box;
     ${fonts};
     font-family: 'Poppins', sans-serif;
-    color: white;
+    color: black;
     text-decoration: none;
   }
   #root{

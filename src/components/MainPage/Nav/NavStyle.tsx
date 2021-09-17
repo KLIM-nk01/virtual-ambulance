@@ -32,6 +32,7 @@ export const NavItem = styled.div`
 
   span {
     font-size: 20px;
+    color: ${STYLE_CONSTANTS.COLORS.white};
   }
 
   :hover {

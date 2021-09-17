@@ -21,6 +21,7 @@ export const Container = styled.div`
     ${fonts};
     font-family: 'Parisienne', cursive;
     font-size: 1.5em;
+    color: ${STYLE_CONSTANTS.COLORS.white};
   }
 
   :hover {

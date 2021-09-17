@@ -17,7 +17,7 @@ const MedCentersMap: React.FC = () => {
     longitude: 27.558972,
     zoom: 11,
     width: '100%',
-    height: '100%',
+    height: '100%'
   });
   return (
     <MedCentersMapStyle>
@@ -29,8 +29,7 @@ const MedCentersMap: React.FC = () => {
         onViewportChange={(viewport: React.SetStateAction<IState>) => {
           setViewPort(viewport);
         }}
-        mapStyle={'mapbox://styles/mapbox/streets-v11'}
-      >
+        mapStyle={'mapbox://styles/mapbox/streets-v11'}>
         <Marker latitude={53.900601} longitude={27.558972} offsetLeft={-20} offsetTop={-10}>
           <MarkerStyle src={marker} alt={''}></MarkerStyle>
         </Marker>

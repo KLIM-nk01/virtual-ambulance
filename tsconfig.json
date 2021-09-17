@@ -20,6 +20,9 @@
     "typeRoots" : ["node_modules/@types", "src/types"],
     "noImplicitAny": true
   },
+  "path": {
+    
+  },
   "include": [
     "src"
   ]

@@ -5,7 +5,7 @@ export const HeaderWrapper = styled.div`
   height: 10%;
   width: 100%;
   background-color: inherit;
-  color: #fff;
+  color: ${STYLE_CONSTANTS.COLORS.white};
   font-size: 16px;
   display: flex;
   align-items: center;
