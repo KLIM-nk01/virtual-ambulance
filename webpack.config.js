@@ -15,7 +15,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.png', '.ts'],
     alias: {
-      MainPage: path.resolve(__dirname, 'src/components/MainPage')
+      Components: path.resolve(__dirname, 'src/components/')
     }
   },
   plugins: [

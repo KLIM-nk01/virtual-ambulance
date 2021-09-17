@@ -18,14 +18,14 @@ const MedCenter: React.FC = () => {
 
       <Container>
         <Wrapper>
-          <PhotoCard>photo</PhotoCard>   
+          <PhotoCard>photo</PhotoCard>
           <PhotoCard>photo</PhotoCard>
           <PhotoCard>photo</PhotoCard>
           <PhotoCard>photo</PhotoCard>
         </Wrapper>
         <Description>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Description>
         <Wrapper>
-          <Button styleButton={{ backgroundColor: '#46cdd6' }}>Call</Button>
+          <Button primary>Call</Button>
           <Button styleButton={{ backgroundColor: '#9cdd05' }}>Sign up</Button>
           <Button styleButton={{ backgroundColor: '#9cdd05' }}>Services</Button>
         </Wrapper>
