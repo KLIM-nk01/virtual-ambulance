@@ -28,6 +28,6 @@ export const ButtonStyle = styled.button<IProps>`
   :hover {
     background: ${STYLE_CONSTANTS.COLORS.darkYellowGreen};
     color: ${STYLE_CONSTANTS.COLORS.white};
-    box-shadow: 0.2em 0.2em 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+    box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
   }
 `;

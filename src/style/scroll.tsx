@@ -1,3 +1,5 @@
+import { STYLE_CONSTANTS } from '../constants/styleConstants';
+
 export const scroll = `
   ::-webkit-scrollbar {
     width: 10px;
@@ -9,7 +11,7 @@ export const scroll = `
 
   ::-webkit-scrollbar-thumb {
     height: 70px;
-    background-color: #d3d3d3;
+    background-color:${STYLE_CONSTANTS.COLORS.smokyWhite};
     border-radius: 10px;
   }
 `;

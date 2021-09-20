@@ -11,7 +11,7 @@ export const MedCenterItem = styled.div`
   ${flex};
   flex-direction: column;
   padding: 15px;
-  box-shadow: 0.1em 0.1em 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
 `;
 
 export const MedcenterName = styled.div`

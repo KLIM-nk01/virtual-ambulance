@@ -20,6 +20,6 @@ export const LogInButton = styled.button`
   :hover {
     background: ${STYLE_CONSTANTS.COLORS.darkYellowGreen};
     color: ${STYLE_CONSTANTS.COLORS.white};
-    box-shadow: 0.4em 0.4em 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+    box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
   }
 `;

@@ -20,12 +20,12 @@ export const Container = styled.div`
   span {
     ${fonts};
     font-family: 'Parisienne', cursive;
-    font-size: 1.5em;
+    font-size: 24px;
     color: ${STYLE_CONSTANTS.COLORS.white};
   }
 
   :hover {
-    box-shadow: 0.4em 0.4em 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+    box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
   }
 `;
 
