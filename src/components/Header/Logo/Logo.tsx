@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import AppLogo from '../../../assets/Logo.png';
+import { NavLink } from 'react-router-dom';
 import { Container, LogoStyle } from './LogoStyle';
 import { ROUTS } from '../../../constants/routs';
 

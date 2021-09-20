@@ -1,13 +1,13 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import GlobalStyle from '../../style/globalstyle';
+import { ROUTS } from '../../constants/routs';
+import { AppWrapper } from './AppStyle';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 import MainPage from '@components/MainPage/MainPage';
 import MedCentersPage from '../MedCentersPage/MedCentersPage';
 import DoctorsPage from '../DoctorsPage/DoctorsPage';
-import { AppWrapper } from './AppStyle';
-import { ROUTS } from '../../constants/routs';
 
 const App: React.FC = () => {
   return (

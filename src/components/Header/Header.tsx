@@ -1,7 +1,7 @@
 import React from 'react';
+import { HeaderContainerStyle, HeaderWrapper } from './HeaderStyle';
 import Logo from './Logo/Logo';
 import LogIn from './LogIn/LogIn';
-import { HeaderContainerStyle, HeaderWrapper } from './HeaderStyle';
 import Search from './Search/Search';
 
 const Header: React.FC = () => {

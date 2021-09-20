@@ -1,9 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import CenterLogo from '../../../assets/Center.png';
 import DoctorsLogo from '../../../assets/doctorsLogo.png';
 import Services from '../../../assets/Services.png';
 import UserAccount from '../../../assets/Account.png';
+import { NavLink } from 'react-router-dom';
 import { NavWrapper, NavItem } from './NavStyle';
 import { ROUTS } from '../../../constants/routs';
 

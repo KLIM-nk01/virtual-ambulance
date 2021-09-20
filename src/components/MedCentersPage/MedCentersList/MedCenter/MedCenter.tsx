@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '../../../common/Button/Button';
 import {
   Wrapper,
   Container,
@@ -9,6 +8,7 @@ import {
   PhotoCard,
   Description
 } from './MedCenterStyle';
+import Button from '../../../common/Button/Button';
 
 const MedCenter: React.FC = () => {
   return (
