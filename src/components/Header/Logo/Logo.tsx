@@ -1,8 +1,8 @@
 import React from 'react';
-import AppLogo from '../../../assets/Logo.png';
+import AppLogo from '@assets/Logo.png';
 import { NavLink } from 'react-router-dom';
 import { Container, LogoStyle } from './LogoStyle';
-import { ROUTS } from '../../../constants/routs';
+import { ROUTS } from '@constants/routs';
 
 const Logo: React.FC = () => {
   return (

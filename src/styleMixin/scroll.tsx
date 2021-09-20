@@ -1,4 +1,4 @@
-import { STYLE_CONSTANTS } from '../constants/styleConstants';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const scroll = `
   ::-webkit-scrollbar {

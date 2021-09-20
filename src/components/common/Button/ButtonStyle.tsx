@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { STYLE_CONSTANTS } from '../../../constants/styleConstants';
-import { flex } from '../../../style/flex';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
+import { flex } from '@styleMixin/flex';
 
 interface IProps {
   width?: string;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { STYLE_CONSTANTS } from '../../constants/styleConstants';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const HeaderWrapper = styled.div`
   height: 10%;
@@ -11,11 +11,7 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(
-    45deg,
-    ${STYLE_CONSTANTS.COLORS.basil},
-    ${STYLE_CONSTANTS.COLORS.slateBlue}
-  );
+  background: linear-gradient(45deg, ${STYLE_CONSTANTS.COLORS.basil}, ${STYLE_CONSTANTS.COLORS.slateBlue});
 `;
 
 export const HeaderContainerStyle = styled.div`

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { STYLE_CONSTANTS } from '../../constants/styleConstants';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const LogInFormWrapper = styled.div`
   width: 500px;

@@ -8,7 +8,7 @@ import {
   PhotoCard,
   Description
 } from './MedCenterStyle';
-import Button from '../../../common/Button/Button';
+import Button from '@components/common/Button/Button';
 
 const MedCenter: React.FC = () => {
   return (

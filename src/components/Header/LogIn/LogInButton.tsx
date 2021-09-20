@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { flex } from '../../../style/flex';
-import { STYLE_CONSTANTS } from '../../../constants/styleConstants';
+import { flex } from '@styleMixin/flex';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const LogInButton = styled.button`
   width: 95px;

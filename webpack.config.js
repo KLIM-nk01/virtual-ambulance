@@ -15,7 +15,10 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.png', '.ts'],
     alias: {
-      '@components': path.resolve(__dirname, 'src/components/')
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@constants': path.resolve(__dirname, 'src/constants/'),
+      '@styleMixin': path.resolve(__dirname, 'src/styleMixin/'),
+      '@assets': path.resolve(__dirname, './src/assets/'),
     }
   },
   plugins: [

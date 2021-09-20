@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
-import marker from '../../../assets/marker.png';
+import marker from '@assets/marker.png';
 import { MarkerStyle, MedCentersMapStyle } from './MedCentersMapStyle';
 
 interface IState {
