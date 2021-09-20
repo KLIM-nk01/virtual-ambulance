@@ -1,0 +1,25 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "import"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "alias": {
+        "map": ["@components", "./src/components/"]
+      },
+      "typescript": {}
+    }
+  },
+  "env": { "browser": true },
+  "rules": {
+    
+    "react/jsx-filename-extension": [0],
+    "react/no-danger": [0],
+    "react/prop-types": 0,
+    "no-use-before-define": [0],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error"
+  }
+}
