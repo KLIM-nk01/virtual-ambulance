@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     ${fonts};
     font-family: 'Poppins', sans-serif;
-    color: ${STYLE_CONSTANTS.COLORS.black};
+    color: ${STYLE_CONSTANTS.COLORS.white};
     text-decoration: none;
   }
   #root{
