@@ -1,4 +1,3 @@
-import { css } from 'styled-components';
 
 export const flex = `
   display: flex;
