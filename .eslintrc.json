@@ -7,9 +7,7 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       },
       "alias": {
-        "map": [
-          ["Components", "./src/components/"]
-        ]
+        "map": ["@components", "./src/components/"]
       },
       "typescript": {}
     }

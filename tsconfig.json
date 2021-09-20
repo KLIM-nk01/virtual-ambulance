@@ -14,10 +14,10 @@
     "isolatedModules": true,
     "jsx": "react",
     "typeRoots": ["node_modules/@types", "src/types"],
-    "baseUrl": "src",
     "rootDir": "src",
-    "path": {
-      "Components": ["./components/*"]
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": ["./components/*"]
     }
   },
 
