@@ -1,8 +1,9 @@
 export const STYLE_CONSTANTS = {
   FONT_SIZE: {
-    small: '14px',
-    medium: '16px',
-    large: '20px',
+    little: '14px',
+    small: '16px',
+    medium: '18px',
+    large: '20px'
   },
   COLORS: {
     red: '',
@@ -17,5 +18,5 @@ export const STYLE_CONSTANTS = {
     darkGrey: 'rgba(69, 68, 68, 0.5)',
     black: '#000000',
     pearl: '#5D5E69'
-  },
+  }
 };

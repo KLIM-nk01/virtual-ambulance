@@ -20,7 +20,7 @@ export const DirectionWrapper = styled.div`
 
   span {
     width: 100%;
-    font-size: 14px;
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
     text-align: center;
     height: 50px;
     color: black;

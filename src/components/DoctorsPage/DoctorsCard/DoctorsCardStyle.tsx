@@ -23,7 +23,7 @@ export const ContainerOne = styled.div`
   justify-content: space-between;
   img {
     width: 150px;
-    border: 1px solid #d8dfdf;
+    border: 1px solid ${STYLE_CONSTANTS.COLORS.darkGrey};
   }
 `;
 
@@ -35,12 +35,12 @@ export const ContainerTwo = styled.div`
 `;
 
 const Title = styled.span`
-  font-size: 20px;
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
   font-weight: 700;
 `;
 const Subtitle = styled.span`
   color: ${STYLE_CONSTANTS.COLORS.pearl};
-  font-size: 14px;
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
 `;
 
 export const NameSurname = styled(Title)``;

@@ -24,7 +24,7 @@ export const ButtonStyle = styled.button<IProps>`
 
   transition: 0.5s;
   cursor: pointer;
-  font-size: 16px;
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
   font-weight: 700;
 
   :hover {
