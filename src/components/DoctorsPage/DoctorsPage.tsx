@@ -1,14 +1,14 @@
 import React from 'react';
 import Direction from './Direction/Direction';
 import { doctorsDirection } from '../../data/doctors/doctorsDirection';
-import { DoctorsPageWrapper } from './DoctorsPageStyle';
-import { Container } from './DoctorsPageStyle';
+import { DoctorsPageWrapper, DortorsWrapper } from './DoctorsPageStyle';
+import { DoctorsPageNavBar } from './DoctorsPageStyle';
+import DoctorsCard from './DoctorsCard/DoctorsCard';
 
 const DoctorsPage: React.FC = () => {
   return (
     <DoctorsPageWrapper>
-      here will be sentense
-      <Container>
+      <DoctorsPageNavBar>
         {doctorsDirection.map((directionItem) => {
           return (
             <Direction
@@ -18,7 +18,16 @@ const DoctorsPage: React.FC = () => {
             />
           );
         })}
-      </Container>
+      </DoctorsPageNavBar>
+
+      <DortorsWrapper>
+        <DoctorsCard />
+        <DoctorsCard />
+        <DoctorsCard />
+        <DoctorsCard />
+        <DoctorsCard />
+        <DoctorsCard />
+      </DortorsWrapper>
     </DoctorsPageWrapper>
   );
 };

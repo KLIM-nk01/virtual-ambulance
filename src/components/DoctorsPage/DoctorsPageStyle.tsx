@@ -4,13 +4,12 @@ import { flex } from '@styleMixin/flex';
 import { scroll } from '@styleMixin/scroll';
 
 export const DoctorsPageWrapper = styled.div`
-  position: relative;
+  /* position: relative; */
   width: 100%;
   height: 90%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-between;
 
   background: linear-gradient(
     45deg,
@@ -19,11 +18,8 @@ export const DoctorsPageWrapper = styled.div`
   );
 `;
 
-export const Container = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 14%;
+export const DoctorsPageNavBar = styled.div`
+  width: 160px;
   height: 100%;
 
   ${flex};
@@ -33,4 +29,17 @@ export const Container = styled.div`
 
   overflow: auto;
   ${scroll}
+`;
+
+export const DortorsWrapper = styled.div`
+  width: 900px;
+  height: 95%;
+  margin: 0 auto;
+  overflow: auto;
+  ${flex};
+  ${scroll}
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  border-radius: 15px;
 `;

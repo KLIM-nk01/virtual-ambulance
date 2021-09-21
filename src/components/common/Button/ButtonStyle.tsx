@@ -6,15 +6,16 @@ interface IProps {
   width?: string;
   backgroundColor?: string;
   primary?: boolean;
+  secondary?: boolean;
 }
 
 export const ButtonStyle = styled.button<IProps>`
   width: ${({ width }) => width || '95px'};
   height: 40px;
   border: none;
-  ${({ primary }) => primary && `border: 2px solid red;`}
-  background: ${({ backgroundColor }) =>
-    backgroundColor || STYLE_CONSTANTS.COLORS.white};
+
+  ${({ primary }) =>
+    primary && `background: ${STYLE_CONSTANTS.COLORS.moderateTurquoise};`}
 
   border-radius: 50px;
   ${flex};
@@ -30,5 +31,7 @@ export const ButtonStyle = styled.button<IProps>`
     background: ${STYLE_CONSTANTS.COLORS.darkYellowGreen};
     color: ${STYLE_CONSTANTS.COLORS.white};
     box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+    ${({ primary }) =>
+      primary && `background: ${STYLE_CONSTANTS.COLORS.slateBlue};`}
   }
 `;

@@ -7,12 +7,13 @@ export const DirectionWrapper = styled.div`
   height: 130px;
   margin: 15px 0;
   ${flex};
+  box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
   flex-direction: column;
-  box-shadow: 0 0 15px ${STYLE_CONSTANTS.COLORS.white};
   border-radius: 5px;
   cursor: pointer;
   transition: 0.5s;
-
+  /* background: ${STYLE_CONSTANTS.COLORS.smokyWhite}; */
+  background: #e7e4e4;
   img {
     width: 80%;
   }
@@ -21,9 +22,11 @@ export const DirectionWrapper = styled.div`
     width: 100%;
     font-size: 14px;
     text-align: center;
+    height: 50px;
+    color: black;
   }
 
   :hover {
-    box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+    box-shadow: 3px 3px 3px ${STYLE_CONSTANTS.COLORS.white};
   }
 `;

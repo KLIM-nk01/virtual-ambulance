@@ -7,6 +7,10 @@ interface IDirection {
 
 export const doctorsDirection: Array<IDirection> = [
   {
+    direction: 'All Doctors',
+    iconSrc: icons.AllDoctors
+  },
+  {
     direction: 'Allergist',
     iconSrc: icons.Allergist
   },
@@ -67,8 +71,8 @@ export const doctorsDirection: Array<IDirection> = [
     iconSrc: icons.Orthopedist
   },
   {
-    direction: 'Otorhinolaryngologist',
-    iconSrc: icons.Otorhinolaryngologist
+    direction: 'LOR',
+    iconSrc: icons.LOR
   },
   {
     direction: 'Pediatrician',

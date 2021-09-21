@@ -16,5 +16,6 @@ export const STYLE_CONSTANTS = {
     lavender: '#F2FBFD',
     darkGrey: 'rgba(69, 68, 68, 0.5)',
     black: '#000000',
+    pearl: '#5D5E69'
   },
 };

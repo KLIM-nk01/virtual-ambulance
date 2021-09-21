@@ -29,8 +29,8 @@ const MedCenter: React.FC = () => {
         </Description>
         <Wrapper>
           <Button primary>Call</Button>
-          <Button styleButton={{ backgroundColor: '#9cdd05' }}>Sign up</Button>
-          <Button styleButton={{ backgroundColor: '#9cdd05' }}>Services</Button>
+          <Button>Sign up</Button>
+          <Button>Services</Button>
         </Wrapper>
       </Container>
     </MedCenterItem>

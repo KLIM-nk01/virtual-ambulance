@@ -1,3 +1,4 @@
+import AllDoctors from './AllDoctors.png';
 import Allergist from './Allergist.png';
 import Venereologist from './Venereologist.png';
 import Virologist from './Virologist.png';
@@ -12,7 +13,7 @@ import Nephrologist from './Nephrologist.png';
 import Ophthalmologist from './Ophthalmologist.png';
 import Oncologist from './Oncologist.png';
 import Orthopedist from './Orthopedist.png';
-import Otorhinolaryngologist from './Otorhinolaryngologist.png';
+import LOR from './LOR.png';
 import Pediatrician from './Pediatrician.png';
 import Podologist from './Podologist.png';
 import Proctologist from './Proctologist.png';
@@ -28,6 +29,7 @@ import Urologist from './Urologist.png';
 import Anesthetist from './Anesthetist.png';
 
 export {
+  AllDoctors,
   Allergist,
   Anesthetist,
   Venereologist,
@@ -43,7 +45,7 @@ export {
   Ophthalmologist,
   Oncologist,
   Orthopedist,
-  Otorhinolaryngologist,
+  LOR,
   Pediatrician,
   Podologist,
   Proctologist,

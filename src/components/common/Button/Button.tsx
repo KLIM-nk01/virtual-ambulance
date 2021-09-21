@@ -6,8 +6,9 @@ interface IProps
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  styleButton?: {};
+  backgroundColor?: string;
   primary?: boolean;
+  secondary ?: boolean;
   ref?:
     | ((instance: HTMLButtonElement | null) => void)
     | React.RefObject<HTMLButtonElement>
