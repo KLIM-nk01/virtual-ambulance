@@ -10,7 +10,13 @@ const DoctorsPage: React.FC = () => {
       here will be sentense
       <Container>
         {doctorsDirection.map((directionItem) => {
-          return <Direction key={Date.now()} direction={directionItem.direction} src={directionItem.iconSrc} />;
+          return (
+            <Direction
+              key={Date.now()}
+              direction={directionItem.direction}
+              src={directionItem.iconSrc}
+            />
+          );
         })}
       </Container>
     </DoctorsPageWrapper>

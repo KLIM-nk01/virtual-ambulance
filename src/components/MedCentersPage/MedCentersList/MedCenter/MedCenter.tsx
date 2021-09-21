@@ -23,7 +23,10 @@ const MedCenter: React.FC = () => {
           <PhotoCard>photo</PhotoCard>
           <PhotoCard>photo</PhotoCard>
         </Wrapper>
-        <Description>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Description>
+        <Description>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+        </Description>
         <Wrapper>
           <Button primary>Call</Button>
           <Button styleButton={{ backgroundColor: '#9cdd05' }}>Sign up</Button>

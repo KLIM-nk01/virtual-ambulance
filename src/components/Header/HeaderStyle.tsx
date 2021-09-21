@@ -11,7 +11,11 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(45deg, ${STYLE_CONSTANTS.COLORS.basil}, ${STYLE_CONSTANTS.COLORS.slateBlue});
+  background: linear-gradient(
+    45deg,
+    ${STYLE_CONSTANTS.COLORS.basil},
+    ${STYLE_CONSTANTS.COLORS.slateBlue}
+  );
 `;
 
 export const HeaderContainerStyle = styled.div`

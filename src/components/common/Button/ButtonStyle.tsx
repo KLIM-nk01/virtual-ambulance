@@ -13,7 +13,8 @@ export const ButtonStyle = styled.button<IProps>`
   height: 40px;
   border: none;
   ${({ primary }) => primary && `border: 2px solid red;`}
-  background: ${({ backgroundColor }) => backgroundColor || STYLE_CONSTANTS.COLORS.white};
+  background: ${({ backgroundColor }) =>
+    backgroundColor || STYLE_CONSTANTS.COLORS.white};
 
   border-radius: 50px;
   ${flex};

@@ -12,7 +12,11 @@ export const DoctorsPageWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  background: linear-gradient(45deg, ${STYLE_CONSTANTS.COLORS.basil}, ${STYLE_CONSTANTS.COLORS.moderateTurquoise});
+  background: linear-gradient(
+    45deg,
+    ${STYLE_CONSTANTS.COLORS.basil},
+    ${STYLE_CONSTANTS.COLORS.moderateTurquoise}
+  );
 `;
 
 export const Container = styled.div`

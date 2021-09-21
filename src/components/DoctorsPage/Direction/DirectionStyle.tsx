@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import { flex } from '@styleMixin/flex';
 
-
 export const DirectionWrapper = styled.div`
   width: 130px;
   height: 130px;

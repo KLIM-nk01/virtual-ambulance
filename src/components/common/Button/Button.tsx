@@ -1,7 +1,11 @@
 import React from 'react';
 import { ButtonStyle } from './ButtonStyle';
 
-interface IProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+interface IProps
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   styleButton?: {};
   primary?: boolean;
   ref?:
