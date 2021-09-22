@@ -28,10 +28,10 @@ const Nav: React.FC = () => {
           <span>View services</span>
         </NavItem>
       </NavLink>
-      <NavLink to={ROUTS.USERS_ACCOUNT}>
+      <NavLink to={ROUTS.PERSONAL_ACCOUNT}>
         <NavItem>
           <img src={UserAccount} alt={'medCenter'} />
-          <span>Personal Area</span>
+          <span>Personal Account</span>
         </NavItem>
       </NavLink>
     </NavWrapper>
