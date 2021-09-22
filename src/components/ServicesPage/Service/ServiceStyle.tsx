@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import { flex } from '@styleMixin/flex';
-import styled from 'styled-components';
 
 export const ServiceItem = styled.div`
   width: 277px;
@@ -23,9 +23,7 @@ export const DirectionIcone = styled.div`
 
 export const ServiceDirection = styled.div`
   width: 85%;
-
   display: flex;
-  /* align-items: center; */
   margin-left: 10px;
   flex-direction: column;
 `;
