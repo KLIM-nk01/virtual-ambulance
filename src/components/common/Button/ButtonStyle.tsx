@@ -6,14 +6,16 @@ interface IProps {
   width?: string;
   backgroundColor?: string;
   primary?: boolean;
+  secondary?: boolean;
 }
 
 export const ButtonStyle = styled.button<IProps>`
   width: ${({ width }) => width || '95px'};
   height: 40px;
   border: none;
-  ${({ primary }) => primary && `border: 2px solid red;`}
-  background: ${({ backgroundColor }) => backgroundColor || STYLE_CONSTANTS.COLORS.white};
+
+  background: ${({ primary }) =>
+    primary ? STYLE_CONSTANTS.COLORS.moderateTurquoise : STYLE_CONSTANTS.COLORS.smokyWhite};
 
   border-radius: 50px;
   ${flex};
@@ -22,12 +24,13 @@ export const ButtonStyle = styled.button<IProps>`
 
   transition: 0.5s;
   cursor: pointer;
-  font-size: 16px;
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
   font-weight: 700;
 
   :hover {
-    background: ${STYLE_CONSTANTS.COLORS.darkYellowGreen};
     color: ${STYLE_CONSTANTS.COLORS.white};
     box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+    background: ${({ primary }) =>
+      primary ? STYLE_CONSTANTS.COLORS.slateBlue : STYLE_CONSTANTS.COLORS.darkYellowGreen};
   }
 `;

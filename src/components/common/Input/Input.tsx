@@ -10,7 +10,7 @@ export const Input = styled.input`
   border: none;
   box-shadow: 0 0 5px ${STYLE_CONSTANTS.COLORS.white};
   padding: 20px;
-  font-size: 16px;
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
 
   ::placeholder {
     color: ${STYLE_CONSTANTS.COLORS.white};

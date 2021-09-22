@@ -6,7 +6,7 @@ import {
   MedCenterItem,
   MedcenterName,
   PhotoCard,
-  Description
+  Description,
 } from './MedCenterStyle';
 import Button from '@components/common/Button/Button';
 
@@ -23,11 +23,13 @@ const MedCenter: React.FC = () => {
           <PhotoCard>photo</PhotoCard>
           <PhotoCard>photo</PhotoCard>
         </Wrapper>
-        <Description>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Description>
+        <Description>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </Description>
         <Wrapper>
           <Button primary>Call</Button>
-          <Button styleButton={{ backgroundColor: '#9cdd05' }}>Sign up</Button>
-          <Button styleButton={{ backgroundColor: '#9cdd05' }}>Services</Button>
+          <Button primary>Sign up</Button>
+          <Button primary >Services</Button>
         </Wrapper>
       </Container>
     </MedCenterItem>

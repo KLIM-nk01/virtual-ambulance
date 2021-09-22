@@ -6,12 +6,16 @@ export const HeaderWrapper = styled.div`
   width: 100%;
   background-color: inherit;
   color: ${STYLE_CONSTANTS.COLORS.white};
-  font-size: 16px;
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: linear-gradient(45deg, ${STYLE_CONSTANTS.COLORS.basil}, ${STYLE_CONSTANTS.COLORS.slateBlue});
+  background: linear-gradient(
+    45deg,
+    ${STYLE_CONSTANTS.COLORS.basil},
+    ${STYLE_CONSTANTS.COLORS.slateBlue}
+  );
 `;
 
 export const HeaderContainerStyle = styled.div`

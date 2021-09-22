@@ -21,6 +21,7 @@
       "@constants/*": ["./constants/*"],
       "@styleMixin/*": ["./styleMixin/*"],
       "@assets/*": ["./assets/*"],
+      "@data/*":["./data/*"]
     }
   },
 
