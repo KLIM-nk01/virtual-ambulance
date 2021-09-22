@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const Card = styled.div`
   width: 45%;
@@ -12,7 +12,7 @@ export const Card = styled.div`
   background: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   color: ${STYLE_CONSTANTS.COLORS.black};
   padding: 15px;
-  box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  box-shadow: 5px 5px 10px ${STYLE_CONSTANTS.COLORS.darkGrey};
 `;
 
 export const ContainerOne = styled.div`
