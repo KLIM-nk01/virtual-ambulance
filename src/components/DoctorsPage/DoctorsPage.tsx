@@ -1,6 +1,6 @@
 import React from 'react';
 import Direction from './Direction/Direction';
-import { doctorsDirection } from '../../data/doctors/doctorsDirection';
+import { doctorsDirection } from '@data/doctors/doctorsDirection';
 import { DoctorsPageWrapper, DortorsWrapper } from './DoctorsPageStyle';
 import { DoctorsPageNavBar } from './DoctorsPageStyle';
 import DoctorsCard from './DoctorsCard/DoctorsCard';
@@ -12,7 +12,7 @@ const DoctorsPage: React.FC = () => {
         {doctorsDirection.map((directionItem) => {
           return (
             <Direction
-              key={Date.now()}
+              key={directionItem.direction}
               direction={directionItem.direction}
               src={directionItem.iconSrc}
             />

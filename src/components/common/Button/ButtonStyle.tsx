@@ -14,8 +14,8 @@ export const ButtonStyle = styled.button<IProps>`
   height: 40px;
   border: none;
 
-  ${({ primary }) =>
-    primary && `background: ${STYLE_CONSTANTS.COLORS.moderateTurquoise};`}
+  background: ${({ primary }) =>
+    primary ? STYLE_CONSTANTS.COLORS.moderateTurquoise : STYLE_CONSTANTS.COLORS.smokyWhite};
 
   border-radius: 50px;
   ${flex};
@@ -28,10 +28,9 @@ export const ButtonStyle = styled.button<IProps>`
   font-weight: 700;
 
   :hover {
-    background: ${STYLE_CONSTANTS.COLORS.darkYellowGreen};
     color: ${STYLE_CONSTANTS.COLORS.white};
     box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
-    ${({ primary }) =>
-      primary && `background: ${STYLE_CONSTANTS.COLORS.slateBlue};`}
+    background: ${({ primary }) =>
+      primary ? STYLE_CONSTANTS.COLORS.slateBlue : STYLE_CONSTANTS.COLORS.darkYellowGreen};
   }
 `;
