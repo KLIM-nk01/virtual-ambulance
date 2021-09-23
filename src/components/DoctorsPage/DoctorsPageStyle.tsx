@@ -11,11 +11,11 @@ export const DoctorsPageWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  background: linear-gradient(
+  /* background: linear-gradient(
     45deg,
     ${STYLE_CONSTANTS.COLORS.basil},
     ${STYLE_CONSTANTS.COLORS.moderateTurquoise}
-  );
+  ); */
 `;
 
 export const DoctorsPageNavBar = styled.div`

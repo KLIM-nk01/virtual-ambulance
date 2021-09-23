@@ -3,6 +3,6 @@ export const ROUTS = {
   MEDCENTERS_PAGE_PATH: '/medCentersPage',
   DOCTORS_PAGE_PATH: '/doctorsPage',
   SERVICES_PATH: '/servicesPage',
-  USERS_ACCOUNT: '/usersAccount',
+  PERSONAL_ACCOUNT: '/personalAccount',
   LOGIN_FORM: '/logInForm',
 };

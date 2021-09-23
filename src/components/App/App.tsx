@@ -1,5 +1,5 @@
 import React from 'react';
-import GlobalStyle from '../../styleMixin/globalstyle';
+import GlobalStyle from '@styleMixin/globalstyle';
 import { ROUTS } from '@constants/routs';
 import { AppWrapper } from './AppStyle';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -7,6 +7,8 @@ import Header from '../Header/Header';
 import MainPage from '@components/MainPage/MainPage';
 import MedCentersPage from '@components/MedCentersPage/MedCentersPage';
 import DoctorsPage from '@components/DoctorsPage/DoctorsPage';
+import ServicesPage from '@components/ServicesPage/ServicesPage';
+import PersonalAccountPage from '@components/PesonalAccount/PersonalAccountPage';
 
 const App: React.FC = () => {
   return (
@@ -29,6 +31,16 @@ const App: React.FC = () => {
             exact
             path={ROUTS.DOCTORS_PAGE_PATH}
             render={() => <DoctorsPage />}
+          />
+          <Route
+            exact
+            path={ROUTS.SERVICES_PATH}
+            render={() => <ServicesPage />}
+          />
+          <Route
+            exact
+            path={ROUTS.PERSONAL_ACCOUNT}
+            render={() => <PersonalAccountPage />}
           />
         </Switch>
 
