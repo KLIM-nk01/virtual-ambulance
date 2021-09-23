@@ -12,18 +12,16 @@ interface IService {
   serviceDirection: string;
   serviceCategories: Array<string>;
 }
-const Service: React.FC<IService> = ({ ...service }) => {
+const Service: React.FC<IService> = ( {serviceDirection,  serviceCategories}) => {
   return (
     <ServiceItem>
-      <DirectionIcone>{service.serviceDirection[0]}</DirectionIcone>
+      <DirectionIcone>{serviceDirection[0]}</DirectionIcone>
 
       <ServiceDirection>
-        <DirectionName>{service.serviceDirection}</DirectionName>
+        <DirectionName>{serviceDirection}</DirectionName>
 
         <DirectionCategories>
-          {service.serviceCategories.map((category) => {
-            return <Category>{category}</Category>;
-          })}
+          {serviceCategories.map((category) => <Category>{category}</Category> )}
         </DirectionCategories>
       </ServiceDirection>
     </ServiceItem>
