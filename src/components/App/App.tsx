@@ -7,8 +7,8 @@ import Header from '../Header/Header';
 import MainPage from '@components/MainPage/MainPage';
 import MedCentersPage from '@components/MedCentersPage/MedCentersPage';
 import DoctorsPage from '@components/DoctorsPage/DoctorsPage';
-import ServicesPage from '@components/ServicesPage/ServicesPage';
 import PersonalAccountPage from '@components/PesonalAccount/PersonalAccountPage';
+import { ServicesPageContainer } from '@containers/ServicesPageContainer';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +16,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <AppWrapper>
         <Header />
+
         <Switch>
           <Route
             exact
@@ -32,11 +33,19 @@ const App: React.FC = () => {
             path={ROUTS.DOCTORS_PAGE_PATH}
             render={() => <DoctorsPage />}
           />
-          <Route
-            exact
-            path={ROUTS.SERVICES_PATH}
-            render={() => <ServicesPage />}
-          />
+          <React.Suspense
+            fallback={
+              <div
+                style={{ width: '500px', height: '500px', background: 'red' }}>
+                Loading...
+              </div>
+            }>
+            <Route
+              exact
+              path={ROUTS.SERVICES_PATH}
+              render={() => <ServicesPageContainer />}
+            />
+          </React.Suspense>
           <Route
             exact
             path={ROUTS.PERSONAL_ACCOUNT}

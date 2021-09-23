@@ -15,12 +15,15 @@ export const ButtonStyle = styled.button<IProps>`
   border: none;
 
   background: ${({ primary }) =>
-    primary ? STYLE_CONSTANTS.COLORS.moderateTurquoise : STYLE_CONSTANTS.COLORS.smokyWhite};
+    primary
+      ? STYLE_CONSTANTS.COLORS.moderateTurquoise
+      : STYLE_CONSTANTS.COLORS.smokyWhite};
 
   border-radius: 50px;
   ${flex};
   justify-content: center;
-  color: ${STYLE_CONSTANTS.COLORS.black};
+  color: ${({ primary }) =>
+    primary ? STYLE_CONSTANTS.COLORS.white : STYLE_CONSTANTS.COLORS.black};
 
   transition: 0.5s;
   cursor: pointer;
@@ -31,6 +34,8 @@ export const ButtonStyle = styled.button<IProps>`
     color: ${STYLE_CONSTANTS.COLORS.white};
     box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
     background: ${({ primary }) =>
-      primary ? STYLE_CONSTANTS.COLORS.slateBlue : STYLE_CONSTANTS.COLORS.darkYellowGreen};
+      primary
+        ? STYLE_CONSTANTS.COLORS.slateBlue
+        : STYLE_CONSTANTS.COLORS.darkYellowGreen};
   }
 `;

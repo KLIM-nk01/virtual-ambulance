@@ -6,6 +6,10 @@ const MedCentersList: React.FC = () => {
   return (
     <MedCentersListWrapper>
       <MedCenter />
+      <MedCenter />
+      <MedCenter />
+      <MedCenter />
+      <MedCenter />
     </MedCentersListWrapper>
   );
 };

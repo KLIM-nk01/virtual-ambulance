@@ -8,5 +8,5 @@ export const MedCentersListWrapper = styled.div`
   background-color: ${STYLE_CONSTANTS.COLORS.smokyWhite};
 
   overflow: auto;
-  ${scroll};
+  /* ${scroll}; */
 `;
