@@ -48,7 +48,7 @@ export const DirectionCategories = styled.div`
 export const Category = styled.span`
   width: 100%;
   height: fit-content;
-  color: ${STYLE_CONSTANTS.COLORS.gray};
+  color: ${STYLE_CONSTANTS.COLORS.darkGrey};
   display: flex;
   align-items: center;
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};

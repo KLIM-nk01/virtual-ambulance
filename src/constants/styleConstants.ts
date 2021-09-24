@@ -3,7 +3,7 @@ export const STYLE_CONSTANTS = {
     little: '14px',
     small: '16px',
     medium: '18px',
-    large: '20px'
+    large: '20px',
   },
   COLORS: {
     red: '',
@@ -18,8 +18,8 @@ export const STYLE_CONSTANTS = {
     darkGrey: 'rgba(69, 68, 68, 0.5)',
     black: '#000000',
     pearl: '#5D5E69',
-    gray: 'rgba(0,0,0,.64)',
+    gray: '#d0deec',
     blue: '#007fff',
-    darkBlue: '#0072E5'
-  }
+    darkBlue: '#0072E5',
+  },
 };
