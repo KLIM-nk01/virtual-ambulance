@@ -4,10 +4,11 @@ import { doctorsDirection } from '@data/doctors/doctorsDirection';
 import { DoctorsPageWrapper, DortorsWrapper } from './DoctorsPageStyle';
 import { DoctorsPageNavBar } from './DoctorsPageStyle';
 import DoctorsCard from './DoctorsCard/DoctorsCard';
+import Page from '@components/Page/Page';
 
 const DoctorsPage: React.FC = () => {
   return (
-    <DoctorsPageWrapper>
+    <Page>
       <DoctorsPageNavBar>
         {doctorsDirection.map((directionItem) => {
           return (
@@ -28,7 +29,7 @@ const DoctorsPage: React.FC = () => {
         <DoctorsCard />
         <DoctorsCard />
       </DortorsWrapper>
-    </DoctorsPageWrapper>
+    </Page>
   );
 };
 

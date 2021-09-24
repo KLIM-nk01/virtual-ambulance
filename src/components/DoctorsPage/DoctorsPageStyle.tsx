@@ -35,11 +35,10 @@ export const DortorsWrapper = styled.div`
   width: 900px;
   height: 95%;
   margin: 0 auto;
-  overflow: auto;
-  ${flex};
-  ${scroll}
+  /* overflow: auto; */
   justify-content: space-around;
   flex-wrap: wrap;
-
+  ${flex};
+  
   border-radius: 15px;
 `;
