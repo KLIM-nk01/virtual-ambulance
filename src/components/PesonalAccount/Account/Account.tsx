@@ -6,7 +6,7 @@ import {
   PossibilitiesContainer,
   AccountAvatar,
   ContainerOne,
-  ContainerTwo
+  ContainerTwo,
 } from './AccountStyle';
 import Ava from '@assets/Olga.jpg';
 import { Input } from '@components/common/Input/Input';
@@ -17,9 +17,7 @@ const Account: React.FC = () => {
       <InformationContainer>
         <ContainerOne>
           <AccountAvatar src={Ava} />
-          <Button primary width={'80%'}>
-            Edit Profie
-          </Button>
+          <Button variant={'contained'}>Edit Profie</Button>
         </ContainerOne>
 
         <ContainerTwo>

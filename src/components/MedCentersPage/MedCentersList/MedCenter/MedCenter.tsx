@@ -27,9 +27,9 @@ const MedCenter: React.FC = () => {
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </Description>
         <Wrapper>
-          <Button primary>Call</Button>
-          <Button primary>Sign up</Button>
-          <Button primary >Services</Button>
+          <Button variant={'contained'}>Call</Button>
+          <Button variant={'outlined'}>Sign up</Button>
+          <Button variant={'outlined'}>Services</Button>
         </Wrapper>
       </Container>
     </MedCenterItem>

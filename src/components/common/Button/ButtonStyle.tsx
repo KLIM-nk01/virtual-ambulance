@@ -3,39 +3,100 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import { flex } from '@styleMixin/flex';
 
 interface IProps {
-  width?: string;
-  backgroundColor?: string;
-  primary?: boolean;
-  secondary?: boolean;
+  variant?: string;
+  size?: string;
 }
 
 export const ButtonStyle = styled.button<IProps>`
-  width: ${({ width }) => width || '95px'};
-  height: 40px;
-  border: none;
-
-  background: ${({ primary }) =>
-    primary
-      ? STYLE_CONSTANTS.COLORS.moderateTurquoise
-      : STYLE_CONSTANTS.COLORS.smokyWhite};
-
-  border-radius: 50px;
-  ${flex};
-  justify-content: center;
-  color: ${({ primary }) =>
-    primary ? STYLE_CONSTANTS.COLORS.white : STYLE_CONSTANTS.COLORS.black};
-
-  transition: 0.5s;
+  border: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
+  border-radius: 4px;
   cursor: pointer;
-  font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
-  font-weight: 700;
-
+  transition: 0.5s;
+  color: ${STYLE_CONSTANTS.COLORS.blue};
+  font-weight: 500;
+  text-transform: uppercase;
+  min-width: 90px;
+  margin: 0 5px;
   :hover {
-    color: ${STYLE_CONSTANTS.COLORS.white};
-    box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
-    background: ${({ primary }) =>
-      primary
-        ? STYLE_CONSTANTS.COLORS.slateBlue
-        : STYLE_CONSTANTS.COLORS.darkYellowGreen};
+    background: #d0deec;
   }
+
+  :disabled {
+    cursor: default;
+    background: #e0e0e0;
+    color: #7f8e9d;
+    border: none;
+  }
+
+  ${(props) => {
+    switch (props.variant) {
+      case 'outlined':
+        return `
+        background: ${STYLE_CONSTANTS.COLORS.white};
+        
+        `;
+        break;
+
+      case 'contained':
+        return `
+        background: ${STYLE_CONSTANTS.COLORS.blue};
+        color: ${STYLE_CONSTANTS.COLORS.white};
+  
+        :hover {
+          background: ${STYLE_CONSTANTS.COLORS.darkBlue};
+          box-shadow: 0px 0px 7px 0px #7f8e9d;
+        }
+        `;
+        break;
+
+      case 'text':
+        return `
+        background: ${STYLE_CONSTANTS.COLORS.blue};
+        color: ${STYLE_CONSTANTS.COLORS.white};
+        :hover {
+          background: ${STYLE_CONSTANTS.COLORS.darkBlue};
+        }
+        :disabled {
+        cursor: default;
+        background: inherit;
+        color: #7f8e9d;
+        border: none;
+        }
+        `;
+        break;
+      default:
+        return `background: ${STYLE_CONSTANTS.COLORS.white};`;
+    }
+  }};
+
+  ${(props) => {
+    switch (props.size) {
+      case 'small':
+        return `
+        height: 30px;
+        font-size: ${STYLE_CONSTANTS.FONT_SIZE.little}
+        `;
+        break;
+
+      case 'medium':
+        return `
+        height: 36px;
+        font-size: ${STYLE_CONSTANTS.FONT_SIZE.small}
+        `;
+        break;
+
+      case 'large':
+        return `
+        height: 30px;
+        font-size: ${STYLE_CONSTANTS.FONT_SIZE.small}
+        `;
+        break;
+      default:
+        return `
+        width: 90px;
+        height: 40px;
+        font-size: ${STYLE_CONSTANTS.FONT_SIZE.small}
+        `;
+    }
+  }};
 `;
