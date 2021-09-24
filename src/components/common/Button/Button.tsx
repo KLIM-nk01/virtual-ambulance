@@ -6,19 +6,21 @@ interface IProps
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   > {
-  backgroundColor?: string;
-  primary?: boolean;
-  width?: string;
-  secondary?: boolean;
+ 
   ref?:
     | ((instance: HTMLButtonElement | null) => void)
     | React.RefObject<HTMLButtonElement>
     | null
     | undefined;
+ 
+  variant?: string;
+  size?: string;
+  
 }
 
-const Button: React.FC<IProps> = ({ children, ...rest }) => {
-  return <ButtonStyle {...rest}>{children}</ButtonStyle>;
+const Button: React.FC<IProps> = ({ children, ...props }) => {
+  
+  return <ButtonStyle {...props}>{children}</ButtonStyle>;
 };
 
 export default Button;
