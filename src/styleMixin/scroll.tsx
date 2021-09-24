@@ -11,7 +11,7 @@ export const scroll = `
 
   ::-webkit-scrollbar-thumb {
     height: 70px;
-    background-color:${STYLE_CONSTANTS.COLORS.smokyWhite};
+    background-color:${STYLE_CONSTANTS.COLORS.darkGrey};
     border-radius: 10px;
   }
 `;

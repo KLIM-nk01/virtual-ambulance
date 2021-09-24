@@ -8,3 +8,5 @@ export const AccountPage = styled.div`
   justify-content: center;
   background: #f5f7fb;
 `;
+
+
