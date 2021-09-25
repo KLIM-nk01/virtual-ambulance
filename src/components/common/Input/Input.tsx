@@ -1,25 +1,13 @@
-import styled from 'styled-components';
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
+import React from 'react';
+import { InputGroup, InputWrapper } from './InputStyle';
 
-export const Input = styled.input`
-  height: 40px;
-  width: 25%; //
-  color: ${STYLE_CONSTANTS.COLORS.white};
-  background: inherit;
-  border-radius: 50px;
-  border: none;
-  box-shadow: 0 0 5px ${STYLE_CONSTANTS.COLORS.white};
-  padding: 20px;
-  font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
+const Input = () => {
+  return (
+    <InputGroup>
+      <input />
+      <label>label</label>
+    </InputGroup>
+  );
+};
 
-  ::placeholder {
-    color: ${STYLE_CONSTANTS.COLORS.white};
-    opacity: 0.5;
-  }
-
-  :focus {
-    ::placeholder {
-      color: transparent;
-    }
-  }
-`;
+export default Input;

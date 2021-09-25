@@ -9,7 +9,7 @@ import {
   ContainerTwo,
 } from './AccountStyle';
 import Ava from '@assets/Olga.jpg';
-import { Input } from '@components/common/Input/Input';
+// import { Input } from '@components/common/Input/InputStyle';
 
 const Account: React.FC = () => {
   return (
@@ -21,10 +21,10 @@ const Account: React.FC = () => {
         </ContainerOne>
 
         <ContainerTwo>
+          {/* <Input />
           <Input />
           <Input />
-          <Input />
-          <Input />
+          <Input /> */}
         </ContainerTwo>
       </InformationContainer>
 

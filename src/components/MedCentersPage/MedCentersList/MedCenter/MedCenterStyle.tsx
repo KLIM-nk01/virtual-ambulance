@@ -4,48 +4,70 @@ import { flex } from '@styleMixin/flex';
 
 export const MedCenterItem = styled.div`
   width: 90%;
-  height: 300px;
+  height: fit-content;
+
   margin: 20px auto;
   background-color: ${STYLE_CONSTANTS.COLORS.white};
   border-radius: 15px;
-  ${flex};
-  flex-direction: column;
+
   padding: 15px;
-  box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  box-shadow: 0px 0px 5px 1px ${STYLE_CONSTANTS.COLORS.darkGrey};
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  div {
+    margin: 5px 0;
+  }
 `;
 
-export const MedcenterName = styled.div`
-  color: ${STYLE_CONSTANTS.COLORS.black};
+export const Title = styled.span`
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
-  font-weight: 700;
-  width: 100%;
-`;
-
-export const MedcenterAddress = styled(MedcenterName)`
   color: ${STYLE_CONSTANTS.COLORS.black};
-  font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
-  font-weight: 400;
+  font-weight: 600;
 `;
 
-export const Container = styled.div`
+export const SubTitle = styled.span`
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+  color: ${STYLE_CONSTANTS.COLORS.darkGrey};
+  font-weight: 500;
+`;
+
+export const ItemHeader = styled.div`
   width: 100%;
-  height: 70%;
-  ${flex};
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
   flex-direction: column;
 `;
 
-export const Wrapper = styled.div`
+export const ItemPhoto = styled.div`
   width: 100%;
-  height: fit-content;
-  ${flex};
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  border: 1px solid ${STYLE_CONSTANTS.COLORS.darkGrey};
+  img {
+    width: 100%;
+  }
+  overflow: hidden;
 `;
 
-export const PhotoCard = styled.div`
-  width: 70px;
-  height: 70px;
-  border: 1px solid ${STYLE_CONSTANTS.COLORS.black};
+export const ItemDescription = styled.div`
+  width: 100%;
+  p {
+    color: ${STYLE_CONSTANTS.COLORS.darkGrey};
+  }
 `;
 
-export const Description = styled.span`
-  color: ${STYLE_CONSTANTS.COLORS.black};
+export const ItemButtons = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;

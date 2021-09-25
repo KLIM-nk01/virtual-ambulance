@@ -3,6 +3,7 @@ import { HeaderContainerStyle, HeaderWrapper } from './HeaderStyle';
 import Logo from './Logo/Logo';
 import LogIn from './LogIn/LogIn';
 import Search from './Search/Search';
+import Input from '@components/common/Input/Input';
 
 const Header: React.FC = () => {
   return (
@@ -10,7 +11,8 @@ const Header: React.FC = () => {
       <HeaderContainerStyle>
         {/*<Location/>*/}
         <Logo />
-        <Search />
+        {/* <Search /> */}
+        <Input />
         <LogIn />
       </HeaderContainerStyle>
     </HeaderWrapper>
