@@ -9,6 +9,7 @@ import MedCentersPage from '@components/MedCentersPage/MedCentersPage';
 import DoctorsPage from '@components/DoctorsPage/DoctorsPage';
 import PersonalAccountPage from '@components/PesonalAccount/PersonalAccountPage';
 import { ServicesPageContainer } from '@containers/ServicesPageContainer';
+import Spinner from '@components/common/Loader/Loader';
 
 const App: React.FC = () => {
   return (
@@ -22,17 +23,12 @@ const App: React.FC = () => {
             <Route exact path={ROUTS.MAIN_PAGE_PATH} render={() => <MainPage />} />
             <Route exact path={ROUTS.MEDCENTERS_PAGE_PATH} render={() => <MedCentersPage />} />
             <Route exact path={ROUTS.DOCTORS_PAGE_PATH} render={() => <DoctorsPage />} />
-            <React.Suspense
-              fallback={
-                <div style={{ width: '500px', height: '500px', background: 'red' }}>Loading...</div>
-              }
-            >
+            <React.Suspense fallback={<Spinner />}>
               <Route exact path={ROUTS.SERVICES_PATH} render={() => <ServicesPageContainer />} />
             </React.Suspense>
             <Route exact path={ROUTS.PERSONAL_ACCOUNT} render={() => <PersonalAccountPage />} />
           </Switch>
         </Main>
-
       </AppWrapper>
     </BrowserRouter>
   );
