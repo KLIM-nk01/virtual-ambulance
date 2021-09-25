@@ -16,6 +16,7 @@ const App: React.FC = () => {
       <GlobalStyle />
       <AppWrapper>
         <Header />
+
         <Main>
           <Switch>
             <Route exact path={ROUTS.MAIN_PAGE_PATH} render={() => <MainPage />} />
@@ -32,7 +33,6 @@ const App: React.FC = () => {
           </Switch>
         </Main>
 
-        {/*<LogInForm/>*/}
       </AppWrapper>
     </BrowserRouter>
   );
