@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
-import { flex } from '@styleMixin/flex';
 
 export const MedCenterItem = styled.div`
   width: 90%;

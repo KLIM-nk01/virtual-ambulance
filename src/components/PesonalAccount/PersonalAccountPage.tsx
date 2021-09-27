@@ -1,14 +1,12 @@
-import SingInForm from '@components/Form/SingInForm';
 import React from 'react';
 import { AccountPage } from './PersonalAccountPageStyle';
 // import Account from '@components/PesonalAccount/Account/Account';
+import SingUpForm from '@components/Form/SingUpForm';
 
 const PersonalAccountPage: React.FC = () => {
   return (
     <AccountPage>
-      {/* <Account></Account> */}
-      sdfsdfsdf
-      <SingInForm />
+      <SingUpForm />
     </AccountPage>
   );
 };

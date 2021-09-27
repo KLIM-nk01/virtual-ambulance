@@ -1,20 +1,43 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
-export const InputGroup = styled.div`
+interface IStyleProps {
+  primary?: boolean;
+  type?: string;
+}
+
+export const InputGroup = styled.div<IStyleProps>`
   position: relative;
-  width: 300px;
-  height: 40px;
+  ${(props) => {
+    return props.type == 'checkbox' || props.type == 'radio'
+      ? `
+    width: 20px;
+    height: 20px;
+    `
+      : `
+    width: 300px;
+    height: 40px;
+    `;
+  }}
   z-index: 0;
+  margin: 10px 0;
 
   input:focus ~ label,
   input:valid ~ label {
     transform: translateY(-80%);
     font-size: 14px;
-    background: ${STYLE_CONSTANTS.COLORS.blue};
+    background: ${(props) =>
+      props.primary
+        ? STYLE_CONSTANTS.COLORS.white
+        : STYLE_CONSTANTS.COLORS.blue};
     border-radius: 50px;
     margin-left: 10px;
     z-index: 1;
+
+    color: ${(props) =>
+      props.primary
+        ? STYLE_CONSTANTS.COLORS.blue
+        : STYLE_CONSTANTS.COLORS.white};
   }
 
   input {
@@ -25,19 +48,31 @@ export const InputGroup = styled.div`
     width: 100%;
     border: 1px solid ${STYLE_CONSTANTS.COLORS.gray};
     border-radius: 50px;
-    color: ${STYLE_CONSTANTS.COLORS.darkGrey};
     padding: 10px 20px;
     background: inherit;
     transition: 0.3s;
-    color: white;
+    color: ${(props) =>
+      props.primary
+        ? STYLE_CONSTANTS.COLORS.blue
+        : STYLE_CONSTANTS.COLORS.white};
     z-index: 1;
+
+    :focus {
+      border-color: ${(props) =>
+        props.primary
+          ? STYLE_CONSTANTS.COLORS.blue
+          : STYLE_CONSTANTS.COLORS.white};
+    }
   }
 
   label {
     position: absolute;
     top: 20%;
     left: 10px;
-    color: ${STYLE_CONSTANTS.COLORS.white};
+    color: ${(props) =>
+      props.primary
+        ? STYLE_CONSTANTS.COLORS.darkGrey
+        : STYLE_CONSTANTS.COLORS.white};
     transition: 0.3s;
     cursor: text;
     transition: all 200ms ease;

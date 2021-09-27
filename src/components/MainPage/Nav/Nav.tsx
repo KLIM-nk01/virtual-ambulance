@@ -43,7 +43,7 @@ const Nav: React.FC = () => {
         </NavItem>
       </NavLink>
 
-      <NavLink to={ROUTS.PERSONAL_ACCOUNT}>
+      <NavLink to={ROUTS.LOGIN_FORM}>
         <NavItem>
           <img src={UserAccount} alt={'medCenter'} />
           <span>Personal Account</span>
