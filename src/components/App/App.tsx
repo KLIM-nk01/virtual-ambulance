@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import MainPage from '@components/MainPage/MainPage';
 import MedCentersPage from '@components/MedCentersPage/MedCentersPage';
 import DoctorsPage from '@components/DoctorsPage/DoctorsPage';
-import PersonalAccountPage from '@components/PesonalAccount/PersonalAccountPage';
+// import PersonalAccountPage from '@components/PesonalAccount/PersonalAccountPage';
 import { ServicesPageContainer } from '@containers/ServicesPageContainer';
 import Spinner from '@components/common/Loader/Loader';
 
@@ -35,17 +35,25 @@ const App: React.FC = () => {
               path={ROUTS.DOCTORS_PAGE_PATH}
               render={() => <DoctorsPage />}
             />
+
             <React.Suspense fallback={<Spinner />}>
               <Route
                 exact
                 path={ROUTS.SERVICES_PATH}
-                render={() => <ServicesPageContainer />}
+                render={() => {
+                  debugger;
+                  return <ServicesPageContainer />;
+                }}
               />
             </React.Suspense>
+
             <Route
               exact
               path={ROUTS.PERSONAL_ACCOUNT}
-              render={() => <PersonalAccountPage />}
+              render={() => {
+                debugger;
+                return <div></div>;
+              }}
             />
           </Switch>
         </Main>

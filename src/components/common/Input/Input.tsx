@@ -1,11 +1,11 @@
 import React from 'react';
-import { InputGroup, InputWrapper } from './InputStyle';
+import { InputGroup } from './InputStyle';
 
 const Input = () => {
   return (
     <InputGroup>
-      <input />
-      <label>label</label>
+      <input required />
+      <label>Seacrch</label>
     </InputGroup>
   );
 };
