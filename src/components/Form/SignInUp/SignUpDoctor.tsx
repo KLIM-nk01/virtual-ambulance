@@ -1,27 +1,25 @@
 import React from 'react';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
-import {
-  FormContainer,
-  FormName,
-  Form,
-  ButtonBar,
-  DoctorCheckButton
-} from './FormStyle';
+import { FormContainer, FormName, Form, ButtonBar, DoctorCheckButton } from './FormStyle';
+import { NavLink } from 'react-router-dom';
 
-const SingUpForm: React.FC = () => {
+const SignUpDoctor: React.FC = () => {
   return (
     <FormContainer>
       <Form>
-        <FormName>Сreate an account </FormName>
+        <FormName>Сreate dodoctors account </FormName>
         <DoctorCheckButton>
-          <span>Are you doctor?</span>
+          <span>
+            <NavLink to="#">Are you doctor? Click here</NavLink>
+          </span>
         </DoctorCheckButton>
         <Input primary placeholder="Name" type="text" />
         <Input primary placeholder="Last Name" type="text" />
         <Input primary placeholder="Email" type="email" />
         <Input primary placeholder="Passord" type="password" />
-        <Input primary placeholder="Passord" type="password" />
+
+        <Input primary placeholder="Reapeat Passord" type="password" />
 
         <ButtonBar>
           <Button>Sign Up</Button>
@@ -32,4 +30,4 @@ const SingUpForm: React.FC = () => {
   );
 };
 
-export default SingUpForm;
+export default SignUpDoctor;

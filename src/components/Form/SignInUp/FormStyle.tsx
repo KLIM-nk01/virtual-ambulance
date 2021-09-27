@@ -24,6 +24,16 @@ export const Form = styled.form`
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
+
+  a {
+    span {
+      margin-left: 5px;
+      font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+      :hover {
+        color: ${STYLE_CONSTANTS.COLORS.blue};
+      }
+    }
+  }
 `;
 
 export const DoctorCheckButton = styled.div`
@@ -35,6 +45,11 @@ export const DoctorCheckButton = styled.div`
 
   span {
     margin-left: 10px;
+    a {
+      :hover {
+        color: ${STYLE_CONSTANTS.COLORS.blue};
+      }
+    }
   }
 `;
 

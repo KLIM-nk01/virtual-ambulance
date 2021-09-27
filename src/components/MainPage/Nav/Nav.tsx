@@ -14,10 +14,7 @@ const Nav: React.FC = () => {
         <NavItem>
           <img src={CenterLogo} alt={'medCenter'} />
           <span>Browse medical center</span>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-            placeat minus
-          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, placeat minus</p>
         </NavItem>
       </NavLink>
 
@@ -25,10 +22,7 @@ const Nav: React.FC = () => {
         <NavItem>
           <img src={DoctorsLogo} alt={'medCenter'} />
           <span>Choose doctor</span>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-            placeat minus
-          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, placeat minus</p>
         </NavItem>
       </NavLink>
 
@@ -36,21 +30,15 @@ const Nav: React.FC = () => {
         <NavItem>
           <img src={Services} alt={'medCenter'} />
           <span>View services</span>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-            placeat minus
-          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, placeat minus</p>
         </NavItem>
       </NavLink>
 
-      <NavLink to={ROUTS.LOGIN_FORM}>
+      <NavLink to={ROUTS.FORM_PAGE}>
         <NavItem>
           <img src={UserAccount} alt={'medCenter'} />
           <span>Personal Account</span>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-            placeat minus
-          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, placeat minus</p>
         </NavItem>
       </NavLink>
     </NavWrapper>

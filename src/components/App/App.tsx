@@ -9,6 +9,8 @@ import MedCentersPage from '@components/MedCentersPage/MedCentersPage';
 import DoctorsPage from '@components/DoctorsPage/DoctorsPage';
 import { ServicesPageContainer } from '@containers/ServicesPageContainer';
 import PersonalAccountPage from '@components/PesonalAccount/PersonalAccountPage';
+import FormPage from '@components/Form/FormPage';
+
 const App: React.FC = () => {
   return (
     <BrowserRouter>
@@ -35,9 +37,16 @@ const App: React.FC = () => {
             />
             <Route
               exact
-              path={ROUTS.LOGIN_FORM}
+              path={ROUTS.PERSONAL_ACCOUNT}
               render={() => <PersonalAccountPage />}
             />
+            
+            <Route
+              exact
+              path={ROUTS.FORM_PAGE}
+              render={() => <FormPage />}
+            />
+
             <React.Suspense fallback={() => <div>loading</div>}>
               <Route
                 exact
