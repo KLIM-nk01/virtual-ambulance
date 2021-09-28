@@ -8,22 +8,13 @@ interface IStyleProps {
 
 export const InputGroup = styled.div<IStyleProps>`
   position: relative;
-  ${(props) => {
-    return props.type == 'checkbox' || props.type == 'radio'
-      ? `
-    width: 20px;
-    height: 20px;
-    `
-      : `
-    width: 300px;
-    height: 40px;
-    `;
-  }}
+  width: 300px;
+  height: 40px;
   z-index: 0;
   margin: 10px 0;
 
   input:focus ~ label,
-  input:valid ~ label {
+  input:invalid ~ label {
     transform: translateY(-80%);
     font-size: 14px;
     background: ${(props) =>
@@ -51,10 +42,7 @@ export const InputGroup = styled.div<IStyleProps>`
     padding: 10px 20px;
     background: inherit;
     transition: 0.3s;
-    color: ${(props) =>
-      props.primary
-        ? STYLE_CONSTANTS.COLORS.blue
-        : STYLE_CONSTANTS.COLORS.white};
+    color: ${STYLE_CONSTANTS.COLORS.black};
     z-index: 1;
 
     :focus {
@@ -62,6 +50,7 @@ export const InputGroup = styled.div<IStyleProps>`
         props.primary
           ? STYLE_CONSTANTS.COLORS.blue
           : STYLE_CONSTANTS.COLORS.white};
+      color: ${STYLE_CONSTANTS.COLORS.black};
     }
   }
 

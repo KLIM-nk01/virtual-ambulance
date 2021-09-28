@@ -11,16 +11,16 @@ const SingInForm: React.FC = () => {
       <Form>
         <FormName>Sin In to your account</FormName>
 
-        <Input primary placeholder="Login" type="" />
+        <Input primary placeholder="Email or Phone number" type="" />
         <Input primary placeholder="Password" type="password" />
 
-        <NavLink to={ROUTS.SINGUP_USER_FORM}>
-          <span>Registration</span>
+        <NavLink to={ROUTS.SINGUP_FORM}>
+          <span>Don't have an account? Registration</span>
         </NavLink>
 
         <ButtonBar>
           <Button>Sign In</Button>
-          <Button variant="circle">G</Button>
+          <Button round>G</Button>
         </ButtonBar>
       </Form>
     </FormContainer>

@@ -5,7 +5,6 @@ export const ROUTS = {
   SERVICES_PATH: '/servicesPage',
   PERSONAL_ACCOUNT: '/personalAccount',
   FORM_PAGE: '/formPage',
-  SIGNIN_FORM: '/formPage',
-  SINGUP_USER_FORM: '/signUpUser',
-  SINGUP_DOCTOR_FORM: '/formPage/signUpDoctor',
+  SIGNIN_FORM: '/formPage/signInForm',
+  SINGUP_FORM: '/formPage/signUpForm'
 };

@@ -5,10 +5,18 @@ import Button from '@components/common/Button/Button';
 
 const LogIn: React.FC = () => {
   return (
-    <NavLink to={ROUTS.SIGNIN_FORM}>
-      <Button variant={'outlined'}>sign in</Button>
-      <Button variant={'outlined'}>sign up</Button>
-    </NavLink>
+    <div>
+      <NavLink to={ROUTS.SIGNIN_FORM}>
+        <Button round variant={'outlined'}>
+          sign in
+        </Button>
+      </NavLink>
+      <NavLink to={ROUTS.SINGUP_FORM}>
+        <Button round variant={'outlined'}>
+          sign up
+        </Button>
+      </NavLink>
+    </div>
   );
 };
 

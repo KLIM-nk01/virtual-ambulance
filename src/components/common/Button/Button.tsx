@@ -15,6 +15,7 @@ interface IProps
  
   variant?: string;
   size?: string;
+  round?: boolean
   
 }
 

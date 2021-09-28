@@ -5,7 +5,10 @@ export const FormPageContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
+
   background: ${STYLE_CONSTANTS.COLORS.lavender};
+  overflow: auto;
+  padding: 40px;
 `;

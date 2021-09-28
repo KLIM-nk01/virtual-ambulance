@@ -6,4 +6,6 @@ const ServicesPage = React.lazy(
   () => import('@components/ServicesPage/ServicesPage')
 );
 
-export const ServicesPageContainer = () => <ServicesPage services={services} />;
+ const ServicesPageContainer = () => <ServicesPage services={services} />;
+
+ export default ServicesPageContainer;

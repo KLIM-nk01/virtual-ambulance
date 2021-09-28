@@ -4,60 +4,58 @@ import { ROUTS } from '@constants/routs';
 import { AppWrapper, Main } from './AppStyle';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
-import MainPage from '@components/MainPage/MainPage';
+// import MainPage from '@components/MainPage/MainPage';
 import MedCentersPage from '@components/MedCentersPage/MedCentersPage';
 import DoctorsPage from '@components/DoctorsPage/DoctorsPage';
-import { ServicesPageContainer } from '@containers/ServicesPageContainer';
 import PersonalAccountPage from '@components/PesonalAccount/PersonalAccountPage';
 import FormPage from '@components/Form/FormPage';
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <GlobalStyle />
-      <AppWrapper>
-        <Header />
+      <React.Suspense fallback={() => <div>loading</div>}>
+        <GlobalStyle />
+        <AppWrapper>
+          <Header />
 
-        <Main>
-          <Switch>
-            <Route
-              exact
-              path={ROUTS.MAIN_PAGE_PATH}
-              render={() => <MainPage />}
-            />
-            <Route
-              exact
-              path={ROUTS.MEDCENTERS_PAGE_PATH}
-              render={() => <MedCentersPage />}
-            />
-            <Route
-              exact
-              path={ROUTS.DOCTORS_PAGE_PATH}
-              render={() => <DoctorsPage />}
-            />
-            <Route
-              exact
-              path={ROUTS.PERSONAL_ACCOUNT}
-              render={() => <PersonalAccountPage />}
-            />
-            
-            <Route
-              exact
-              path={ROUTS.FORM_PAGE}
-              render={() => <FormPage />}
-            />
+          <Main>
+            <Switch>
+              <Route
+                exact
+                path={ROUTS.MAIN_PAGE_PATH}
+                component={React.lazy(
+                  () => import('@components/MainPage/MainPage')
+                )}
+              />
+              <Route
+                exact
+                path={ROUTS.MEDCENTERS_PAGE_PATH}
+                render={() => <MedCentersPage />}
+              />
+              <Route
+                exact
+                path={ROUTS.DOCTORS_PAGE_PATH}
+                render={() => <DoctorsPage />}
+              />
+              <Route
+                exact
+                path={ROUTS.PERSONAL_ACCOUNT}
+                render={() => <PersonalAccountPage />}
+              />
 
-            <React.Suspense fallback={() => <div>loading</div>}>
+              <Route path={ROUTS.FORM_PAGE} render={() => <FormPage />} />
+
               <Route
                 exact
                 path={ROUTS.SERVICES_PATH}
-                render={() => <ServicesPageContainer />}
+                component={React.lazy(
+                  () => import('@containers/ServicesPageContainer')
+                )}
               />
-            </React.Suspense>
-            s
-          </Switch>
-        </Main>
-      </AppWrapper>
+            </Switch>
+          </Main>
+        </AppWrapper>
+      </React.Suspense>
     </BrowserRouter>
   );
 };

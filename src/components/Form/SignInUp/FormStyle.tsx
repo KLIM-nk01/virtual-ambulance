@@ -33,6 +33,10 @@ export const Form = styled.form`
         color: ${STYLE_CONSTANTS.COLORS.blue};
       }
     }
+    margin-bottom: 10px;
+  }
+  hr {
+    width: 100%;
   }
 `;
 
@@ -45,10 +49,10 @@ export const DoctorCheckButton = styled.div`
 
   span {
     margin-left: 10px;
-    a {
-      :hover {
-        color: ${STYLE_CONSTANTS.COLORS.blue};
-      }
+    cursor: pointer;
+
+    :hover {
+      color: ${STYLE_CONSTANTS.COLORS.blue};
     }
   }
 `;
@@ -70,4 +74,26 @@ export const ButtonBar = styled.div`
   button {
     margin-right: 10px;
   }
+`;
+
+export const QuestionWrapper = styled.div`
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: column;
+  border-top: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
+  padding-top: 10px;
+  margin: 10px 0;
+  span {
+    margin-left: 5px;
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+  }
+`;
+
+export const MedCentersSelect = styled.div`
+  width: 100%;
+  height: 50px;
+  border: 1px solid ${STYLE_CONSTANTS.COLORS.gray};
 `;
