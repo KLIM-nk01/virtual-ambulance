@@ -1,11 +1,13 @@
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
 
-export const AccountPage = styled.div`
+export const ProfilePageWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   background: ${STYLE_CONSTANTS.COLORS.lavender};
+  overflow: auto;
+  padding: 50px;
 `;
