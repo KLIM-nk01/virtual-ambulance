@@ -4,6 +4,7 @@ export const STYLE_CONSTANTS = {
     small: '16px',
     medium: '18px',
     large: '20px',
+    veryLarge: '24px'
   },
   COLORS: {
     red: '',
@@ -20,6 +21,6 @@ export const STYLE_CONSTANTS = {
     pearl: '#5D5E69',
     gray: '#d0deec',
     blue: '#007fff',
-    darkBlue: '#0072E5',
-  },
+    darkBlue: '#0072E5'
+  }
 };

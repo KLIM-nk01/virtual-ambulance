@@ -3,7 +3,12 @@ import {
   AboutContainer,
   AccountInformation,
   AccountWrapper,
-  PhotoContainer
+  PhotoContainer,
+  UserName,
+  AboutUser,
+  ProfileInfoRow,
+  InfoLabel,
+  DescriptionLabel
 } from './AccountStyle';
 
 import Avatar from '@assets/NoAvatar.png';
@@ -15,11 +20,21 @@ const Account: React.FC = () => {
       <AccountInformation>
         <PhotoContainer>
           <img src={Avatar} alt="avatar" />
-          <Button variant="contained">Edit</Button>
+          <Button round variant="contained">
+            Edit
+          </Button>
         </PhotoContainer>
         <AboutContainer>
-          {/* <UserName></UserName>
-          <AboutUser></AboutUser> */}
+          <UserName>
+            <span>Nikita Klimovich</span>
+          </UserName>
+
+          <AboutUser>
+            <ProfileInfoRow>
+              <InfoLabel>ДЕнь рождения: </InfoLabel>
+              <DescriptionLabel>10.01.2001</DescriptionLabel>
+            </ProfileInfoRow>
+          </AboutUser>
         </AboutContainer>
       </AccountInformation>
     </AccountWrapper>
