@@ -11,7 +11,7 @@ export const AppWrapper = styled.div`
 
 export const Main = styled.main`
   width: 100%;
-  height: calc(100% - 70px);
+  height: calc(100% - 80px);
   display: flex;
   flex-direction: column;
   align-items: center;

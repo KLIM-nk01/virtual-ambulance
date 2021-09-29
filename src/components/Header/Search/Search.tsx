@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import { Input } from '@components/common/Input/InputStyle';
 
 const Search: React.FC = () => {
-  const [stateInput, setStateInput] = useState<string>('');
+  // const [stateInput, setStateInput] = useState<string>('');
   return (
     // <Input
     //   type="text"

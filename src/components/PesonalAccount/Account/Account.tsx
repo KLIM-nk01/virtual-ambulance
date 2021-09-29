@@ -1,35 +1,28 @@
-import Button from '@components/common/Button/Button';
 import React from 'react';
 import {
-  AccountContainer,
-  InformationContainer,
-  PossibilitiesContainer,
-  AccountAvatar,
-  ContainerOne,
-  ContainerTwo,
+  AboutContainer,
+  AccountInformation,
+  AccountWrapper,
+  PhotoContainer
 } from './AccountStyle';
-import Ava from '@assets/Olga.jpg';
-// import { Input } from '@components/common/Input/InputStyle';
+
+import Avatar from '@assets/NoAvatar.png';
+import Button from '@components/common/Button/Button';
 
 const Account: React.FC = () => {
   return (
-    <AccountContainer>
-      <InformationContainer>
-        <ContainerOne>
-          <AccountAvatar src={Ava} />
-          <Button variant={'contained'}>Edit Profie</Button>
-        </ContainerOne>
-
-        <ContainerTwo>
-          {/* <Input />
-          <Input />
-          <Input />
-          <Input /> */}
-        </ContainerTwo>
-      </InformationContainer>
-
-      <PossibilitiesContainer></PossibilitiesContainer>
-    </AccountContainer>
+    <AccountWrapper>
+      <AccountInformation>
+        <PhotoContainer>
+          <img src={Avatar} alt="avatar" />
+          <Button variant="contained">Edit</Button>
+        </PhotoContainer>
+        <AboutContainer>
+          {/* <UserName></UserName>
+          <AboutUser></AboutUser> */}
+        </AboutContainer>
+      </AccountInformation>
+    </AccountWrapper>
   );
 };
 

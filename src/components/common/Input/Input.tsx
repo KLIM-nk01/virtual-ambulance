@@ -1,11 +1,19 @@
 import React from 'react';
-import { InputGroup, InputWrapper } from './InputStyle';
+import { InputGroup } from './InputStyle';
 
-const Input = () => {
+interface IInput {
+  primary?: boolean;
+  placeholder?: string;
+  type?: string;
+  checkbox?: boolean;
+}
+
+const Input: React.FC<IInput> = (props) => {
+  
   return (
-    <InputGroup>
-      <input />
-      <label>label</label>
+    <InputGroup {...props}>
+      <input required type={props.type} />
+      <label>{props.placeholder}</label>
     </InputGroup>
   );
 };

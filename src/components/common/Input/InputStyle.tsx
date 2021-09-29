@@ -1,10 +1,35 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
-export const InputGroup = styled.div`
+interface IStyleProps {
+  primary?: boolean;
+  type?: string;
+}
+
+export const InputGroup = styled.div<IStyleProps>`
   position: relative;
   width: 300px;
-  height: 35px;
+  height: 40px;
+  z-index: 0;
+  margin: 10px 0;
+
+  input:focus ~ label,
+  input:invalid ~ label {
+    transform: translateY(-80%);
+    font-size: 14px;
+    background: ${(props) =>
+      props.primary
+        ? STYLE_CONSTANTS.COLORS.white
+        : STYLE_CONSTANTS.COLORS.blue};
+    border-radius: 50px;
+    margin-left: 10px;
+    z-index: 1;
+
+    color: ${(props) =>
+      props.primary
+        ? STYLE_CONSTANTS.COLORS.blue
+        : STYLE_CONSTANTS.COLORS.white};
+  }
 
   input {
     position: absolute;
@@ -12,56 +37,34 @@ export const InputGroup = styled.div`
     left: 0;
     height: 100%;
     width: 100%;
-    border: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
+    border: 1px solid ${STYLE_CONSTANTS.COLORS.gray};
     border-radius: 50px;
-    color: ${STYLE_CONSTANTS.COLORS.darkGrey};
-    padding: 10px;
+    padding: 10px 20px;
     background: inherit;
     transition: 0.3s;
-    color: white;
+    color: ${STYLE_CONSTANTS.COLORS.black};
+    z-index: 1;
 
-    :hover {
-      border-color: ${STYLE_CONSTANTS.COLORS.darkGrey};
-    }
-    :focus ~ label {
-      top: -8px;
-      font-size: 12px;
+    :focus {
+      border-color: ${(props) =>
+        props.primary
+          ? STYLE_CONSTANTS.COLORS.blue
+          : STYLE_CONSTANTS.COLORS.white};
+      color: ${STYLE_CONSTANTS.COLORS.black};
     }
   }
 
   label {
     position: absolute;
-    top: 5px;
+    top: 20%;
     left: 10px;
-    color: ${STYLE_CONSTANTS.COLORS.white};
+    color: ${(props) =>
+      props.primary
+        ? STYLE_CONSTANTS.COLORS.darkGrey
+        : STYLE_CONSTANTS.COLORS.white};
     transition: 0.3s;
     cursor: text;
-    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
-    padding-left: 10px;
-  }
-`;
-
-export const InputWrapper = styled.input`
-  height: 40px;
-  width: 25%; //
-  padding: 20px;
-  box-shadow: 0 0 5px ${STYLE_CONSTANTS.COLORS.white};
-  background: inherit;
-  color: ${STYLE_CONSTANTS.COLORS.white};
-  transition: 0.3s;
-  border-radius: 50px;
-  border: none;
-
-  font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
-
-  ::placeholder {
-    color: ${STYLE_CONSTANTS.COLORS.white};
-    opacity: 0.5;
-  }
-
-  :focus {
-    ::placeholder {
-      color: transparent;
-    }
+    transition: all 200ms ease;
+    padding: 0 10px;
   }
 `;

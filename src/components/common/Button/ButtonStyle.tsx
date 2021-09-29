@@ -1,22 +1,26 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
-import { flex } from '@styleMixin/flex';
 
 interface IProps {
   variant?: string;
   size?: string;
+  round?: boolean;
 }
 
 export const ButtonStyle = styled.button<IProps>`
   border: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
-  border-radius: 4px;
+  background: ${STYLE_CONSTANTS.COLORS.white};
+  border-radius: ${(props) => (props.round ? '50px' : '4px')};
   cursor: pointer;
   transition: 0.5s;
   color: ${STYLE_CONSTANTS.COLORS.blue};
   font-weight: 500;
   text-transform: uppercase;
   min-width: 90px;
+  width: fit-content;
   margin: 0 5px;
+  padding: 5px;
+
   :hover {
     background: #d0deec;
   }
@@ -64,8 +68,9 @@ export const ButtonStyle = styled.button<IProps>`
         }
         `;
         break;
+
       default:
-        return `background: ${STYLE_CONSTANTS.COLORS.white};`;
+        return `background: ${STYLE_CONSTANTS.COLORS.white}; color: ${STYLE_CONSTANTS.COLORS.blue}`;
     }
   }};
 
@@ -91,6 +96,7 @@ export const ButtonStyle = styled.button<IProps>`
         font-size: ${STYLE_CONSTANTS.FONT_SIZE.small}
         `;
         break;
+
       default:
         return `
         width: 90px;

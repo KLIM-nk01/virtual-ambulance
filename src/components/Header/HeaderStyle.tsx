@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const HeaderWrapper = styled.header`
-  height: 70px;
+  height: 80px;
   width: 100%;
   background-color: inherit;
   color: ${STYLE_CONSTANTS.COLORS.white};

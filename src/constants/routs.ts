@@ -4,5 +4,7 @@ export const ROUTS = {
   DOCTORS_PAGE_PATH: '/doctorsPage',
   SERVICES_PATH: '/servicesPage',
   PERSONAL_ACCOUNT: '/personalAccount',
-  LOGIN_FORM: '/logInForm',
+  FORM_PAGE: '/formPage',
+  SIGNIN_FORM: '/formPage/signInForm',
+  SINGUP_FORM: '/formPage/signUpForm'
 };
