@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
-export const HeaderWrapper = styled.div`
-  height: 10%;
+export const HeaderWrapper = styled.header`
+  height: 80px;
   width: 100%;
   background-color: inherit;
   color: ${STYLE_CONSTANTS.COLORS.white};
@@ -10,12 +10,7 @@ export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background: linear-gradient(
-    45deg,
-    ${STYLE_CONSTANTS.COLORS.basil},
-    ${STYLE_CONSTANTS.COLORS.slateBlue}
-  );
+  background: ${STYLE_CONSTANTS.COLORS.blue};
 `;
 
 export const HeaderContainerStyle = styled.div`
@@ -24,4 +19,5 @@ export const HeaderContainerStyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 `;

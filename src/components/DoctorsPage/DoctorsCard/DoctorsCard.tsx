@@ -27,6 +27,7 @@ const DoctorsCard: React.FC = () => {
         <Expiriens>Expiriens: 27 years</Expiriens>
         <Description>
           Olga Valerievna is a specialist in correcting speech defects in children.
+          Olga Valerievna is a specialist in correcting speech defects in children.s
         </Description>
       </ContainerTwo>
     </Card>

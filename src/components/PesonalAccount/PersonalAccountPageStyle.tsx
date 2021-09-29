@@ -1,12 +1,11 @@
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
 
 export const AccountPage = styled.div`
   width: 100%;
-  height: 90%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f5f7fb;
+  background: ${STYLE_CONSTANTS.COLORS.lavender};
 `;
-
-

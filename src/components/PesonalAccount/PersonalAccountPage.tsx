@@ -1,11 +1,11 @@
 import React from 'react';
+import Account from './Account/Account';
 import { AccountPage } from './PersonalAccountPageStyle';
-import Account from '@components/PesonalAccount/Account/Account';
 
 const PersonalAccountPage: React.FC = () => {
   return (
     <AccountPage>
-      <Account></Account>
+      <Account />
     </AccountPage>
   );
 };

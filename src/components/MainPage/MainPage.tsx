@@ -6,7 +6,6 @@ const MainPage: React.FC = () => {
   return (
     <MainPageWrapper>
       <Nav />
-      {/*<LogInForm/>*/}
     </MainPageWrapper>
   );
 };

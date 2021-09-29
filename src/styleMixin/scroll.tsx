@@ -2,7 +2,9 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const scroll = `
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
+    height: 5px;
+    cursor: pointer;
   }
 
   ::-webkit-scrollbar-track {
@@ -11,7 +13,8 @@ export const scroll = `
 
   ::-webkit-scrollbar-thumb {
     height: 70px;
-    background-color:${STYLE_CONSTANTS.COLORS.darkGrey};
-    border-radius: 10px;
+    background-color:${STYLE_CONSTANTS.COLORS.gray};
+    border-radius: 5px;
+    
   }
 `;

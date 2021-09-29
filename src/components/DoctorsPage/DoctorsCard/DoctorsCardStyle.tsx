@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const Card = styled.div`
-  width: 45%;
+  width: 450px;
   height: 400px;
-  margin: 10px;
+  margin: 20px 10px;
 
   border-radius: 15px;
   display: flex;
@@ -12,7 +12,14 @@ export const Card = styled.div`
   background: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   color: ${STYLE_CONSTANTS.COLORS.black};
   padding: 15px;
-  box-shadow: 5px 5px 10px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  box-shadow: 0px 0px 15px 1px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  transition: 0.5s;
+
+  :hover {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+  }
 `;
 
 export const ContainerOne = styled.div`
