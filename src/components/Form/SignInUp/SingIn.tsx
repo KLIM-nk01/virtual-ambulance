@@ -11,7 +11,7 @@ const SingInForm: React.FC = () => {
       <Form>
         <FormName>Sin In to your account</FormName>
 
-        <Input primary placeholder="Email or Phone number" type="" />
+        <Input primary placeholder="Email" type="" />
         <Input primary placeholder="Password" type="password" />
 
         <NavLink to={ROUTS.SINGUP_FORM}>

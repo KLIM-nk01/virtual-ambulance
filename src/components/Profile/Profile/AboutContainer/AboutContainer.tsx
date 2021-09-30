@@ -1,3 +1,4 @@
+import { UserData } from '@data/UserData';
 import React from 'react';
 import {
   AboutUser,
@@ -11,28 +12,33 @@ import {
 const AboutContainer = () => (
   <Container>
     <UserName>
-      <span>Nikita Klimovich</span>
+      <span>{UserData.name}</span>
     </UserName>
 
     <AboutUser>
       <ProfileInfoRow>
         <InfoLabel>Birthday: </InfoLabel>
-        <DescriptionLabel>10.01.2001</DescriptionLabel>
+        <DescriptionLabel>{UserData.birthday}</DescriptionLabel>
       </ProfileInfoRow>
 
       <ProfileInfoRow>
         <InfoLabel>Email: </InfoLabel>
-        <DescriptionLabel>nikita.klimovich.20@gmail.com</DescriptionLabel>
+        <DescriptionLabel>{UserData.email}</DescriptionLabel>
       </ProfileInfoRow>
 
       <ProfileInfoRow>
         <InfoLabel>Phone Number: </InfoLabel>
-        <DescriptionLabel>+375(29)397-51-03</DescriptionLabel>
+        <DescriptionLabel>{UserData.phoneNumber}</DescriptionLabel>
       </ProfileInfoRow>
 
       <ProfileInfoRow>
         <InfoLabel>Work Place: </InfoLabel>
-        <DescriptionLabel>Student</DescriptionLabel>
+        <DescriptionLabel>{UserData.workPlace}</DescriptionLabel>
+      </ProfileInfoRow>
+
+      <ProfileInfoRow>
+        <InfoLabel>Address: </InfoLabel>
+        <DescriptionLabel>{UserData.address}</DescriptionLabel>
       </ProfileInfoRow>
     </AboutUser>
   </Container>

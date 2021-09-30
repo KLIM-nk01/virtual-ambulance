@@ -1,5 +1,6 @@
 export const STYLE_CONSTANTS = {
   FONT_SIZE: {
+    veryLittle: '12px',
     little: '14px',
     small: '16px',
     medium: '18px',

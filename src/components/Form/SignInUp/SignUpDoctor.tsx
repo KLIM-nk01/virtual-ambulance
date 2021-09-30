@@ -27,9 +27,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           </span>
         </DoctorCheckButton>
 
-        <Input primary placeholder="phone" type="tel" />
-        <Input primary placeholder="Last Name" type="text" />
-        <Input primary placeholder="Phone number" type="tel" />
+        <Input primary placeholder="Name" type="text" />
+        <Input primary placeholder="Phone Number" type="email" />
         <Input primary placeholder="Email" type="email" />
         <Input primary placeholder="Passord" type="password" />
         <Input primary placeholder="Reapeat Passord" type="password" />
