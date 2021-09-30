@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 // import MainPage from '@components/MainPage/MainPage';
 import MedCentersPage from '@components/MedCentersPage/MedCentersPage';
 import DoctorsPage from '@components/DoctorsPage/DoctorsPage';
-import PersonalAccountPage from '@components/PesonalAccount/PersonalAccountPage';
+import PersonalAccountPage from '@components/Profile/ProfilePage';
 import FormPage from '@components/Form/FormPage';
 
 const App: React.FC = () => {

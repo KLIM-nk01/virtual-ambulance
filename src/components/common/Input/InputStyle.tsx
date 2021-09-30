@@ -14,7 +14,7 @@ export const InputGroup = styled.div<IStyleProps>`
   margin: 10px 0;
 
   input:focus ~ label,
-  input:invalid ~ label {
+  input ~ label {
     transform: translateY(-80%);
     font-size: 14px;
     background: ${(props) =>
@@ -42,7 +42,10 @@ export const InputGroup = styled.div<IStyleProps>`
     padding: 10px 20px;
     background: inherit;
     transition: 0.3s;
-    color: ${STYLE_CONSTANTS.COLORS.black};
+    color: ${(props) =>
+      props.primary
+        ? STYLE_CONSTANTS.COLORS.black
+        : STYLE_CONSTANTS.COLORS.white};
     z-index: 1;
 
     :focus {
@@ -50,7 +53,10 @@ export const InputGroup = styled.div<IStyleProps>`
         props.primary
           ? STYLE_CONSTANTS.COLORS.blue
           : STYLE_CONSTANTS.COLORS.white};
-      color: ${STYLE_CONSTANTS.COLORS.black};
+      color: ${(props) =>
+        props.primary
+          ? STYLE_CONSTANTS.COLORS.black
+          : STYLE_CONSTANTS.COLORS.white};
     }
   }
 

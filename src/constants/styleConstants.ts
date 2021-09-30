@@ -20,6 +20,7 @@ export const STYLE_CONSTANTS = {
     black: '#000000',
     pearl: '#5D5E69',
     gray: '#d0deec',
+    lightGrey: '#818C99',
     blue: '#007fff',
     darkBlue: '#0072E5'
   }
