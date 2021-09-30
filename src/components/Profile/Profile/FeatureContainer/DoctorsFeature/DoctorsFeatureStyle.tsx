@@ -5,8 +5,10 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   border-top: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
-  padding: 25px 10px;
+  padding: 30px 10px;
   display: flex;
+  /* align-items: center; */
+  justify-content: space-around;
 `;
 
 export const ContainerName = styled.span`
