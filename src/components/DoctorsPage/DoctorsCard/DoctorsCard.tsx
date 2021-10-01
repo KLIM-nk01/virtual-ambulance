@@ -23,7 +23,7 @@ const DoctorsCard: React.FC<IProps> = ({ setActive }) => {
         <img src={Olga} alt="foto" />
         <DoctorsDirection>Allergolog</DoctorsDirection>
         <DegreeScience>Professor</DegreeScience>
-        <Button onClick={() => setActive(true)} variant={'contained'}>
+        <Button onClick={() => setActive(true)} variant='contained'>
           Sign up
         </Button>
       </ContainerOne>

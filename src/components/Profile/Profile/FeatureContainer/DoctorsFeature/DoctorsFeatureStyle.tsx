@@ -7,7 +7,6 @@ export const Container = styled.div`
   border-top: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
   padding: 30px 10px;
   display: flex;
-  /* align-items: center; */
   justify-content: space-around;
 `;
 

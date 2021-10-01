@@ -4,7 +4,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   position: relative;
   width: 30%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,6 +11,7 @@ export const Container = styled.div`
   padding: 10px 0;
 
   box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.lightGrey};
+
   button {
     position: relative;
     bottom: 0;
@@ -35,6 +35,7 @@ export const ContainerContent = styled.div`
   flex-direction: column;
   margin-top: 10px;
 `;
+
 export const ContainerFooter = styled.div`
   width: 100%;
   display: flex;
@@ -51,10 +52,12 @@ export const Item = styled.div`
   justify-content: space-between;
   padding: 5px;
   margin-bottom: 10px;
+
   span {
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
     font-weight: 600;
   }
+
   button {
     min-width: 30px;
     margin: 0;

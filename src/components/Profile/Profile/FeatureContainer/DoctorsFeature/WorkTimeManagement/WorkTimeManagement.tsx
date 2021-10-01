@@ -6,9 +6,9 @@ import {
   ContainerFooter,
   Item,
   ContainerContent,
-} from '../MenegmentStyle';
+} from '../ManagementStyle';
 
-const WorkTimeMenegment: React.FC = () => {
+const WorkTimeManagement: React.FC = () => {
   return (
     <Container>
       <ContainersName>Work Time</ContainersName>
@@ -29,4 +29,4 @@ const WorkTimeMenegment: React.FC = () => {
   );
 };
 
-export default WorkTimeMenegment;
+export default WorkTimeManagement;
