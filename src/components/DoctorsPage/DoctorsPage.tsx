@@ -3,6 +3,7 @@ import { DoctorsPageWrapper, DortorsWrapper } from './DoctorsPageStyle';
 import DoctorsCard from './DoctorsCard/DoctorsCard';
 import DoctorsPageNavBar from './DoctorsPageNavBar/DoctorsPageNavBar';
 import Modal from '@components/common/Modal/Modal';
+import Portal from '@components/common/Portal/Portal';
 
 const DoctorsPage: React.FC = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -16,7 +17,9 @@ const DoctorsPage: React.FC = () => {
         <DoctorsCard setActive={setModalActive} />
         <DoctorsCard setActive={setModalActive} />
       </DortorsWrapper>
-      <Modal active={modalActive} setActive={setModalActive} />
+      <Portal>
+        <Modal active={modalActive} setActive={setModalActive} />
+      </Portal>
     </DoctorsPageWrapper>
   );
 };
