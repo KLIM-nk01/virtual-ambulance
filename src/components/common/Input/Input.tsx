@@ -6,14 +6,15 @@ interface IInput {
   placeholder?: string;
   type?: string;
   checkbox?: boolean;
+  name?: string;
+  register?: any;
 }
 
-const Input: React.FC<IInput> = (props) => {
-  
+const Input: React.FC<IInput> = ({ primary, type, placeholder, register }) => {
   return (
-    <InputGroup {...props}>
-      <input required type={props.type} />
-      <label>{props.placeholder}</label>
+    <InputGroup primary={primary} type={type}>
+      <input {...register} required type={type} />
+      <label>{placeholder}</label>
     </InputGroup>
   );
 };

@@ -11,16 +11,16 @@ export const InputGroup = styled.div<IStyleProps>`
   width: 300px;
   height: 40px;
   z-index: 0;
-  margin: 10px 0;
+  margin: 20px 0;
 
   input:focus ~ label,
   input ~ label {
     transform: translateY(-80%);
     font-size: 14px;
-    background: ${(props) =>
+    /* background: ${(props) =>
       props.primary
         ? STYLE_CONSTANTS.COLORS.white
-        : STYLE_CONSTANTS.COLORS.blue};
+        : STYLE_CONSTANTS.COLORS.blue}; */
     border-radius: 50px;
     margin-left: 10px;
     z-index: 1;
@@ -62,8 +62,7 @@ export const InputGroup = styled.div<IStyleProps>`
 
   label {
     position: absolute;
-    top: 20%;
-    left: 10px;
+    top: -10%;
     color: ${(props) =>
       props.primary
         ? STYLE_CONSTANTS.COLORS.darkGrey

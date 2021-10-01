@@ -62,6 +62,7 @@ export const FormName = styled.span`
   text-transform: uppercase;
   font-weight: 700;
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
+  margin-bottom: 10px;
 `;
 
 export const ButtonBar = styled.div`
