@@ -1,3 +1,4 @@
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
 
 interface IProps {
@@ -26,7 +27,7 @@ export const ModalWrapper = styled.div<IProps>`
 export const ModalContent = styled.div`
   padding: 20px;
   border-radius: 15px;
-  background: white;
+  background: ${STYLE_CONSTANTS.COLORS.white};
   width: 200px;
   height: 200px;
 `;

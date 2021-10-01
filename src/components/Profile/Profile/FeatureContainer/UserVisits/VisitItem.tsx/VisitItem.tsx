@@ -9,8 +9,7 @@ import {
   TicketInfo,
   Date,
   DoctorsInformation,
-  DoctorsDirection,
-  DoctorsName,
+  DoctorsInfo,
   DoctorsСabinet
 } from './VisitItemStyle';
 
@@ -34,8 +33,8 @@ const VisitItem: React.FC = () => {
           </Date>
         </GeneralInformation>
         <DoctorsInformation>
-          <DoctorsDirection>Allergolod</DoctorsDirection>
-          <DoctorsName>Moiseichuk Olga Valerievna</DoctorsName>
+          <DoctorsInfo>Allergolod</DoctorsInfo>
+          <DoctorsInfo>Moiseichuk Olga Valerievna</DoctorsInfo>
           <DoctorsСabinet>Cab. 512</DoctorsСabinet>
         </DoctorsInformation>
       </VisitInformation>

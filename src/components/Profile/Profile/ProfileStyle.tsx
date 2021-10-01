@@ -17,5 +17,4 @@ export const ProfileInformation = styled.div`
 export const ProfileFeature = styled.div`
   width: 100%;
   margin-top: 25px;
- 
 `;
