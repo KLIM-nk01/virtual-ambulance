@@ -1,7 +1,5 @@
 import styled from 'styled-components';
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import { flex } from '@styleMixin/flex';
-import { scroll } from '@styleMixin/scroll';
 
 export const DoctorsPageWrapper = styled.div`
   width: 100%;

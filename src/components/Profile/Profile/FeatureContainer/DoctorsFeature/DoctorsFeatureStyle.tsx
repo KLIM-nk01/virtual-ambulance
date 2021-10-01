@@ -1,13 +1,13 @@
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
 
-export const VisitContainer = styled.div`
+export const Container = styled.div`
   position: relative;
   width: 100%;
   border-top: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
-  padding: 25px 10px;
+  padding: 30px 10px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-around;
 `;
 
 export const ContainerName = styled.span`

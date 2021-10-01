@@ -10,11 +10,11 @@ export const ProfileWrapper = styled.div`
 
 export const ProfileInformation = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
 `;
 
 export const ProfileFeature = styled.div`
   width: 100%;
-  height: 40px;
   margin-top: 25px;
 `;

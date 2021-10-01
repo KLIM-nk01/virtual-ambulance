@@ -18,13 +18,16 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
         <DoctorCheckButton>
           <span
             onClick={() => {
-               setDoctor(true);
+              setDoctor(true);
             }}>
             Click here if you are doctor
           </span>
         </DoctorCheckButton>
         <Input primary placeholder="Name" type="text" />
-        <Input primary placeholder="Last Name" type="text" />
+        <Input primary placeholder="Birthday (dd/mm/yyyy)" type="text" />
+        <Input primary placeholder="Address" type="text" />
+        <Input primary placeholder="Work Place" type="text" />
+        <Input primary placeholder="Phone Number" type="email" />
         <Input primary placeholder="Email" type="email" />
         <Input primary placeholder="Passord" type="password" />
         <Input primary placeholder="Reapeat Passord" type="password" />

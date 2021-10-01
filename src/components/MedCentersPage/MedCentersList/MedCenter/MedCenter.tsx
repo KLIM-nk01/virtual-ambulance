@@ -38,9 +38,7 @@ const MedCenter: React.FC = () => {
       </ItemDescription>
 
       <ItemButtons>
-        <Button variant={'contained'}>Call</Button>
-        <Button variant={'outlined'}>Sign up</Button>
-        <Button variant={'outlined'}>Services</Button>
+        <Button variant={'contained'}>More</Button>
       </ItemButtons>
     </MedCenterItem>
   );
