@@ -1,4 +1,5 @@
-import React from 'react';
+import { ErrorMessage } from '@hookform/error-message';
+import React, { useState } from 'react';
 import { InputGroup } from './InputStyle';
 
 interface IInput {
@@ -8,13 +9,25 @@ interface IInput {
   checkbox?: boolean;
   name?: string;
   register?: any;
+  errors?: object;
+  
 }
 
-const Input: React.FC<IInput> = ({ primary, type, placeholder, register }) => {
+const Input: React.FC<IInput> = ({
+  primary,
+  type,
+  placeholder,
+  register,
+  children,
+  errors,
+
+}) => {
   return (
     <InputGroup primary={primary} type={type}>
-      <input {...register} required type={type} />
       <label>{placeholder}</label>
+      <input {...register} type={type} />
+
+     {children}
     </InputGroup>
   );
 };

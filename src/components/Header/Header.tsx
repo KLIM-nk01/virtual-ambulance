@@ -9,7 +9,7 @@ const Header: React.FC = () => {
     <HeaderWrapper>
       <HeaderContainerStyle>
         <Logo />
-        <Input placeholder={'Search'} type='text'/>
+        <Input name="search" type="text" />
         <LogIn />
       </HeaderContainerStyle>
     </HeaderWrapper>

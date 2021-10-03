@@ -24,6 +24,9 @@ export const Form = styled.form`
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
+  div {
+    margin-top: 15px;
+  }
 
   a {
     span {
@@ -42,7 +45,7 @@ export const Form = styled.form`
 
 export const DoctorCheckButton = styled.div`
   width: 100%;
-  height: 50px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -62,7 +65,6 @@ export const FormName = styled.span`
   text-transform: uppercase;
   font-weight: 700;
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
-  margin-bottom: 10px;
 `;
 
 export const ButtonBar = styled.div`

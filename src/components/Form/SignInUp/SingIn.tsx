@@ -5,39 +5,54 @@ import { FormContainer, FormName, Form, ButtonBar } from './FormStyle';
 import { NavLink } from 'react-router-dom';
 import { ROUTS } from '@constants/routs';
 import { useForm } from 'react-hook-form';
-interface FormValue {
-  email: string;
-  password?: any;
-  message?: string | React.ReactElement;
-  name?: string;
-}
+import { ErrorMessage } from '@hookform/error-message';
+import { Email, Password } from './validationConstants';
+
+// interface FormValue {
+//   email: string;
+//   password?: any;
+//   message?: string | React.ReactElement;
+//   name?: string;
+//   singleErrorInput: string;
+// }
 
 const SingInForm: React.FC = () => {
-  const { register, handleSubmit } = useForm<FormValue>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const onSubmit = (data: any) => console.log(data);
 
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Sin In to your account</FormName>
-        {/* {errors.email && <div>sdfsdfsdf</div>} */}
         <Input
-          register={register('email', {
-            pattern:
-              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-          })}
           primary
           placeholder="Email"
-          type="email"
-        />
+          // type='email'
+          name="email"
+          register={register('email', Email)}
+          // error={!!Object.keys(errors.email).length}
+          // errors={errors}
+        >
+          <ErrorMessage errors={errors} name="email" render={({ message }) => <p>{message}</p>} />
+        </Input>
+
         <Input
-          register={register('password', {
-            min: 8
-          })}
           primary
           placeholder="Password"
           type="password"
-        />
+          name="password"
+          register={register('password', Password)}
+        >
+          <ErrorMessage
+            errors={errors}
+            name="password"
+            render={({ message }) => <p>{message}</p>}
+          />
+        </Input>
 
         <NavLink to={ROUTS.SINGUP_FORM}>
           <span>Don't have an account? Registration</span>
@@ -47,7 +62,6 @@ const SingInForm: React.FC = () => {
           <Button round type="submit">
             Sign In
           </Button>
-          {/* <Input type="submit" placeholder="Sign In" /> */}
           <Button round>G</Button>
         </ButtonBar>
       </Form>
