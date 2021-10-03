@@ -3,7 +3,7 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const Card = styled.div`
   width: 450px;
-  height: 400px;
+  height: 300px;
   margin: 20px 10px;
 
   border-radius: 15px;

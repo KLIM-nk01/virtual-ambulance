@@ -1,4 +1,4 @@
-import { UserData } from '@data/UserData';
+import { UserData } from '@data/users/UserData';
 import React from 'react';
 import {
   AboutUser,
