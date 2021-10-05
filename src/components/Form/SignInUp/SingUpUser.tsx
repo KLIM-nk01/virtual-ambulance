@@ -13,9 +13,10 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
-  } = useForm();
-
+    // formState: { errors },
+    errors,
+  } = useForm() as any;
+  debugger;
   const password = useRef({});
   password.current = watch('password', '');
 
@@ -143,7 +144,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="password"
           placeholder="Repeat Password"
           register={register('password_repeat', {
-            validate: (value) => value === password.current || 'The passwords do not match',
+            validate: (value: any) => value === password.current || 'The passwords do not match',
           })}
         >
           <ErrorMessage

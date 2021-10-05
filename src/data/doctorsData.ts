@@ -1,3 +1,5 @@
+import * as icons from '@assets/doctorsImg';
+
 export const doctorsData = [
   {
     id_doctor: 0,
@@ -8,7 +10,7 @@ export const doctorsData = [
     workPlace: 'id_medcenter',
     direction: 'Allergist',
     expiriens: '21 years',
-    photo: '@assets/doctorsImg/females/f1.jpg',
+    photo: icons.f1,
     description:
       'is a specialist in correcting speech defects in children. Olga Valerievna is a specialist in correcting speech defects in children.',
     patient: ['id_user', 'id_user'],
@@ -28,7 +30,7 @@ export const doctorsData = [
     workPlace: 'id_medcenter',
     direction: 'Cardiologist',
     expiriens: '5 years',
-    photo: '@assets/doctorsImg/males/m1.jpg',
+    photo: icons.f2,
     description:
       'The prominence of heart disease in America makes a cardiologist a very important health profession.',
     patient: ['id_user', 'id_user'],
@@ -48,7 +50,7 @@ export const doctorsData = [
     workPlace: 'id_medcenter',
     direction: 'Immunologist',
     expiriens: '4 years',
-    photo: '@assets/doctorsImg/males/m2.jpg',
+    photo: icons.m1,
     description:
       'An immunologist treats health issues brought on by immune system problems. Also known as allergists, immunologists are doctors who diagnose,',
     patient: ['id_user', 'id_user'],
@@ -68,7 +70,7 @@ export const doctorsData = [
     workPlace: 'id_medcenter',
     direction: 'Mammologist',
     expiriens: '10 years',
-    photo: '@assets/doctorsImg/males/m3.jpg',
+    photo: icons.m3,
     description:
       'Mammalogy is a specialized field of biology that deals specifically with the study and observation of mammals.',
     patient: ['id_user', 'id_user'],

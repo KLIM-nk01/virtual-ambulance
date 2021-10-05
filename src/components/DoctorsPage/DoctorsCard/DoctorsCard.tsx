@@ -35,20 +35,21 @@ const DoctorsCard: React.FC<IProps> = ({
   return (
     <Card>
       <ContainerOne>
-        <img src={NoAva} alt="foto" />
+        <img src={photo} alt="foto" />
         <DoctorsDirection>{direction}</DoctorsDirection>
-        {/* <DegreeScience>Professor</DegreeScience> */}
-        <Button onClick={() => setActive(true)} variant="contained">
-          Sign up
-        </Button>
       </ContainerOne>
 
       <ContainerTwo>
         <NameSurname>
           {name} {lastName}
         </NameSurname>
+
         <Expiriens>Expiriens: {expiriens}</Expiriens>
+
         <Description>{description}</Description>
+        <Button onClick={() => setActive(true)} variant="contained">
+          Sign up
+        </Button>
       </ContainerTwo>
     </Card>
   );

@@ -11,30 +11,30 @@ import {
 import Button from '@components/common/Button/Button';
 import { NavLink } from 'react-router-dom';
 
-const MedCenter: React.FC = () => {
+interface IMedCenter {
+  name: string;
+  address: string;
+  photo: any;
+  description: string;
+}
+
+const MedCenter: React.FC<IMedCenter> = ({ name, address, photo, description }) => {
   return (
     <MedCenterItem>
       <ItemHeader>
         <NavLink to="#">
-          <Title>LODE</Title>
+          <Title>{name}</Title>
         </NavLink>
         <NavLink to="#">
-          <SubTitle>Minsk, Independence, 58A</SubTitle>
+          <SubTitle>{address}</SubTitle>
         </NavLink>
       </ItemHeader>
 
       <ItemPhoto>
-        <img
-          src="https://p1.zoon.ru/preview/AP4f0L1EIuknqc7Lx9JVdw/625x440x85/0/5/a/51cd2a06a0f302050f000013_53bf655292cca.jpg"
-          alt="Center Photo"
-        />
+        <img src={photo} alt="Center Photo" />
       </ItemPhoto>
       <ItemDescription>
-        <p>
-          The multidisciplinary medical company "LODE" has been operating since 1992. For almost 30
-          years of activity, the centers have received many awards in their industry and, most
-          importantly, popular confidence and recognition.
-        </p>
+        <p>{description}</p>
       </ItemDescription>
 
       <ItemButtons>

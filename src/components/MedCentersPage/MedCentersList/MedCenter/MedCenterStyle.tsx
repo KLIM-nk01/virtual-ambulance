@@ -47,7 +47,7 @@ export const ItemPhoto = styled.div`
   width: 100%;
   height: 200px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
 
   border: 1px solid ${STYLE_CONSTANTS.COLORS.darkGrey};
