@@ -10,24 +10,14 @@ interface IInput {
   name?: string;
   register?: any;
   errors?: object;
-  
 }
 
-const Input: React.FC<IInput> = ({
-  primary,
-  type,
-  placeholder,
-  register,
-  children,
-  errors,
-
-}) => {
+const Input: React.FC<IInput> = ({ primary, type, placeholder, register, children, errors }) => {
   return (
     <InputGroup primary={primary} type={type}>
       <label>{placeholder}</label>
       <input {...register} type={type} />
-
-     {children}
+      {children}
     </InputGroup>
   );
 };

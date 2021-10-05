@@ -13,10 +13,10 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
     register,
     handleSubmit,
     watch,
-    // formState: { errors },
-    errors,
+    formState: { errors },
+    // errors,
   } = useForm() as any;
-  debugger;
+
   const password = useRef({});
   password.current = watch('password', '');
 

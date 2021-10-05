@@ -7,6 +7,7 @@ import { ROUTS } from '@constants/routs';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { Email, Password } from './validationConstants';
+import { IDoctor } from './type';
 
 // interface FormValue {
 //   email: string;
@@ -35,7 +36,7 @@ const SingInForm: React.FC = () => {
           name="email"
           register={register('email', Email)}
           // error={!!Object.keys(errors.email).length}
-          // errors={errors}
+          errors={errors}
         >
           <ErrorMessage errors={errors} name="email" render={({ message }) => <p>{message}</p>} />
         </Input>
