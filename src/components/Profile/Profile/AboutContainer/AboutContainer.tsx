@@ -1,4 +1,4 @@
-import { UserData } from '@data/UserData';
+import { usersData } from '@data/usersData';
 import React from 'react';
 import {
   AboutUser,
@@ -12,33 +12,33 @@ import {
 const AboutContainer = () => (
   <Container>
     <UserName>
-      <span>{UserData.name}</span>
+      <span>{usersData.name}</span> <span>{usersData.lastName}</span>
     </UserName>
 
     <AboutUser>
       <ProfileInfoRow>
         <InfoLabel>Birthday: </InfoLabel>
-        <DescriptionLabel>{UserData.birthday}</DescriptionLabel>
+        <DescriptionLabel>{usersData.birthday}</DescriptionLabel>
       </ProfileInfoRow>
 
       <ProfileInfoRow>
         <InfoLabel>Email: </InfoLabel>
-        <DescriptionLabel>{UserData.email}</DescriptionLabel>
+        <DescriptionLabel>{usersData.email}</DescriptionLabel>
       </ProfileInfoRow>
 
       <ProfileInfoRow>
         <InfoLabel>Phone Number: </InfoLabel>
-        <DescriptionLabel>{UserData.phoneNumber}</DescriptionLabel>
+        <DescriptionLabel>{usersData.phone}</DescriptionLabel>
       </ProfileInfoRow>
 
-      <ProfileInfoRow>
+      {/* <ProfileInfoRow>
         <InfoLabel>Work Place: </InfoLabel>
-        <DescriptionLabel>{UserData.workPlace}</DescriptionLabel>
-      </ProfileInfoRow>
+        <DescriptionLabel>{usersData.workPlace}</DescriptionLabel>
+      </ProfileInfoRow> */}
 
       <ProfileInfoRow>
         <InfoLabel>Address: </InfoLabel>
-        <DescriptionLabel>{UserData.address}</DescriptionLabel>
+        <DescriptionLabel>{usersData.address}</DescriptionLabel>
       </ProfileInfoRow>
     </AboutUser>
   </Container>

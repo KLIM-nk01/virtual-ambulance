@@ -3,12 +3,11 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const Card = styled.div`
   width: 450px;
-  height: 400px;
+  height: 300px;
   margin: 20px 10px;
 
   border-radius: 15px;
   display: flex;
-  justify-content: space-between;
   background: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   color: ${STYLE_CONSTANTS.COLORS.black};
   padding: 15px;
@@ -23,22 +22,29 @@ export const Card = styled.div`
 `;
 
 export const ContainerOne = styled.div`
-  width: 150px;
+  width: fit-content;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  margin-right: 10px;
   img {
-    width: 150px;
-    border: 1px solid ${STYLE_CONSTANTS.COLORS.darkGrey};
+    width: 120px;
+    margin-bottom: 10px;
   }
 `;
 
 export const ContainerTwo = styled.div`
-  width: 50%;
+  position: relative;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+  }
 `;
 
 const Title = styled.span`

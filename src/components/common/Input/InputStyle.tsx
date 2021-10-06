@@ -4,73 +4,57 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 interface IStyleProps {
   primary?: boolean;
   type?: string;
+  error?: boolean;
 }
 
 export const InputGroup = styled.div<IStyleProps>`
   position: relative;
   width: 300px;
-  height: 40px;
+  margin-bottom: 5px;
   z-index: 0;
-  margin: 10px 0;
-
-  input:focus ~ label,
-  input ~ label {
-    transform: translateY(-80%);
-    font-size: 14px;
-    background: ${(props) =>
-      props.primary
-        ? STYLE_CONSTANTS.COLORS.white
-        : STYLE_CONSTANTS.COLORS.blue};
-    border-radius: 50px;
-    margin-left: 10px;
-    z-index: 1;
-
-    color: ${(props) =>
-      props.primary
-        ? STYLE_CONSTANTS.COLORS.blue
-        : STYLE_CONSTANTS.COLORS.white};
-  }
 
   input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+    height: 40px;
     width: 100%;
-    border: 1px solid ${STYLE_CONSTANTS.COLORS.gray};
+    border: none;
+    border: 1px solid
+      ${(props) => (props.error ? STYLE_CONSTANTS.COLORS.red : STYLE_CONSTANTS.COLORS.gray)};
     border-radius: 50px;
-    padding: 10px 20px;
+    padding: 5px 20px;
     background: inherit;
     transition: 0.3s;
     color: ${(props) =>
-      props.primary
-        ? STYLE_CONSTANTS.COLORS.black
-        : STYLE_CONSTANTS.COLORS.white};
+      props.primary ? STYLE_CONSTANTS.COLORS.black : STYLE_CONSTANTS.COLORS.white};
     z-index: 1;
 
     :focus {
       border-color: ${(props) =>
-        props.primary
-          ? STYLE_CONSTANTS.COLORS.blue
-          : STYLE_CONSTANTS.COLORS.white};
+        props.primary ? STYLE_CONSTANTS.COLORS.blue : STYLE_CONSTANTS.COLORS.white};
       color: ${(props) =>
-        props.primary
-          ? STYLE_CONSTANTS.COLORS.black
-          : STYLE_CONSTANTS.COLORS.white};
+        props.primary ? STYLE_CONSTANTS.COLORS.black : STYLE_CONSTANTS.COLORS.white};
     }
   }
 
   label {
-    position: absolute;
-    top: 20%;
-    left: 10px;
     color: ${(props) =>
-      props.primary
-        ? STYLE_CONSTANTS.COLORS.darkGrey
-        : STYLE_CONSTANTS.COLORS.white};
+      props.primary ? STYLE_CONSTANTS.COLORS.blue : STYLE_CONSTANTS.COLORS.white};
     transition: 0.3s;
     cursor: text;
     transition: all 200ms ease;
-    padding: 0 10px;
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+    margin-left: 10px;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLittle};
+    color: ${STYLE_CONSTANTS.COLORS.red};
+    margin-top: 5px;
+    margin-left: 10px;
+    ::before {
+      display: inline;
+      content: '⚠ ';
+    }
   }
 `;

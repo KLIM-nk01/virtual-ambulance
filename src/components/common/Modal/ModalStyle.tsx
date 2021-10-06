@@ -22,6 +22,7 @@ export const ModalWrapper = styled.div<IProps>`
     `opacity: 1; 
      pointer-events: all;`}
   transform: 0.5s;
+ 
 `;
 
 export const ModalContent = styled.div`

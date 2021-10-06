@@ -1,6 +1,6 @@
 import React from 'react';
 import { DoctorsPageNavBarWrapper } from './DoctorsPageNavBarStyle';
-import { doctorsDirection } from '@data/doctors/doctorsDirection';
+import { doctorsDirection } from '@data/doctorsDirection';
 import Direction from './Direction/Direction';
 
 const DoctorsPageNavBar = () => {

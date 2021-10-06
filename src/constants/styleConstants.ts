@@ -9,7 +9,7 @@ export const STYLE_CONSTANTS = {
     veryLarge: '24px'
   },
   COLORS: {
-    red: '',
+    red: 'red',
     slateBlue: '#7e57f0',
     basil: '#4a88ed',
     moderateTurquoise: '#45C6D7',
