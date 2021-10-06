@@ -1,5 +1,4 @@
-import { ErrorMessage } from '@hookform/error-message';
-import React, { useState } from 'react';
+import React from 'react';
 import { InputGroup } from './InputStyle';
 
 interface IInput {
@@ -12,13 +11,19 @@ interface IInput {
   errors?: any;
 }
 
-const Input: React.FC<IInput> = ({ primary, type, placeholder, register, children, errors }) => {
+const Input: React.FC<IInput> = ({
+  primary,
+  type,
+  placeholder,
+  register,
+  children
+  // errors
+}) => {
   return (
     <InputGroup primary={primary} type={type}>
       <label>{placeholder}</label>
       <input {...register} type={type} />
       {children}
-      {console.log(errors)}
     </InputGroup>
   );
 };

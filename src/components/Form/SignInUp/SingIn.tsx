@@ -7,15 +7,6 @@ import { ROUTS } from '@constants/routs';
 import { useForm } from 'react-hook-form';
 import { ErrorMessage } from '@hookform/error-message';
 import { Email, Password } from './validationConstants';
-import { IDoctor } from './type';
-
-// interface FormValue {
-//   email: string;
-//   password?: any;
-//   message?: string | React.ReactElement;
-//   name?: string;
-//   singleErrorInput: string;
-// }
 
 const SingInForm: React.FC = () => {
   const {
@@ -25,12 +16,11 @@ const SingInForm: React.FC = () => {
     errors: test
   } = useForm() as any;
   const onSubmit = (data: any) => console.log(data);
-debugger
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Sin In to your account</FormName>
-        
+
         <Input
           primary
           placeholder="Email"
@@ -38,10 +28,13 @@ debugger
           name="email"
           register={register('email', Email)}
           // error={!!Object.keys(errors.email).length}
-          errors={test}
-        >
+          errors={test}>
           {console.log(test, '+')}
-          <ErrorMessage errors={errors} name="email" render={({ message }) => <p>{message}</p>} />
+          <ErrorMessage
+            errors={errors}
+            name="email"
+            render={({ message }) => <p>{message}</p>}
+          />
         </Input>
 
         <Input
@@ -49,8 +42,7 @@ debugger
           placeholder="Password"
           type="password"
           name="password"
-          register={register('password', Password)}
-        >
+          register={register('password', Password)}>
           <ErrorMessage
             errors={errors}
             name="password"

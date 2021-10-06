@@ -12,7 +12,7 @@ import {
 } from './FormStyle';
 import { IDoctor } from './type';
 import { useForm } from 'react-hook-form';
-import { Birthday, Email, Expiriens, Password, PhoneNumber, Required } from './validationConstants';
+import { Email, Expiriens, Password, PhoneNumber, Required } from './validationConstants';
 import { ErrorMessage } from '@hookform/error-message';
 
 const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {

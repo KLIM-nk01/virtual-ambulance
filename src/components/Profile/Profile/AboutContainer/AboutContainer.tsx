@@ -6,13 +6,13 @@ import {
   DescriptionLabel,
   InfoLabel,
   ProfileInfoRow,
-  UserName,
+  UserName
 } from './AboutContainerStyle';
 
 const AboutContainer = () => (
   <Container>
     <UserName>
-      <span>{usersData.name}</span>
+      <span>{usersData.name}</span> <span>{usersData.lastName}</span>
     </UserName>
 
     <AboutUser>
