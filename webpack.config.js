@@ -20,7 +20,8 @@ module.exports = {
       '@styleMixin': path.resolve(__dirname, 'src/styleMixin/'),
       '@assets': path.resolve(__dirname, 'src/assets/'),
       '@data': path.resolve(__dirname, 'src/data/'),
-      '@containers': path.resolve(__dirname, 'src/Containers/')
+      '@containers': path.resolve(__dirname, 'src/Containers/'),
+      '@hooks': path.resolve(__dirname, 'src/hooks/')
     }
   },
   plugins: [

@@ -3,9 +3,8 @@ import { combineReducers } from 'redux';
 import { doctorsReducer } from './doctorsReducer';
 
 export const rootReducer = combineReducers({
-    medCenter: medCenterReducer,
-    doctorsReducer: doctorsReducer
+  medCenter: medCenterReducer,
+  doctors: doctorsReducer
 });
 
-
-export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof rootReducer>;
