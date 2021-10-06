@@ -22,13 +22,15 @@ const SingInForm: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+    errors: test
+  } = useForm() as any;
   const onSubmit = (data: any) => console.log(data);
-
+debugger
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Sin In to your account</FormName>
+        
         <Input
           primary
           placeholder="Email"
@@ -36,8 +38,9 @@ const SingInForm: React.FC = () => {
           name="email"
           register={register('email', Email)}
           // error={!!Object.keys(errors.email).length}
-          errors={errors}
+          errors={test}
         >
+          {console.log(test, '+')}
           <ErrorMessage errors={errors} name="email" render={({ message }) => <p>{message}</p>} />
         </Input>
 
