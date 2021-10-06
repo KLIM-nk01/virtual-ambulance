@@ -6,11 +6,9 @@ import {
   NameSurname,
   Expiriens,
   DoctorsDirection,
-  DegreeScience,
   Description,
 } from './DoctorsCardStyle';
 import Button from '@components/common/Button/Button';
-import NoAva from '@assets/NoAvatar.png';
 
 interface IProps {
   setActive: (value: boolean) => void;
