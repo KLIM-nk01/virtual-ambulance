@@ -22,13 +22,12 @@ export const ModalWrapper = styled.div<IProps>`
     `opacity: 1; 
      pointer-events: all;`}
   transform: 0.5s;
- 
 `;
 
 export const ModalContent = styled.div`
+  position: relative;
   padding: 20px;
   border-radius: 15px;
   background: ${STYLE_CONSTANTS.COLORS.white};
-  width: 200px;
-  height: 200px;
+  
 `;

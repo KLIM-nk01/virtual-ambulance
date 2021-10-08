@@ -11,7 +11,7 @@ export const Card = styled.div`
   background: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   color: ${STYLE_CONSTANTS.COLORS.black};
   padding: 15px;
-  box-shadow: 0px 0px 15px 1px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  box-shadow: 0px 0px 15px 0px ${STYLE_CONSTANTS.COLORS.darkGrey};
   transition: 0.5s;
 
   :hover {

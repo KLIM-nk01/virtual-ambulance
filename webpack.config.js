@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -12,6 +13,7 @@ module.exports = {
     filename: '[name].[hash].js',
     publicPath: '/'
   },
+  
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.png', '.ts'],
     alias: {
@@ -20,7 +22,8 @@ module.exports = {
       '@styleMixin': path.resolve(__dirname, 'src/styleMixin/'),
       '@assets': path.resolve(__dirname, 'src/assets/'),
       '@data': path.resolve(__dirname, 'src/data/'),
-      '@containers': path.resolve(__dirname, 'src/Containers/')
+      '@containers': path.resolve(__dirname, 'src/Containers/'),
+      '@hooks': path.resolve(__dirname, 'src/hooks/')
     }
   },
   plugins: [
@@ -28,7 +31,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css'
-    })
+    }),
+    new Dotenv()
   ],
   devServer: {
     historyApiFallback: true

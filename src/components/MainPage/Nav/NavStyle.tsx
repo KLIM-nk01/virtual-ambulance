@@ -4,8 +4,12 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const NavWrapper = styled.div`
   display: flex;
-
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   a {
+    height: 55%;
+    min-height: 300px;
     text-decoration: none;
     color: ${STYLE_CONSTANTS.COLORS.white};
   }
@@ -13,7 +17,7 @@ export const NavWrapper = styled.div`
 
 export const NavItem = styled.div`
   width: 220px;
-  height: 390px;
+  height: 100%;
   padding-bottom: 5px;
   transition: 0.5s;
   background: ${STYLE_CONSTANTS.COLORS.lavender};

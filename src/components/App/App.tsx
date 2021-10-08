@@ -4,11 +4,6 @@ import { ROUTS } from '@constants/routs';
 import { AppWrapper, Main } from './AppStyle';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
-// import MainPage from '@components/MainPage/MainPage';
-import MedCentersPage from '@components/MedCentersPage/MedCentersPage';
-import DoctorsPage from '@components/DoctorsPage/DoctorsPage';
-import PersonalAccountPage from '@components/Profile/ProfilePage';
-import FormPage from '@components/Form/FormPage';
 
 const App: React.FC = () => {
   return (
@@ -24,26 +19,37 @@ const App: React.FC = () => {
                 exact
                 path={ROUTS.MAIN_PAGE_PATH}
                 component={React.lazy(
-                  () => import('@components/MainPage/MainPage')
+                  () => import('@containers/MainPageContainer')
                 )}
               />
               <Route
                 exact
                 path={ROUTS.MEDCENTERS_PAGE_PATH}
-                render={() => <MedCentersPage />}
+                component={React.lazy(
+                  () => import('@containers/MedCentersPageContainer')
+                )}
               />
               <Route
                 exact
                 path={ROUTS.DOCTORS_PAGE_PATH}
-                render={() => <DoctorsPage />}
+                component={React.lazy(
+                  () => import('@containers/DoctorsPageContainer')
+                )}
               />
               <Route
                 exact
                 path={ROUTS.PERSONAL_ACCOUNT}
-                render={() => <PersonalAccountPage />}
+                component={React.lazy(
+                  () => import('@containers/ProfilePageContainer')
+                )}
               />
 
-              <Route path={ROUTS.FORM_PAGE} render={() => <FormPage />} />
+              <Route
+                path={ROUTS.FORM_PAGE}
+                component={React.lazy(
+                  () => import('@containers/FormPageContainer')
+                )}
+              />
 
               <Route
                 exact

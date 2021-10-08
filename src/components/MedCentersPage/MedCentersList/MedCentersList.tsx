@@ -4,7 +4,6 @@ import MedCenter from './MedCenter/MedCenter';
 import { NavLink } from 'react-router-dom';
 import { ROUTS } from '@constants/routs';
 import { medCenterData } from '@data/medCenterData';
-// import { Input } from '@components/common/Input/InputStyle';
 
 const MedCentersList: React.FC = () => {
   return (

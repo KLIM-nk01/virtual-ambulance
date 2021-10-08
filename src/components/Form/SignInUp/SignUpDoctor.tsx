@@ -13,7 +13,6 @@ import {
 import { IDoctor } from './type';
 import { useForm } from 'react-hook-form';
 import { Email, Expiriens, Password, PhoneNumber, Required } from './validationConstants';
-import { ErrorMessage } from '@hookform/error-message';
 
 const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
   const onSubmit = (data: any) => console.log(data);
@@ -48,9 +47,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="name"
           register={register('name', Required)}
-        >
-          <ErrorMessage errors={errors} name="name" render={({ message }) => <p>{message}</p>} />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -58,13 +56,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="last name"
           register={register('last name', Required)}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="last name"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -72,10 +65,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           name="email"
           register={register('email', Email)}
           placeholder="Email"
-          // error={!!Object.keys(errors.email).length}
-        >
-          <ErrorMessage errors={errors} name="email" render={({ message }) => <p>{message}</p>} />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -83,14 +74,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           name="phone number"
           register={register('phone number', PhoneNumber)}
           placeholder="Phone number"
-          // error={!!Object.keys(errors.email).length}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="phone number"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -98,14 +83,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           name="expiriens"
           register={register('expiriens', Expiriens)}
           placeholder="Expiriens"
-          // error={!!Object.keys(errors.email).length}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="expiriens"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <QuestionWrapper>
           <span>-Indicate your direction</span>
@@ -115,13 +94,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
             type="text"
             name="direction"
             register={register('direction', Required)}
-          >
-            <ErrorMessage
-              errors={errors}
-              name="direction"
-              render={({ message }) => <p>{message}</p>}
-            />
-          </Input>
+            errors={errors}
+          />
         </QuestionWrapper>
 
         <QuestionWrapper>
@@ -132,14 +106,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
             name="work Place"
             register={register('work place', Required)}
             placeholder="Work Place"
-            // error={!!Object.keys(errors.email).length}
-          >
-            <ErrorMessage
-              errors={errors}
-              name="work place"
-              render={({ message }) => <p>{message}</p>}
-            />
-          </Input>
+            errors={errors}
+          />
           <MedCentersSelect>Select with submenu</MedCentersSelect>
         </QuestionWrapper>
 
@@ -149,13 +117,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           type="password"
           placeholder="Password"
           register={register('password', Password)}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="password"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -165,13 +128,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           register={register('password_repeat', {
             validate: (value) => value === password.current || 'The passwords do not match',
           })}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="password_repeat"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <ButtonBar>
           <Button type="submit" round>
