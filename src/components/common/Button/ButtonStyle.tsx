@@ -25,13 +25,6 @@ export const ButtonStyle = styled.button<IProps>`
     background: #d0deec;
   }
 
-  :disabled {
-    cursor: default;
-    background: #e0e0e0;
-    color: #7f8e9d;
-    border: none;
-  }
-
   ${(props) => {
     switch (props.variant) {
       case 'outlined':
@@ -105,4 +98,11 @@ export const ButtonStyle = styled.button<IProps>`
         `;
     }
   }};
+
+  :disabled {
+    cursor: default;
+    background: #e0e0e0;
+    color: #7f8e9d;
+    border: none;
+  }
 `;

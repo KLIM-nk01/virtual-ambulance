@@ -23,6 +23,7 @@ export const STYLE_CONSTANTS = {
     pearl: '#5D5E69',
     gray: '#d0deec',
     lightGrey: '#818C99',
+    whiteGrey: '#e1e5e6',
     blue: '#007fff',
     darkBlue: '#0072E5'
   }

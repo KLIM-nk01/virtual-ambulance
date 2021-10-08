@@ -40,9 +40,8 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="name"
           register={register('name', Required)}
-        >
-          <ErrorMessage errors={errors} name="name" render={({ message }) => <p>{message}</p>} />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -50,13 +49,8 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="last name"
           register={register('last name', Required)}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="last name"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -64,13 +58,8 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="birthday"
           register={register('Birthday', Birthday)}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="Birthday"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -78,10 +67,8 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           name="email"
           register={register('email', Email)}
           placeholder="Email"
-          // error={!!Object.keys(errors.email).length}
-        >
-          <ErrorMessage errors={errors} name="email" render={({ message }) => <p>{message}</p>} />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -89,14 +76,8 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           name="phone number"
           register={register('phone number', PhoneNumber)}
           placeholder="Phone number"
-          // error={!!Object.keys(errors.email).length}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="phone number"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -104,25 +85,17 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           name="address"
           register={register('address', Required)}
           placeholder="Address"
-          // error={!!Object.keys(errors.email).length}
-        >
-          <ErrorMessage errors={errors} name="address" render={({ message }) => <p>{message}</p>} />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
           type="text"
-          name="work Place"
+          name="work place"
           register={register('work place', Required)}
           placeholder="Work Place"
-          // error={!!Object.keys(errors.email).length}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="work place"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -130,13 +103,8 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="password"
           placeholder="Password"
           register={register('password', Password)}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="password"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <Input
           primary
@@ -146,13 +114,8 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           register={register('password_repeat', {
             validate: (value: any) => value === password.current || 'The passwords do not match',
           })}
-        >
-          <ErrorMessage
-            errors={errors}
-            name="password_repeat"
-            render={({ message }) => <p>{message}</p>}
-          />
-        </Input>
+          errors={errors}
+        />
 
         <ButtonBar>
           <Button type="submit" round>

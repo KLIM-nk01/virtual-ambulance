@@ -45,7 +45,7 @@ const DoctorsCard: React.FC<IProps> = ({
         <Expiriens>Expiriens: {expiriens}</Expiriens>
 
         <Description>{description}</Description>
-        <Button onClick={() => setActive(true)} variant="contained">
+        <Button round onClick={() => setActive(true)} variant="contained">
           Sign up
         </Button>
       </ContainerTwo>

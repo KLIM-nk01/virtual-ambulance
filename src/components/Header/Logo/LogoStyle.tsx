@@ -19,8 +19,8 @@ export const Container = styled.div`
 
   span {
     ${fonts};
-    font-family: 'Parisienne', cursive;
-    font-size: 24px;
+    font-family: 'Poppins';
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.medium};
     color: ${STYLE_CONSTANTS.COLORS.white};
   }
 
