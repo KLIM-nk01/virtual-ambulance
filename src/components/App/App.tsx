@@ -8,12 +8,7 @@ import Header from '../Header/Header';
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <React.Suspense
-        fallback={() => (
-          <div style={{ width: '500px', height: '500px', background: 'red' }}>
-            loading
-          </div>
-        )}>
+      <React.Suspense fallback={() => <div>loading</div>}>
         <GlobalStyle />
         <AppWrapper>
           <Header />
