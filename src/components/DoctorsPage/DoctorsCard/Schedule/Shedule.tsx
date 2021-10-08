@@ -11,6 +11,9 @@ const Shedule: React.FC = () => {
       </WrapperHeader>
       <ItemWrapper>
         <SheduleItem />
+        <SheduleItem />
+        <SheduleItem />
+        <SheduleItem />
       </ItemWrapper>
       <Button disabled round variant="contained">
         Sign Up

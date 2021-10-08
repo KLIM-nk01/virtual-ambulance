@@ -16,10 +16,6 @@ export const MedCenterItem = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-
-  div {
-    margin: 5px 0;
-  }
 `;
 
 export const Title = styled.span`
@@ -55,12 +51,22 @@ export const ItemPhoto = styled.div`
     width: 100%;
   }
   overflow: hidden;
+  margin-bottom: 5px;
 `;
 
 export const ItemDescription = styled.div`
   width: 100%;
   p {
     color: ${STYLE_CONSTANTS.COLORS.darkGrey};
+  }
+  span {
+    display: block;
+    color: ${STYLE_CONSTANTS.COLORS.darkGrey};
+    margin: 10px 0;
+    cursor: pointer;
+    :hover {
+      color: ${STYLE_CONSTANTS.COLORS.blue};
+    }
   }
 `;
 
@@ -69,4 +75,42 @@ export const ItemButtons = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const ItemMore = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+
+export const CenterSraff = styled.div`
+  position: relative;
+  width: 90%;
+  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  padding: 30px 10px;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+  background: ${STYLE_CONSTANTS.COLORS.white};
+
+  box-shadow: 0px 0px 5px 1px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 10px;
+    color: ${STYLE_CONSTANTS.COLORS.blue};
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
+  }
+  div {
+    margin: 10px 0;
+  }
 `;

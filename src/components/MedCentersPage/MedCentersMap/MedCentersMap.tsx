@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
 import marker from '@assets/marker.png';
 import { MarkerStyle, MedCentersMapStyle } from './MedCentersMapStyle';
+import { MAP_TOKEN } from '../../../securityData';
 
 interface IState {
   latitude: number;
@@ -20,14 +21,11 @@ const MedCentersMap: React.FC = () => {
     height: '100%'
   });
 
-
   return (
     <MedCentersMapStyle>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={
-          'pk.eyJ1Ijoia2xpbS1uazAxIiwiYSI6ImNrdGx4eHI4azA2bGoybnM4b3d4aTlvZjMifQ.7cxgikPKgzMV2ZjWS97ehg'
-        }
+        mapboxApiAccessToken={MAP_TOKEN}
         onViewportChange={(viewport: React.SetStateAction<IState>) => {
           setViewPort(viewport);
         }}
