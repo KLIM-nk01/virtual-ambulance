@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   CenterServices,
-  MoreButtton,
   ServiceItem,
   ServicesWrapper
 } from './ServicesStyle';
@@ -19,7 +18,6 @@ const Services: React.FC<IServices> = ({ services }) => {
           <ServiceItem>{sevice}</ServiceItem>
         ))}
       </ServicesWrapper>
-      <MoreButtton>More...</MoreButtton>
     </CenterServices>
   );
 };

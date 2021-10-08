@@ -6,11 +6,11 @@ import {
   ItemDescription,
   Title,
   SubTitle,
-  ItemMore,
-  CenterSraff
+  ItemMore
 } from './MedCenterStyle';
 import { NavLink } from 'react-router-dom';
-import Services from './CenterServices/Services';
+import Services from './CenterServices.tsx/Services';
+import Staff from './CenterStaff/CenterStaff';
 
 interface IMedCenter {
   name: string;
@@ -27,7 +27,7 @@ const MedCenter: React.FC<IMedCenter> = ({
   description,
   services
 }) => {
-  const [expaned, setExpaned] = useState<boolean>(false);
+  const [hidden, setHidden] = useState<boolean>(true);
   return (
     <MedCenterItem>
       <ItemHeader>
@@ -44,15 +44,21 @@ const MedCenter: React.FC<IMedCenter> = ({
       </ItemPhoto>
       <ItemDescription>
         <p>{description}</p>
-        <span>more...</span>
+        <span
+          hidden={hidden}
+          onClick={() => {
+            hidden ? setHidden(false) : setHidden(true);
+          }}>
+          more...
+        </span>
       </ItemDescription>
 
       {/* <ItemButtons>
         <Button variant={'contained'}>More</Button>
       </ItemButtons> */}
-      <ItemMore>
+      <ItemMore hidden={hidden}>
         <Services services={services} />
-        <CenterSraff></CenterSraff>
+        <Staff services={services} />
       </ItemMore>
     </MedCenterItem>
   );

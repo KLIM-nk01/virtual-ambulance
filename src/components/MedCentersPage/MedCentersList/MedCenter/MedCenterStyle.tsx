@@ -79,38 +79,9 @@ export const ItemButtons = styled.div`
 
 export const ItemMore = styled.div`
   width: 100%;
-  display: flex;
+  display: ${({ hidden }) => (hidden ? 'none' : 'flex')};
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-`;
-
-
-export const CenterSraff = styled.div`
-  position: relative;
-  width: 90%;
-  height: 200px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  padding: 30px 10px;
-  overflow: auto;
-  ::-webkit-scrollbar {
-    width: 0;
-  }
-  background: ${STYLE_CONSTANTS.COLORS.white};
-
-  box-shadow: 0px 0px 5px 1px ${STYLE_CONSTANTS.COLORS.darkGrey};
-  span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-left: 10px;
-    color: ${STYLE_CONSTANTS.COLORS.blue};
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
-  }
-  div {
-    margin: 10px 0;
-  }
+  transition: all 0.3s ease;
 `;

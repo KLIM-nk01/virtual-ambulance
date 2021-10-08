@@ -42,14 +42,3 @@ export const ServiceItem = styled.div`
   cursor: pointer;
   margin: 10px 0;
 `;
-
-export const MoreButtton = styled.div`
-  width: 100%;
-  text-align: center;
-  color: ${STYLE_CONSTANTS.COLORS.darkGrey};
-  margin: 10px 0;
-  cursor: pointer;
-  :hover {
-    color: ${STYLE_CONSTANTS.COLORS.blue};
-  }
-`;
