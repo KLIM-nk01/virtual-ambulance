@@ -24,7 +24,7 @@ const MedCentersMap: React.FC = () => {
     <MedCentersMapStyle>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
+        mapboxApiAccessToken={process.env.MAP_TOKEN}
         onViewportChange={(viewport: React.SetStateAction<IState>) => {
           setViewPort(viewport);
         }}

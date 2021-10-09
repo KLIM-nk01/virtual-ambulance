@@ -11,7 +11,7 @@ const Staff: React.FC<IStaf> = ({ services }) => {
       <span>Our staff: </span>
       <StaffWrapper>
         {services?.map((sevice) => (
-          <StaffItem>{sevice}</StaffItem>
+          <StaffItem key={ Date.now() }>{sevice}</StaffItem>
         ))}
       </StaffWrapper>
     </CenterStaff>
