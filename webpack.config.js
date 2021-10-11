@@ -2,7 +2,9 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require('dotenv-webpack');
+const { config: configDotEnv } = require('dotenv');
+const { DefinePlugin, ProvidePlugin } = require('webpack');
+const dotenv = configDotEnv();
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -13,7 +15,7 @@ module.exports = {
     filename: '[name].[hash].js',
     publicPath: '/'
   },
-  
+
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.png', '.ts'],
     alias: {
@@ -23,7 +25,8 @@ module.exports = {
       '@assets': path.resolve(__dirname, 'src/assets/'),
       '@data': path.resolve(__dirname, 'src/data/'),
       '@containers': path.resolve(__dirname, 'src/Containers/'),
-      '@hooks': path.resolve(__dirname, 'src/hooks/')
+      '@hooks': path.resolve(__dirname, 'src/hooks/'),
+      '@store': path.resolve(__dirname, 'src/store/')
     }
   },
   plugins: [
@@ -32,7 +35,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css'
     }),
-    new Dotenv()
+    new ProvidePlugin({ process: 'process' }),
+    new DefinePlugin({
+      'process.env': `(${JSON.stringify(dotenv.parsed)})`
+    })
   ],
   devServer: {
     historyApiFallback: true

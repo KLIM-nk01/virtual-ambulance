@@ -6,6 +6,15 @@ import { NavLink } from 'react-router-dom';
 import { ROUTS } from '@constants/routs';
 import { useForm } from 'react-hook-form';
 import { Email, Password } from './validationConstants';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { useDispatch } from 'react-redux';
+import { sendSignInData } from '@store/actionCreators/signIn';
+import { store } from '@store/store';
+
+interface SubmitData {
+  email: string;
+  password: string;
+}
 
 const SingInForm: React.FC = () => {
   const {
@@ -13,7 +22,15 @@ const SingInForm: React.FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm() as any;
-  const onSubmit = (data: any) => console.log(data);
+
+  const { email, password } = useTypesSelector((state) => state.signIn);
+  const dispatch = useDispatch();
+
+  const onSubmit = (data: SubmitData) => {
+    dispatch(sendSignInData(data.email, data.password));
+    console.log(store.getState());
+  };
+
   return (
     <FormContainer>
       <Form onSubmit={handleSubmit(onSubmit)}>

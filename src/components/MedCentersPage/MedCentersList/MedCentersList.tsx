@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MedCentersListWrapper } from './MedCentersListStyle';
 import MedCenter from './MedCenter/MedCenter';
-import { NavLink } from 'react-router-dom';
-import { ROUTS } from '@constants/routs';
+
 import { medCenterData } from '@data/medCenterData';
+import { useDispatch } from 'react-redux';
+import { fetchMedCenters } from '../../../store/actionCreators/medCenters';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import Loader from '@components/common/Loader/Loader';
 
 const MedCentersList: React.FC = () => {
+  const dispatch = useDispatch();
+  const { medCenters, loading, error } = useTypesSelector((state) => state.medCenter);
+  useEffect(() => {
+    dispatch(fetchMedCenters());
+  }, []);
+
+  if (error) return <h1>{error} </h1>;
+
   return (
-    <MedCentersListWrapper>
-      {medCenterData.map((medCenter) => {
-        return (
-          <NavLink to={ROUTS.MEDCENTERS_PAGE_PATH}>
-            <MedCenter {...medCenter} />
-          </NavLink>
-        );
-      })}
+    <MedCentersListWrapper loading={loading}>
+      {loading ? (
+        <Loader />
+      ) : (
+        medCenters.map((medCenter) => {
+          return <MedCenter key={medCenter.id} {...medCenter} />;
+        })
+      )}
     </MedCentersListWrapper>
   );
 };

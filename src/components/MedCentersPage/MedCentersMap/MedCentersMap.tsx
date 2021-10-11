@@ -20,14 +20,11 @@ const MedCentersMap: React.FC = () => {
     height: '100%'
   });
 
-
   return (
     <MedCentersMapStyle>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={
-          'pk.eyJ1Ijoia2xpbS1uazAxIiwiYSI6ImNrdGx4eHI4azA2bGoybnM4b3d4aTlvZjMifQ.7cxgikPKgzMV2ZjWS97ehg'
-        }
+        mapboxApiAccessToken={process.env.MAP_TOKEN}
         onViewportChange={(viewport: React.SetStateAction<IState>) => {
           setViewPort(viewport);
         }}

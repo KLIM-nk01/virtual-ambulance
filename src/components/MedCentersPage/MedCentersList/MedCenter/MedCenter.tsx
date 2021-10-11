@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   MedCenterItem,
   ItemHeader,
   ItemPhoto,
   ItemDescription,
-  ItemButtons,
   Title,
   SubTitle,
+  ItemMore
 } from './MedCenterStyle';
-import Button from '@components/common/Button/Button';
 import { NavLink } from 'react-router-dom';
+import Services from './CenterServices.tsx/Services';
+import Staff from './CenterStaff/CenterStaff';
 
 interface IMedCenter {
   name: string;
   address: string;
   photo: any;
   description: string;
+  services: string[];
 }
 
-const MedCenter: React.FC<IMedCenter> = ({ name, address, photo, description }) => {
+const MedCenter: React.FC<IMedCenter> = ({
+  name,
+  address,
+  photo,
+  description,
+  services
+}) => {
+  const [hidden, setHidden] = useState<boolean>(true);
   return (
     <MedCenterItem>
       <ItemHeader>
@@ -35,11 +44,22 @@ const MedCenter: React.FC<IMedCenter> = ({ name, address, photo, description }) 
       </ItemPhoto>
       <ItemDescription>
         <p>{description}</p>
+        <span
+          hidden={hidden}
+          onClick={() => {
+            hidden ? setHidden(false) : setHidden(true);
+          }}>
+          more...
+        </span>
       </ItemDescription>
 
-      <ItemButtons>
+      {/* <ItemButtons>
         <Button variant={'contained'}>More</Button>
-      </ItemButtons>
+      </ItemButtons> */}
+      <ItemMore hidden={hidden}>
+        <Services services={services} />
+        <Staff services={services} />
+      </ItemMore>
     </MedCenterItem>
   );
 };

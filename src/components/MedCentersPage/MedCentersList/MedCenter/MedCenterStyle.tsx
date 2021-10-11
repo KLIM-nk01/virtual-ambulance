@@ -16,10 +16,6 @@ export const MedCenterItem = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
-
-  div {
-    margin: 5px 0;
-  }
 `;
 
 export const Title = styled.span`
@@ -55,12 +51,22 @@ export const ItemPhoto = styled.div`
     width: 100%;
   }
   overflow: hidden;
+  margin-bottom: 5px;
 `;
 
 export const ItemDescription = styled.div`
   width: 100%;
   p {
     color: ${STYLE_CONSTANTS.COLORS.darkGrey};
+  }
+  span {
+    display: block;
+    color: ${STYLE_CONSTANTS.COLORS.darkGrey};
+    margin: 10px 0;
+    cursor: pointer;
+    :hover {
+      color: ${STYLE_CONSTANTS.COLORS.blue};
+    }
   }
 `;
 
@@ -69,4 +75,13 @@ export const ItemButtons = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+export const ItemMore = styled.div`
+  width: 100%;
+  display: ${({ hidden }) => (hidden ? 'none' : 'flex')};
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
 `;

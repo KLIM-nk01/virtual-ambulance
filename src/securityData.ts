@@ -1,1 +1,2 @@
-export const MAP_TOKEN = process.env.REACT_APP_MAP_TOKEN;
+require('dotenv').config();
+export const MAP_TOKEN = process.env.MAP_TOKEN;

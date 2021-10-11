@@ -32,12 +32,13 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
         <FormName>Сreate dodoctors account </FormName>
 
         <DoctorCheckButton>
+          Are you patient?
           <span
             onClick={() => {
               setDoctor && setDoctor(false);
             }}
           >
-            Click here if you are patient
+            Click here.
           </span>
         </DoctorCheckButton>
 

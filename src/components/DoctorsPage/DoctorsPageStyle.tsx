@@ -8,7 +8,7 @@ export const DoctorsPageWrapper = styled.div`
 `;
 
 export const DortorsWrapper = styled.div`
-  width: 970px;
+  max-width: 860px;
   height: fit-content;
   margin: 30px auto;
   justify-content: space-around;

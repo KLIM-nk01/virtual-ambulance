@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const Card = styled.div`
-  width: 450px;
+  width: 388px;
   height: 300px;
-  margin: 20px 10px;
+  margin: 20px 20px;
 
   border-radius: 15px;
   display: flex;

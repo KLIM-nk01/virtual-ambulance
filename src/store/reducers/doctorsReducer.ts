@@ -1,39 +1,19 @@
-interface IDoctorsData {
-  doctorsData: any[];
-}
+import { ActionType, DoctorsActionType, IDoctorsState } from '@store/types/doctorsType';
 
-interface IAction {
-  type: string;
-  payload?: any;
-}
-
-export const initialState: IDoctorsData = {
-  doctorsData: [
-    {
-      id_doctor: 0,
-      name: 'Alex',
-      lastName: 'White',
-      phone: '+375(29)123-45-56',
-      email: 'Alex.WH@gmail.com',
-      workPlace: 'id_medcenter',
-      direction: 'Allergist',
-      expiriens: '21 years',
-      // photo: icons.f1,
-      description:
-        'is a specialist in correcting speech defects in children. Olga Valerievna is a specialist in correcting speech defects in children.',
-      patient: ['id_user', 'id_user'],
-      workTime: [
-        {
-          day: 'dd/mm/yyyy',
-          time: 'hh.mm'
-        }
-      ]
-    }
-  ]
+const initialState: IDoctorsState = {
+  doctors: [],
+  loading: false,
+  error: null,
 };
 
-export const doctorsReducer = (state = initialState, action: IAction) => {
+export const doctorsReducer = (state = initialState, action: ActionType): IDoctorsState => {
   switch (action.type) {
+    case DoctorsActionType.FETCH_DOCTORS:
+      return { loading: true, error: null, doctors: [] };
+    case DoctorsActionType.FETCH_DOCTORS_SECCESS:
+      return { loading: false, error: null, doctors: action.payload };
+    case DoctorsActionType.FETCH_DOCTORS_ERROR:
+      return { loading: false, error: action.payload, doctors: [] };
     default:
       return state;
   }
