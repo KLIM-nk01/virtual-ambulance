@@ -23,7 +23,8 @@
       "@assets/*": ["./assets/*"],
       "@data/*": ["./data/*"],
       "@containers/*": ["./Containers/*"],
-      "@hooks/*": ["./hooks/*"]
+      "@hooks/*": ["./hooks/*"],
+      "@store/*": ["./store/*"]
     }
   },
 

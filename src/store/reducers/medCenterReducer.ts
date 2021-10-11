@@ -1,4 +1,4 @@
-import { IMedCenterState, MedCenterAction, MedCenterActionTypes } from '../types/medCentersType';
+import { IMedCenterState, MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
 
 export const initialState: IMedCenterState = {
   medCenters: [],

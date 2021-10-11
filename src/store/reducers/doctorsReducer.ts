@@ -1,4 +1,4 @@
-import { ActionAction, DoctorsActionType, IDoctorsState } from '../types/doctorsType';
+import { ActionType, DoctorsActionType, IDoctorsState } from '@store/types/doctorsType';
 
 const initialState: IDoctorsState = {
   doctors: [],
@@ -6,7 +6,7 @@ const initialState: IDoctorsState = {
   error: null,
 };
 
-export const doctorsReducer = (state = initialState, action: ActionAction): IDoctorsState => {
+export const doctorsReducer = (state = initialState, action: ActionType): IDoctorsState => {
   switch (action.type) {
     case DoctorsActionType.FETCH_DOCTORS:
       return { loading: true, error: null, doctors: [] };
