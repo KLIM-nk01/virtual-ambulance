@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { MedCentersListWrapper } from './MedCentersListStyle';
 import MedCenter from './MedCenter/MedCenter';
-
-import { medCenterData } from '@data/medCenterData';
 import { useDispatch } from 'react-redux';
-import { fetchMedCenters } from '../../../store/actionCreators/medCenters';
+import { fetchMedCenters } from '@store/actionCreators/medCenters';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import Loader from '@components/common/Loader/Loader';
 
 const MedCentersList: React.FC = () => {
   const dispatch = useDispatch();
-  const { medCenters, loading, error } = useTypesSelector((state) => state.medCenter);
+  const { medCenters, loading, error } = useTypesSelector(
+    (state) => state.medCenter
+  );
   useEffect(() => {
     dispatch(fetchMedCenters());
   }, []);
