@@ -24,4 +24,4 @@ export interface IDoctorsState {
     payload: null | string;
   }
   
-  export type ActionAction = FetchDoctors | FetchDoctorsSeccess | FetchDoctorsError;
+  export type ActionType = FetchDoctors | FetchDoctorsSeccess | FetchDoctorsError;

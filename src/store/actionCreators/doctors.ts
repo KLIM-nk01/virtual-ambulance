@@ -1,9 +1,9 @@
 import { Dispatch } from 'redux';
-import { DoctorsActionType, ActionAction } from '../types/doctorsType';
+import { DoctorsActionType, ActionType } from '@store/types/doctorsType';
 import { doctorsData } from '@data/doctorsData';
 
 export const fetchDoctors = () => {
-  return async (dispatch: Dispatch<ActionAction>) => {
+  return async (dispatch: Dispatch<ActionType>) => {
     try {
       dispatch({ type: DoctorsActionType.FETCH_DOCTORS });
       setTimeout(() => {
@@ -15,7 +15,7 @@ export const fetchDoctors = () => {
     } catch (e) {
       dispatch({
         type: DoctorsActionType.FETCH_DOCTORS_ERROR,
-        payload: 'Ошибка при загрузке данных',
+        payload: 'Error loading data about doctors.',
       });
     }
   };

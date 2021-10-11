@@ -1,6 +1,5 @@
 import { Dispatch } from 'redux';
-import axios from 'axios';
-import { MedCenterAction, MedCenterActionTypes } from '../types/medCentersType';
+import { MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
 import { medCenterData } from '@data/medCenterData';
 
 export const fetchMedCenters = () => {
@@ -13,7 +12,7 @@ export const fetchMedCenters = () => {
     } catch (e) {
       dispatch({
         type: MedCenterActionTypes.FETCH_MEDCENTER_ERROR,
-        payload: 'Произошла ошибка при загрузке медцентров',
+        payload: 'Error loading data.',
       });
     }
   };
