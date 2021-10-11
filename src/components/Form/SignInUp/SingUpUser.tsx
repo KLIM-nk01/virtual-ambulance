@@ -88,14 +88,14 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           errors={errors}
         />
 
-        <Input
+        {/* <Input
           primary
           type="text"
           name="work place"
           register={register('work place', Required)}
           placeholder="Work Place"
           errors={errors}
-        />
+        /> */}
 
         <Input
           primary
