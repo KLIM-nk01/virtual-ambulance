@@ -36,7 +36,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
 
         <Input
           primary
-          placeholder="Name"
+          label="Name"
           type="text"
           name="name"
           register={register('name', Required)}
@@ -45,7 +45,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
 
         <Input
           primary
-          placeholder="Last Name"
+          label="Last Name"
           type="text"
           name="last name"
           register={register('last name', Required)}
@@ -54,7 +54,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
 
         <Input
           primary
-          placeholder="Birthday"
+          label="Birthday"
           type="text"
           name="birthday"
           register={register('birthday', Birthday)}
@@ -66,7 +66,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="email"
           register={register('email', Email)}
-          placeholder="Email"
+          label="Email"
           errors={errors}
         />
 
@@ -75,7 +75,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="phone number"
           register={register('phone number', PhoneNumber)}
-          placeholder="Phone number"
+          label="Phone number"
           errors={errors}
         />
 
@@ -84,7 +84,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="address"
           register={register('address', Required)}
-          placeholder="Address"
+          label="Address"
           errors={errors}
         />
 
@@ -101,7 +101,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           primary
           name="password"
           type="password"
-          placeholder="Password"
+          label="Password"
           register={register('password', Password)}
           errors={errors}
         />
@@ -110,7 +110,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           primary
           name="password_repeat"
           type="password"
-          placeholder="Repeat Password"
+          label="Repeat Password"
           register={register('password_repeat', {
             validate: (value: any) => value === password.current || 'The passwords do not match',
           })}

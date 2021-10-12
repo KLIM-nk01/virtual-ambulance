@@ -15,6 +15,10 @@ export const Container = styled.div`
   div {
     ${flex};
     flex-direction: column;
+
+    /* @media (max-width: 768px) {
+      display: none;
+    } */
   }
 
   span {
@@ -24,8 +28,10 @@ export const Container = styled.div`
     color: ${STYLE_CONSTANTS.COLORS.white};
   }
 
-  :hover {
-    box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  @media (max-width: 768px) {
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
   }
 `;
 

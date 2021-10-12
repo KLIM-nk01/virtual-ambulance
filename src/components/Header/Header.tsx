@@ -2,9 +2,10 @@ import React from 'react';
 import { HeaderContainerStyle, HeaderWrapper } from './HeaderStyle';
 import Logo from './Logo/Logo';
 import LogIn from './LogIn/LogIn';
-import Input from '@components/common/Input/Input';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import LogOut from './LogOut/LogOut';
+import Search from './Search/Search';
+import BurgerMenu from './Burger/BurgerMenu';
 
 const Header: React.FC = () => {
   const { authedUser } = useTypesSelector((state) => state.auth);
@@ -12,8 +13,9 @@ const Header: React.FC = () => {
     <HeaderWrapper>
       <HeaderContainerStyle>
         <Logo />
-        <Input name="search" type="text" />
+        <Search />
         {!authedUser ? <LogIn /> : <LogOut />}
+        {/* <BurgerMenu></BurgerMenu> */}
       </HeaderContainerStyle>
     </HeaderWrapper>
   );

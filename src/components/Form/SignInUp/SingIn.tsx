@@ -39,7 +39,7 @@ const SingInForm: React.FC = () => {
 
         <Input
           primary
-          placeholder="Email"
+          label="Email"
           // type='email'
           name="email"
           register={register('email', Email)}
@@ -48,25 +48,22 @@ const SingInForm: React.FC = () => {
 
         <Input
           primary
-          placeholder="Password"
+          label="Password"
           type="password"
           name="password"
           register={register('password', Password)}
           errors={errors}
         />
 
-        <NavLink to={ROUTS.SINGUP_FORM}>
-          <span>Don't have an account? Registration</span>
-        </NavLink>
-
         <ButtonBar>
           <Button round type="submit">
             Sign In
           </Button>
-
-          <Button round>G</Button>
         </ButtonBar>
 
+        <NavLink to={ROUTS.SINGUP_FORM}>
+          Don't have an account? Click <span>here</span> to registration
+        </NavLink>
         {authLoading && <Loader />}
       </Form>
     </FormContainer>

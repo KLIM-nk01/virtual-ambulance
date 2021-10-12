@@ -44,7 +44,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
 
         <Input
           primary
-          placeholder="Name"
+          label="Name"
           type="text"
           name="name"
           register={register('name', Required)}
@@ -53,7 +53,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
 
         <Input
           primary
-          placeholder="Last Name"
+          label="Last Name"
           type="text"
           name="last name"
           register={register('last name', Required)}
@@ -65,7 +65,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="email"
           register={register('email', Email)}
-          placeholder="Email"
+          label="Email"
           errors={errors}
         />
 
@@ -74,7 +74,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="phone number"
           register={register('phone number', PhoneNumber)}
-          placeholder="Phone number"
+          label="Phone number"
           errors={errors}
         />
 
@@ -83,7 +83,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="expiriens"
           register={register('expiriens', Expiriens)}
-          placeholder="Expiriens"
+          label="Expiriens"
           errors={errors}
         />
 
@@ -91,7 +91,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           <span>-Indicate your direction</span>
           <Input
             primary
-            placeholder="Direction"
+            label="Direction"
             type="text"
             name="direction"
             register={register('direction', Required)}
@@ -106,7 +106,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
             type="text"
             name="work Place"
             register={register('work place', Required)}
-            placeholder="Work Place"
+            label="Work Place"
             errors={errors}
           />
           <MedCentersSelect>Select with submenu</MedCentersSelect>
@@ -116,7 +116,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           primary
           name="password"
           type="password"
-          placeholder="Password"
+          label="Password"
           register={register('password', Password)}
           errors={errors}
         />
@@ -125,7 +125,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           primary
           name="password_repeat"
           type="password"
-          placeholder="Repeat Password"
+          label="Repeat Password"
           register={register('password_repeat', {
             validate: (value) => value === password.current || 'The passwords do not match',
           })}

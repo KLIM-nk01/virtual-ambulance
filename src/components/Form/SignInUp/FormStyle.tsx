@@ -18,7 +18,7 @@ export const FormContainer = styled.div`
 `;
 
 export const Form = styled.form`
-position: relative;
+  position: relative;
   height: 100%;
   width: 100%;
   display: flex;
@@ -32,7 +32,7 @@ position: relative;
   a {
     span {
       margin-left: 5px;
-      font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+      font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
       :hover {
         color: ${STYLE_CONSTANTS.COLORS.blue};
       }
@@ -76,7 +76,8 @@ export const ButtonBar = styled.div`
   justify-content: flex-start;
   margin-top: 10px;
   button {
-    margin-right: 10px;
+    width: 100%;
+    margin: 15px 0;
   }
 `;
 

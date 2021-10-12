@@ -1,7 +1,6 @@
 import React from 'react';
 import CenterLogo from '@assets/Center.svg';
 import DoctorsLogo from '@assets/doctorsLogo.svg';
-import Services from '@assets/Services.svg';
 import UserAccount from '@assets/Account.svg';
 import { NavLink } from 'react-router-dom';
 import { NavWrapper, NavItem } from './NavStyle';
@@ -25,17 +24,6 @@ const Nav: React.FC = () => {
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, placeat minus</p>
         </NavItem>
       </NavLink>
-
-      {/* <NavLink to={ROUTS.SERVICES_PATH}>
-        <NavItem>
-          <img src={Services} alt={'medCenter'} />
-          <span>View services</span>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
-            placeat minus
-          </p>
-        </NavItem>
-      </NavLink> */}
 
       <NavLink to={ROUTS.PERSONAL_ACCOUNT}>
         <NavItem>

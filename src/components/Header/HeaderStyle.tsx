@@ -11,6 +11,8 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   justify-content: center;
   background: ${STYLE_CONSTANTS.COLORS.blue};
+
+  
 `;
 
 export const HeaderContainerStyle = styled.div`
