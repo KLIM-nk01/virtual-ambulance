@@ -6,7 +6,7 @@ export const Card = styled.div`
   height: 300px;
   margin: 20px 20px;
 
-  border-radius: 15px;
+  border-radius: 5px;
   display: flex;
   background: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   color: ${STYLE_CONSTANTS.COLORS.black};

@@ -7,10 +7,10 @@ export const MedCenterItem = styled.div`
 
   margin: 20px auto;
   background-color: ${STYLE_CONSTANTS.COLORS.white};
-  border-radius: 15px;
+  border-radius: 5px;
 
   padding: 15px;
-  box-shadow: 0px 0px 5px 1px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  box-shadow: 0px 0px 15px 0px ${STYLE_CONSTANTS.COLORS.darkGrey};
 
   display: flex;
   align-items: center;
