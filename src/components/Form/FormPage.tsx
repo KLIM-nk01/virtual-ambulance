@@ -8,6 +8,9 @@ import SignUpUser from './SignInUp/SingUpUser';
 
 const FormPage: React.FC = () => {
   const [doctorState, setDoctorState] = useState<boolean>(false);
+  
+
+
 
   return (
     <FormPageContainer>

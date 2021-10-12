@@ -10,13 +10,16 @@ import Loader from '@components/common/Loader/Loader';
 import { useDispatch } from 'react-redux';
 import { fetchDoctors } from '../../store/actionCreators/doctors';
 
+
 const DoctorsPage: React.FC = () => {
   const [modalActive, setModalActive] = useState(false);
-  const { doctors, loading, error } = useTypesSelector((state) => state.doctors);
+  const { doctors, loading } = useTypesSelector((state) => state.doctors);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchDoctors());
   }, []);
+
   return (
     <DoctorsPageWrapper>
       <DoctorsPageNavBar />
@@ -29,6 +32,7 @@ const DoctorsPage: React.FC = () => {
           ))}
         </DortorsWrapper>
       )}
+      
       <Portal>
         <Modal active={modalActive} setActive={setModalActive}>
           <Shedule />

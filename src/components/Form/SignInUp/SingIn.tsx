@@ -6,10 +6,11 @@ import { NavLink } from 'react-router-dom';
 import { ROUTS } from '@constants/routs';
 import { useForm } from 'react-hook-form';
 import { Email, Password } from './validationConstants';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { useDispatch } from 'react-redux';
-import { sendSignInData } from '@store/actionCreators/signIn';
-import { store } from '@store/store';
+import { userAuth } from '@store/actionCreators/auth';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { Redirect } from 'react-router';
+import Loader from '@components/common/Loader/Loader';
 
 interface SubmitData {
   email: string;
@@ -20,19 +21,19 @@ const SingInForm: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm() as any;
 
-  const { email, password } = useTypesSelector((state) => state.signIn);
   const dispatch = useDispatch();
-
+  const { authedUser, authLoading } = useTypesSelector((state) => state.auth);
   const onSubmit = (data: SubmitData) => {
-    dispatch(sendSignInData(data.email, data.password));
-    console.log(store.getState());
+    dispatch(userAuth(data.email, data.password));
   };
 
   return (
     <FormContainer>
+      {authedUser && <Redirect to={ROUTS.MAIN_PAGE_PATH} />}
+
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Sin In to your account</FormName>
 
@@ -62,8 +63,11 @@ const SingInForm: React.FC = () => {
           <Button round type="submit">
             Sign In
           </Button>
+
           <Button round>G</Button>
         </ButtonBar>
+
+        {authLoading && <Loader />}
       </Form>
     </FormContainer>
   );

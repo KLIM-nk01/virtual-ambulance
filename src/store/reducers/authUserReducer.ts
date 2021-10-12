@@ -1,34 +1,35 @@
-interface IAuthInitialState {
-  id_user: null | string;
+interface IAuthedUser {
+  id: null | string;
   userRole: string;
   name: string;
-  loading: boolean;
-  error: null | string;
 }
 
-const authInitialState: IAuthInitialState = {
-  id_user: null,
-  userRole: '',
-  name: '',
-  loading: false,
-  error: null
+interface ILoginState {
+  readonly authLoading: boolean;
+  readonly authedUser: IAuthedUser | null;
+  readonly loginError: string;
+}
+
+const LoginState: ILoginState = {
+  authLoading: false,
+  authedUser: null,
+  loginError: ''
 };
 
 export enum ActionsType {
-  USER_AUTH_CHECK = 'USER_AUTH_CHECK',
+  AUTH_LOADING = 'AUTH_LOADING',
   USER_IS_AUTH = 'USER_IS_AUTH',
-  USER_IS_UNAUTH = 'USER_IS_UNAUTH',
-  USER_AUTH_ERROR = 'USER_AUTH_ERROR'
+  USER_IS_UNAUTH = 'USER_IS_UNAUTH'
 }
 
 interface UserAuth {
-  type: ActionsType.USER_AUTH_CHECK;
+  type: ActionsType.AUTH_LOADING;
 }
 
 interface UserIsAuth {
   type: ActionsType.USER_IS_AUTH;
   payload: {
-    id_user: string;
+    id: string;
     userRole: string;
     name: string;
   };
@@ -36,35 +37,37 @@ interface UserIsAuth {
 
 interface UserIsUnAuth {
   type: ActionsType.USER_IS_UNAUTH;
+  payload: string;
 }
 
 export type AuthActionsType = UserAuth | UserIsAuth | UserIsUnAuth;
 
-export const authReduucer = (
-  state = authInitialState,
+export const authReducer = (
+  state = LoginState,
   action: AuthActionsType
-): IAuthInitialState => {
+): ILoginState => {
   switch (action.type) {
-    case ActionsType.USER_AUTH_CHECK:
+    case ActionsType.AUTH_LOADING:
       return {
         ...state,
-        loading: true
+        authLoading: true
       };
-
     case ActionsType.USER_IS_AUTH:
       return {
         ...state,
-        id_user: action.payload.id_user,
-        userRole: action.payload.userRole,
-        name: action.payload.name
+        authLoading: false,
+        authedUser: {
+          id: action.payload.id,
+          userRole: action.payload.userRole,
+          name: action.payload.name
+        }
       };
-
     case ActionsType.USER_IS_UNAUTH:
       return {
-        ...state,
-        id_user: null
+        authLoading: false,
+        authedUser: null,
+        loginError: action.payload
       };
-
     default:
       return state;
   }
