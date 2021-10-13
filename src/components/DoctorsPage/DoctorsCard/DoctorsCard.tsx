@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import {
   Card,
   ContainerTwo,
@@ -10,7 +11,6 @@ import {
 } from './DoctorsCardStyle';
 import Button from '@components/common/Button/Button';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { useHistory } from 'react-router';
 import { ROUTS } from '@constants/routs';
 
 interface IProps {

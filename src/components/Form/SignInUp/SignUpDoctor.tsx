@@ -1,4 +1,13 @@
 import React, { useRef } from 'react';
+import { useForm } from 'react-hook-form';
+import { IDoctor } from './type';
+import {
+  Email,
+  Expiriens,
+  Password,
+  PhoneNumber,
+  Required
+} from './validationConstants';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import {
@@ -8,11 +17,8 @@ import {
   ButtonBar,
   DoctorCheckButton,
   QuestionWrapper,
-  MedCentersSelect,
+  MedCentersSelect
 } from './FormStyle';
-import { IDoctor } from './type';
-import { useForm } from 'react-hook-form';
-import { Email, Expiriens, Password, PhoneNumber, Required } from './validationConstants';
 
 const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
   const onSubmit = (data: any) => console.log(data);
@@ -20,7 +26,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors }
   } = useForm();
 
   const password = useRef({});
@@ -36,8 +42,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           <span
             onClick={() => {
               setDoctor && setDoctor(false);
-            }}
-          >
+            }}>
             Click here.
           </span>
         </DoctorCheckButton>
@@ -127,7 +132,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           type="password"
           label="Repeat Password"
           register={register('password_repeat', {
-            validate: (value) => value === password.current || 'The passwords do not match',
+            validate: (value) =>
+              value === password.current || 'The passwords do not match'
           })}
           errors={errors}
         />

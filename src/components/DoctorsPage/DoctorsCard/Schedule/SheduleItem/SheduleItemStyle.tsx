@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from "@constants/styleConstants";
-import styled from "styled-components";
+import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 interface IScheduleItem {
   enable?: boolean;

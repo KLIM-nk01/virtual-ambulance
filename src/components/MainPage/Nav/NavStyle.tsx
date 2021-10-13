@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { flex } from '@styleMixin/flex';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
+import { flex } from '@styleMixin/flex';
 
 export const NavWrapper = styled.div`
   display: flex;

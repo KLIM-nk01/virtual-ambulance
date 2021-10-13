@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const DoctorsFeatureWrapper = styled.div`
   position: relative;
@@ -13,7 +13,6 @@ export const DoctorsFeatureWrapper = styled.div`
 
   @media (max-width: 900px) {
     flex-direction: column;
-    
   }
 `;
 

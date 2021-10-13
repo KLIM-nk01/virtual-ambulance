@@ -1,8 +1,8 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import GlobalStyle from '@styleMixin/globalstyle';
 import { ROUTS } from '@constants/routs';
 import { AppWrapper, Main } from './AppStyle';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from '../Header/Header';
 
 const App: React.FC = () => {

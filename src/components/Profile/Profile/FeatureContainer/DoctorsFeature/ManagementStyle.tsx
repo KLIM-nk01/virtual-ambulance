@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const Container = styled.div`
   position: relative;
@@ -66,7 +66,7 @@ export const RemoveButton = styled.div`
   border: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
   border-radius: 50px;
   cursor: pointer;
-  
+
   :before,
   :after {
     position: absolute;

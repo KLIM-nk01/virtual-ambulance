@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const FeatureContainerWrapper = styled.div`
   background: ${STYLE_CONSTANTS.COLORS.white};
@@ -7,5 +7,4 @@ export const FeatureContainerWrapper = styled.div`
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 25px;
- 
 `;

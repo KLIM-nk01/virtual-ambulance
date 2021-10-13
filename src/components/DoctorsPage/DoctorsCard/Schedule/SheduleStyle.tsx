@@ -1,6 +1,6 @@
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
-import { scroll } from '@styleMixin/scroll';
 import styled from 'styled-components';
+import { scroll } from '@styleMixin/scroll';
 
 export const ScheduleWrapper = styled.div`
   position: relative;

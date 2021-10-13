@@ -1,16 +1,16 @@
 import React from 'react';
-import Button from '@components/common/Button/Button';
-import Input from '@components/common/Input/Input';
-import { FormContainer, FormName, Form, ButtonBar } from './FormStyle';
 import { NavLink } from 'react-router-dom';
-import { ROUTS } from '@constants/routs';
 import { useForm } from 'react-hook-form';
-import { Email, Password } from './validationConstants';
 import { useDispatch } from 'react-redux';
+import { Redirect } from 'react-router';
 import { userAuth } from '@store/actionCreators/auth';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { Redirect } from 'react-router';
+import { ROUTS } from '@constants/routs';
+import { Email, Password } from './validationConstants';
+import Button from '@components/common/Button/Button';
+import Input from '@components/common/Input/Input';
 import Loader from '@components/common/Loader/Loader';
+import { FormContainer, FormName, Form, ButtonBar } from './FormStyle';
 
 interface SubmitData {
   email: string;

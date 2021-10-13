@@ -1,6 +1,6 @@
 import React from 'react';
-import { ROUTS } from '@constants/routs';
 import { NavLink } from 'react-router-dom';
+import { ROUTS } from '@constants/routs';
 import Button from '@components/common/Button/Button';
 import { ButtonsWrapper } from './LogInButton';
 

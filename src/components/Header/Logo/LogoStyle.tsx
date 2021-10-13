@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import { flex } from '@styleMixin/flex';
 import { fonts } from '@styleMixin/fonts';
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const Container = styled.div`
   width: 180px;

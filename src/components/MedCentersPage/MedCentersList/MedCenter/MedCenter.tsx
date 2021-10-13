@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import {
   MedCenterItem,
   ItemHeader,
@@ -8,7 +9,6 @@ import {
   SubTitle,
   ItemMore
 } from './MedCenterStyle';
-import { NavLink } from 'react-router-dom';
 import Services from './CenterServices.tsx/Services';
 import Staff from './CenterStaff/CenterStaff';
 

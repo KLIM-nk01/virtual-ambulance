@@ -1,5 +1,5 @@
-import Input from '@components/common/Input/Input';
 import React from 'react';
+import Input from '@components/common/Input/Input';
 import { SearchWrapper } from './SearchStyle';
 // import { Input } from '@components/common/Input/InputStyle';
 

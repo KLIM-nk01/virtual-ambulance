@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const Portal: React.FC = ({ children }) => {
-  const PoralDiv = document.getElementById('portal');
-  return PoralDiv && ReactDOM.createPortal(children, PoralDiv);
+  const PortalDiv = document.getElementById('portal');
+  return PortalDiv && ReactDOM.createPortal(children, PortalDiv);
 };
 
 export default Portal;

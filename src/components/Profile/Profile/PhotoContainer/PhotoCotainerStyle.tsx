@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const Container = styled.div`
   width: 255px;
@@ -14,7 +14,6 @@ export const Container = styled.div`
   border-radius: 5px;
   @media (max-width: 900px) {
     display: none;
-    
   }
   img {
     max-width: 90%;

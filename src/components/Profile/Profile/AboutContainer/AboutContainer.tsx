@@ -1,5 +1,5 @@
-import { usersData } from '@data/usersData';
 import React from 'react';
+import { usersData } from '@data/usersData';
 import {
   AboutUser,
   Container,

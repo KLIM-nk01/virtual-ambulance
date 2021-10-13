@@ -1,10 +1,10 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { ROUTS } from '@constants/routs';
 import CenterLogo from '@assets/Center.svg';
 import DoctorsLogo from '@assets/doctorsLogo.svg';
 import UserAccount from '@assets/Account.svg';
-import { NavLink } from 'react-router-dom';
 import { NavWrapper, NavItem } from './NavStyle';
-import { ROUTS } from '@constants/routs';
 
 const Nav: React.FC = () => {
   return (
@@ -13,7 +13,10 @@ const Nav: React.FC = () => {
         <NavItem>
           <img src={CenterLogo} alt={'medCenter'} />
           <span>Browse medical center</span>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, placeat minus</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+            placeat minus
+          </p>
         </NavItem>
       </NavLink>
 
@@ -21,7 +24,10 @@ const Nav: React.FC = () => {
         <NavItem>
           <img src={DoctorsLogo} alt={'medCenter'} />
           <span>Choose doctor</span>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, placeat minus</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+            placeat minus
+          </p>
         </NavItem>
       </NavLink>
 
@@ -29,7 +35,10 @@ const Nav: React.FC = () => {
         <NavItem>
           <img src={UserAccount} alt={'medCenter'} />
           <span>Personal Account</span>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, placeat minus</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur,
+            placeat minus
+          </p>
         </NavItem>
       </NavLink>
     </NavWrapper>

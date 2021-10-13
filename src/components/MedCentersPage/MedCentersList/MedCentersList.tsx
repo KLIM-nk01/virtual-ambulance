@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { MedCentersListWrapper } from './MedCentersListStyle';
-import MedCenter from './MedCenter/MedCenter';
 import { useDispatch } from 'react-redux';
 import { fetchMedCenters } from '@store/actionCreators/medCenters';
+import { MedCentersListWrapper } from './MedCentersListStyle';
+import MedCenter from './MedCenter/MedCenter';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import Loader from '@components/common/Loader/Loader';
 

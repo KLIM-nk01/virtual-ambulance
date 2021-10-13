@@ -1,5 +1,5 @@
-import { scroll } from "@styleMixin/scroll";
-import styled from "styled-components";
+import styled from 'styled-components';
+import { scroll } from '@styleMixin/scroll';
 
 export const DoctorsPageNavBarWrapper = styled.div`
   width: 100%;

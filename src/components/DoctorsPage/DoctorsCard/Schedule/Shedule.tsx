@@ -1,5 +1,5 @@
-import Button from '@components/common/Button/Button';
 import React from 'react';
+import Button from '@components/common/Button/Button';
 import SheduleItem from './SheduleItem/SheduleItem';
 import { ScheduleWrapper, WrapperHeader, ItemWrapper } from './SheduleStyle';
 

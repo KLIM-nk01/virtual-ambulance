@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
 import {
   HeaderContainerStyle,
   HeaderWrapper,
@@ -6,7 +7,6 @@ import {
 } from './HeaderStyle';
 import Logo from './Logo/Logo';
 import LogIn from './LogIn/LogIn';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
 import LogOut from './LogOut/LogOut';
 import Search from './Search/Search';
 import BurgerMenu from './Burger/BurgerMenu';

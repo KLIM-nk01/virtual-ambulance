@@ -1,5 +1,5 @@
-import Button from '@components/common/Button/Button';
 import React from 'react';
+import Button from '@components/common/Button/Button';
 import ItemDoctorsFeature from '../ItemDoctorsFeature';
 import {
   ContainersName,
@@ -13,7 +13,7 @@ const WorkTimeManagement: React.FC = () => {
     <TimeManagementContainer>
       <ContainersName>Work Time</ContainersName>
       <ContainerContent>
-        <ItemDoctorsFeature/>
+        <ItemDoctorsFeature />
       </ContainerContent>
 
       <ContainerFooter>
