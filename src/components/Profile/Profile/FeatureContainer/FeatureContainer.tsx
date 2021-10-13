@@ -1,14 +1,14 @@
 import React from 'react';
 import DoctorsFeature from './DoctorsFeature/DoctorsFeature';
-import { Container } from './FeatureContainerStyle';
+import { FeatureContainerWrapper } from './FeatureContainerStyle';
 import UserVisit from './UserVisits/UserVisit';
 
 const FeatureContainer = () => {
   return (
-    <Container>
+    <FeatureContainerWrapper>
       <UserVisit />
-      {/* <DoctorsFeature /> */}
-    </Container>
+      <DoctorsFeature />
+    </FeatureContainerWrapper>
   );
 };
 

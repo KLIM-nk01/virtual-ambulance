@@ -11,8 +11,6 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   justify-content: center;
   background: ${STYLE_CONSTANTS.COLORS.blue};
-
-  
 `;
 
 export const HeaderContainerStyle = styled.div`
@@ -22,4 +20,13 @@ export const HeaderContainerStyle = styled.div`
   align-items: center;
   justify-content: space-between;
   position: relative;
+  @media (max-width: 768px) {
+    flex-direction: row-reverse;
+  }
+`;
+
+export const LogInOutWrapper = styled.div`
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

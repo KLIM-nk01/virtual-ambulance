@@ -19,6 +19,11 @@ export const Card = styled.div`
     -ms-transform: scale(1.05);
     transform: scale(1.05);
   }
+
+  @media (max-width: 425px) {
+    width: 280px;
+    height: fit-content;
+  }
 `;
 
 export const ContainerOne = styled.div`
@@ -39,6 +44,8 @@ export const ContainerTwo = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  padding-bottom: 50px;
   button {
     position: absolute;
     bottom: 0;
@@ -64,4 +71,7 @@ export const Expiriens = styled(Subtitle)`
 `;
 export const Reviews = styled(Subtitle)``;
 export const DegreeScience = styled(Subtitle)``;
-export const Description = styled(Subtitle)``;
+export const Description = styled.div`
+  color: ${STYLE_CONSTANTS.COLORS.pearl};
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+`;

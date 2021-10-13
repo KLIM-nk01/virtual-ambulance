@@ -7,7 +7,7 @@ export const DoctorsPageWrapper = styled.div`
   overflow: auto;
 `;
 
-export const DortorsWrapper = styled.div`
+export const DoctorsWrapper = styled.div`
   max-width: 860px;
   height: fit-content;
   margin: 30px auto;
@@ -16,4 +16,8 @@ export const DortorsWrapper = styled.div`
   ${flex};
 
   border-radius: 15px;
+  @media (max-width: 900px) {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
 `;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { DoctorsPageWrapper, DortorsWrapper } from './DoctorsPageStyle';
+import { DoctorsPageWrapper, DoctorsWrapper } from './DoctorsPageStyle';
 import DoctorsCard from './DoctorsCard/DoctorsCard';
 import DoctorsPageNavBar from './DoctorsPageNavBar/DoctorsPageNavBar';
 import Modal from '@components/common/Modal/Modal';
@@ -26,11 +26,11 @@ const DoctorsPage: React.FC = () => {
       {loading ? (
         <Loader />
       ) : (
-        <DortorsWrapper>
+        <DoctorsWrapper>
           {doctors.map((doctor) => (
             <DoctorsCard {...doctor} setActive={setModalActive} />
           ))}
-        </DortorsWrapper>
+        </DoctorsWrapper>
       )}
       
       <Portal>

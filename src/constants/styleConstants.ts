@@ -6,7 +6,8 @@ export const STYLE_CONSTANTS = {
     small: '16px',
     medium: '18px',
     large: '20px',
-    veryLarge: '24px'
+    veryLarge: '24px',
+    mobileLarge: '30px',
   },
   COLORS: {
     red: 'red',

@@ -3,22 +3,35 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 67%;
-  height: 100%;
+  height: fit-content;
   padding: 20px;
   background: ${STYLE_CONSTANTS.COLORS.white};
   box-shadow: 0px 0px 10px 1px ${STYLE_CONSTANTS.COLORS.gray};
   border-radius: 5px;
-  margin-left: 25px;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 export const UserName = styled.div`
-  height: 60px;
+  height: fit-content;
   width: 100%;
-
+  display: flex;
   border-bottom: 1px solid ${STYLE_CONSTANTS.COLORS.gray};
+  padding-bottom: 10px;
+
+  img {
+    width: 100px;
+    margin-right: 10px;
+    @media (min-width: 900px) {
+      display: none;
+    }
+  }
+
   span {
     color: ${STYLE_CONSTANTS.COLORS.black};
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLarge};
+    margin-right: 5px;
   }
 `;
 
@@ -40,6 +53,10 @@ export const InfoLabel = styled.span`
 
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.medium};
   color: ${STYLE_CONSTANTS.COLORS.lightGrey};
+  @media (max-width: 500px) {
+    width: 75px;
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+  }
 `;
 
 export const DescriptionLabel = styled.span`
@@ -48,4 +65,7 @@ export const DescriptionLabel = styled.span`
   display: flex;
   align-items: center;
   color: ${STYLE_CONSTANTS.COLORS.black};
+  @media (max-width: 500px) {
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+  }
 `;

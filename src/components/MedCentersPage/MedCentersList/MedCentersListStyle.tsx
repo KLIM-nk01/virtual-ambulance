@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { scroll } from '@styleMixin/scroll';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 interface IProps {
@@ -17,4 +16,7 @@ export const MedCentersListWrapper = styled.div<IProps>`
   justify-content: flex-start;
   overflow: auto;
   padding: 20px 0;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;

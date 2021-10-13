@@ -5,6 +5,9 @@ export const MedCentersMapStyle = styled.div`
   width: 60%;
   height: 100%;
   color: ${STYLE_CONSTANTS.COLORS.black};
+  @media (max-width: 767px) {
+    display: none;
+  }
 `;
 export const MarkerStyle = styled.img`
   width: 30px;

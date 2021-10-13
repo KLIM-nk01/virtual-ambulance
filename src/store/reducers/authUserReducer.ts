@@ -12,7 +12,11 @@ interface ILoginState {
 
 const LoginState: ILoginState = {
   authLoading: false,
-  authedUser: null,
+  authedUser: {
+    id: '',
+    userRole: 'string',
+    name: 'string'
+  },
   loginError: ''
 };
 

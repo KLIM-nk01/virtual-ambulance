@@ -8,10 +8,12 @@ import {
   ProfileInfoRow,
   UserName
 } from './AboutContainerStyle';
+import Avatar from '@assets/NoAvatar.png';
 
 const AboutContainer = () => (
   <Container>
     <UserName>
+      <img src={Avatar} alt="avatar" />
       <span>{usersData.name}</span> <span>{usersData.lastName}</span>
     </UserName>
 

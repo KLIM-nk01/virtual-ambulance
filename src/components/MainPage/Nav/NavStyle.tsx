@@ -7,11 +7,23 @@ export const NavWrapper = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
+
   a {
+    display: block;
     height: 55%;
     min-height: 300px;
     text-decoration: none;
     color: ${STYLE_CONSTANTS.COLORS.white};
+  }
+  @media (max-width: 767px) {
+    height: fit-content;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 20px;
+    a {
+      height: 310px;
+      margin-bottom: 20px;
+    }
   }
 `;
 

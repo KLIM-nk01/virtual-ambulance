@@ -7,6 +7,8 @@ const UserVisit: React.FC = () => {
     <VisitContainer>
       <ContainerName>My visit</ContainerName>
       <VisitItem />
+      <VisitItem />
+      <VisitItem />
     </VisitContainer>
   );
 };

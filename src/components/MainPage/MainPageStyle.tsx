@@ -9,4 +9,9 @@ export const MainPageWrapper = styled.div`
   justify-content: center;
   background: url(${Back}) 100% 100% no-repeat;
   background-size: cover;
+  overflow: auto;
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+  }
 `;

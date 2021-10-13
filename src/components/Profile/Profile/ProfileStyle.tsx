@@ -10,8 +10,12 @@ export const ProfileWrapper = styled.div`
 
 export const ProfileInformation = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
+  justify-content: space-between;
+  @media (max-width: 900px) {
+    height: 900px;
+    justify-content: center;
+  }
 `;
 
 export const ProfileFeature = styled.div`

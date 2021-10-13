@@ -1,23 +1,19 @@
 import Button from '@components/common/Button/Button';
 import React from 'react';
+import ItemDoctorsFeature from '../ItemDoctorsFeature';
 import {
-  Container,
   ContainersName,
   ContainerFooter,
-  Item,
-  ContainerContent,
+  ContainerContent
 } from '../ManagementStyle';
+import { TimeManagementContainer } from './WorkTimeManagementStyle';
 
 const WorkTimeManagement: React.FC = () => {
   return (
-    <Container>
+    <TimeManagementContainer>
       <ContainersName>Work Time</ContainersName>
       <ContainerContent>
-        <Item>
-          <span>8.30am</span>
-          <span>10.10.2021</span>
-          <Button round size="small"></Button>
-        </Item>
+        <ItemDoctorsFeature/>
       </ContainerContent>
 
       <ContainerFooter>
@@ -25,7 +21,7 @@ const WorkTimeManagement: React.FC = () => {
           Add
         </Button>
       </ContainerFooter>
-    </Container>
+    </TimeManagementContainer>
   );
 };
 
