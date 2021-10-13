@@ -1,7 +1,7 @@
 import { ActionsType, AuthActionsType } from '@store/reducers/authUserReducer';
 import { Dispatch } from 'redux';
 
-export const userAuth = (email: string, password: string) => {
+export const userAuth = (email?: string, password?: string) => {
   return async (dispatch: Dispatch<AuthActionsType>) => {
     try {
       dispatch({ type: ActionsType.AUTH_LOADING });
