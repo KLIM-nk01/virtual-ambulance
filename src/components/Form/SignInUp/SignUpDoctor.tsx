@@ -1,13 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { IDoctor } from './type';
-import {
-  Email,
-  Expiriens,
-  Password,
-  PhoneNumber,
-  Required
-} from './validationConstants';
+import { Email, Expiriens, Password, PhoneNumber, Required } from './validationConstants';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import {
@@ -17,16 +11,29 @@ import {
   ButtonBar,
   DoctorCheckButton,
   QuestionWrapper,
-  MedCentersSelect
+  MedCentersSelect,
 } from './FormStyle';
+import Select from '@components/common/Select/Select';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import Options from '@components/common/Select/Options';
+import { useDispatch } from 'react-redux';
+import { medCenterData } from '@data/medCenterData';
+import { fetchMedCenters } from '@store/actionCreators/medCenters';
 
 const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchMedCenters());
+  }, []);
   const onSubmit = (data: any) => console.log(data);
+  const state = useTypesSelector((state) => state.medCenter);
+  console.log(state);
+
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
 
   const password = useRef({});
@@ -42,10 +49,20 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           <span
             onClick={() => {
               setDoctor && setDoctor(false);
-            }}>
+            }}
+          >
             Click here.
           </span>
         </DoctorCheckButton>
+
+        <QuestionWrapper>
+          <span>-Choose a medical facility where you work</span>
+          <Select name="WorkPlace">
+            {state.medCenters.map((center) => {
+              return <Options value={center.id}>{center.name}, Address: {center.address}</Options>;
+            })}
+          </Select>
+        </QuestionWrapper>
 
         <Input
           primary
@@ -104,19 +121,6 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           />
         </QuestionWrapper>
 
-        <QuestionWrapper>
-          <span>-Choose a medical facility where you work</span>
-          <Input
-            primary
-            type="text"
-            name="work Place"
-            register={register('work place', Required)}
-            label="Work Place"
-            errors={errors}
-          />
-          <MedCentersSelect>Select with submenu</MedCentersSelect>
-        </QuestionWrapper>
-
         <Input
           primary
           name="password"
@@ -132,8 +136,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           type="password"
           label="Repeat Password"
           register={register('password_repeat', {
-            validate: (value) =>
-              value === password.current || 'The passwords do not match'
+            validate: (value) => value === password.current || 'The passwords do not match',
           })}
           errors={errors}
         />
