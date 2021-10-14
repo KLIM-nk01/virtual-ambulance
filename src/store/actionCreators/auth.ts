@@ -1,4 +1,4 @@
-import { ActionsType, AuthActionsType } from '@store/reducers/authUserReducer';
+import { ActionsType, AuthActionsType } from '@store/types/authUser';
 import { Dispatch } from 'redux';
 
 export const userAuth = (email?: string, password?: string) => {
