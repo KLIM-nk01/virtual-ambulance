@@ -16,7 +16,7 @@ import {
   Birthday,
   PhoneNumber,
   Password
-} from './validationConstants';
+} from '@components/Form/SignInUp/formValidationConstants';
 
 const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
   const onSubmit = (data: any) => console.log(data);

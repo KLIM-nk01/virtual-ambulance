@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import Select from 'react-select';
 import { IDoctor } from './type';
 import {
   Email,
@@ -7,7 +9,7 @@ import {
   Password,
   PhoneNumber,
   Required
-} from './validationConstants';
+} from '@components/Form/SignInUp/formValidationConstants';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import {
@@ -18,30 +20,48 @@ import {
   DoctorCheckButton,
   QuestionWrapper
 } from './FormStyle';
-import Select from '@components/common/Select/Select';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
-import Options from '@components/common/Select/Options';
-import { useDispatch } from 'react-redux';
 import { fetchMedCenters } from '@store/actionCreators/medCenters';
+import { SelectWrapper } from '@components/common/Select/SelectStyle';
+import { fetchDoctorsDirection } from '@store/actionCreators/doctorsDirection';
 
 const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchMedCenters());
+    dispatch(fetchDoctorsDirection());
   }, []);
+
   const onSubmit = (data: any) => console.log(data);
-  const state = useTypesSelector((state) => state.medCenter);
-  console.log(state);
+
+  const { medCenter, doctorsDirection } = useTypesSelector((state) => state);
 
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors }
+    formState: { errors },
+    control
   } = useForm();
 
   const password = useRef({});
   password.current = watch('password', '');
+
+  const optionsMedcenter = medCenter.medCenters.map((medCenter) => {
+    return {
+      value: medCenter.id_medcenter,
+      label: medCenter.name + ' Adress: ' + medCenter.address
+    };
+  });
+
+  const optionsDoctorsDirection = doctorsDirection.directions.map(
+    (direction) => {
+      return {
+        value: direction.id_direction,
+        label: direction.direction
+      };
+    }
+  );
 
   return (
     <FormContainer>
@@ -57,17 +77,6 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
             Click here.
           </span>
         </DoctorCheckButton>
-
-        <QuestionWrapper>
-          <span>-Choose a medical facility where you work</span>
-          <Select name="WorkPlace">
-            {state.medCenters.map((center) => (
-              <Options value={center.id}>
-                {center.name}, Address: {center.address}
-              </Options>
-            ))}
-          </Select>
-        </QuestionWrapper>
 
         <Input
           primary
@@ -115,15 +124,37 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
         />
 
         <QuestionWrapper>
-          <span>-Indicate your direction</span>
-          <Input
-            primary
-            label="Direction"
-            type="text"
+          <span>-Select your direction</span>
+          <Controller
             name="direction"
-            register={register('direction', Required)}
-            errors={errors}
+            control={control}
+            rules={{ required: 'Please select your direction.' }}
+            render={({ field }) => (
+              <SelectWrapper>
+                <Select {...field} options={optionsDoctorsDirection} />
+              </SelectWrapper>
+            )}
           />
+          {errors && errors['direction'] && (
+            <p>{errors['direction']?.message}</p>
+          )}
+        </QuestionWrapper>
+
+        <QuestionWrapper>
+          <span>-Choose a medical facility where you work: </span>
+          <Controller
+            name="workPlace"
+            control={control}
+            rules={{ required: 'Please select a place where you work.' }}
+            render={({ field }) => (
+              <SelectWrapper>
+                <Select {...field} options={optionsMedcenter} />
+              </SelectWrapper>
+            )}
+          />
+          {errors && errors['workPlace'] && (
+            <p>{errors['workPlace']?.message}</p>
+          )}
         </QuestionWrapper>
 
         <Input

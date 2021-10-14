@@ -88,12 +88,24 @@ export const QuestionWrapper = styled.div`
   align-items: flex-start;
   justify-content: space-around;
   flex-direction: column;
-  border-top: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
   padding-top: 10px;
-  margin: 10px 0;
+  margin-top: 10px;
   span {
     margin-left: 5px;
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+    color: ${STYLE_CONSTANTS.COLORS.blue};
+  }
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLittle};
+    color: ${STYLE_CONSTANTS.COLORS.red};
+    margin-top: 5px;
+    margin-left: 10px;
+    ::before {
+      display: inline;
+      content: '⚠ ';
+    }
   }
 `;
 
