@@ -12,7 +12,6 @@ import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import Loader from '@components/common/Loader/Loader';
 import { FormContainer, FormName, Form, ButtonBar } from './FormStyle';
-import { useCookies } from 'react-cookie';
 
 interface SubmitData {
   email: string;
@@ -20,23 +19,20 @@ interface SubmitData {
 }
 
 const SingInForm: React.FC = () => {
-  const [cookies, setCookie] = useCookies(['id']);
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm() as any;
 
   const dispatch = useDispatch();
   const { authedUser, authLoading } = useTypesSelector((state) => state.auth);
   const onSubmit = (data: SubmitData) => {
     dispatch(userAuth(data.email, data.password));
-    
   };
 
   return (
     <FormContainer>
-      {authedUser && setCookie('id', `${authedUser.id}`)}
       {authedUser && <Redirect to={ROUTS.MAIN_PAGE_PATH} />}
 
       <Form onSubmit={handleSubmit(onSubmit)}>

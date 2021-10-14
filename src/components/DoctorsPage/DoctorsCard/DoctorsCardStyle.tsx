@@ -20,7 +20,7 @@ export const Card = styled.div`
     transform: scale(1.05);
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.mobileM}) {
     width: 280px;
     height: fit-content;
   }
@@ -32,6 +32,7 @@ export const ContainerOne = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 10px;
+
   img {
     width: 120px;
     margin-bottom: 10px;
@@ -46,6 +47,7 @@ export const ContainerTwo = styled.div`
   flex-direction: column;
 
   padding-bottom: 50px;
+
   button {
     position: absolute;
     bottom: 0;
@@ -54,23 +56,32 @@ export const ContainerTwo = styled.div`
   }
 `;
 
-const Title = styled.span`
+export const Expiriens = styled.span`
+  color: ${STYLE_CONSTANTS.COLORS.pearl};
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+  margin-bottom: 10px;
+`;
+
+export const NameSurname = styled.span`
+  color: ${STYLE_CONSTANTS.COLORS.pearl};
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
   font-weight: 700;
 `;
-const Subtitle = styled.span`
+
+export const DoctorsDirection = styled.span`
   color: ${STYLE_CONSTANTS.COLORS.pearl};
-  font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
+  font-weight: 700;
 `;
 
-export const NameSurname = styled(Title)``;
-export const DoctorsDirection = styled(Title)``;
-
-export const Expiriens = styled(Subtitle)`
+export const Reviews = styled.span`
   margin-bottom: 10px;
 `;
-export const Reviews = styled(Subtitle)``;
-export const DegreeScience = styled(Subtitle)``;
+
+export const DegreeScience = styled.span`
+  margin-bottom: 10px;
+`;
+
 export const Description = styled.div`
   color: ${STYLE_CONSTANTS.COLORS.pearl};
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};

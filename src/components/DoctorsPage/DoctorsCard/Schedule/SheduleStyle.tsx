@@ -15,7 +15,7 @@ export const ScheduleWrapper = styled.div`
     bottom: 0;
     right: 0;
   }
-  @media (max-width: 425px) {
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.mobileM}) {
     width: 240px;
   }
 `;

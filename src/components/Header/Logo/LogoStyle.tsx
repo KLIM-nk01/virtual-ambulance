@@ -15,10 +15,6 @@ export const Container = styled.div`
   div {
     ${flex};
     flex-direction: column;
-
-    /* @media (max-width: 768px) {
-      display: none;
-    } */
   }
 
   span {
@@ -28,7 +24,7 @@ export const Container = styled.div`
     color: ${STYLE_CONSTANTS.COLORS.white};
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     width: fit-content;
     align-items: center;
     justify-content: center;

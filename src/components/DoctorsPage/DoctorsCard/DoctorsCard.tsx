@@ -35,7 +35,10 @@ const DoctorsCard: React.FC<IProps> = ({
   // const photo = photo;
   const state = useTypesSelector((state) => state.auth);
   const history = useHistory();
-
+  const showSchedule = (): void => {
+    setActive(true);
+    if (!state.authedUser) history.push(ROUTS.SIGNIN_FORM);
+  };
   return (
     <Card>
       <ContainerOne>
@@ -51,13 +54,7 @@ const DoctorsCard: React.FC<IProps> = ({
         <Expiriens>Expiriens: {expiriens}</Expiriens>
 
         <Description>{description}</Description>
-        <Button
-          round
-          onClick={() => {
-            setActive(true);
-            if (!state.authedUser) history.push(ROUTS.SIGNIN_FORM);
-          }}
-          variant="contained">
+        <Button round onClick={() => showSchedule()} variant="contained">
           Sign up
         </Button>
       </ContainerTwo>

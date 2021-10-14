@@ -16,7 +16,7 @@ export const BurgerMenuWrapper = styled.div<IBurgerMenu>`
   transform: ${(props) =>
     !props.menuActive ? 'translateX(-130%);' : 'translateX(0);'};
   transition: all 0.2s;
-  @media (min-width: 769px) {
+  @media (min-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     display: none;
   }
 `;
@@ -46,7 +46,7 @@ export const BurgerMenuContent = styled.div`
     margin: 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     width: 100%;
   }
 `;
@@ -77,7 +77,7 @@ export const BurgerButtonWrapper = styled.div`
   :after {
     bottom: 0;
   }
-  @media (min-width: 769px) {
+  @media (min-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     display: none;
   }
 `;

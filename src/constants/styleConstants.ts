@@ -7,7 +7,7 @@ export const STYLE_CONSTANTS = {
     medium: '18px',
     large: '20px',
     veryLarge: '24px',
-    mobileLarge: '30px',
+    mobileLarge: '30px'
   },
   COLORS: {
     red: 'red',
@@ -27,5 +27,12 @@ export const STYLE_CONSTANTS = {
     whiteGrey: '#e1e5e6',
     blue: '#007fff',
     darkBlue: '#0072E5'
+  },
+  SCREEN: {
+    laptop: '1024px',
+    tablet: '768px',
+    mobileL: '425px',
+    mobileM: '375px',
+    mobileS: '320px'
   }
 };

@@ -5,7 +5,7 @@ export const userAuth = (email?: string, password?: string) => {
   return async (dispatch: Dispatch<AuthActionsType>) => {
     try {
       dispatch({ type: ActionsType.AUTH_LOADING });
-      
+
       setTimeout(() => {
         dispatch({
           type: ActionsType.USER_IS_AUTH,
@@ -16,7 +16,6 @@ export const userAuth = (email?: string, password?: string) => {
           }
         });
       }, 1000);
-
     } catch (e) {
       dispatch({
         type: ActionsType.USER_IS_UNAUTH,
@@ -29,5 +28,5 @@ export const userAuth = (email?: string, password?: string) => {
 export const userUnAuth = () => {
   return {
     type: ActionsType.USER_IS_UNAUTH
-  }
-}
+  };
+};

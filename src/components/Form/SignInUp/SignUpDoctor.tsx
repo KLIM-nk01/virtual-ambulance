@@ -1,7 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { IDoctor } from './type';
-import { Email, Expiriens, Password, PhoneNumber, Required } from './validationConstants';
+import {
+  Email,
+  Expiriens,
+  Password,
+  PhoneNumber,
+  Required
+} from './validationConstants';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import {
@@ -10,14 +16,12 @@ import {
   Form,
   ButtonBar,
   DoctorCheckButton,
-  QuestionWrapper,
-  MedCentersSelect,
+  QuestionWrapper
 } from './FormStyle';
 import Select from '@components/common/Select/Select';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import Options from '@components/common/Select/Options';
 import { useDispatch } from 'react-redux';
-import { medCenterData } from '@data/medCenterData';
 import { fetchMedCenters } from '@store/actionCreators/medCenters';
 
 const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
@@ -33,7 +37,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors }
   } = useForm();
 
   const password = useRef({});
@@ -49,8 +53,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           <span
             onClick={() => {
               setDoctor && setDoctor(false);
-            }}
-          >
+            }}>
             Click here.
           </span>
         </DoctorCheckButton>
@@ -58,9 +61,11 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
         <QuestionWrapper>
           <span>-Choose a medical facility where you work</span>
           <Select name="WorkPlace">
-            {state.medCenters.map((center) => {
-              return <Options value={center.id}>{center.name}, Address: {center.address}</Options>;
-            })}
+            {state.medCenters.map((center) => (
+              <Options value={center.id}>
+                {center.name}, Address: {center.address}
+              </Options>
+            ))}
           </Select>
         </QuestionWrapper>
 
@@ -136,7 +141,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           type="password"
           label="Repeat Password"
           register={register('password_repeat', {
-            validate: (value) => value === password.current || 'The passwords do not match',
+            validate: (value) =>
+              value === password.current || 'The passwords do not match'
           })}
           errors={errors}
         />

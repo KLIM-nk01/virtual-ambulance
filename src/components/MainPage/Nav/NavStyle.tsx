@@ -15,7 +15,7 @@ export const NavWrapper = styled.div`
     text-decoration: none;
     color: ${STYLE_CONSTANTS.COLORS.white};
   }
-  @media (max-width: 767px) {
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     height: fit-content;
     align-items: flex-start;
     flex-direction: column;

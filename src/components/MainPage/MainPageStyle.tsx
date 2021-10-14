@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Back from '@assets/Back.jpg';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const MainPageWrapper = styled.div`
   width: 100%;
@@ -11,7 +12,7 @@ export const MainPageWrapper = styled.div`
   background-size: cover;
   overflow: auto;
 
-  @media (max-width: 768px) {
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     align-items: flex-start;
   }
 `;

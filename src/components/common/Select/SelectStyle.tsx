@@ -1,4 +1,3 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
 
 export const SelectWrapper = styled.select`
@@ -7,7 +6,6 @@ export const SelectWrapper = styled.select`
   padding: 10px;
   :focus {
     outline: 0;
-    /* border-color: ${STYLE_CONSTANTS.COLORS.blue}; */
     margin-bottom: 10px;
   }
 `;

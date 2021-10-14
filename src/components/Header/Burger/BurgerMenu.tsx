@@ -20,7 +20,6 @@ const BurgerMenu: React.FC<IBurgerMenuProps> = ({
     <BurgerMenuWrapper
       menuActive={menuActive}
       onClick={() => setMenuActive(!menuActive)}>
-      {/* <BurgerBlur /> */}
       <BurgerMenuContent>
         <MenuHeader>Menu</MenuHeader>
         <MenuItemWrapper>{children}</MenuItemWrapper>
