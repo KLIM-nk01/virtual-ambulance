@@ -1,13 +1,19 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
-export const Container = styled.div`
+export const DoctorsFeatureWrapper = styled.div`
   position: relative;
   width: 100%;
   border-top: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
   padding: 30px 10px;
   display: flex;
   justify-content: space-around;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 
 export const ContainerName = styled.span`

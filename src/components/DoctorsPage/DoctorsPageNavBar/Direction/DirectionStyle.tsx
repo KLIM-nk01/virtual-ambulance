@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
-import { flex } from '@styleMixin/flex';
 
 export const DirectionWrapper = styled.div`
   min-width: 100px;

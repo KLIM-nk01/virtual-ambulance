@@ -9,13 +9,13 @@ export const fetchDoctors = () => {
       setTimeout(() => {
         dispatch({
           type: DoctorsActionType.FETCH_DOCTORS_SECCESS,
-          payload: doctorsData,
+          payload: doctorsData
         });
-      }, 2000);
+      }, 1000);
     } catch (e) {
       dispatch({
         type: DoctorsActionType.FETCH_DOCTORS_ERROR,
-        payload: 'Error loading data about doctors.',
+        payload: 'Error loading data about doctors.'
       });
     }
   };

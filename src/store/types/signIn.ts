@@ -2,6 +2,7 @@ export enum SignInActionType {
   SIGNIN_SEND = 'SIGNIN_SEND',
   SIGNIN_SEND_SECCESS = 'SIGNIN_SEND_SECCESS',
   SIGNIN_SEND_ERROR = 'SIGNIN_SEND_ERROR',
+  
 }
 
 export interface ISignInState {

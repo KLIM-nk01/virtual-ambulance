@@ -20,4 +20,13 @@ export const HeaderContainerStyle = styled.div`
   align-items: center;
   justify-content: space-between;
   position: relative;
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    flex-direction: row-reverse;
+  }
+`;
+
+export const LogInOutWrapper = styled.div`
+   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    display: none;
+  }
 `;

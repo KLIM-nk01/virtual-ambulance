@@ -1,8 +1,6 @@
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
-import { scroll } from '@styleMixin/scroll';
 import styled from 'styled-components';
-
-
+import { scroll } from '@styleMixin/scroll';
 
 export const ScheduleWrapper = styled.div`
   position: relative;
@@ -11,10 +9,14 @@ export const ScheduleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 50px;
   button {
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.mobileM}) {
+    width: 240px;
   }
 `;
 
@@ -66,4 +68,3 @@ export const ItemWrapper = styled.div`
   overflow: auto;
   ${scroll};
 `;
-

@@ -26,10 +26,7 @@ export const doctorsDirection: Array<IDirection> = [
     direction: 'Virologist',
     iconSrc: icons.Virologist
   },
-  {
-    direction: 'Gynecologist',
-    iconSrc: icons.Gynecologist
-  },
+
   {
     direction: 'Dermatologist',
     iconSrc: icons.Dermatologist
@@ -45,10 +42,6 @@ export const doctorsDirection: Array<IDirection> = [
   {
     direction: 'SpeechTherapist',
     iconSrc: icons.SpeechTherapist
-  },
-  {
-    direction: 'Mammologist',
-    iconSrc: icons.Mammologist
   },
   {
     direction: 'Neuropathologist',
@@ -69,6 +62,10 @@ export const doctorsDirection: Array<IDirection> = [
   {
     direction: 'Orthopedist',
     iconSrc: icons.Orthopedist
+  },
+  {
+    direction: 'Gynecologist',
+    iconSrc: icons.Gynecologist
   },
   {
     direction: 'LOR',
@@ -113,6 +110,10 @@ export const doctorsDirection: Array<IDirection> = [
   {
     direction: 'Surgeon',
     iconSrc: icons.Surgeon
+  },
+  {
+    direction: 'Mammologist',
+    iconSrc: icons.Mammologist
   },
   {
     direction: 'Endocrinologist',

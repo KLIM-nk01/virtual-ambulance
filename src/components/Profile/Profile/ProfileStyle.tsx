@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const ProfileWrapper = styled.div`
   width: 850px;
@@ -10,8 +11,12 @@ export const ProfileWrapper = styled.div`
 
 export const ProfileInformation = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
+  justify-content: space-between;
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
+    height: 900px;
+    justify-content: center;
+  }
 `;
 
 export const ProfileFeature = styled.div`

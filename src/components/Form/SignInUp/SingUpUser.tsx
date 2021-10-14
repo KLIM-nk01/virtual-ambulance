@@ -1,10 +1,22 @@
 import React, { useRef } from 'react';
+import { useForm } from 'react-hook-form';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
-import { FormContainer, FormName, Form, ButtonBar, DoctorCheckButton } from './FormStyle';
+import {
+  FormContainer,
+  FormName,
+  Form,
+  ButtonBar,
+  DoctorCheckButton
+} from './FormStyle';
 import { IDoctor } from './type';
-import { Email, Required, Birthday, PhoneNumber, Password } from './validationConstants';
-import { useForm } from 'react-hook-form';
+import {
+  Email,
+  Required,
+  Birthday,
+  PhoneNumber,
+  Password
+} from './validationConstants';
 
 const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
   const onSubmit = (data: any) => console.log(data);
@@ -12,7 +24,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors }
     // errors,
   } = useForm() as any;
 
@@ -28,15 +40,14 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           <span
             onClick={() => {
               setDoctor(true);
-            }}
-          >
+            }}>
             Click here.
           </span>
         </DoctorCheckButton>
 
         <Input
           primary
-          placeholder="Name"
+          label="Name"
           type="text"
           name="name"
           register={register('name', Required)}
@@ -45,7 +56,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
 
         <Input
           primary
-          placeholder="Last Name"
+          label="Last Name"
           type="text"
           name="last name"
           register={register('last name', Required)}
@@ -54,7 +65,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
 
         <Input
           primary
-          placeholder="Birthday"
+          label="Birthday"
           type="text"
           name="birthday"
           register={register('birthday', Birthday)}
@@ -66,7 +77,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="email"
           register={register('email', Email)}
-          placeholder="Email"
+          label="Email"
           errors={errors}
         />
 
@@ -75,7 +86,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="phone number"
           register={register('phone number', PhoneNumber)}
-          placeholder="Phone number"
+          label="Phone number"
           errors={errors}
         />
 
@@ -84,24 +95,24 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="text"
           name="address"
           register={register('address', Required)}
-          placeholder="Address"
+          label="Address"
           errors={errors}
         />
 
-        <Input
+        {/* <Input
           primary
           type="text"
           name="work place"
           register={register('work place', Required)}
           placeholder="Work Place"
           errors={errors}
-        />
+        /> */}
 
         <Input
           primary
           name="password"
           type="password"
-          placeholder="Password"
+          label="Password"
           register={register('password', Password)}
           errors={errors}
         />
@@ -110,9 +121,10 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           primary
           name="password_repeat"
           type="password"
-          placeholder="Repeat Password"
+          label="Repeat Password"
           register={register('password_repeat', {
-            validate: (value: any) => value === password.current || 'The passwords do not match',
+            validate: (value: any) =>
+              value === password.current || 'The passwords do not match'
           })}
           errors={errors}
         />

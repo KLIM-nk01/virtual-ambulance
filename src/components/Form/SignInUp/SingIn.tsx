@@ -1,15 +1,17 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { Redirect } from 'react-router';
+
+import { userAuth } from '@store/actionCreators/auth';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { ROUTS } from '@constants/routs';
+import { Email, Password } from './validationConstants';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
+import Loader from '@components/common/Loader/Loader';
 import { FormContainer, FormName, Form, ButtonBar } from './FormStyle';
-import { NavLink } from 'react-router-dom';
-import { ROUTS } from '@constants/routs';
-import { useForm } from 'react-hook-form';
-import { Email, Password } from './validationConstants';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { useDispatch } from 'react-redux';
-import { sendSignInData } from '@store/actionCreators/signIn';
-import { store } from '@store/store';
 
 interface SubmitData {
   email: string;
@@ -20,25 +22,25 @@ const SingInForm: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm() as any;
 
-  const { email, password } = useTypesSelector((state) => state.signIn);
   const dispatch = useDispatch();
-
+  const { authedUser, authLoading } = useTypesSelector((state) => state.auth);
   const onSubmit = (data: SubmitData) => {
-    dispatch(sendSignInData(data.email, data.password));
-    console.log(store.getState());
+    dispatch(userAuth(data.email, data.password));
   };
 
   return (
     <FormContainer>
+      {authedUser && <Redirect to={ROUTS.MAIN_PAGE_PATH} />}
+
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Sin In to your account</FormName>
 
         <Input
           primary
-          placeholder="Email"
+          label="Email"
           // type='email'
           name="email"
           register={register('email', Email)}
@@ -47,23 +49,23 @@ const SingInForm: React.FC = () => {
 
         <Input
           primary
-          placeholder="Password"
+          label="Password"
           type="password"
           name="password"
           register={register('password', Password)}
           errors={errors}
         />
 
-        <NavLink to={ROUTS.SINGUP_FORM}>
-          <span>Don't have an account? Registration</span>
-        </NavLink>
-
         <ButtonBar>
           <Button round type="submit">
             Sign In
           </Button>
-          <Button round>G</Button>
         </ButtonBar>
+
+        <NavLink to={ROUTS.SINGUP_FORM}>
+          Don't have an account? Click <span>here</span> to registration
+        </NavLink>
+        {authLoading && <Loader />}
       </Form>
     </FormContainer>
   );

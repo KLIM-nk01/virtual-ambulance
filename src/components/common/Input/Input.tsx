@@ -3,6 +3,7 @@ import { InputGroup } from './InputStyle';
 
 interface IInput {
   primary?: boolean;
+  label?: string;
   placeholder?: string;
   type?: string;
   checkbox?: boolean;
@@ -19,19 +20,17 @@ interface IInput {
 const Input: React.FC<IInput> = ({
   primary,
   type,
-  placeholder,
+  label,
   register,
-  children,
   errors,
   name,
+  placeholder
 }) => {
   return (
     <InputGroup primary={primary} type={type}>
-      <label>{placeholder}</label>
-      <input {...register} type={type} />
+      <label>{label}</label>
+      <input placeholder={placeholder} {...register} type={type} />
       {errors && errors[name] && <p>{errors[name]?.message}</p>}
-
-      {/* {children} */}
     </InputGroup>
   );
 };

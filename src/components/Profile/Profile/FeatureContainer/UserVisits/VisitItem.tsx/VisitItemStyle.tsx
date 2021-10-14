@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const VisitItemContainer = styled.div`
   width: 240px;
@@ -10,7 +10,7 @@ export const VisitItemContainer = styled.div`
   justify-content: space-between;
   flex-direction: column;
   box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.lightGrey};
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 5px 0;
 `;
 

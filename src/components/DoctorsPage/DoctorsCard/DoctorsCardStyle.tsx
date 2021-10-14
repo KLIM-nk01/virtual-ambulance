@@ -6,7 +6,7 @@ export const Card = styled.div`
   height: 300px;
   margin: 20px 20px;
 
-  border-radius: 15px;
+  border-radius: 5px;
   display: flex;
   background: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   color: ${STYLE_CONSTANTS.COLORS.black};
@@ -19,6 +19,11 @@ export const Card = styled.div`
     -ms-transform: scale(1.05);
     transform: scale(1.05);
   }
+
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.mobileM}) {
+    width: 280px;
+    height: fit-content;
+  }
 `;
 
 export const ContainerOne = styled.div`
@@ -27,6 +32,7 @@ export const ContainerOne = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 10px;
+
   img {
     width: 120px;
     margin-bottom: 10px;
@@ -39,6 +45,9 @@ export const ContainerTwo = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+
+  padding-bottom: 50px;
+
   button {
     position: absolute;
     bottom: 0;
@@ -47,21 +56,33 @@ export const ContainerTwo = styled.div`
   }
 `;
 
-const Title = styled.span`
+export const Expiriens = styled.span`
+  color: ${STYLE_CONSTANTS.COLORS.pearl};
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+  margin-bottom: 10px;
+`;
+
+export const NameSurname = styled.span`
+  color: ${STYLE_CONSTANTS.COLORS.pearl};
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
   font-weight: 700;
 `;
-const Subtitle = styled.span`
+
+export const DoctorsDirection = styled.span`
+  color: ${STYLE_CONSTANTS.COLORS.pearl};
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.small};
+  font-weight: 700;
+`;
+
+export const Reviews = styled.span`
+  margin-bottom: 10px;
+`;
+
+export const DegreeScience = styled.span`
+  margin-bottom: 10px;
+`;
+
+export const Description = styled.div`
   color: ${STYLE_CONSTANTS.COLORS.pearl};
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
 `;
-
-export const NameSurname = styled(Title)``;
-export const DoctorsDirection = styled(Title)``;
-
-export const Expiriens = styled(Subtitle)`
-  margin-bottom: 10px;
-`;
-export const Reviews = styled(Subtitle)``;
-export const DegreeScience = styled(Subtitle)``;
-export const Description = styled(Subtitle)``;

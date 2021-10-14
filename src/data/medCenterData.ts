@@ -2,6 +2,7 @@ import * as photo from '@assets/medCenter';
 
 export const medCenterData = [
   {
+    id_medcenter: '12341',
     name: 'LODE',
     address: 'Minsk, Independence, 58A',
     photo: photo.LODE,
@@ -24,6 +25,7 @@ export const medCenterData = [
     logo: photo.LODE_LOGO
   },
   {
+    id_medcenter: '1231324141',
     name: 'Alfamed',
     address: 'Minsk, Independence Avenue, 85',
     photo: photo.ALFAMED,
@@ -35,6 +37,7 @@ export const medCenterData = [
     longitude: 27.558972
   },
   {
+    id_medcenter: '12341asdf',
     name: '"Doctor Profi"',
     address: 'Minsk, d. Kopische, st. Lopatin, 7a',
     photo: photo.DOCTOR_PROFI,
@@ -46,6 +49,7 @@ export const medCenterData = [
     longitude: 27.558972
   },
   {
+    id_medcenter: '123zxcv41',
     name: 'SYNLAB',
     address: 'Minsk, st. Academic, 26',
     photo: photo.SYNLAB,

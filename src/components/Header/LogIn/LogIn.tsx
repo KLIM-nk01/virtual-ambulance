@@ -1,11 +1,12 @@
 import React from 'react';
-import { ROUTS } from '@constants/routs';
 import { NavLink } from 'react-router-dom';
+import { ROUTS } from '@constants/routs';
 import Button from '@components/common/Button/Button';
+import { ButtonsWrapper } from './LogInButton';
 
 const LogIn: React.FC = () => {
   return (
-    <div>
+    <ButtonsWrapper>
       <NavLink to={ROUTS.SIGNIN_FORM}>
         <Button round variant={'outlined'}>
           sign in
@@ -16,7 +17,7 @@ const LogIn: React.FC = () => {
           sign up
         </Button>
       </NavLink>
-    </div>
+    </ButtonsWrapper>
   );
 };
 

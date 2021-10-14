@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled, { keyframes } from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 const rotate = keyframes`
     0% {
@@ -11,12 +11,12 @@ const rotate = keyframes`
   `;
 
 export const Wrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 export const LoaderWrapper = styled.div`
   display: inline-block;
   position: relative;

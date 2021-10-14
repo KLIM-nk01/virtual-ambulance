@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const Container = styled.div`
   position: relative;
@@ -11,7 +11,7 @@ export const Container = styled.div`
   padding: 10px 0;
 
   box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.lightGrey};
-
+  margin-bottom: 30px;
   button {
     position: relative;
     bottom: 0;
@@ -57,9 +57,32 @@ export const Item = styled.div`
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
     font-weight: 600;
   }
+`;
 
-  button {
-    min-width: 30px;
-    margin: 0;
+export const RemoveButton = styled.div`
+  position: relative;
+  width: 21px;
+  height: 20px;
+  border: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
+  border-radius: 50px;
+  cursor: pointer;
+
+  :before,
+  :after {
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 2px;
+    background: ${STYLE_CONSTANTS.COLORS.black};
+  }
+  :before {
+    left: 2px;
+    top: 8px;
+    transform: rotate(45deg);
+  }
+  :after {
+    left: 2px;
+    bottom: 8px;
+    transform: rotate(-45deg);
   }
 `;

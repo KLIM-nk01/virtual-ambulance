@@ -1,17 +1,29 @@
 import styled from 'styled-components';
-import { flex } from '@styleMixin/flex';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
+import { flex } from '@styleMixin/flex';
 
 export const NavWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
+
   a {
+    display: block;
     height: 55%;
     min-height: 300px;
     text-decoration: none;
     color: ${STYLE_CONSTANTS.COLORS.white};
+  }
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    height: fit-content;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 20px;
+    a {
+      height: 310px;
+      margin-bottom: 20px;
+    }
   }
 `;
 
