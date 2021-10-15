@@ -1,3 +1,4 @@
-export interface IDoctor {
-  setDoctor: (value: boolean) => void;
+export interface IUserRole {
+  setUserRole: (value: string) => void;
+  userRole: string;
 }

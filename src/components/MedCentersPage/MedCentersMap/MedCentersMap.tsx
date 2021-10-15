@@ -11,7 +11,10 @@ interface IState {
   height: string;
 }
 
-const MedCentersMap: React.FC = () => {
+interface IMedCenterMap {
+  medCenters: any[];
+}
+const MedCentersMap: React.FC<IMedCenterMap> = ({ medCenters }) => {
   const [viewport, setViewPort] = useState<IState>({
     latitude: 53.900601,
     longitude: 27.558972,
@@ -29,13 +32,15 @@ const MedCentersMap: React.FC = () => {
           setViewPort(viewport);
         }}
         mapStyle={'mapbox://styles/mapbox/streets-v11'}>
-        <Marker
-          latitude={53.900601}
-          longitude={27.558972}
-          offsetLeft={-20}
-          offsetTop={-10}>
-          <MarkerStyle src={marker} alt={''}></MarkerStyle>
-        </Marker>
+        {medCenters.map((medCenter) => (
+          <Marker
+            latitude={medCenter.location.lat}
+            longitude={medCenter.location.lon}
+            offsetLeft={-20}
+            offsetTop={-10}>
+            <MarkerStyle src={marker} alt={''}></MarkerStyle>
+          </Marker>
+        ))}
       </ReactMapGL>
     </MedCentersMapStyle>
   );
