@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
-import { IUserRole } from './type';
+import { IDoctorSubmitData, IUserRole } from './types';
 import {
   Email,
   Experience,
@@ -30,6 +30,7 @@ import { ROUTS } from '@constants/routs';
 import { Redirect } from 'react-router-dom';
 import Loader from '@components/common/Loader/Loader';
 
+
 const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();
   const { medCenter, doctorsDirection, auth, signUp } = useTypesSelector(
@@ -51,7 +52,7 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
     dispatch(fetchDoctorsDirection());
   }, []);
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: IDoctorSubmitData) => {
     data.userRole = userRole;
     dispatch(registrationDoctor(data));
     dispatch(userAuth());

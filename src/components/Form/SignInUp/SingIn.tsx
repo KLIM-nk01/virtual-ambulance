@@ -23,7 +23,7 @@ const SingInForm: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm() as any;
+  } = useForm();
 
   const dispatch = useDispatch();
   const { authedUser, authLoading } = useTypesSelector((state) => state.auth);

@@ -11,7 +11,7 @@ import {
   ButtonBar,
   DoctorCheckButton
 } from './FormStyle';
-import { IUserRole } from './type';
+import { IPatientSubmitData, IUserRole } from './types';
 import {
   Email,
   Required,
@@ -28,7 +28,7 @@ import Loader from '@components/common/Loader/Loader';
 const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: IPatientSubmitData) => {
     data.userRole = userRole;
     dispatch(registrationPatient(data));
     dispatch(userAuth());
@@ -129,7 +129,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           type="password"
           label="Repeat Password"
           register={register('password_repeat', {
-            validate: (value: any) =>
+            validate: (value: string) =>
               value === password.current || 'The passwords do not match'
           })}
           errors={errors}
