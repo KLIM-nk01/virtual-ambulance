@@ -26,7 +26,8 @@ module.exports = {
       '@data': path.resolve(__dirname, 'src/data/'),
       '@containers': path.resolve(__dirname, 'src/Containers/'),
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
-      '@store': path.resolve(__dirname, 'src/store/')
+      '@store': path.resolve(__dirname, 'src/store/'),
+      '@core': path.resolve(__dirname,'src/core/')
     }
   },
   plugins: [

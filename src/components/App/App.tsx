@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
+import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from '@styleMixin/globalstyle';
 import { AppWrapper, Main } from './AppStyle';
 import Header from '../Header/Header';
 import Routs from '@components/Routs/Routs';
 import { useDispatch } from 'react-redux';
 import { userAuth } from '@store/actionCreators/auth';
+import * as cookies from '@core/cookies/cookies';
 
 const App: React.FC = () => {
-  const [cookies] = useCookies();
   const dispatch = useDispatch();
   useEffect(() => {
-    cookies.id && dispatch(userAuth());
+    cookies.getCookie('id') && dispatch(userAuth());
   }, []);
 
   return (
@@ -23,6 +22,7 @@ const App: React.FC = () => {
           <Header />
 
           <Main>
+            {console.log(document.cookie, '=')}
             <Routs />
           </Main>
         </AppWrapper>
