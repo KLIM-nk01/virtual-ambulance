@@ -15,7 +15,7 @@ const Services: React.FC<IServices> = ({ services }) => {
       <span>Our services: </span>
       <ServicesWrapper>
         {services?.map((sevice) => (
-          <ServiceItem>{sevice}</ServiceItem>
+          <ServiceItem >{sevice}</ServiceItem>
         ))}
       </ServicesWrapper>
     </CenterServices>

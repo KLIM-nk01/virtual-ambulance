@@ -1,4 +1,10 @@
-import { ActionsType, AuthActionsType, ILoginState, LoginState } from "@store/types/authUser";
+import { ActionsType, AuthActionsType, ILoginState} from "@store/types/authUser";
+
+ const LoginState: ILoginState = {
+  authLoading: false,
+  authedUser: null,
+  loginError: ''
+};
 
 export const authReducer = (
   state = LoginState,

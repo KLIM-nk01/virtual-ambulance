@@ -7,7 +7,7 @@ import { Redirect } from 'react-router';
 import { userAuth } from '@store/actionCreators/auth';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ROUTS } from '@constants/routs';
-import { Email, Password } from './validationConstants';
+import { Email, Password } from '@components/Form/SignInUp/formValidationConstants';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import Loader from '@components/common/Loader/Loader';
@@ -23,7 +23,7 @@ const SingInForm: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm() as any;
+  } = useForm();
 
   const dispatch = useDispatch();
   const { authedUser, authLoading } = useTypesSelector((state) => state.auth);

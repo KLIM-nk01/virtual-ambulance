@@ -1,10 +1,12 @@
 interface IService {
   serviceDirection: string;
   serviceCategories: Array<string>;
+  id_serviceDirection: string;
 }
 
 export const services: Array<IService> = [
   {
+    id_serviceDirection: 'Allergology',
     serviceDirection: 'Allergology',
     serviceCategories: [
       'Consultation with an allergist-immunologist',
@@ -13,6 +15,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Venereology',
     serviceDirection: 'Venereology',
     serviceCategories: [
       'Consultation with a venereologist',
@@ -21,6 +24,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Vaccination',
     serviceDirection: 'Vaccination',
     serviceCategories: [
       'Vaccination against Covid-19',
@@ -29,6 +33,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Allergology',
     serviceDirection: 'Allergology',
     serviceCategories: [
       'Consultation with an allergist-immunologist',
@@ -37,6 +42,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Venereology',
     serviceDirection: 'Venereology',
     serviceCategories: [
       'Consultation with a venereologist',
@@ -45,6 +51,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Vaccination',
     serviceDirection: 'Vaccination',
     serviceCategories: [
       'Vaccination against Covid-19',
@@ -53,6 +60,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Allergology',
     serviceDirection: 'Allergology',
     serviceCategories: [
       'Consultation with an allergist-immunologist',
@@ -61,6 +69,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Venereology',
     serviceDirection: 'Venereology',
     serviceCategories: [
       'Consultation with a venereologist',
@@ -69,6 +78,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Vaccination',
     serviceDirection: 'Vaccination',
     serviceCategories: [
       'Vaccination against Covid-19',
@@ -77,6 +87,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Allergology',
     serviceDirection: 'Allergology',
     serviceCategories: [
       'Consultation with an allergist-immunologist',
@@ -85,6 +96,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Venereology',
     serviceDirection: 'Venereology',
     serviceCategories: [
       'Consultation with a venereologist',
@@ -93,6 +105,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Vaccination',
     serviceDirection: 'Vaccination',
     serviceCategories: [
       'Vaccination against Covid-19',
@@ -101,6 +114,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Allergology',
     serviceDirection: 'Allergology',
     serviceCategories: [
       'Consultation with an allergist-immunologist',
@@ -109,6 +123,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Venereology',
     serviceDirection: 'Venereology',
     serviceCategories: [
       'Consultation with a venereologist',
@@ -117,6 +132,7 @@ export const services: Array<IService> = [
     ]
   },
   {
+    id_serviceDirection: 'Vaccination',
     serviceDirection: 'Vaccination',
     serviceCategories: [
       'Vaccination against Covid-19',

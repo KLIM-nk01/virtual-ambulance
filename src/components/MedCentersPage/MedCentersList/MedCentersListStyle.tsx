@@ -7,7 +7,7 @@ interface IProps {
 
 export const MedCentersListWrapper = styled.div<IProps>`
   position: relative;
-  width: 40%;
+  width: 30%;
   height: 100%;
   background-color: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   display: flex;

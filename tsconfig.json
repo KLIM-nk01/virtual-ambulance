@@ -24,7 +24,8 @@
       "@data/*": ["./data/*"],
       "@containers/*": ["./Containers/*"],
       "@hooks/*": ["./hooks/*"],
-      "@store/*": ["./store/*"]
+      "@store/*": ["./store/*"],
+      "@core/*": ["./core/*"]
     }
   },
 

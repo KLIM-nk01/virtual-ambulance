@@ -12,6 +12,9 @@ export const VisitItemContainer = styled.div`
   box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.lightGrey};
   border-radius: 5px;
   padding: 5px 0;
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.mobileL}) {
+    width: 100%;
+  }
 `;
 
 export const ContainerFooter = styled.div`

@@ -4,11 +4,9 @@ import { ROUTS } from '@constants/routs';
 import { FormPageContainer } from './FormPageStyle';
 import SignUpDoctor from './SignInUp/SignUpDoctor';
 import SingInForm from './SignInUp/SingIn';
-import SignUpUser from './SignInUp/SingUpUser';
-
+import SignUpUser from './SignInUp/SignUpPatient';
 const FormPage: React.FC = () => {
-  const [doctorState, setDoctorState] = useState<boolean>(false);
-
+  const [userRole, setUserRole] = useState('patient');
   return (
     <FormPageContainer>
       <Route exact path={ROUTS.SIGNIN_FORM} render={() => <SingInForm />} />
@@ -16,10 +14,10 @@ const FormPage: React.FC = () => {
         exact
         path={ROUTS.SINGUP_FORM}
         render={() => {
-          return doctorState ? (
-            <SignUpDoctor setDoctor={setDoctorState} />
+          return userRole === 'doctor' ? (
+            <SignUpDoctor userRole={userRole} setUserRole={setUserRole} />
           ) : (
-            <SignUpUser setDoctor={setDoctorState} />
+            <SignUpUser userRole={userRole} setUserRole={setUserRole} />
           );
         }}
       />

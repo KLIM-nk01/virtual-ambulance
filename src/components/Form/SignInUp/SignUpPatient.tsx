@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import { Redirect } from 'react-router';
+import { useDispatch } from 'react-redux';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import {
@@ -9,37 +11,50 @@ import {
   ButtonBar,
   DoctorCheckButton
 } from './FormStyle';
-import { IDoctor } from './type';
+import { IPatientSubmitData, IUserRole } from './types';
 import {
   Email,
   Required,
   Birthday,
   PhoneNumber,
   Password
-} from './validationConstants';
+} from '@components/Form/SignInUp/formValidationConstants';
+import { registrationPatient } from '@store/actionCreators/signUp';
+import { userAuth } from '@store/actionCreators/auth';
+import { ROUTS } from '@constants/routs';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import Loader from '@components/common/Loader/Loader';
 
-const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
-  const onSubmit = (data: any) => console.log(data);
+const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
+  const dispatch = useDispatch();
+
+  const onSubmit = (data: IPatientSubmitData) => {
+    data.userRole = userRole;
+    dispatch(registrationPatient(data));
+    dispatch(userAuth());
+  };
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors }
-    // errors,
-  } = useForm() as any;
+  } = useForm();
 
   const password = useRef({});
   password.current = watch('password', '');
 
+  const state = useTypesSelector((state) => state);
   return (
     <FormContainer>
+      {state.auth.authedUser && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Сreate an account </FormName>
         <DoctorCheckButton>
           Are you doctor?
           <span
             onClick={() => {
-              setDoctor(true);
+              setUserRole('doctor');
             }}>
             Click here.
           </span>
@@ -84,8 +99,8 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
         <Input
           primary
           type="text"
-          name="phone number"
-          register={register('phone number', PhoneNumber)}
+          name="phone"
+          register={register('phone', PhoneNumber)}
           label="Phone number"
           errors={errors}
         />
@@ -98,15 +113,6 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           label="Address"
           errors={errors}
         />
-
-        {/* <Input
-          primary
-          type="text"
-          name="work place"
-          register={register('work place', Required)}
-          placeholder="Work Place"
-          errors={errors}
-        /> */}
 
         <Input
           primary
@@ -123,7 +129,7 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
           type="password"
           label="Repeat Password"
           register={register('password_repeat', {
-            validate: (value: any) =>
+            validate: (value: string) =>
               value === password.current || 'The passwords do not match'
           })}
           errors={errors}
@@ -134,9 +140,10 @@ const SignUpUser: React.FC<IDoctor> = ({ setDoctor }) => {
             Sign Up
           </Button>
         </ButtonBar>
+        {state.signUp.requestLoading && <Loader />}
       </Form>
     </FormContainer>
   );
 };
 
-export default SignUpUser;
+export default SignUpPatient;

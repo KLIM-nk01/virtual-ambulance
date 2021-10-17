@@ -1,5 +1,7 @@
-import { ActionsType, AuthActionsType } from '@store/types/authUser';
 import { Dispatch } from 'redux';
+import { ActionsType, AuthActionsType } from '@store/types/authUser';
+
+import * as cookies from '@core/cookies/cookies';
 
 export const userAuth = (email?: string, password?: string) => {
   return async (dispatch: Dispatch<AuthActionsType>) => {
@@ -15,6 +17,8 @@ export const userAuth = (email?: string, password?: string) => {
             name: 'Nikita'
           }
         });
+        cookies.setCookie('id', '1234', {});
+        cookies.setCookie('userRole', 'patient', {});
       }, 1000);
     } catch (e) {
       dispatch({

@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from 'react';
-import { useForm } from 'react-hook-form';
-import { IDoctor } from './type';
+import { useForm, Controller } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import Select from 'react-select';
+import { IDoctorSubmitData, IUserRole } from './types';
 import {
   Email,
-  Expiriens,
+  Experience,
   Password,
   PhoneNumber,
   Required
-} from './validationConstants';
+} from '@components/Form/SignInUp/formValidationConstants';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import {
@@ -18,56 +20,75 @@ import {
   DoctorCheckButton,
   QuestionWrapper
 } from './FormStyle';
-import Select from '@components/common/Select/Select';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
-import Options from '@components/common/Select/Options';
-import { useDispatch } from 'react-redux';
 import { fetchMedCenters } from '@store/actionCreators/medCenters';
+import { SelectWrapper } from '@components/common/Select/SelectStyle';
+import { fetchDoctorsDirection } from '@store/actionCreators/doctorsDirection';
+import { registrationDoctor } from '@store/actionCreators/signUp';
+import { userAuth } from '@store/actionCreators/auth';
+import { ROUTS } from '@constants/routs';
+import { Redirect } from 'react-router-dom';
+import Loader from '@components/common/Loader/Loader';
 
-const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
+
+const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchMedCenters());
-  }, []);
-  const onSubmit = (data: any) => console.log(data);
-  const state = useTypesSelector((state) => state.medCenter);
-  console.log(state);
-
+  const { medCenter, doctorsDirection, auth, signUp } = useTypesSelector(
+    (state) => state
+  );
+  const password = useRef({});
   const {
     register,
     handleSubmit,
     watch,
-    formState: { errors }
+    formState: { errors },
+    control
   } = useForm();
 
-  const password = useRef({});
   password.current = watch('password', '');
+
+  useEffect(() => {
+    dispatch(fetchMedCenters());
+    dispatch(fetchDoctorsDirection());
+  }, []);
+
+  const onSubmit = (data: IDoctorSubmitData) => {
+    data.userRole = userRole;
+    dispatch(registrationDoctor(data));
+    dispatch(userAuth());
+  };
+
+  const optionsMedCenter = medCenter.medCenters.map((medCenter) => {
+    return {
+      value: medCenter.id_medcenter,
+      label: medCenter.name + ' Adress: ' + medCenter.address
+    };
+  });
+
+  const optionsDoctorsDirection = doctorsDirection.directions.map(
+    (direction) => {
+      return {
+        value: direction.id_direction,
+        label: direction.direction
+      };
+    }
+  );
 
   return (
     <FormContainer>
+      {auth.authedUser && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormName>Сreate dodoctors account </FormName>
+        <FormName>Сreate doctors account </FormName>
 
         <DoctorCheckButton>
           Are you patient?
           <span
             onClick={() => {
-              setDoctor && setDoctor(false);
+              setUserRole('patient');
             }}>
             Click here.
           </span>
         </DoctorCheckButton>
-
-        <QuestionWrapper>
-          <span>-Choose a medical facility where you work</span>
-          <Select name="WorkPlace">
-            {state.medCenters.map((center) => (
-              <Options value={center.id}>
-                {center.name}, Address: {center.address}
-              </Options>
-            ))}
-          </Select>
-        </QuestionWrapper>
 
         <Input
           primary
@@ -82,8 +103,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
           primary
           label="Last Name"
           type="text"
-          name="last name"
-          register={register('last name', Required)}
+          name="lastName"
+          register={register('lastName', Required)}
           errors={errors}
         />
 
@@ -99,8 +120,8 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
         <Input
           primary
           type="text"
-          name="phone number"
-          register={register('phone number', PhoneNumber)}
+          name="phone"
+          register={register('phone', PhoneNumber)}
           label="Phone number"
           errors={errors}
         />
@@ -108,22 +129,44 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
         <Input
           primary
           type="text"
-          name="expiriens"
-          register={register('expiriens', Expiriens)}
-          label="Expiriens"
+          name="experience"
+          register={register('experience', Experience)}
+          label="Experience"
           errors={errors}
         />
 
         <QuestionWrapper>
-          <span>-Indicate your direction</span>
-          <Input
-            primary
-            label="Direction"
-            type="text"
+          <span>-Select your direction</span>
+          <Controller
             name="direction"
-            register={register('direction', Required)}
-            errors={errors}
+            control={control}
+            rules={{ required: 'Please select your direction.' }}
+            render={({ field }) => (
+              <SelectWrapper>
+                <Select {...field} options={optionsDoctorsDirection} />
+              </SelectWrapper>
+            )}
           />
+          {errors && errors['direction'] && (
+            <p>{errors['direction']?.message}</p>
+          )}
+        </QuestionWrapper>
+
+        <QuestionWrapper>
+          <span>-Choose a medical facility where you work: </span>
+          <Controller
+            name="workPlace"
+            control={control}
+            rules={{ required: 'Please select a place where you work.' }}
+            render={({ field }) => (
+              <SelectWrapper>
+                <Select {...field} options={optionsMedCenter} />
+              </SelectWrapper>
+            )}
+          />
+          {errors && errors['workPlace'] && (
+            <p>{errors['workPlace']?.message}</p>
+          )}
         </QuestionWrapper>
 
         <Input
@@ -152,6 +195,7 @@ const SignUpDoctor: React.FC<IDoctor> = ({ setDoctor }) => {
             Sign Up
           </Button>
         </ButtonBar>
+        {signUp.requestLoading && <Loader />}
       </Form>
     </FormContainer>
   );

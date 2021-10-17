@@ -7,7 +7,7 @@ const initialSignInState: ISignInState = {
   serverError: null,
 };
 
-export const signInReduser = (state = initialSignInState, action: ActionType): ISignInState => {
+export const signInReducer = (state = initialSignInState, action: ActionType): ISignInState => {
   switch (action.type) {
     case SignInActionType.SIGNIN_SEND:
       return { ...state, loading: true };
