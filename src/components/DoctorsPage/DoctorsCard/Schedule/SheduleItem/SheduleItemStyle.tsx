@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
-interface IScheduleItem {
-  enable?: boolean;
+interface IChoiceState {
+  choice: boolean;
+  disabled?: boolean;
 }
 
-export const ScheduleItem = styled.div<IScheduleItem>`
+export const ScheduleItem = styled.div<IChoiceState>`
   width: 170px;
   height: 70px;
   margin: 10px;
@@ -18,7 +19,7 @@ export const ScheduleItem = styled.div<IScheduleItem>`
   transition: 0.5s;
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.darkGrey};
-  background: ${({ enable }) => enable && STYLE_CONSTANTS.COLORS.whiteGrey};
+  background: ${({ choice }) => choice && STYLE_CONSTANTS.COLORS.whiteGrey};
   span {
     font-size: ${STYLE_CONSTANTS.COLORS.black};
     font-family: ${STYLE_CONSTANTS.FONT_SIZE.medium};
@@ -26,4 +27,20 @@ export const ScheduleItem = styled.div<IScheduleItem>`
   :hover {
     background: ${STYLE_CONSTANTS.COLORS.whiteGrey};
   }
+
+  ${({ choice }) =>
+    choice &&
+    `
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95));
+    transform: scale(0.95));
+  `}
+
+  ${({ disabled }) =>
+    disabled &&
+    `
+    pointer-events: none;
+    opacity: 0.4;
+    cursor: none;
+  `}
 `;

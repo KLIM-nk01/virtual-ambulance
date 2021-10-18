@@ -5,13 +5,9 @@ import { fetchDoctors } from '@store/actionCreators/doctors';
 import { DoctorsPageWrapper, DoctorsWrapper } from './DoctorsPageStyle';
 import DoctorsCard from './DoctorsCard/DoctorsCard';
 import DoctorsPageNavBar from './DoctorsPageNavBar/DoctorsPageNavBar';
-import Modal from '@components/common/Modal/Modal';
-import Portal from '@components/common/Portal/Portal';
-import Shedule from './DoctorsCard/Schedule/Shedule';
 import Loader from '@components/common/Loader/Loader';
 
 const DoctorsPage: React.FC = () => {
-  const [modalActive, setModalActive] = useState(false);
   const { doctors, loading } = useTypesSelector((state) => state.doctors);
   const dispatch = useDispatch();
 
@@ -27,16 +23,12 @@ const DoctorsPage: React.FC = () => {
       ) : (
         <DoctorsWrapper>
           {doctors.map((doctor) => (
-            <DoctorsCard {...doctor} setActive={setModalActive} />
+            <DoctorsCard {...doctor}/>
           ))}
         </DoctorsWrapper>
       )}
 
-      <Portal>
-        <Modal active={modalActive} setActive={setModalActive}>
-          <Shedule />
-        </Modal>
-      </Portal>
+  
     </DoctorsPageWrapper>
   );
 };
