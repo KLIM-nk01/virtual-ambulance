@@ -69,4 +69,6 @@ export const ItemWrapper = styled.div`
   ${scroll};
 `;
 
-
+export const SeccessMessage = styled.div`
+  text-align: center;
+`;

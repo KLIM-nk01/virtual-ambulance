@@ -1,39 +1,35 @@
 import React, { useMemo, useState } from 'react';
+import { ActionType, ScheduleActionTypes } from '../types';
 import { ScheduleItem } from './SheduleItemStyle';
 
 interface IScheduleItemProps {
-  wortTimeItem: { date: string; time: string };
-  setChoiceWorkTime: (workTime: { date: string; time: string }) => void;
-  setDisabletItem: (value: number | null) => void;
-  index: number;
   disabled?: boolean;
-  disabletItem?: number | null;
-  zeroing?: boolean;
+  wortTimeItem: { date: string; time: string };
+  index: number;
+  dispatch: (value: ActionType) => void;
+  state: any;
 }
 
-const SheduleItem: React.FC<IScheduleItemProps> = ({
-  wortTimeItem,
-  setChoiceWorkTime,
-  setDisabletItem,
-  index,
-  disabled,
-  disabletItem,
-  zeroing,
-}) => {
+const SheduleItem: React.FC<IScheduleItemProps> = ({ wortTimeItem, index, dispatch, state , disabled}) => {
   const [choiceDate, setChoiceDate] = useState<boolean>(false);
 
   const itemSelected = () => {
     setChoiceDate(!choiceDate);
 
-    setChoiceWorkTime({
-      date: wortTimeItem.date,
-      time: wortTimeItem.time,
+    dispatch({
+      type: ScheduleActionTypes.SET_CHOICE_WORK_TIME,
+      payload: {
+        date: wortTimeItem.date,
+        time: wortTimeItem.time,
+      },
     });
 
-    disabletItem === null ? setDisabletItem(index) : setDisabletItem(null);
+    state.disabletItem === null
+      ? dispatch({ type: ScheduleActionTypes.SET_DISABLED_ITEM, payload: { disabletItem: index } })
+      : dispatch({ type: ScheduleActionTypes.SET_DISABLED_ITEM, payload: { disabletItem: null } });
   };
 
-  useMemo(() => zeroing && setChoiceDate(choiceDate), [zeroing]);
+  useMemo(() => state.zeroing && setChoiceDate(choiceDate), [state.zeroing]);
 
   return (
     <ScheduleItem disabled={disabled} onClick={() => itemSelected()} choice={choiceDate}>
