@@ -46,6 +46,7 @@ const Shedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
       if (state.disabletItem === null) {
         return (
           <SheduleItem
+            key={wortTimeItem.date + wortTimeItem.time}
             state={state}
             wortTimeItem={wortTimeItem}
             index={index}
@@ -55,6 +56,7 @@ const Shedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
       } else if (index === state.disabletItem) {
         return (
           <SheduleItem
+            key={wortTimeItem.date + wortTimeItem.time}
             state={state}
             wortTimeItem={wortTimeItem}
             index={index}
@@ -64,6 +66,7 @@ const Shedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
       } else {
         return (
           <SheduleItem
+            key={wortTimeItem.date + wortTimeItem.time}
             disabled
             state={state}
             wortTimeItem={wortTimeItem}

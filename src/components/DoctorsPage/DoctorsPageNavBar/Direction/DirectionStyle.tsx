@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
-export const DirectionWrapper = styled.div`
+interface IDirectionWrapperProps {
+  enable: boolean;
+}
+
+export const DirectionWrapper = styled.div<IDirectionWrapperProps>`
   min-width: 100px;
   width: 100px;
   height: 100px;
@@ -34,4 +38,18 @@ export const DirectionWrapper = styled.div`
     -ms-transform: scale(1.1);
     transform: scale(1.1);
   }
+
+  ${({ enable }) =>
+    enable &&
+    `
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+    border: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
+    :hover {
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  `}
 `;
