@@ -1,4 +1,4 @@
-import { SignInActionType } from './../types/signIn';
+import { SignInActionType } from '../types/signIn';
 import { Dispatch } from 'redux';
 import { ActionType } from '@store/types/signIn';
 

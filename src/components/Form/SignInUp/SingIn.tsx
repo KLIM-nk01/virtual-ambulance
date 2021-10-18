@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
-
 import { userAuth } from '@store/actionCreators/auth';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ROUTS } from '@constants/routs';

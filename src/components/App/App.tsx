@@ -22,7 +22,6 @@ const App: React.FC = () => {
           <Header />
 
           <Main>
-            {console.log(document.cookie, '=')}
             <Routs />
           </Main>
         </AppWrapper>
