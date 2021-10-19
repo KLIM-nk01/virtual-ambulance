@@ -8,7 +8,7 @@ export const fetchMedCenters = () => {
       dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTER });
       setTimeout(() => {
         dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTER_SUCCESS, payload: medCenterData });
-      }, 3000);
+      }, 1000);
     } catch (e) {
       dispatch({
         type: MedCenterActionTypes.FETCH_MEDCENTER_ERROR,
