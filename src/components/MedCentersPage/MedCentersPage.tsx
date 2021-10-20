@@ -12,6 +12,7 @@ const MedCentersPage: React.FC = () => {
   useEffect(() => {
     dispatch(fetchMedCenters());
   }, []);
+  
   const { error, medCenters, loading } = useTypesSelector(
     (state) => state.medCenter
   );
