@@ -1,5 +1,19 @@
+export interface IMedcenterData {
+  id_medcenter: string;
+  name: string;
+  address: string;
+  photo: string;
+  description: string;
+  services: string[];
+  medStaff: string[];
+  location: {
+    lat: number;
+    lon: number;
+  };
+}
+
 export interface IMedCenterState {
-  medCenters: any[];
+  medCenters: IMedcenterData[];
   loading: boolean;
   error: null | string;
 }
@@ -15,7 +29,7 @@ interface FeetchMedCenter {
 
 interface FeetchMedCenterSuccess {
   type: MedCenterActionTypes.FETCH_MEDCENTER_SUCCESS;
-  payload: any[];
+  payload: IMedcenterData[];
 }
 
 interface FeetchMedCenterError {

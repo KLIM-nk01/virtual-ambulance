@@ -32,32 +32,29 @@ const reducer = (state: IScheduleInitialState, action: ActionType): IScheduleIni
 };
 
 const Shedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [stateShedule, dispatch] = useReducer(reducer, initialState);
 
   const sendWorkTime = () => {
-    console.log(state.disabletItem, state.choiceWorkTime);
-    // setZeroing(!zeroing);
-    // setDisabletItem(null);
     dispatch({ type: ScheduleActionTypes.SECCESS_MESSAGE });
   };
 
   const renderItem = () =>
     workTimeData.map((wortTimeItem, index) => {
-      if (state.disabletItem === null) {
+      if (stateShedule.disabletItem === null) {
         return (
           <SheduleItem
             key={wortTimeItem.date + wortTimeItem.time}
-            state={state}
+            stateShedule={stateShedule}
             wortTimeItem={wortTimeItem}
             index={index}
             dispatch={dispatch}
           />
         );
-      } else if (index === state.disabletItem) {
+      } else if (index === stateShedule.disabletItem) {
         return (
           <SheduleItem
             key={wortTimeItem.date + wortTimeItem.time}
-            state={state}
+            stateShedule={stateShedule}
             wortTimeItem={wortTimeItem}
             index={index}
             dispatch={dispatch}
@@ -68,7 +65,7 @@ const Shedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
           <SheduleItem
             key={wortTimeItem.date + wortTimeItem.time}
             disabled
-            state={state}
+            stateShedule={stateShedule}
             wortTimeItem={wortTimeItem}
             index={index}
             dispatch={dispatch}
@@ -84,9 +81,9 @@ const Shedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
       </WrapperHeader>
       {workTimeData.length == 0 && <span>The doctor hasn't added a schedule yet.</span>}
       <ItemWrapper>{renderItem()}</ItemWrapper>
-      {state.viewSeccessMessage && (
+      {stateShedule.viewSeccessMessage && (
         <SeccessMessage>
-          You have booked a ticket for {state.choiceWorkTime.time} on {state.choiceWorkTime.date}.
+          You have booked a ticket for {stateShedule.choiceWorkTime.time} on {stateShedule.choiceWorkTime.date}.
           Be healthy!
         </SeccessMessage>
       )}

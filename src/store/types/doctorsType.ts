@@ -1,5 +1,7 @@
+import { IDoctorsData } from "types/IDoctorData";
+
 export interface IDoctorsState {
-  doctors: any[];
+  doctors: IDoctorsData[];
   loading: boolean;
   error: null | string;
 }
@@ -7,7 +9,7 @@ export interface IDoctorsState {
 export enum DoctorsActionType {
   FETCH_DOCTORS = 'FETCH_DOCTORS',
   FETCH_DOCTORS_SECCESS = 'FETCH_DOCTORS_SECCESS',
-  FETCH_DOCTORS_ERROR = 'FETCH_DOCTORS_ERROR'
+  FETCH_DOCTORS_ERROR = 'FETCH_DOCTORS_ERROR',
 }
 
 interface FetchDoctors {
@@ -16,7 +18,7 @@ interface FetchDoctors {
 
 interface FetchDoctorsSeccess {
   type: DoctorsActionType.FETCH_DOCTORS_SECCESS;
-  payload: any[];
+  payload: IDoctorsData[];
 }
 
 interface FetchDoctorsError {

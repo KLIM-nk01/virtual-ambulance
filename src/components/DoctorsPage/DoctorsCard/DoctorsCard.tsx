@@ -17,7 +17,6 @@ import Portal from '@components/common/Portal/Portal';
 import Shedule from './Schedule/Shedule';
 
 interface IProps {
-  setActive: (value: boolean) => void;
   direction: string;
   name: string;
   lastName: string;
