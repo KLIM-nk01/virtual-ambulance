@@ -68,3 +68,9 @@ export const ItemWrapper = styled.div`
   overflow: auto;
   ${scroll};
 `;
+
+export const SeccessMessage = styled.div`
+  margin-top: 30px;
+  width: 60%;
+  text-align: center;
+`;

@@ -19,6 +19,7 @@ export const userAuth = (email?: string, password?: string) => {
         });
         cookies.setCookie('id', '1234', {});
         cookies.setCookie('userRole', 'patient', {});
+        
       }, 1000);
     } catch (e) {
       dispatch({

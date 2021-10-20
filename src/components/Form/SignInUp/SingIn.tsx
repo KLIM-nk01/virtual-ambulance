@@ -1,9 +1,8 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
-
 import { userAuth } from '@store/actionCreators/auth';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ROUTS } from '@constants/routs';
@@ -22,13 +21,14 @@ const SingInForm: React.FC = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const { authedUser, authLoading } = useTypesSelector((state) => state.auth);
   const onSubmit = (data: SubmitData) => {
     dispatch(userAuth(data.email, data.password));
+    history.goBack();
   };
 
   return (

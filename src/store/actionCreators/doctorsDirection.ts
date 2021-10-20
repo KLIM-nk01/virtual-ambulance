@@ -14,7 +14,7 @@ export const fetchDoctorsDirection = () => {
           type: DirectionActionType.FETCH_DIRECTION_SUCCESS,
           payload: doctorsDirection
         });
-      }, 3000);
+      }, 1000);
     } catch (e) {
       dispatch({
         type: DirectionActionType.FETCH_DIRECTION_ERROR,

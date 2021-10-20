@@ -13,8 +13,7 @@ export const BurgerMenuWrapper = styled.div<IBurgerMenu>`
   top: 80px;
   right: 0;
   display: flex;
-  transform: ${(props) =>
-    !props.menuActive ? 'translateX(-130%);' : 'translateX(0);'};
+  transform: ${(props) => (!props.menuActive ? 'translateX(-130%);' : 'translateX(0);')};
   transition: all 0.2s;
   @media (min-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     display: none;

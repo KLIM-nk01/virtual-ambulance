@@ -9,9 +9,7 @@ interface IModal {
 const Modal: React.FC<IModal> = ({ active, setActive, children }) => {
   return (
     <ModalWrapper active={active} onClick={() => setActive(false)}>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
-        {children}
-      </ModalContent>
+      <ModalContent onClick={(e) => e.stopPropagation()}>{children}</ModalContent>
     </ModalWrapper>
   );
 };

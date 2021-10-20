@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import {
   Card,
@@ -7,11 +7,14 @@ import {
   NameSurname,
   Expiriens,
   DoctorsDirection,
-  Description
+  Description,
 } from './DoctorsCardStyle';
 import Button from '@components/common/Button/Button';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ROUTS } from '@constants/routs';
+import Modal from '@components/common/Modal/Modal';
+import Portal from '@components/common/Portal/Portal';
+import Shedule from './Schedule/Shedule';
 
 interface IProps {
   setActive: (value: boolean) => void;
@@ -21,22 +24,24 @@ interface IProps {
   expiriens: string;
   description: string;
   photo: string;
+  workTime: { date: string; time: string }[];
 }
 
 const DoctorsCard: React.FC<IProps> = ({
-  setActive,
   direction,
   name,
   lastName,
   expiriens,
   description,
-  photo
+  photo,
+  workTime,
 }) => {
-  // const photo = photo;
+  const [modalActive, setModalActive] = useState(false);
   const state = useTypesSelector((state) => state.auth);
   const history = useHistory();
+
   const showSchedule = (): void => {
-    setActive(true);
+    setModalActive(true);
     if (!state.authedUser) history.push(ROUTS.SIGNIN_FORM);
   };
   return (
@@ -58,6 +63,12 @@ const DoctorsCard: React.FC<IProps> = ({
           Sign up
         </Button>
       </ContainerTwo>
+
+      <Portal>
+        <Modal active={modalActive} setActive={setModalActive}>
+          <Shedule workTimeData={workTime} />
+        </Modal>
+      </Portal>
     </Card>
   );
 };

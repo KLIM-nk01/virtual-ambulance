@@ -16,8 +16,16 @@ export const doctorsData = [
     patient: ['id_user', 'id_user'],
     workTime: [
       {
-        day: 'dd/mm/yyyy',
-        time: 'hh.mm',
+        date: '10.10.2021',
+        time: '9.00',
+      },
+      {
+        date: '10.10.2021',
+        time: '9.15',
+      },
+      {
+        date: '10.10.2021',
+        time: '9.40',
       },
     ],
   },
@@ -34,12 +42,7 @@ export const doctorsData = [
     description:
       'The prominence of heart disease in America makes a cardiologist a very important health profession.',
     patient: ['id_user', 'id_user'],
-    workTime: [
-      {
-        day: 'dd/mm/yyyy',
-        time: 'hh.mm',
-      },
-    ],
+    workTime: [],
   },
   {
     id_doctor: 2,
@@ -54,12 +57,7 @@ export const doctorsData = [
     description:
       'An immunologist treats health issues brought on by immune system problems. Also known as allergists, immunologists are doctors who diagnose,',
     patient: ['id_user', 'id_user'],
-    workTime: [
-      {
-        day: 'dd/mm/yyyy',
-        time: 'hh.mm',
-      },
-    ],
+    workTime: [],
   },
   {
     id_doctor: 3,
@@ -74,11 +72,6 @@ export const doctorsData = [
     description:
       'Mammalogy is a specialized field of biology that deals specifically with the study and observation of mammals.',
     patient: ['id_user', 'id_user'],
-    workTime: [
-      {
-        day: 'dd/mm/yyyy',
-        time: 'hh.mm',
-      },
-    ],
+    workTime: [],
   },
 ];

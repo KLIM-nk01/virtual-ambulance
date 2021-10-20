@@ -99,10 +99,5 @@ export const ButtonStyle = styled.button<IProps>`
     }
   }};
 
-  :disabled {
-    cursor: default;
-    background: #e0e0e0;
-    color: #7f8e9d;
-    border: none;
-  }
+ 
 `;

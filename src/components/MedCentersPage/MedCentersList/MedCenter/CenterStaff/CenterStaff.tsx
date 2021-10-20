@@ -1,5 +1,6 @@
 import React from 'react';
 import { CenterStaff, StaffItem, StaffWrapper } from './CenterStaffStyle';
+import NoAva from '@assets/NoAvatar.png';
 
 interface IStaf {
   services?: string[];
@@ -10,9 +11,17 @@ const Staff: React.FC<IStaf> = ({ services }) => {
     <CenterStaff>
       <span>Our staff: </span>
       <StaffWrapper>
-        {services?.map((sevice) => (
-          <StaffItem key={ Date.now() }>{sevice}</StaffItem>
-        ))}
+        <StaffItem key={Date.now()}>
+          <img src={NoAva} alt="doctors avatar" />
+          <span>Doctors Name</span>
+          <span>Doctors Direction</span>
+        </StaffItem>
+
+        <StaffItem key={Date.now()}>
+          <img src={NoAva} alt="doctors avatar" />
+          <span>Doctors Name</span>
+          <span>Doctors Direction</span>
+        </StaffItem>
       </StaffWrapper>
     </CenterStaff>
   );

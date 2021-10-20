@@ -53,9 +53,6 @@ const MedCenter: React.FC<IMedCenter> = ({
         </span>
       </ItemDescription>
 
-      {/* <ItemButtons>
-        <Button variant={'contained'}>More</Button>
-      </ItemButtons> */}
       <ItemMore hidden={hidden}>
         <Services services={services} />
         <Staff services={services} />
