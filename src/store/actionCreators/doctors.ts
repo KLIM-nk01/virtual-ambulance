@@ -1,22 +1,36 @@
 import { Dispatch } from 'redux';
+import axios from 'axios';
 import { DoctorsActionType, ActionType } from '@store/types/doctorsType';
-import { doctorsData } from '@data/doctorsData';
 
 export const fetchDoctors = () => {
   return async (dispatch: Dispatch<ActionType>) => {
-    try {
-      dispatch({ type: DoctorsActionType.FETCH_DOCTORS });
-      setTimeout(() => {
+    dispatch({ type: DoctorsActionType.FETCH_DOCTORS });
+
+    await axios
+      .get('http://localhost:3000/doctorsPage/doctors')
+      .then((response) => {
         dispatch({
           type: DoctorsActionType.FETCH_DOCTORS_SECCESS,
-          payload: doctorsData
+          payload: response.data,
         });
-      }, 1000);
-    } catch (e) {
-      dispatch({
-        type: DoctorsActionType.FETCH_DOCTORS_ERROR,
-        payload: 'Error loading data about doctors.'
+      })
+      .catch((error) => {
+        if (error.response) {
+          dispatch({
+            type: DoctorsActionType.FETCH_DOCTORS_ERROR,
+            payload: 'Failed to get data about doctors, please try again later.',
+          });
+        } else if (error.request) {
+          dispatch({
+            type: DoctorsActionType.FETCH_DOCTORS_ERROR,
+            payload: 'The server is not responding',
+          });
+        } else {
+          dispatch({
+            type: DoctorsActionType.FETCH_DOCTORS_ERROR,
+            payload: 'Error...',
+          });
+        }
       });
-    }
   };
 };

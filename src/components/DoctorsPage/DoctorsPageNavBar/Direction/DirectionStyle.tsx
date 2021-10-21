@@ -3,6 +3,7 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 interface IDirectionWrapperProps {
   enable: boolean;
+  allDoctors?: boolean;
 }
 
 export const DirectionWrapper = styled.div<IDirectionWrapperProps>`
@@ -52,4 +53,9 @@ export const DirectionWrapper = styled.div<IDirectionWrapperProps>`
     transform: scale(0.9);
   }
   `}
+  ${({ allDoctors }) =>
+    allDoctors &&
+    `
+    pointer-events: none;
+    `}
 `;

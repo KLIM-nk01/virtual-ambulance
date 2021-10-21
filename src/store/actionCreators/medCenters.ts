@@ -1,6 +1,5 @@
 import { Dispatch } from 'redux';
 import { IMedcenterData, MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
-import { medCenterData } from '@data/medCenterData';
 import axios from 'axios';
 
 export const fetchMedCenters = () => {
