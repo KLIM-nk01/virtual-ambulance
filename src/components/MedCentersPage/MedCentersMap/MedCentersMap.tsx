@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
+import uniqid from 'uniqid';
 import marker from '@assets/marker.png';
 import { MarkerStyle, MedCentersMapStyle } from './MedCentersMapStyle';
 
@@ -47,7 +48,7 @@ const MedCentersMap: React.FC<IMedCenterMap> = ({ medCenters }) => {
       >
         {medCenters.map((medCenter) => (
           <Marker
-            key={medCenter.id_medcenter}
+            key={uniqid()}
             latitude={medCenter.location.lat}
             longitude={medCenter.location.lon}
             offsetLeft={-20}

@@ -1,7 +1,9 @@
 import React from 'react';
+import uniqid from 'uniqid';
 import { MedCentersListWrapper } from './MedCentersListStyle';
 import MedCenter from './MedCenter/MedCenter';
 import Loader from '@components/common/Loader/Loader';
+import Error from '@components/common/Error/Error';
 
 interface IMedCenterListPros {
   error: null | string;
@@ -22,15 +24,25 @@ interface IMedCenterListPros {
 }
 
 const MedCentersList: React.FC<IMedCenterListPros> = ({ error, medCenters, loading }) => {
-  if (error) return <h1>{error} </h1>;
+  const errorMessage = (error: string) => <Error errorMessage={error} />;
+
+  const contentRender = () => {
+    error
+      ? errorMessage(error)
+      : medCenters.map((medCenter) => {
+          return <MedCenter key={uniqid()} {...medCenter} />;
+        });
+  };
 
   return (
     <MedCentersListWrapper loading={loading}>
       {loading ? (
         <Loader />
+      ) : error ? (
+        <Error errorMessage={error} />
       ) : (
         medCenters.map((medCenter) => {
-          return <MedCenter key={medCenter.id_medcenter} {...medCenter} />;
+          return <MedCenter key={uniqid()} {...medCenter} />;
         })
       )}
     </MedCentersListWrapper>

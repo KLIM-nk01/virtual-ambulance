@@ -1,4 +1,5 @@
 import React from 'react';
+import uniqid from 'uniqid';
 import {
   CenterServices,
   ServiceItem,
@@ -15,7 +16,7 @@ const Services: React.FC<IServices> = ({ services }) => {
       <span>Our services: </span>
       <ServicesWrapper>
         {services?.map((sevice) => (
-          <ServiceItem >{sevice}</ServiceItem>
+          <ServiceItem key={uniqid()} >{sevice}</ServiceItem>
         ))}
       </ServicesWrapper>
     </CenterServices>
