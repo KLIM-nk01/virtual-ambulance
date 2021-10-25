@@ -3,14 +3,14 @@ import axios from 'axios';
 import { DoctorsActionType, ActionType } from '@store/types/doctorsType';
 
 export const fetchDoctors = () => {
-  return async (dispatch: Dispatch<ActionType>) => {
+  return (dispatch: Dispatch<ActionType>) => {
     dispatch({ type: DoctorsActionType.FETCH_DOCTORS });
 
-    await axios
+    axios
       .get('http://localhost:3000/doctorsPage/doctors')
       .then((response) => {
         dispatch({
-          type: DoctorsActionType.FETCH_DOCTORS_SECCESS,
+          type: DoctorsActionType.FETCH_DOCTORS_SUCCESS,
           payload: response.data,
         });
       })

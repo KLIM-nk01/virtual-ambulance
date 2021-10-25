@@ -7,6 +7,7 @@ export interface IPatientData {
   phone: string;
   address: string;
   password: string;
+  photo: string;
 }
 export interface IDoctorData {
   userRole: string;
@@ -25,13 +26,14 @@ export interface ISignUpInitialState {
   readonly doctorsData?: IDoctorData | null;
   readonly patientData?: IPatientData | null;
   readonly requestError: string;
+  readonly isRegistered: boolean;
 }
 
 export enum SignUpActionsType {
   REGISTRATION_REQUEST = 'REGISTRATION_REQUEST',
   REGISTRATION_PATIENT_SUCCESS = 'REGISTRATION_PATIENT_SUCCESS',
   REGISTRATION_DOCTOR_SUCCESS = 'REGISTRATION_DOCTOR_SUCCESS',
-  REGISTRATION_ERROR = 'REGISTRATION_ERROR'
+  REGISTRATION_ERROR = 'REGISTRATION_ERROR',
 }
 interface RegistrationRequest {
   type: SignUpActionsType.REGISTRATION_REQUEST;
@@ -39,7 +41,7 @@ interface RegistrationRequest {
 
 interface RegistrationPatientSuccess {
   type: SignUpActionsType.REGISTRATION_PATIENT_SUCCESS;
-  patientData: IPatientData;
+  patientData?: IPatientData;
 }
 
 interface RegistrationDoctorSuccess {

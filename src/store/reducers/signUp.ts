@@ -5,7 +5,8 @@ const SignUpInitialState: ISignUpInitialState = {
   requestLoading: false,
   doctorsData: null,
   patientData: null,
-  requestError: ''
+  isRegistered: false,
+  requestError: '',
 };
 
 export const signUpReducer = (
@@ -20,19 +21,19 @@ export const signUpReducer = (
       return {
         ...state,
         requestLoading: false,
-        patientData: action.patientData
+        patientData: action.patientData,
       };
     case SignUpActionsType.REGISTRATION_DOCTOR_SUCCESS:
       return {
         ...state,
         requestLoading: false,
-        doctorsData: action.doctorData
+        doctorsData: action.doctorData,
       };
     case SignUpActionsType.REGISTRATION_ERROR:
       return {
         ...state,
         requestLoading: false,
-        requestError: action.errorMessage
+        requestError: action.errorMessage,
       };
     default:
       return state;

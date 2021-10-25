@@ -4,20 +4,14 @@ import { Redirect } from 'react-router';
 import { useDispatch } from 'react-redux';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
-import {
-  FormContainer,
-  FormName,
-  Form,
-  ButtonBar,
-  DoctorCheckButton
-} from './FormStyle';
+import { FormContainer, FormName, Form, ButtonBar, DoctorCheckButton } from './FormStyle';
 import { IPatientSubmitData, IUserRole } from './types';
 import {
   Email,
   Required,
   Birthday,
   PhoneNumber,
-  Password
+  Password,
 } from '@components/Form/SignInUp/formValidationConstants';
 import { registrationPatient } from '@store/actionCreators/signUp';
 import { userAuth } from '@store/actionCreators/auth';
@@ -31,6 +25,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const onSubmit = (data: IPatientSubmitData) => {
     data.userRole = userRole;
     dispatch(registrationPatient(data));
+    // console.log(data);
     dispatch(userAuth());
   };
 
@@ -38,7 +33,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
     register,
     handleSubmit,
     watch,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
 
   const password = useRef({});
@@ -48,14 +43,15 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   return (
     <FormContainer>
       {state.auth.authedUser && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form enctype="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
         <FormName>Сreate an account </FormName>
         <DoctorCheckButton>
           Are you doctor?
           <span
             onClick={() => {
               setUserRole('doctor');
-            }}>
+            }}
+          >
             Click here.
           </span>
         </DoctorCheckButton>
@@ -73,8 +69,8 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           primary
           label="Last Name"
           type="text"
-          name="last name"
-          register={register('last name', Required)}
+          name="lastName"
+          register={register('lastName', Required)}
           errors={errors}
         />
 
@@ -113,6 +109,14 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           label="Address"
           errors={errors}
         />
+        {/* <Input
+          primary
+          type="file"
+          name="photo"
+          register={register('photo')}
+          label="Photo"
+          errors={errors}
+        /> */}
 
         <Input
           primary
@@ -129,8 +133,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           type="password"
           label="Repeat Password"
           register={register('password_repeat', {
-            validate: (value: string) =>
-              value === password.current || 'The passwords do not match'
+            validate: (value: string) => value === password.current || 'The passwords do not match',
           })}
           errors={errors}
         />

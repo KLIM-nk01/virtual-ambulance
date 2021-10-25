@@ -8,7 +8,7 @@ export interface IDoctorsState {
 
 export enum DoctorsActionType {
   FETCH_DOCTORS = 'FETCH_DOCTORS',
-  FETCH_DOCTORS_SECCESS = 'FETCH_DOCTORS_SECCESS',
+  FETCH_DOCTORS_SUCCESS = 'FETCH_DOCTORS_SUCCESS',
   FETCH_DOCTORS_ERROR = 'FETCH_DOCTORS_ERROR',
 }
 
@@ -16,8 +16,8 @@ interface FetchDoctors {
   type: DoctorsActionType.FETCH_DOCTORS;
 }
 
-interface FetchDoctorsSeccess {
-  type: DoctorsActionType.FETCH_DOCTORS_SECCESS;
+interface FetchDoctorsSuccess {
+  type: DoctorsActionType.FETCH_DOCTORS_SUCCESS;
   payload: IDoctorsData[];
 }
 
@@ -26,4 +26,4 @@ interface FetchDoctorsError {
   payload: null | string;
 }
 
-export type ActionType = FetchDoctors | FetchDoctorsSeccess | FetchDoctorsError;
+export type ActionType = FetchDoctors | FetchDoctorsSuccess | FetchDoctorsError;

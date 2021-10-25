@@ -3,10 +3,10 @@ import { IMedcenterData, MedCenterAction, MedCenterActionTypes } from '@store/ty
 import axios from 'axios';
 
 export const fetchMedCenters = () => {
-  return async (dispatch: Dispatch<MedCenterAction>) => {
+  return  (dispatch: Dispatch<MedCenterAction>) => {
     dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTER });
 
-    await axios
+     axios
       .get('http://localhost:3000/medCentersPage')
       .then((response) => {
         dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTER_SUCCESS, payload: response.data });
