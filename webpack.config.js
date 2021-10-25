@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js',
-    publicPath: '/'
+    publicPath: '/',
   },
 
   resolve: {
@@ -27,22 +27,22 @@ module.exports = {
       '@containers': path.resolve(__dirname, 'src/Containers/'),
       '@hooks': path.resolve(__dirname, 'src/hooks/'),
       '@store': path.resolve(__dirname, 'src/store/'),
-      '@core': path.resolve(__dirname,'src/core/')
-    }
+      '@core': path.resolve(__dirname, 'src/core/'),
+    },
   },
   plugins: [
-    new HTMLWebpackPlugin({ template: './index.html' }),
+    new HTMLWebpackPlugin({ template: './index.html', favicon: './favicon.ico' }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css'
+      filename: '[name].[hash].css',
     }),
     new ProvidePlugin({ process: 'process' }),
     new DefinePlugin({
-      'process.env': `(${JSON.stringify(dotenv.parsed)})`
-    })
+      'process.env': `(${JSON.stringify(dotenv.parsed)})`,
+    }),
   ],
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -51,19 +51,19 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {}
+            options: {},
           },
           'css-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
       {
         test: /\.(jpg|jpeg|png|svg|gif)/,
-        use: ['file-loader']
+        use: ['file-loader'],
       },
       {
         test: /.(ttf|woff|woff2|eot)$/,
-        use: ['file-loader']
+        use: ['file-loader'],
       },
       {
         test: /\.m?js$/,
@@ -71,9 +71,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
       {
         test: /\.m?ts$/,
@@ -81,9 +81,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-typescript']
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-typescript'],
+          },
+        },
       },
       {
         test: /\.(ts|js)x?$/,
@@ -91,19 +91,15 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-              '@babel/preset-typescript'
-            ]
-          }
-        }
+            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+          },
+        },
       },
       {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
-        use: 'ts-loader'
-      }
-    ]
-  }
+        use: 'ts-loader',
+      },
+    ],
+  },
 };

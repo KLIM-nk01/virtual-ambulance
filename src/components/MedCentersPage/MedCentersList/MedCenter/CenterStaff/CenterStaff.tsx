@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { CenterStaff, StaffItem, StaffWrapper } from './CenterStaffStyle';
 import NoAva from '@assets/NoAvatar.png';
+import uniqid from 'uniqid';
 
 interface IStaf {
   services?: string[];
@@ -11,13 +13,13 @@ const Staff: React.FC<IStaf> = ({ services }) => {
     <CenterStaff>
       <span>Our staff: </span>
       <StaffWrapper>
-        <StaffItem key={Date.now()}>
+        <StaffItem key={uniqid()}>
           <img src={NoAva} alt="doctors avatar" />
           <span>Doctors Name</span>
           <span>Doctors Direction</span>
         </StaffItem>
 
-        <StaffItem key={Date.now()}>
+        <StaffItem key={uniqid()}>
           <img src={NoAva} alt="doctors avatar" />
           <span>Doctors Name</span>
           <span>Doctors Direction</span>

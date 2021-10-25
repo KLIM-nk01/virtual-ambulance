@@ -9,6 +9,7 @@ interface IInput {
   checkbox?: boolean;
   name: string;
   register?: any;
+  accept?: string;
   errors?: {
     [key: string]: {
       type: string;
@@ -24,12 +25,13 @@ const Input: React.FC<IInput> = ({
   register,
   errors,
   name,
-  placeholder
+  placeholder,
+  accept,
 }) => {
   return (
     <InputGroup primary={primary} type={type}>
       <label>{label}</label>
-      <input placeholder={placeholder} {...register} type={type} />
+      <input accept={accept} placeholder={placeholder} {...register} type={type} />
       {errors && errors[name] && <p>{errors[name]?.message}</p>}
     </InputGroup>
   );

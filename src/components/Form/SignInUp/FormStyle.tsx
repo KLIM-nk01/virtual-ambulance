@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
+interface IFormProps {
+  enctype?: string;
+}
+
 export const FormContainer = styled.div`
   width: 450px;
   height: fit-content;
@@ -17,7 +21,7 @@ export const FormContainer = styled.div`
   box-shadow: 0px 0px 20px 5px ${STYLE_CONSTANTS.COLORS.gray};
 `;
 
-export const Form = styled.form`
+export const Form = styled.form<IFormProps>`
   position: relative;
   height: 100%;
   width: 100%;

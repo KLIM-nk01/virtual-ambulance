@@ -15,17 +15,20 @@ const Direction: React.FC<IDirection> = ({
   choiseDirection,
 }) => {
   const [enable, setEnable] = useState<boolean>(false);
-
+  const [allDoctors, setAllDoctors] = useState<boolean>(false);
   const clickDirection = () => {
     setEnable(!enable),
       choiseDirection === direction
         ? setChoiseDirection('All Doctors')
         : setChoiseDirection(direction);
   };
-  useMemo(() => direction === 'All Doctors' && setEnable(!enable), [direction]);
+  useMemo(
+    () => direction === 'All Doctors' && (setAllDoctors(true), setEnable(!enable)),
+    [direction]
+  );
 
   return (
-    <DirectionWrapper enable={enable} onClick={() => clickDirection()}>
+    <DirectionWrapper allDoctors={allDoctors} enable={enable} onClick={() => clickDirection()}>
       <img src={src} alt="direction logo" />
       <span>{direction}</span>
     </DirectionWrapper>

@@ -15,7 +15,7 @@ import Staff from './CenterStaff/CenterStaff';
 interface IMedCenter {
   name: string;
   address: string;
-  photo: any;
+  photo: string;
   description: string;
   services: string[];
 }

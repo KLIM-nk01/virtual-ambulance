@@ -6,15 +6,14 @@ import { DoctorsPageWrapper, DoctorsWrapper } from './DoctorsPageStyle';
 import DoctorsCard from './DoctorsCard/DoctorsCard';
 import DoctorsPageNavBar from './DoctorsPageNavBar/DoctorsPageNavBar';
 import Loader from '@components/common/Loader/Loader';
-import { fetchDoctorsDirection } from '@store/actionCreators/doctorsDirection';
+import Error from '@components/common/Error/Error';
 
 const DoctorsPage: React.FC = () => {
-  const state = useTypesSelector((state) => state);
+  const doctors = useTypesSelector((state) => state.doctors);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchDoctors());
-    dispatch(fetchDoctorsDirection());
   }, []);
 
   const [choiseDirection, setChoiseDirection] = useState<string>('All Doctors');
@@ -23,18 +22,17 @@ const DoctorsPage: React.FC = () => {
     <DoctorsPageWrapper>
       <DoctorsPageNavBar
         setChoiseDirection={setChoiseDirection}
-        direction={state.doctorsDirection.directions}
         choiseDirection={choiseDirection}
       />
-      {state.doctors.loading || state.doctorsDirection.loading ? (
+      {doctors.loading ? (
         <Loader />
+      ) : doctors.error ? (
+        <Error errorMessage={doctors.error} />
       ) : (
         <DoctorsWrapper>
           {choiseDirection === 'All Doctors'
-            ? state.doctors.doctors.map((doctor) => (
-                <DoctorsCard key={doctor.id_doctor} {...doctor} />
-              ))
-            : state.doctors.doctors
+            ? doctors.doctors.map((doctor) => <DoctorsCard key={doctor.id_doctor} {...doctor} />)
+            : doctors.doctors
                 .filter((doctor) => doctor.direction === choiseDirection)
                 .map((doctor) => <DoctorsCard key={doctor.id_doctor} {...doctor} />)}
         </DoctorsWrapper>

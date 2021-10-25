@@ -21,6 +21,7 @@ export const HeaderContainerStyle = styled.div`
   justify-content: space-between;
   position: relative;
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    position: relative;
     flex-direction: row-reverse;
   }
 `;

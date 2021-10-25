@@ -1,19 +1,33 @@
 import { Dispatch } from 'redux';
-import { MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
-import { medCenterData } from '@data/medCenterData';
+import { IMedcenterData, MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
+import axios from 'axios';
 
 export const fetchMedCenters = () => {
-  return async (dispatch: Dispatch<MedCenterAction>) => {
-    try {
-      dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTER });
-      setTimeout(() => {
-        dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTER_SUCCESS, payload: medCenterData });
-      }, 1000);
-    } catch (e) {
-      dispatch({
-        type: MedCenterActionTypes.FETCH_MEDCENTER_ERROR,
-        payload: 'Error loading data.',
+  return  (dispatch: Dispatch<MedCenterAction>) => {
+    dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTER });
+
+     axios
+      .get('http://localhost:3000/medCentersPage')
+      .then((response) => {
+        dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTER_SUCCESS, payload: response.data });
+      })
+      .catch((error) => {
+        if (error.response) {
+          dispatch({
+            type: MedCenterActionTypes.FETCH_MEDCENTER_ERROR,
+            payload: 'Failed to get data about medical centers, please try again later.',
+          });
+        } else if (error.request) {
+          dispatch({
+            type: MedCenterActionTypes.FETCH_MEDCENTER_ERROR,
+            payload: 'The server is not responding',
+          });
+        } else {
+          dispatch({
+            type: MedCenterActionTypes.FETCH_MEDCENTER_ERROR,
+            payload: 'Error...',
+          });
+        }
       });
-    }
   };
 };

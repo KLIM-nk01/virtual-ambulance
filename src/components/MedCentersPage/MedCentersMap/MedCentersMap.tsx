@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
+import uniqid from 'uniqid';
 import marker from '@assets/marker.png';
 import { MarkerStyle, MedCentersMapStyle } from './MedCentersMapStyle';
 
@@ -12,7 +13,19 @@ interface IState {
 }
 
 interface IMedCenterMap {
-  medCenters: any[];
+  medCenters: {
+    id_medcenter: string;
+    name: string;
+    address: string;
+    // photo: photo.NORDIN;
+    description: string;
+    services: string[];
+    medStaff: string[];
+    location: {
+      lat: number;
+      lon: number;
+    };
+  }[];
 }
 const MedCentersMap: React.FC<IMedCenterMap> = ({ medCenters }) => {
   const [viewport, setViewPort] = useState<IState>({
@@ -20,7 +33,7 @@ const MedCentersMap: React.FC<IMedCenterMap> = ({ medCenters }) => {
     longitude: 27.558972,
     zoom: 11,
     width: '100%',
-    height: '100%'
+    height: '100%',
   });
 
   return (
@@ -31,13 +44,16 @@ const MedCentersMap: React.FC<IMedCenterMap> = ({ medCenters }) => {
         onViewportChange={(viewport: React.SetStateAction<IState>) => {
           setViewPort(viewport);
         }}
-        mapStyle={'mapbox://styles/mapbox/streets-v11'}>
+        mapStyle={'mapbox://styles/mapbox/streets-v11'}
+      >
         {medCenters.map((medCenter) => (
           <Marker
+            key={uniqid()}
             latitude={medCenter.location.lat}
             longitude={medCenter.location.lon}
             offsetLeft={-20}
-            offsetTop={-10}>
+            offsetTop={-10}
+          >
             <MarkerStyle src={marker} alt={''}></MarkerStyle>
           </Marker>
         ))}

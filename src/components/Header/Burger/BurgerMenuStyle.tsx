@@ -53,6 +53,7 @@ export const BurgerMenuContent = styled.div`
 export const MenuItemWrapper = styled.div``;
 
 export const BurgerButtonWrapper = styled.div`
+  display: none;
   width: 20px;
   height: 20px;
   position: relative;
@@ -76,7 +77,7 @@ export const BurgerButtonWrapper = styled.div`
   :after {
     bottom: 0;
   }
-  @media (min-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
-    display: none;
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    display: block;
   }
 `;
