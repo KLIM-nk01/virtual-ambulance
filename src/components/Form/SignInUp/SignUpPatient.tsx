@@ -13,20 +13,22 @@ import {
   PhoneNumber,
   Password,
 } from '@components/Form/SignInUp/formValidationConstants';
-import { registrationPatient } from '@store/actionCreators/signUp';
+import { registrationUser } from '@store/actionCreators/signUp';
 import { userAuth } from '@store/actionCreators/auth';
 import { ROUTS } from '@constants/routs';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import Loader from '@components/common/Loader/Loader';
+import Error from '@components/common/Error/Error';
 
 const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();
 
   const onSubmit = (data: IPatientSubmitData) => {
     data.userRole = userRole;
-    dispatch(registrationPatient(data));
-    // console.log(data);
-    dispatch(userAuth());
+
+    dispatch(registrationUser(data));
+    console.log(data);
+    // dispatch(userAuth());
   };
 
   const {
@@ -109,14 +111,15 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           label="Address"
           errors={errors}
         />
-        {/* <Input
+        <Input
           primary
           type="file"
           name="photo"
-          register={register('photo')}
+          ref={register}
           label="Photo"
           errors={errors}
-        /> */}
+        />
+       
 
         <Input
           primary
@@ -143,7 +146,11 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
             Sign Up
           </Button>
         </ButtonBar>
-        {state.signUp.requestLoading && <Loader />}
+        {state.signUp.requestLoading ? (
+          <Loader />
+        ) : (
+          state.signUp.requestError && <Error errorMessage={state.signUp.requestError} />
+        )}
       </Form>
     </FormContainer>
   );

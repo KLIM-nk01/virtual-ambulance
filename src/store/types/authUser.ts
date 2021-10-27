@@ -1,3 +1,8 @@
+export interface IAuthData { 
+  password: string,
+  email: string
+}
+
 export interface IAuthedUser {
     id: null | string;
     userRole: string;
@@ -7,14 +12,14 @@ export interface IAuthedUser {
   export interface ILoginState {
     readonly authLoading: boolean;
     readonly authedUser: IAuthedUser | null;
-    readonly loginError: string;
+    readonly errorMessage: string;
   }
   
   
   export enum ActionsType {
     AUTH_LOADING = 'AUTH_LOADING',
     USER_IS_AUTH = 'USER_IS_AUTH',
-    USER_IS_UNAUTH = 'USER_IS_UNAUTH'
+    AUTH_ERROR = 'AUTH_ERROR'
   }
   
   interface UserAuth {
@@ -30,10 +35,10 @@ export interface IAuthedUser {
     };
   }
   
-  interface UserIsUnAuth {
-    type: ActionsType.USER_IS_UNAUTH;
-    payload: string;
+  interface AuthError {
+    type: ActionsType.AUTH_ERROR;
+    errorMessage: string;
   }
   
-  export type AuthActionsType = UserAuth | UserIsAuth | UserIsUnAuth;
+  export type AuthActionsType = UserAuth | UserIsAuth | AuthError;
   

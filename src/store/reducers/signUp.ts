@@ -17,9 +17,18 @@ export const signUpReducer = (
     case SignUpActionsType.REGISTRATION_REQUEST:
       return { ...state, requestLoading: true };
 
+    case SignUpActionsType.REGISTRATION_USER_SUCCESS: 
+      return  {
+        ...state,
+        requestError: '',
+        requestLoading: false,
+        isRegistered: true
+      };
+
     case SignUpActionsType.REGISTRATION_PATIENT_SUCCESS:
       return {
         ...state,
+        requestError: '',
         requestLoading: false,
         patientData: action.patientData,
       };

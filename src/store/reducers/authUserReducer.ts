@@ -1,20 +1,17 @@
-import { ActionsType, AuthActionsType, ILoginState} from "@store/types/authUser";
+import { ActionsType, AuthActionsType, ILoginState } from '@store/types/authUser';
 
- const LoginState: ILoginState = {
+const LoginState: ILoginState = {
   authLoading: false,
   authedUser: null,
-  loginError: ''
+  errorMessage: '',
 };
 
-export const authReducer = (
-  state = LoginState,
-  action: AuthActionsType
-): ILoginState => {
+export const authReducer = (state = LoginState, action: AuthActionsType): ILoginState => {
   switch (action.type) {
     case ActionsType.AUTH_LOADING:
       return {
         ...state,
-        authLoading: true
+        authLoading: true,
       };
     case ActionsType.USER_IS_AUTH:
       return {
@@ -23,14 +20,15 @@ export const authReducer = (
         authedUser: {
           id: action.payload.id,
           userRole: action.payload.userRole,
-          name: action.payload.name
-        }
+          name: action.payload.name,
+        },
+        errorMessage: '',
       };
-    case ActionsType.USER_IS_UNAUTH:
+    case ActionsType.AUTH_ERROR:
       return {
         authLoading: false,
         authedUser: null,
-        loginError: action.payload
+        errorMessage: action.errorMessage,
       };
     default:
       return state;

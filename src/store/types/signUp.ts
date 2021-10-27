@@ -20,6 +20,20 @@ export interface IDoctorData {
   workPlace: string;
   password: string;
 }
+export interface IUserData {
+  userRole: string;
+  name: string;
+  lastName: string;
+  birthday?: string;
+  email: string;
+  phone: string;
+  address?: string;
+  password: string;
+  photo?: string;
+  experience?: string;
+  direction?: string;
+  workPlace?: string;
+}
 
 export interface ISignUpInitialState {
   readonly requestLoading: boolean;
@@ -34,7 +48,12 @@ export enum SignUpActionsType {
   REGISTRATION_PATIENT_SUCCESS = 'REGISTRATION_PATIENT_SUCCESS',
   REGISTRATION_DOCTOR_SUCCESS = 'REGISTRATION_DOCTOR_SUCCESS',
   REGISTRATION_ERROR = 'REGISTRATION_ERROR',
+  REGISTRATION_USER_SUCCESS = 'REGISTRATION_USER_SUCCESS',
 }
+interface RegistrationUserSuccess {
+  type: SignUpActionsType.REGISTRATION_USER_SUCCESS;
+}
+
 interface RegistrationRequest {
   type: SignUpActionsType.REGISTRATION_REQUEST;
 }
@@ -58,4 +77,5 @@ export type ActionType =
   | RegistrationRequest
   | RegistrationPatientSuccess
   | RegistrationDoctorSuccess
-  | RegistrationError;
+  | RegistrationError
+  | RegistrationUserSuccess;

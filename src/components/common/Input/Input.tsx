@@ -1,3 +1,4 @@
+import { readFile } from 'fs';
 import React from 'react';
 import { InputGroup } from './InputStyle';
 
@@ -16,6 +17,7 @@ interface IInput {
       message: string;
     };
   };
+  ref?: any;
 }
 
 const Input: React.FC<IInput> = ({
@@ -27,11 +29,19 @@ const Input: React.FC<IInput> = ({
   name,
   placeholder,
   accept,
+  ref,
 }) => {
   return (
     <InputGroup primary={primary} type={type}>
       <label>{label}</label>
-      <input accept={accept} placeholder={placeholder} {...register} type={type} />
+      <input
+        name={name}
+        ref={ref}
+        accept={accept}
+        placeholder={placeholder}
+        {...register}
+        type={type}
+      />
       {errors && errors[name] && <p>{errors[name]?.message}</p>}
     </InputGroup>
   );

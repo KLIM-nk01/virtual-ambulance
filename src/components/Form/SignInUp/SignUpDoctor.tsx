@@ -25,10 +25,11 @@ import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { fetchMedCenters } from '@store/actionCreators/medCenters';
 import { SelectWrapper } from '@components/common/Select/SelectStyle';
 import { fetchDoctorsDirection } from '@store/actionCreators/doctorsDirection';
-import { registrationDoctor } from '@store/actionCreators/signUp';
+import { registrationUser } from '@store/actionCreators/signUp';
 import { userAuth } from '@store/actionCreators/auth';
 import { ROUTS } from '@constants/routs';
 import Loader from '@components/common/Loader/Loader';
+import Error from '@components/common/Error/Error';
 
 const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();
@@ -51,8 +52,8 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
 
   const onSubmit = (data: IDoctorSubmitData) => {
     data.userRole = userRole;
-    dispatch(registrationDoctor(data));
-    dispatch(userAuth());
+    dispatch(registrationUser(data));
+  
   };
 
   const optionsMedCenter = medCenter.medCenters.map((medCenter) => {
@@ -186,7 +187,11 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
             Sign Up
           </Button>
         </ButtonBar>
-        {signUp.requestLoading && <Loader />}
+        {signUp.requestLoading ? (
+          <Loader />
+        ) : (
+          signUp.requestError && <Error errorMessage={signUp.requestError} />
+        )}
       </Form>
     </FormContainer>
   );
