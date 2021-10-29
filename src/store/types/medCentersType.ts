@@ -19,22 +19,22 @@ export interface IMedCenterState {
 }
 
 export enum MedCenterActionTypes {
-  FETCH_MEDCENTER = 'FETCH_MEDCENTER',
-  FETCH_MEDCENTER_SUCCESS = 'FETCH_MEDCENTER_SUCCESS',
-  FETCH_MEDCENTER_ERROR = 'FETCH_MEDCENTER_ERROR',
+  FETCH_MEDCENTERS = 'FETCH_MEDCENTERS',
+  FETCH_MEDCENTERS_SUCCESS = 'FETCH_MEDCENTERS_SUCCESS',
+  FETCH_MEDCENTERS_ERROR = 'FETCH_MEDCENTERS_ERROR',
 }
 interface FeetchMedCenter {
-  type: MedCenterActionTypes.FETCH_MEDCENTER;
+  type: MedCenterActionTypes.FETCH_MEDCENTERS;
 }
 
 interface FeetchMedCenterSuccess {
-  type: MedCenterActionTypes.FETCH_MEDCENTER_SUCCESS;
+  type: MedCenterActionTypes.FETCH_MEDCENTERS_SUCCESS;
   payload: IMedcenterData[];
 }
 
 interface FeetchMedCenterError {
-  type: MedCenterActionTypes.FETCH_MEDCENTER_ERROR;
-  payload: string;
+  type: MedCenterActionTypes.FETCH_MEDCENTERS_ERROR;
+  errorMessage: string;
 }
 
 export type MedCenterAction = FeetchMedCenter | FeetchMedCenterSuccess | FeetchMedCenterError;

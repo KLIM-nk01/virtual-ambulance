@@ -5,12 +5,13 @@ import Button from '@components/common/Button/Button';
 import { LogOutWrapper } from './LogOutStyle';
 import NoAva from '@assets/NoAvatar.png';
 import * as cookies from '@core/cookies/cookies';
+
 const LogOut: React.FC = () => {
   const dispatch = useDispatch();
 
   const logOut = () => {
     dispatch(userUnAuth());
-    cookies.deleteCookie(['id', 'userRole']);
+    cookies.deleteCookie(['id', 'userRole', 'token']);
   };
 
   return (

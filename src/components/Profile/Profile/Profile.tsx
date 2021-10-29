@@ -8,6 +8,7 @@ import {
   ProfileFeature
 } from './ProfileStyle';
 
+
 const Account: React.FC = () => {
   return (
     <ProfileWrapper>

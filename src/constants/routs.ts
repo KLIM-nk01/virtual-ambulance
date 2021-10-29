@@ -8,3 +8,5 @@ export const ROUTS = {
   SIGNIN_FORM: '/formPage/signInForm',
   SINGUP_FORM: '/formPage/signUpForm'
 };
+
+

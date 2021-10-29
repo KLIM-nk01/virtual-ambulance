@@ -1,3 +1,4 @@
+import { ERROR_MESSAGE } from '@constants/errorMessage';
 import { doctorsDirection } from '@data/doctorsDirection';
 import {
   DirectionActionsType,
@@ -18,7 +19,7 @@ export const fetchDoctorsDirection = () => {
     } catch (e) {
       dispatch({
         type: DirectionActionType.FETCH_DIRECTION_ERROR,
-        payload: 'Error loading data.'
+        errorMessage: ERROR_MESSAGE.SERVER_ERROR,
       });
     }
   };

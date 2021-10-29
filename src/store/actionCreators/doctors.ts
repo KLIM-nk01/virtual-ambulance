@@ -1,13 +1,15 @@
 import { Dispatch } from 'redux';
 import axios from 'axios';
 import { DoctorsActionType, ActionType } from '@store/types/doctorsType';
+import { ERROR_MESSAGE } from '@constants/errorMessage';
+import { API_URL } from '@constants/apiUrl';
 
 export const fetchDoctors = () => {
   return (dispatch: Dispatch<ActionType>) => {
     dispatch({ type: DoctorsActionType.FETCH_DOCTORS });
 
     axios
-      .get('http://localhost:3000/doctorsPage/doctors')
+      .get(API_URL.DOCTORS)
       .then((response) => {
         dispatch({
           type: DoctorsActionType.FETCH_DOCTORS_SUCCESS,
@@ -18,17 +20,12 @@ export const fetchDoctors = () => {
         if (error.response) {
           dispatch({
             type: DoctorsActionType.FETCH_DOCTORS_ERROR,
-            payload: 'Failed to get data about doctors, please try again later.',
+            errorMessage: ERROR_MESSAGE.FAILED_DATA_LOAD,
           });
         } else if (error.request) {
           dispatch({
             type: DoctorsActionType.FETCH_DOCTORS_ERROR,
-            payload: 'The server is not responding',
-          });
-        } else {
-          dispatch({
-            type: DoctorsActionType.FETCH_DOCTORS_ERROR,
-            payload: 'Error...',
+            errorMessage: ERROR_MESSAGE.SERVER_ERROR,
           });
         }
       });
