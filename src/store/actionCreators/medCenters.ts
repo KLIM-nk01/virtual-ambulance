@@ -1,3 +1,4 @@
+import { ERROR_MESSAGE } from './../../constants/errorMessage';
 import { Dispatch } from 'redux';
 import { IMedcenterData, MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
 import axios from 'axios';
@@ -16,19 +17,14 @@ export const fetchMedCenters = () => {
         if (error.response) {
           dispatch({
             type: MedCenterActionTypes.FETCH_MEDCENTERS_ERROR,
-            payload: 'Failed to get data about medical centers, please try again later.',
+            errorMessage: ERROR_MESSAGE.FAILED_DATA_LOAD,
           });
         } else if (error.request) {
           dispatch({
             type: MedCenterActionTypes.FETCH_MEDCENTERS_ERROR,
-            payload: 'The server is not responding',
+            errorMessage: ERROR_MESSAGE.SERVER_ERROR,
           });
-        } else {
-          dispatch({
-            type: MedCenterActionTypes.FETCH_MEDCENTERS_ERROR,
-            payload: 'Error...',
-          });
-        }
+        } 
       });
   };
 };

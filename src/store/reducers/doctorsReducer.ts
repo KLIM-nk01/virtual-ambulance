@@ -13,7 +13,7 @@ export const doctorsReducer = (state = initialState, action: ActionType): IDocto
     case DoctorsActionType.FETCH_DOCTORS_SUCCESS:
       return { loading: false, error: null, doctors: action.payload };
     case DoctorsActionType.FETCH_DOCTORS_ERROR:
-      return { loading: false, error: action.payload, doctors: [] };
+      return { loading: false, error: action.errorMessage, doctors: [] };
     default:
       return state;
   }

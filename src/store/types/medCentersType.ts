@@ -34,7 +34,7 @@ interface FeetchMedCenterSuccess {
 
 interface FeetchMedCenterError {
   type: MedCenterActionTypes.FETCH_MEDCENTERS_ERROR;
-  payload: string;
+  errorMessage: string;
 }
 
 export type MedCenterAction = FeetchMedCenter | FeetchMedCenterSuccess | FeetchMedCenterError;

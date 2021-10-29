@@ -21,7 +21,7 @@ interface FetchDirectionSuccess {
 
 interface FetchDirectionError {
   type: DirectionActionType.FETCH_DIRECTION_ERROR;
-  payload: string;
+  errorMessage: string;
 }
 
 export type DirectionActionsType = FetchDirection | FetchDirectionSuccess | FetchDirectionError;

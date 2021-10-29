@@ -23,7 +23,7 @@ interface FetchDoctorsSuccess {
 
 interface FetchDoctorsError {
   type: DoctorsActionType.FETCH_DOCTORS_ERROR;
-  payload: null | string;
+  errorMessage: null | string;
 }
 
 export type ActionType = FetchDoctors | FetchDoctorsSuccess | FetchDoctorsError;

@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 import { ActionsType, AuthActionsType } from '@store/types/authUser';
 import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
+import { ERROR_MESSAGE } from '@constants/errorMessage';
 
 export const userAuth = (dataAuth?: { password: string; email: string }) => {
   return async (dispatch: Dispatch<AuthActionsType>) => {
@@ -39,7 +40,7 @@ export const userAuth = (dataAuth?: { password: string; email: string }) => {
       } else if (error.request) {
         dispatch({
           type: ActionsType.AUTH_ERROR,
-          errorMessage: 'The server error.',
+          errorMessage: ERROR_MESSAGE.SERVER_ERROR,
         });
       }
     }

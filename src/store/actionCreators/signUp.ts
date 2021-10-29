@@ -4,6 +4,7 @@ import axios, { AxiosResponse } from 'axios';
 import { Dispatch } from 'redux';
 import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
+import { ERROR_MESSAGE } from '@constants/errorMessage';
 
 export const registrationUser = (userData: {
   userRole: string;
@@ -26,9 +27,6 @@ export const registrationUser = (userData: {
         user: any;
         token: string;
       }> = await axios.post(API_URL.REGISTRATION, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
         ...userData,
       });
 
@@ -59,7 +57,7 @@ export const registrationUser = (userData: {
       } else if (error.request) {
         dispatch({
           type: SignUpActionsType.REGISTRATION_ERROR,
-          errorMessage: 'The server error.',
+          errorMessage: ERROR_MESSAGE.SERVER_ERROR,
         });
       }
     }

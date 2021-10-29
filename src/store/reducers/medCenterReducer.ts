@@ -1,4 +1,8 @@
-import { IMedCenterState, MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
+import {
+  IMedCenterState,
+  MedCenterAction,
+  MedCenterActionTypes,
+} from '@store/types/medCentersType';
 
 export const initialState: IMedCenterState = {
   medCenters: [],
@@ -16,7 +20,7 @@ export const medCenterReducer = (
     case MedCenterActionTypes.FETCH_MEDCENTERS_SUCCESS:
       return { loading: false, error: null, medCenters: action.payload };
     case MedCenterActionTypes.FETCH_MEDCENTERS_ERROR:
-      return { loading: false, error: action.payload, medCenters: [] };
+      return { loading: false, error: action.errorMessage, medCenters: [] };
     default:
       return state;
   }
