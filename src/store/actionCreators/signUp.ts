@@ -1,8 +1,5 @@
 import { ActionsType, AuthActionsType } from '@store/types/authUser';
-import {
-  ActionType,
-  SignUpActionsType,
-} from '@store/types/signUp';
+import { ActionType, SignUpActionsType } from '@store/types/signUp';
 import axios, { AxiosResponse } from 'axios';
 import { Dispatch } from 'redux';
 import * as cookies from '@core/cookies/cookies';
@@ -62,12 +59,7 @@ export const registrationUser = (userData: {
       } else if (error.request) {
         dispatch({
           type: SignUpActionsType.REGISTRATION_ERROR,
-          errorMessage: 'The server is not responding',
-        });
-      } else {
-        dispatch({
-          type: SignUpActionsType.REGISTRATION_ERROR,
-          errorMessage: 'Error...',
+          errorMessage: 'The server error.',
         });
       }
     }

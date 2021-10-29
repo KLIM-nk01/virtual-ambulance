@@ -39,12 +39,7 @@ export const userAuth = (dataAuth?: { password: string; email: string }) => {
       } else if (error.request) {
         dispatch({
           type: ActionsType.AUTH_ERROR,
-          errorMessage: 'The server is not responding',
-        });
-      } else {
-        dispatch({
-          type: ActionsType.AUTH_ERROR,
-          errorMessage: 'Error...',
+          errorMessage: 'The server error.',
         });
       }
     }
