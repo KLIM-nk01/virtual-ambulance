@@ -11,7 +11,7 @@ import * as cookies from '@core/cookies/cookies';
 const App: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    cookies.getCookie('id') && dispatch(userAuth());
+    // cookies.getCookie('id') && dispatch(userAuth());
   }, []);
 
   return (

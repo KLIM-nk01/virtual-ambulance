@@ -7,7 +7,7 @@ export const fetchDoctors = () => {
     dispatch({ type: DoctorsActionType.FETCH_DOCTORS });
 
     axios
-      .get('http://localhost:3000/doctorsPage/doctors')
+      .get('http://localhost:3000/doctors')
       .then((response) => {
         dispatch({
           type: DoctorsActionType.FETCH_DOCTORS_SUCCESS,

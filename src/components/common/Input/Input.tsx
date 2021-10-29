@@ -1,4 +1,3 @@
-import { readFile } from 'fs';
 import React from 'react';
 import { InputGroup } from './InputStyle';
 

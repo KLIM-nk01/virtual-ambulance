@@ -1,31 +1,45 @@
 import { ActionsType, AuthActionsType } from '@store/types/authUser';
 import {
   ActionType,
-  IDoctorData,
-  IPatientData,
   SignUpActionsType,
-  IUserData,
 } from '@store/types/signUp';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { Dispatch } from 'redux';
 import * as cookies from '@core/cookies/cookies';
+import { API_URL } from '@constants/apiUrl';
 
-export const registrationUser = (userData: any) => {
-  return (dispatch: Dispatch<ActionType | AuthActionsType>) => {
+export const registrationUser = (userData: {
+  userRole: string;
+  name: string;
+  lastName: string;
+  birthday?: string;
+  email: string;
+  phone: string;
+  address?: string;
+  password: string;
+  photo?: string;
+  experience?: string;
+  direction?: string;
+  workPlace?: string;
+}) => {
+  return async (dispatch: Dispatch<ActionType | AuthActionsType>) => {
     dispatch({ type: SignUpActionsType.REGISTRATION_REQUEST });
-
-    axios
-      .post('http://localhost:3000/registration/user', {
+    try {
+      const response: AxiosResponse<{
+        user: any;
+        token: string;
+      }> = await axios.post(API_URL.REGISTRATION, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
         ...userData,
-      })
-      .then((response) => {
-        response.status >= 200 &&
-          dispatch({
-            type: SignUpActionsType.REGISTRATION_USER_SUCCESS,
-          });
+      });
+
+      response.status >= 200 &&
+        dispatch({
+          type: SignUpActionsType.REGISTRATION_USER_SUCCESS,
+        });
+      if (response.data && response.data.user) {
         dispatch({
           type: ActionsType.USER_IS_AUTH,
           payload: {
@@ -37,25 +51,25 @@ export const registrationUser = (userData: any) => {
         cookies.setCookie('id', response.data.user.id, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
         cookies.setCookie('token', response.data.token, {});
-      })
-      .catch((error) => {
-        if (error.response) {
-          error.response.status >= 400 &&
-            dispatch({
-              type: SignUpActionsType.REGISTRATION_ERROR,
-              errorMessage: error.response.data.message,
-            });
-        } else if (error.request) {
+      }
+    } catch (error) {
+      if (error.response) {
+        error.response.status >= 400 &&
           dispatch({
             type: SignUpActionsType.REGISTRATION_ERROR,
-            errorMessage: 'The server is not responding',
+            errorMessage: error.response.data.message,
           });
-        } else {
-          dispatch({
-            type: SignUpActionsType.REGISTRATION_ERROR,
-            errorMessage: 'Error...',
-          });
-        }
-      });
+      } else if (error.request) {
+        dispatch({
+          type: SignUpActionsType.REGISTRATION_ERROR,
+          errorMessage: 'The server is not responding',
+        });
+      } else {
+        dispatch({
+          type: SignUpActionsType.REGISTRATION_ERROR,
+          errorMessage: 'Error...',
+        });
+      }
+    }
   };
 };

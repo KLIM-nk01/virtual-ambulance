@@ -1,49 +1,53 @@
 import axios, { AxiosResponse } from 'axios';
 import { Dispatch } from 'redux';
 import { ActionsType, AuthActionsType } from '@store/types/authUser';
-
 import * as cookies from '@core/cookies/cookies';
+import { API_URL } from '@constants/apiUrl';
 
-export const userAuth = (dataAuth?: any) => {
+export const userAuth = (dataAuth?: { password: string; email: string }) => {
   return async (dispatch: Dispatch<AuthActionsType>) => {
     dispatch({ type: ActionsType.AUTH_LOADING });
-    axios
-      .post('http://localhost:3000/authorization/userAuth', dataAuth)
-      .then((res) => {
-        res.status >= 200 && console.log(res);
 
+    try {
+      const response: AxiosResponse<{ user: any; token: string }> = await axios.post(
+        API_URL.AUTHORIZATION,
+        dataAuth
+      );
+
+      response.status >= 200 && console.log(response);
+
+      if (response.data && response.data.user) {
         dispatch({
           type: ActionsType.USER_IS_AUTH,
           payload: {
-            id: res.data.user.id,
-            userRole: res.data.user.userRole,
-            name: res.data.user.name,
+            id: response.data.user.id,
+            userRole: response.data.user.userRole,
+            name: response.data.user.name,
           },
         });
-        cookies.setCookie('id', res.data.user.id, {});
-        cookies.setCookie('userRole', res.data.user.userRole, {});
-        cookies.setCookie('token', res.data.token, {});
-      })
-      .catch((error) => {
-        if (error.response) {
-          error.response.status >= 400 &&
-            dispatch({
-              type: ActionsType.AUTH_ERROR,
-              errorMessage: error.response.data.message,
-            });
-        } else if (error.request) {
+        cookies.setCookie('id', response.data.user.id, {});
+        cookies.setCookie('userRole', response.data.user.userRole, {});
+        cookies.setCookie('token', response.data.token, {});
+      }
+    } catch (error) {
+      if (error.response) {
+        error.response.status >= 400 &&
           dispatch({
             type: ActionsType.AUTH_ERROR,
-            errorMessage: 'The server is not responding',
+            errorMessage: error.response.data.message,
           });
-          console.log(error.request);
-        } else {
-          dispatch({
-            type: ActionsType.AUTH_ERROR,
-            errorMessage: 'Error...',
-          });
-        }
-      });
+      } else if (error.request) {
+        dispatch({
+          type: ActionsType.AUTH_ERROR,
+          errorMessage: 'The server is not responding',
+        });
+      } else {
+        dispatch({
+          type: ActionsType.AUTH_ERROR,
+          errorMessage: 'Error...',
+        });
+      }
+    }
   };
 };
 
@@ -52,4 +56,3 @@ export const userUnAuth = () => {
     type: ActionsType.AUTH_ERROR,
   };
 };
-

@@ -11,11 +11,11 @@ export const medCenterReducer = (
   action: MedCenterAction
 ): IMedCenterState => {
   switch (action.type) {
-    case MedCenterActionTypes.FETCH_MEDCENTER:
+    case MedCenterActionTypes.FETCH_MEDCENTERS:
       return { loading: true, error: null, medCenters: [] };
-    case MedCenterActionTypes.FETCH_MEDCENTER_SUCCESS:
+    case MedCenterActionTypes.FETCH_MEDCENTERS_SUCCESS:
       return { loading: false, error: null, medCenters: action.payload };
-    case MedCenterActionTypes.FETCH_MEDCENTER_ERROR:
+    case MedCenterActionTypes.FETCH_MEDCENTERS_ERROR:
       return { loading: false, error: action.payload, medCenters: [] };
     default:
       return state;
