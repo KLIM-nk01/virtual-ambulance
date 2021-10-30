@@ -36,12 +36,12 @@ const DoctorsCard: React.FC<IProps> = ({
   workTime,
 }) => {
   const [modalActive, setModalActive] = useState(false);
-  const state = useTypesSelector((state) => state.signIn);
+  const state = useTypesSelector((state) => state.user);
   const history = useHistory();
 
   const showSchedule = (): void => {
     setModalActive(true);
-    if (!state.signInUser) history.push(ROUTS.SIGNIN_FORM);
+    if (!state.isAuth) history.push(ROUTS.SIGNIN_FORM);
   };
   return (
     <Card>

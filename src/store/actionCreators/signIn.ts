@@ -4,9 +4,11 @@ import { ActionsType, SignInActionsType } from '@store/types/signIn';
 import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
+import { UserActionType } from '@store/types/user';
+import { setUser } from './user';
 
 export const userSignIn = (dataAuth: { password: string; email: string }) => {
-  return async (dispatch: Dispatch<SignInActionsType>) => {
+  return async (dispatch: Dispatch<SignInActionsType | UserActionType>) => {
     dispatch({ type: ActionsType.SIGNIN_LOADING });
 
     try {
@@ -18,15 +20,9 @@ export const userSignIn = (dataAuth: { password: string; email: string }) => {
       response.status >= 200 && console.log(response);
 
       if (response.data && response.data.user) {
-        dispatch({
-          type: ActionsType.USER_IS_SIGNIN,
-          payload: {
-            id: response.data.user.id,
-            userRole: response.data.user.userRole,
-            name: response.data.user.name,
-          },
-        });
-        cookies.setCookie('id', response.data.user.id, {});
+        dispatch(setUser(response.data.user))
+
+        cookies.setCookie('id_user', response.data.user.id_user, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
         cookies.setCookie('token', response.data.token, {});
       }

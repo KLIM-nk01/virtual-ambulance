@@ -33,7 +33,7 @@ import Error from '@components/common/Error/Error';
 
 const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();
-  const { medCenter, doctorsDirection, signIn, signUp } = useTypesSelector((state) => state);
+  const { medCenter, doctorsDirection, signIn, signUp, user } = useTypesSelector((state) => state);
   const password = useRef({});
   const {
     register,
@@ -71,7 +71,7 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
 
   return (
     <FormContainer>
-      {signIn.signInUser && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
+      {user.isAuth && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Сreate doctors account </FormName>
 

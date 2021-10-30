@@ -3,7 +3,7 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const VisitItemContainer = styled.div`
   width: 240px;
-  height: 255px;
+  height: 210px;
   margin: 0 10px 20px 10px;
   display: flex;
   align-items: flex-start;
@@ -54,7 +54,8 @@ export const GeneralInformation = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  padding: 0 10px;
+  /* justify-content: space-around; */
   margin-top: 10px;
 `;
 
@@ -66,7 +67,7 @@ export const TicketInfo = styled.div`
   }
 `;
 export const Date = styled.div`
-  width: 100px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-direction: column;

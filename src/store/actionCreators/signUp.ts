@@ -5,6 +5,8 @@ import { Dispatch } from 'redux';
 import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
+import { UserActionType } from '@store/types/user';
+import { setUser } from './user';
 
 export const registrationUser = (userData: {
   userRole: string;
@@ -20,7 +22,7 @@ export const registrationUser = (userData: {
   direction?: string;
   workPlace?: string;
 }) => {
-  return async (dispatch: Dispatch<ActionType | SignInActionsType>) => {
+  return async (dispatch: Dispatch<ActionType | UserActionType>) => {
     dispatch({ type: SignUpActionsType.REGISTRATION_REQUEST });
     try {
       const response: AxiosResponse<{
@@ -36,14 +38,8 @@ export const registrationUser = (userData: {
           type: SignUpActionsType.REGISTRATION_USER_SUCCESS,
         });
       if (response.data && response.data.user) {
-        dispatch({
-          type: ActionsType.USER_IS_SIGNIN,
-          payload: {
-            id: response.data.user.id,
-            userRole: response.data.user.userRole,
-            name: response.data.user.name,
-          },
-        });
+        dispatch(setUser(response.data.user));
+        
         cookies.setCookie('id', response.data.user.id, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
         cookies.setCookie('token', response.data.token, {});

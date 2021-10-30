@@ -7,11 +7,15 @@ import Routs from '@components/Routs/Routs';
 import { useDispatch } from 'react-redux';
 import { userSignIn } from '@store/actionCreators/signIn';
 import * as cookies from '@core/cookies/cookies';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { userAuth } from '@store/actionCreators/userAuth';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
+  const isAuth = useTypesSelector((state) => state.user.isAuth);
+
   useEffect(() => {
-    // cookies.getCookie('id') && dispatch(userAuth());
+    dispatch(userAuth());
   }, []);
 
   return (

@@ -4,6 +4,7 @@ import { doctorsReducer } from './doctorsReducer';
 import { signInReducer } from './signInReducer';
 import { doctorsDirectionReducer } from './doctorsDirectionReducer';
 import { signUpReducer } from './signUp';
+import { userReducer } from './userReducer';
 
 export const rootReducer = combineReducers({
   medCenter: medCenterReducer,
@@ -11,7 +12,8 @@ export const rootReducer = combineReducers({
   
   signIn: signInReducer,
   doctorsDirection: doctorsDirectionReducer,
-  signUp: signUpReducer
+  signUp: signUpReducer,
+  user: userReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

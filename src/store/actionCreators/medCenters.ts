@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE } from './../../constants/errorMessage';
+import { ERROR_MESSAGE } from '@constants/errorMessage';
 import { Dispatch } from 'redux';
 import { IMedcenterData, MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
 import axios from 'axios';

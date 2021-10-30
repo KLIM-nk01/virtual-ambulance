@@ -6,7 +6,7 @@ import {
   DescriptionLabel,
   InfoLabel,
   ProfileInfoRow,
-  UserName
+  UserName,
 } from './AboutContainerStyle';
 import Avatar from '@assets/NoAvatar.png';
 
@@ -32,11 +32,6 @@ const AboutContainer = () => (
         <InfoLabel>Phone Number: </InfoLabel>
         <DescriptionLabel>{usersData.phone}</DescriptionLabel>
       </ProfileInfoRow>
-
-      {/* <ProfileInfoRow>
-        <InfoLabel>Work Place: </InfoLabel>
-        <DescriptionLabel>{usersData.workPlace}</DescriptionLabel>
-      </ProfileInfoRow> */}
 
       <ProfileInfoRow>
         <InfoLabel>Address: </InfoLabel>

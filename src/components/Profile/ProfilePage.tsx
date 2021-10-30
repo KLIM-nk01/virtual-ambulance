@@ -6,8 +6,8 @@ import Account from './Profile/Profile';
 import { ProfilePageWrapper } from './ProfilePageStyle';
 
 const ProfilePage: React.FC = () => {
-  const { signInUser } = useTypesSelector((state) => state.signIn);
-  if (!signInUser) return <Redirect to={ROUTS.SIGNIN_FORM} />;
+  const { isAuth } = useTypesSelector((state) => state.user);
+  if (!isAuth) return <Redirect to={ROUTS.SIGNIN_FORM} />;
   return (
     <ProfilePageWrapper>
       <Account />

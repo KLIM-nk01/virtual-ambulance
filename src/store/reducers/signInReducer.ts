@@ -13,17 +13,6 @@ export const signInReducer = (state = SignInState, action: SignInActionsType): I
         ...state,
         signInLoading: true,
       };
-    case ActionsType.USER_IS_SIGNIN:
-      return {
-        ...state,
-        signInLoading: false,
-        signInUser: {
-          id: action.payload.id,
-          userRole: action.payload.userRole,
-          name: action.payload.name,
-        },
-        errorMessage: '',
-      };
     case ActionsType.SIGNIN_ERROR:
       return {
         signInLoading: false,

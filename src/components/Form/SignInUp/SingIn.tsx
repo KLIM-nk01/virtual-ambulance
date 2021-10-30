@@ -22,13 +22,14 @@ const SingInForm: React.FC = () => {
   } = useForm();
   const dispatch = useDispatch();
   const { signInUser, signInLoading, errorMessage } = useTypesSelector((state) => state.signIn);
+  const isAuth = useTypesSelector((state) => state.user.isAuth)
   const onSubmit = (data: ISignInData) => {
     dispatch(userSignIn(data));
   };
 
   return (
     <FormContainer>
-      {signInUser && <Redirect to={ROUTS.MAIN_PAGE_PATH} />}
+      {isAuth && <Redirect to={ROUTS.MAIN_PAGE_PATH} />}
 
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Sin In to your account</FormName>

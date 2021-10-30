@@ -25,10 +25,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
 
   const onSubmit = (data: IPatientSubmitData) => {
     data.userRole = userRole;
-
     dispatch(registrationUser(data));
-    console.log(data);
-    // dispatch(userAuth());
   };
 
   const {
@@ -44,7 +41,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const state = useTypesSelector((state) => state);
   return (
     <FormContainer>
-      {state.signIn.signInUser && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
+      {state.user.isAuth && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
       <Form enctype="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
         <FormName>Сreate an account </FormName>
         <DoctorCheckButton>
