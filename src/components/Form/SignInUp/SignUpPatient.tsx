@@ -14,7 +14,7 @@ import {
   Password,
 } from '@components/Form/SignInUp/formValidationConstants';
 import { registrationUser } from '@store/actionCreators/signUp';
-import { userAuth } from '@store/actionCreators/auth';
+import { userSignIn } from '@store/actionCreators/signIn';
 import { ROUTS } from '@constants/routs';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import Loader from '@components/common/Loader/Loader';
@@ -44,7 +44,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const state = useTypesSelector((state) => state);
   return (
     <FormContainer>
-      {state.auth.authedUser && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
+      {state.signIn.signInUser && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
       <Form enctype="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
         <FormName>Сreate an account </FormName>
         <DoctorCheckButton>
@@ -115,11 +115,10 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           primary
           type="file"
           name="photo"
-          ref={register}
+          register={register('photo')}
           label="Photo"
           errors={errors}
         />
-       
 
         <Input
           primary

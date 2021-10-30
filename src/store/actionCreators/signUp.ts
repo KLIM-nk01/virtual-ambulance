@@ -1,4 +1,4 @@
-import { ActionsType, AuthActionsType } from '@store/types/authUser';
+import { ActionsType, SignInActionsType } from '@store/types/signIn';
 import { ActionType, SignUpActionsType } from '@store/types/signUp';
 import axios, { AxiosResponse } from 'axios';
 import { Dispatch } from 'redux';
@@ -20,7 +20,7 @@ export const registrationUser = (userData: {
   direction?: string;
   workPlace?: string;
 }) => {
-  return async (dispatch: Dispatch<ActionType | AuthActionsType>) => {
+  return async (dispatch: Dispatch<ActionType | SignInActionsType>) => {
     dispatch({ type: SignUpActionsType.REGISTRATION_REQUEST });
     try {
       const response: AxiosResponse<{
@@ -28,6 +28,7 @@ export const registrationUser = (userData: {
         token: string;
       }> = await axios.post(API_URL.REGISTRATION, {
         ...userData,
+        photo: userData.photo,
       });
 
       response.status >= 200 &&
@@ -36,7 +37,7 @@ export const registrationUser = (userData: {
         });
       if (response.data && response.data.user) {
         dispatch({
-          type: ActionsType.USER_IS_AUTH,
+          type: ActionsType.USER_IS_SIGNIN,
           payload: {
             id: response.data.user.id,
             userRole: response.data.user.userRole,

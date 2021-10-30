@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { userUnAuth } from '@store/actionCreators/auth';
+import { userUnAuth } from '@store/actionCreators/signIn';
 import Button from '@components/common/Button/Button';
 import { LogOutWrapper } from './LogOutStyle';
 import NoAva from '@assets/NoAvatar.png';

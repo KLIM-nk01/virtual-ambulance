@@ -26,14 +26,14 @@ import { fetchMedCenters } from '@store/actionCreators/medCenters';
 import { SelectWrapper } from '@components/common/Select/SelectStyle';
 import { fetchDoctorsDirection } from '@store/actionCreators/doctorsDirection';
 import { registrationUser } from '@store/actionCreators/signUp';
-import { userAuth } from '@store/actionCreators/auth';
+import { userSignIn } from '@store/actionCreators/signIn';
 import { ROUTS } from '@constants/routs';
 import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';
 
 const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();
-  const { medCenter, doctorsDirection, auth, signUp } = useTypesSelector((state) => state);
+  const { medCenter, doctorsDirection, signIn, signUp } = useTypesSelector((state) => state);
   const password = useRef({});
   const {
     register,
@@ -53,7 +53,6 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const onSubmit = (data: IDoctorSubmitData) => {
     data.userRole = userRole;
     dispatch(registrationUser(data));
-  
   };
 
   const optionsMedCenter = medCenter.medCenters.map((medCenter) => {
@@ -72,7 +71,7 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
 
   return (
     <FormContainer>
-      {auth.authedUser && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
+      {signIn.signInUser && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Сreate doctors account </FormName>
 

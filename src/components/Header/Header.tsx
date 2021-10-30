@@ -14,7 +14,7 @@ import BurgerButton from './Burger/BurgerButton';
 import Portal from '@components/common/Portal/Portal';
 
 const Header: React.FC = () => {
-  const { authedUser } = useTypesSelector((state) => state.auth);
+  const { signInUser } = useTypesSelector((state) => state.signIn);
   const [menuActive, setMenuActive] = useState<boolean>(false);
   return (
     <HeaderWrapper>
@@ -22,14 +22,14 @@ const Header: React.FC = () => {
         <Logo />
         <Search />
         <LogInOutWrapper>
-          {!authedUser ? <LogIn /> : <LogOut />}
+          {!signInUser ? <LogIn /> : <LogOut />}
         </LogInOutWrapper>
 
         <BurgerButton setMenuActive={setMenuActive} menuActive={menuActive} />
 
         <Portal>
           <BurgerMenu setMenuActive={setMenuActive} menuActive={menuActive}>
-            {!authedUser ? <LogIn /> : <LogOut />}
+            {!signInUser ? <LogIn /> : <LogOut />}
           </BurgerMenu>
         </Portal>
       </HeaderContainerStyle>
