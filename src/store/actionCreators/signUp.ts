@@ -29,8 +29,14 @@ export const registrationUser = (userData: {
         user: any;
         token: string;
       }> = await axios.post(API_URL.REGISTRATION, {
+        
         ...userData,
-        photo: userData.photo,
+        // photo: userData.photo,
+        
+      }, {
+        // headers: {
+        //   "Content-Type": "application/x-www-form-urlencoded"
+        // }
       });
 
       response.status >= 200 &&

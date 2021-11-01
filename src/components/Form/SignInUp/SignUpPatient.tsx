@@ -26,6 +26,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const onSubmit = (data: IPatientSubmitData) => {
     data.userRole = userRole;
     dispatch(registrationUser(data));
+    console.log(data);
   };
 
   const {
@@ -39,10 +40,12 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   password.current = watch('password', '');
 
   const state = useTypesSelector((state) => state);
+  const myRef = React.createRef<HTMLInputElement>();
+
   return (
     <FormContainer>
       {state.user.isAuth && <Redirect to={ROUTS.PERSONAL_ACCOUNT} />}
-      <Form enctype="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Сreate an account </FormName>
         <DoctorCheckButton>
           Are you doctor?
@@ -108,14 +111,15 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           label="Address"
           errors={errors}
         />
-        <Input
+        {/* <Input
           primary
           type="file"
           name="photo"
           register={register('photo')}
           label="Photo"
           errors={errors}
-        />
+        /> */}
+        <input type="file" {...register('photo')} />
 
         <Input
           primary

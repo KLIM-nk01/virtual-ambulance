@@ -35,7 +35,6 @@ const Input: React.FC<IInput> = ({
       <label>{label}</label>
       <input
         name={name}
-        ref={ref}
         accept={accept}
         placeholder={placeholder}
         {...register}
