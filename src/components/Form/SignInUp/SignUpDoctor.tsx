@@ -50,14 +50,14 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
     dispatch(fetchDoctorsDirection());
   }, []);
 
-  const onSubmit = (data: IDoctorSubmitData) => {
+  const onSubmit = (data: { [key: string]: string; photo: any }) => {
     data.userRole = userRole;
     dispatch(registrationUser(data));
   };
 
   const optionsMedCenter = medCenter.medCenters.map((medCenter) => {
     return {
-      value: medCenter.id_medcenter,
+      value: medCenter._id,
       label: medCenter.name + ' Address: ' + medCenter.address,
     };
   });
@@ -130,7 +130,15 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           label="Experience"
           errors={errors}
         />
-
+        <Input
+          primary
+          type="file"
+          name="photo"
+          register={(register('photo'), Required)}
+          label="Photo"
+          errors={errors}
+        />
+        
         <QuestionWrapper>
           <span>-Select your direction</span>
           <Controller

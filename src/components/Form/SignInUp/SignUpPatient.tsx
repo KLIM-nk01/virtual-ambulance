@@ -23,7 +23,7 @@ import Error from '@components/common/Error/Error';
 const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();
 
-  const onSubmit = (data: IPatientSubmitData) => {
+  const onSubmit = (data: { [key: string]: string; photo: any }) => {
     data.userRole = userRole;
     dispatch(registrationUser(data));
     console.log(data);
@@ -39,8 +39,10 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const password = useRef({});
   password.current = watch('password', '');
 
+  const fileName = useRef({});
+  fileName.current = watch('photo');
+  console.log(typeof fileName.current === 'object');
   const state = useTypesSelector((state) => state);
-  const myRef = React.createRef<HTMLInputElement>();
 
   return (
     <FormContainer>
@@ -111,15 +113,17 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           label="Address"
           errors={errors}
         />
-        {/* <Input
+        <Input
           primary
           type="file"
           name="photo"
           register={register('photo')}
           label="Photo"
           errors={errors}
-        /> */}
-        <input type="file" {...register('photo')} />
+          id={'photo'}
+          //
+        />
+        {/* <input type="file" {...register('photo')} /> */}
 
         <Input
           primary
@@ -136,7 +140,9 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           type="password"
           label="Repeat Password"
           register={register('password_repeat', {
-            validate: (value: string) => value === password.current || 'The passwords do not match',
+            validate: (value: string) => {
+              return value === password.current || 'The passwords do not match';
+            },
           })}
           errors={errors}
         />

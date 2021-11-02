@@ -9,7 +9,6 @@ import { userReducer } from './userReducer';
 export const rootReducer = combineReducers({
   medCenter: medCenterReducer,
   doctors: doctorsReducer,
-  
   signIn: signInReducer,
   doctorsDirection: doctorsDirectionReducer,
   signUp: signUpReducer,

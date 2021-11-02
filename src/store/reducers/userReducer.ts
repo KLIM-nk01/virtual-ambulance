@@ -2,7 +2,11 @@ import { UserActionType, IUserState, userActionType } from '@store/types/user';
 import * as cookies from '@core/cookies/cookies';
 
 export const initialState: IUserState = {
-  currentUser: {},
+  currentUser: {
+    id_user: '',
+    userRole: '',
+    name: '',
+  },
   isAuth: false,
 };
 
@@ -18,7 +22,11 @@ export const userReducer = (state = initialState, action: UserActionType): IUser
       cookies.deleteCookie(['id', 'userRole', 'token']);
       return {
         ...state,
-        currentUser: {},
+        currentUser: {
+          id_user: '',
+          userRole: '',
+          name: '',
+        },
         isAuth: false,
       };
     default:

@@ -1,29 +1,38 @@
 import React from 'react';
 
-import { CenterStaff, StaffItem, StaffWrapper } from './CenterStaffStyle';
+import { CenterStaff, StaffItem, StaffWrapper, Information } from './CenterStaffStyle';
 import NoAva from '@assets/NoAvatar.png';
 import uniqid from 'uniqid';
 
-interface IStaf {
-  services?: string[];
+interface IStaff {
+  medStaff: {
+    userData: {
+      name: string;
+      lastName: string;
+      photo: string;
+    };
+    direction: string;
+  }[];
 }
 
-const Staff: React.FC<IStaf> = ({ services }) => {
+const Staff: React.FC<IStaff> = ({ medStaff }) => {
   return (
     <CenterStaff>
       <span>Our staff: </span>
       <StaffWrapper>
-        <StaffItem key={uniqid()}>
-          <img src={NoAva} alt="doctors avatar" />
-          <span>Doctors Name</span>
-          <span>Doctors Direction</span>
-        </StaffItem>
-
-        <StaffItem key={uniqid()}>
-          <img src={NoAva} alt="doctors avatar" />
-          <span>Doctors Name</span>
-          <span>Doctors Direction</span>
-        </StaffItem>
+        {medStaff.map((person) => {
+          return (
+            <StaffItem key={uniqid()}>
+              <img src={person.userData.photo || NoAva} alt="doctors avatar" />
+              <Information>
+                <span>
+                  {person.userData.name} {person.userData.lastName}
+                </span>
+                <span>{person.direction}</span>
+              </Information>
+            </StaffItem>
+          );
+        })}
       </StaffWrapper>
     </CenterStaff>
   );

@@ -4,7 +4,7 @@ export enum userActionType {
 }
 
 export interface IUserState {
-  currentUser: {};
+  currentUser: { id_user: string; userRole: string; name: string };
   isAuth: boolean;
 }
 interface setUser {

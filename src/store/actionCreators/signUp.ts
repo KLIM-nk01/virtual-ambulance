@@ -8,35 +8,40 @@ import { ERROR_MESSAGE } from '@constants/errorMessage';
 import { UserActionType } from '@store/types/user';
 import { setUser } from './user';
 
-export const registrationUser = (userData: {
-  userRole: string;
-  name: string;
-  lastName: string;
-  birthday?: string;
-  email: string;
-  phone: string;
-  address?: string;
-  password: string;
-  photo?: string;
-  experience?: string;
-  direction?: string;
-  workPlace?: string;
-}) => {
+// {
+//   userRole: string;
+//   name: string;
+//   lastName: string;
+//   birthday?: string;
+//   email: string;
+//   phone: string;
+//   address?: string;
+//   password: string;
+//   photo?: string;
+//   experience?: string;
+//   direction?: string;
+//   workPlace?: string;
+// }
+
+export const registrationUser = (userData: { [key: string]: string; photo?: any }) => {
   return async (dispatch: Dispatch<ActionType | UserActionType>) => {
     dispatch({ type: SignUpActionsType.REGISTRATION_REQUEST });
+
+    const form = new FormData();
+    const arr = Object.keys(userData);
+
+    arr.forEach((el) => {
+      el === 'photo' ? form.append(el, userData[el][0]) : form.append(el, userData[el]);
+    });
+    console.log(userData.photo[0]);
     try {
       const response: AxiosResponse<{
         user: any;
         token: string;
-      }> = await axios.post(API_URL.REGISTRATION, {
-        
-        ...userData,
-        // photo: userData.photo,
-        
-      }, {
-        // headers: {
-        //   "Content-Type": "application/x-www-form-urlencoded"
-        // }
+      }> = await axios.post(API_URL.REGISTRATION, form, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
       response.status >= 200 &&
@@ -45,7 +50,7 @@ export const registrationUser = (userData: {
         });
       if (response.data && response.data.user) {
         dispatch(setUser(response.data.user));
-        
+
         cookies.setCookie('id', response.data.user.id, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
         cookies.setCookie('token', response.data.token, {});
