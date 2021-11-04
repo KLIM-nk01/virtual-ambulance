@@ -6,7 +6,7 @@ export const InitialState: IInitialProfileData = {
   error: '',
 };
 
-export const medCenterReducer = (
+export const profileReducer = (
   state = InitialState,
   action: ProfileAction
 ): IInitialProfileData => {
@@ -20,11 +20,13 @@ export const medCenterReducer = (
       return {
         ...state,
         profileData: action.payload,
+        loading: false,
       };
     case ProfileActionTypes.FETCH_PROFILE_DOCTOR_SUCCESS:
       return {
         ...state,
         profileData: action.payload,
+        loading: false,
       };
     case ProfileActionTypes.FETCH_PROFILE_ERROR: {
       return {

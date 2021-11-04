@@ -1,8 +1,10 @@
+import { useTypesSelector } from '@hooks/UseTypedSelector';
 import React from 'react';
 import { ContainersName, Item, ContainerContent } from '../ManagementStyle';
 import { OrderManagementContainer } from './OrderManagementStyle';
 
 const WorkTimeManagement: React.FC = () => {
+  const profileData = useTypesSelector((state) => state.profile.profileData)
   return (
     <OrderManagementContainer>
       <ContainersName>Patient</ContainersName>

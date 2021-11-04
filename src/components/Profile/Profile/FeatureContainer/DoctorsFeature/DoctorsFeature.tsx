@@ -1,14 +1,15 @@
 import React from 'react';
 import { ContainerName, DoctorsFeatureWrapper } from './DoctorsFeatureStyle';
-import OrderMenegment from './OrderMenegment/OrderManagement';
-import WorkTimeMenegment from './WorkTimeManagement/WorkTimeManagement';
+import OrderManagement from './OrderManagement/OrderManagement';
+
+import WorkTimeManagement from './WorkTimeManagement/WorkTimeManagement';
 
 const DoctorsFeature: React.FC = () => {
   return (
     <DoctorsFeatureWrapper>
       <ContainerName>My Function</ContainerName>
-      <WorkTimeMenegment />
-      <OrderMenegment />
+      <WorkTimeManagement />
+      <OrderManagement />
     </DoctorsFeatureWrapper>
   );
 };

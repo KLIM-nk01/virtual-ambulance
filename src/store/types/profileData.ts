@@ -1,31 +1,43 @@
-export interface IProfileData {
-  userData: {
-    name: string;
-    lastName: string;
-    photo: string;
-    phone: string;
-    email: string;
-  };
+export interface IProfile {
+  name: string;
+  lastName: string;
+  photo: string;
+  phone: string;
+  email: string;
+
+  visit?: {}[];
+  birthday?: string;
+  address?: string;
+
   experience?: string;
   direction?: string;
   workPlace?: {
     name: string;
     address: string;
   };
-  patients?: {
-    idPatient: string;
+  workTime?: { date: string; time: string };
+  patients?: {}[];
+}
+
+export interface IProfileDoctor {
+  name: string;
+  lastName: string;
+  photo: string;
+  phone: string;
+  email: string;
+
+  experience: string;
+  direction: string;
+  workPlace: {
     name: string;
-    lastName: string;
-    photo: string;
-  }[];
-  workTime?: { date: string; time: string }[];
-  visit?: {}[];
-  birthday?: string;
-  address?: string;
+    address: string;
+  };
+  workTime: { date: string; time: string };
+  patients: {}[];
 }
 
 export interface IInitialProfileData {
-  profileData: {} | null;
+  profileData: IProfile | null;
   loading: boolean;
   error: string;
 }
@@ -42,44 +54,12 @@ interface FetchProfile {
 
 interface FetchProfilePatientSuccess {
   type: ProfileActionTypes.FETCH_PROFILE_PATIENT_SUCCESS;
-  payload: {
-    userData: {
-      name: string;
-      lastName: string;
-      photo: string;
-      phone: string;
-      email: string;
-    };
-    visit?: {}[];
-    birthday?: string;
-    address?: string;
-  };
+  payload: IProfile;
 }
 
 interface FetchProfileDoctorSuccess {
   type: ProfileActionTypes.FETCH_PROFILE_DOCTOR_SUCCESS;
-  payload: {
-    userData: {
-      name: string;
-      lastName: string;
-      photo: string;
-      phone: string;
-      email: string;
-    };
-    experience?: string;
-    direction?: string;
-    workPlace?: {
-      name: string;
-      address: string;
-    };
-    patients?: {
-      idPatient: string;
-      name: string;
-      lastName: string;
-      photo: string;
-    }[];
-    workTime?: { date: string; time: string }[];
-  };
+  payload: IProfile;
 }
 
 interface FetchProfileError {

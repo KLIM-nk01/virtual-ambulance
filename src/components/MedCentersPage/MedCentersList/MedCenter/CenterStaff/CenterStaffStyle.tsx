@@ -31,11 +31,9 @@ export const StaffWrapper = styled.div`
 
 export const StaffItem = styled.div`
   width: 100%;
-  /* height: 40px; */
   background: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -43,12 +41,10 @@ export const StaffItem = styled.div`
 
   img {
     width: 30px;
-    height: 30px;
   }
 `;
 
 export const Information = styled.div`
-  /* width: 100%; */
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;

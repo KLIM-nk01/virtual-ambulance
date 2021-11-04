@@ -11,7 +11,7 @@ export const userAuth = () => {
     try {
       const response: AxiosResponse<{ user: any; token: string }> = await axios.get(
         API_URL.USER_AUTHORIZATION,
-        { headers: { Authorization: `${cookies.getCookie('token')}` } }
+        { headers: { Authorization: `Bearer ${cookies.getCookie('token')}` } }
       );
       if (response.data && response.data.user) {
         dispatch(setUser(response.data.user));

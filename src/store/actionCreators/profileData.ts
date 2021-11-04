@@ -1,36 +1,53 @@
-import { ProfileAction, ProfileActionTypes } from "@store/types/profileData";
-import { Dispatch } from "redux";
+import { Dispatch } from 'redux';
+import axios from 'axios';
+import * as cookies from '@core/cookies/cookies';
+import { API_URL } from '@constants/apiUrl';
+import { ProfileAction, ProfileActionTypes } from '@store/types/profileData';
+import { ERROR_MESSAGE } from '@constants/errorMessage';
 
-export const userSignIn = () => {
+export const fetchProfileData = (userRole: string) => {
   return async (dispatch: Dispatch<ProfileAction>) => {
-    dispatch({type: ProfileActionTypes.FETCH_PROFILE});
+    dispatch({ type: ProfileActionTypes.FETCH_PROFILE });
 
     try {
-      const response: AxiosResponse<{ user: any; token: string }> = await axios.post(
-        API_URL.AUTHORIZATION,
-        dataAuth
-      );
+      if (userRole === 'patient') {
+        const response = await axios.get(API_URL.PROFILE_PATIENT, {
+          headers: { Authorization: `Bearer ${cookies.getCookie('token')}` },
+        });
 
-      if (response.data && response.data.user) {
-        dispatch(setUser(response.data.user));
-        dispatch({ type: ActionsType.SIGNIN_SUCCESS });
-        cookies.setCookie('id_user', response.data.user.id_user, {});
-        cookies.setCookie('userRole', response.data.user.userRole, {});
-        cookies.setCookie('token', response.data.token, {});
+        if (response.data) {
+          dispatch({
+            type: ProfileActionTypes.FETCH_PROFILE_PATIENT_SUCCESS,
+            payload: response.data,
+          });
+        }
       }
+      if (userRole === 'doctor') {
+        const response = await axios.get(API_URL.PROFILE_DOCTOR, {
+          headers: { Authorization: `Bearer ${cookies.getCookie('token')}` },
+        });
+  
+        if (response.data) {
+          dispatch({
+            type: ProfileActionTypes.FETCH_PROFILE_DOCTOR_SUCCESS,
+            payload: response.data,
+          });
+        }
+      } 
     } catch (error) {
       if (error.response) {
         error.response.status >= 400 &&
           dispatch({
-            type: ActionsType.SIGNIN_ERROR,
+            type: ProfileActionTypes.FETCH_PROFILE_ERROR,
             errorMessage: error.response.data.message,
           });
       } else if (error.request) {
         dispatch({
-          type: ActionsType.SIGNIN_ERROR,
+          type: ProfileActionTypes.FETCH_PROFILE_ERROR,
           errorMessage: ERROR_MESSAGE.SERVER_ERROR,
         });
       }
     }
   };
 };
+

@@ -1,21 +1,16 @@
-import React from 'react';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import React, { useEffect } from 'react';
 import AboutContainer from './AboutContainer/AboutContainer';
 import FeatureContainer from './FeatureContainer/FeatureContainer';
 import PhotoContainer from './PhotoContainer/PhotoContainer';
-import {
-  ProfileWrapper,
-  ProfileInformation,
-  ProfileFeature
-} from './ProfileStyle';
+import { ProfileWrapper, ProfileInformation, ProfileFeature } from './ProfileStyle';
 
-
-const Account: React.FC = () => {
-  
+const Profile: React.FC = () => {
   return (
     <ProfileWrapper>
       <ProfileInformation>
         <PhotoContainer />
-        <AboutContainer />
+        <AboutContainer  />
       </ProfileInformation>
       <ProfileFeature>
         <FeatureContainer />
@@ -24,4 +19,4 @@ const Account: React.FC = () => {
   );
 };
 
-export default Account;
+export default Profile;

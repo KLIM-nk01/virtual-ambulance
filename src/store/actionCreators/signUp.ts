@@ -24,7 +24,7 @@ export const registrationUser = (userData: { [key: string]: any; photo?: any }) 
         ? form.append(el, userData[el].value)
         : form.append(el, userData[el]);
     });
-    console.log(userData['workPlace']);
+    
     try {
       const response: AxiosResponse<{
         user: any;
