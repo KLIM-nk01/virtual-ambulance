@@ -6,6 +6,7 @@ export const initialState: IUserState = {
     id_user: '',
     userRole: '',
     name: '',
+    photo: ''
   },
   isAuth: false,
 };
@@ -26,6 +27,7 @@ export const userReducer = (state = initialState, action: UserActionType): IUser
           id_user: '',
           userRole: '',
           name: '',
+          photo: ''
         },
         isAuth: false,
       };

@@ -1,7 +1,11 @@
-
 import { userActionType } from '@store/types/user';
 
-export const setUser = (user: { id_user: string; userRole: string; name: string }) => ({
+export const setUser = (user: {
+  id_user: string;
+  userRole: string;
+  name: string;
+  photo: string;
+}) => ({
   type: userActionType.SET_USER,
   payload: user,
 });

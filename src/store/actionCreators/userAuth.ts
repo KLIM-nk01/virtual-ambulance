@@ -7,6 +7,7 @@ import * as cookies from '@core/cookies/cookies';
 
 export const userAuth = () => {
   return async (dispatch: Dispatch<UserActionType | UserActionType>) => {
+    
     try {
       const response: AxiosResponse<{ user: any; token: string }> = await axios.get(
         API_URL.USER_AUTHORIZATION,

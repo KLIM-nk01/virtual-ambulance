@@ -5,8 +5,6 @@ import { AppWrapper, Main } from './AppStyle';
 import Header from '../Header/Header';
 import Routs from '@components/Routs/Routs';
 import { useDispatch } from 'react-redux';
-import { userSignIn } from '@store/actionCreators/signIn';
-import * as cookies from '@core/cookies/cookies';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { userAuth } from '@store/actionCreators/userAuth';
 

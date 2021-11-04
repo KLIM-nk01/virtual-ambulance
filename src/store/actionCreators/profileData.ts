@@ -1,15 +1,9 @@
-import axios, { AxiosResponse } from 'axios';
-import { Dispatch } from 'redux';
-import { ActionsType, SignInActionsType } from '@store/types/signIn';
-import * as cookies from '@core/cookies/cookies';
-import { API_URL } from '@constants/apiUrl';
-import { ERROR_MESSAGE } from '@constants/errorMessage';
-import { UserActionType } from '@store/types/user';
-import { setUser } from './user';
+import { ProfileAction, ProfileActionTypes } from "@store/types/profileData";
+import { Dispatch } from "redux";
 
-export const userSignIn = (dataAuth: { password: string; email: string }) => {
-  return async (dispatch: Dispatch<SignInActionsType | UserActionType>) => {
-    dispatch({ type: ActionsType.SIGNIN_LOADING });
+export const userSignIn = () => {
+  return async (dispatch: Dispatch<ProfileAction>) => {
+    dispatch({type: ProfileActionTypes.FETCH_PROFILE});
 
     try {
       const response: AxiosResponse<{ user: any; token: string }> = await axios.post(
@@ -38,11 +32,5 @@ export const userSignIn = (dataAuth: { password: string; email: string }) => {
         });
       }
     }
-  };
-};
-
-export const userUnAuth = () => {
-  return {
-    type: ActionsType.SIGNIN_ERROR,
   };
 };

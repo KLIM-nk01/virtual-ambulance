@@ -17,7 +17,7 @@ export interface ISignInState {
 
 export enum ActionsType {
   SIGNIN_LOADING = 'SIGNIN_LOADING',
-  USER_IS_SIGNIN = 'USER_IS_SIGNIN',
+  SIGNIN_SUCCESS = 'SIGNIN_SUCCESS',
   SIGNIN_ERROR = 'SIGNIN_ERROR',
 }
 
@@ -26,12 +26,7 @@ interface UserSignIn {
 }
 
 interface UserIsSignIn {
-  type: ActionsType.USER_IS_SIGNIN;
-  payload: {
-    id: string;
-    userRole: string;
-    name: string;
-  };
+  type: ActionsType.SIGNIN_SUCCESS;
 }
 
 interface SignInError {

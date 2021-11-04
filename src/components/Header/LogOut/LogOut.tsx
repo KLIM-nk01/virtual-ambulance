@@ -3,20 +3,16 @@ import { useDispatch } from 'react-redux';
 import { userUnAuth } from '@store/actionCreators/signIn';
 import Button from '@components/common/Button/Button';
 import { LogOutWrapper } from './LogOutStyle';
-import NoAva from '@assets/NoAvatar.png';
 import { logOut } from '@store/actionCreators/user';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
 
 const LogOut: React.FC = () => {
   const dispatch = useDispatch();
 
-  // const logOut = () => {
-  //   dispatch(lo());
-  //   cookies.deleteCookie(['id', 'userRole', 'token']);
-  // };
-
+  const avatar = useTypesSelector((state) => state.user.currentUser.photo);
   return (
     <LogOutWrapper>
-      <img src={NoAva} alt="" />
+      <img src={avatar} alt="" />
       <Button onClick={() => dispatch(logOut())} round variant={'outlined'}>
         Sign out
       </Button>

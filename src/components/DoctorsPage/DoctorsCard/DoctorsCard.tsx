@@ -17,24 +17,19 @@ import Portal from '@components/common/Portal/Portal';
 import Shedule from './Schedule/Shedule';
 
 interface IProps {
+  experience: string;
   direction: string;
-  name: string;
-  lastName: string;
-  expiriens: string;
   description: string;
-  photo: string;
+
   workTime: { date: string; time: string }[];
+  userData: {
+    name: string;
+    lastName: string;
+    photo: string;
+  };
 }
 
-const DoctorsCard: React.FC<IProps> = ({
-  direction,
-  name,
-  lastName,
-  expiriens,
-  description,
-  photo,
-  workTime,
-}) => {
+const DoctorsCard: React.FC<IProps> = (props) => {
   const [modalActive, setModalActive] = useState(false);
   const state = useTypesSelector((state) => state.user);
   const history = useHistory();
@@ -46,18 +41,18 @@ const DoctorsCard: React.FC<IProps> = ({
   return (
     <Card>
       <ContainerOne>
-        <img src={photo} alt="foto" />
-        <DoctorsDirection>{direction}</DoctorsDirection>
+        <img src={props.userData.photo} alt="foto" />
+        <DoctorsDirection>{props.direction}</DoctorsDirection>
       </ContainerOne>
 
       <ContainerTwo>
         <NameSurname>
-          {name} {lastName}
+          {props.userData.name} {props.userData.lastName}
         </NameSurname>
 
-        <Expiriens>Expiriens: {expiriens}</Expiriens>
+        <Expiriens>Expiriens: {props.experience}</Expiriens>
 
-        <Description>{description}</Description>
+        <Description>{props.description}</Description>
         <Button round onClick={() => showSchedule()} variant="contained">
           Sign up
         </Button>
@@ -65,7 +60,7 @@ const DoctorsCard: React.FC<IProps> = ({
 
       <Portal>
         <Modal active={modalActive} setActive={setModalActive}>
-          <Shedule workTimeData={workTime} />
+          <Shedule workTimeData={props.workTime} />
         </Modal>
       </Portal>
     </Card>

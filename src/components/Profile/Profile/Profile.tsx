@@ -10,6 +10,7 @@ import {
 
 
 const Account: React.FC = () => {
+  
   return (
     <ProfileWrapper>
       <ProfileInformation>

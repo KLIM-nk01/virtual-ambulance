@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import uniqid from 'uniqid';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { fetchDoctors } from '@store/actionCreators/doctors';
 import { DoctorsPageWrapper, DoctorsWrapper } from './DoctorsPageStyle';
@@ -17,7 +18,6 @@ const DoctorsPage: React.FC = () => {
   }, []);
 
   const [choiseDirection, setChoiseDirection] = useState<string>('All Doctors');
-
   return (
     <DoctorsPageWrapper>
       <DoctorsPageNavBar
@@ -31,10 +31,10 @@ const DoctorsPage: React.FC = () => {
       ) : (
         <DoctorsWrapper>
           {choiseDirection === 'All Doctors'
-            ? doctors.doctors.map((doctor) => <DoctorsCard key={doctor.id_doctor} {...doctor} />)
+            ? doctors.doctors.map((doctor) => <DoctorsCard key={uniqid()} {...doctor} />)
             : doctors.doctors
                 .filter((doctor) => doctor.direction === choiseDirection)
-                .map((doctor) => <DoctorsCard key={doctor.id_doctor} {...doctor} />)}
+                .map((doctor) => <DoctorsCard key={uniqid()} {...doctor} />)}
         </DoctorsWrapper>
       )}
     </DoctorsPageWrapper>

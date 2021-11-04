@@ -43,12 +43,9 @@ const Input: React.FC<IInput> = ({
         name={name}
         accept={accept}
         placeholder={placeholder}
-        {...register}
         type={type}
-
-        // onChange={(e) => {
-        //   type === 'file' && setFileName(`${e.target.files && e.target.files[0].name}`);
-        // }}
+        {...register}
+        
       />
       {errors && errors[name] && <p>{errors[name]?.message}</p>}
     </InputGroup>

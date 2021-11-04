@@ -121,9 +121,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           label="Photo"
           errors={errors}
           id={'photo'}
-          //
-        />
-        {/* <input type="file" {...register('photo')} /> */}
+          />
 
         <Input
           primary

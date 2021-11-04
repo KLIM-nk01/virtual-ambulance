@@ -52,6 +52,7 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
 
   const onSubmit = (data: { [key: string]: string; photo: any }) => {
     data.userRole = userRole;
+    // debugger
     dispatch(registrationUser(data));
   };
 
@@ -134,11 +135,12 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
           primary
           type="file"
           name="photo"
-          register={(register('photo'), Required)}
+          register={register('photo')}
           label="Photo"
           errors={errors}
+          id={'photo'}
         />
-        
+
         <QuestionWrapper>
           <span>-Select your direction</span>
           <Controller
