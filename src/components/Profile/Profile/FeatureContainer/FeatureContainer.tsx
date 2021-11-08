@@ -6,7 +6,6 @@ import * as cookies from '@core/cookies/cookies';
 
 const FeatureContainer = () => {
   const userRole = cookies.getCookie('userRole');
-  console.log(userRole);
   return (
     <FeatureContainerWrapper>
       {userRole === 'patient' ? <UserVisit /> : <DoctorsFeature />}

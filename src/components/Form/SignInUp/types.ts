@@ -25,5 +25,5 @@ export interface IPatientSubmitData {
   phone: string;
   address: string;
   password: string;
-  photo: string
+  photo: any
 }

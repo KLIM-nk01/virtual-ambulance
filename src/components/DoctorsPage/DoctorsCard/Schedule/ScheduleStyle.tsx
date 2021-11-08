@@ -69,7 +69,7 @@ export const ItemWrapper = styled.div`
   ${scroll};
 `;
 
-export const SeccessMessage = styled.div`
+export const SuccessMessage = styled.div`
   margin-top: 30px;
   width: 60%;
   text-align: center;

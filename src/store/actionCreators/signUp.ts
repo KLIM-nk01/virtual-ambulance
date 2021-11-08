@@ -1,33 +1,39 @@
-import { ActionsType, AuthActionsType } from '@store/types/authUser';
+import { ActionsType, SignInActionsType } from '@store/types/signIn';
 import { ActionType, SignUpActionsType } from '@store/types/signUp';
 import axios, { AxiosResponse } from 'axios';
 import { Dispatch } from 'redux';
 import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
+import { UserActionType } from '@store/types/user';
+import { setUser } from './user';
 
-export const registrationUser = (userData: {
-  userRole: string;
-  name: string;
-  lastName: string;
-  birthday?: string;
-  email: string;
-  phone: string;
-  address?: string;
-  password: string;
-  photo?: string;
-  experience?: string;
-  direction?: string;
-  workPlace?: string;
-}) => {
-  return async (dispatch: Dispatch<ActionType | AuthActionsType>) => {
+type IUserData = string | { value: string };
+
+export const registrationUser = (userData: { [key: string]: any; photo?: any }) => {
+  return async (dispatch: Dispatch<ActionType | UserActionType>) => {
     dispatch({ type: SignUpActionsType.REGISTRATION_REQUEST });
+
+    const form = new FormData();
+    const arr = Object.keys(userData);
+
+    arr.forEach((el) => {
+      if (el === 'photo') form.append(el, userData[el][0]);
+      else {
+        if (el === 'direction' || el === 'workPlace') {
+          form.append(el, userData[el].value);
+        } else form.append(el, userData[el]);
+      }
+    });
+
     try {
       const response: AxiosResponse<{
         user: any;
         token: string;
-      }> = await axios.post(API_URL.REGISTRATION, {
-        ...userData,
+      }> = await axios.post(API_URL.REGISTRATION, form, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
       response.status >= 200 &&
@@ -35,14 +41,8 @@ export const registrationUser = (userData: {
           type: SignUpActionsType.REGISTRATION_USER_SUCCESS,
         });
       if (response.data && response.data.user) {
-        dispatch({
-          type: ActionsType.USER_IS_AUTH,
-          payload: {
-            id: response.data.user.id,
-            userRole: response.data.user.userRole,
-            name: response.data.user.name,
-          },
-        });
+        dispatch(setUser(response.data.user));
+
         cookies.setCookie('id', response.data.user.id, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
         cookies.setCookie('token', response.data.token, {});

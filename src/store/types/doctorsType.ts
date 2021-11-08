@@ -1,7 +1,20 @@
 import { IDoctorsData } from "types/IDoctorData";
 
 export interface IDoctorsState {
-  doctors: IDoctorsData[];
+  doctors: {
+    _id: string,
+    experience: string,
+    direction: string,
+    description: string,
+  
+    workTime: { date: string; time: string }[],
+    userData: {
+      name: string;
+      lastName: string;
+      photo: string;
+    }
+  }[]
+    
   loading: boolean;
   error: null | string;
 }
@@ -18,7 +31,7 @@ interface FetchDoctors {
 
 interface FetchDoctorsSuccess {
   type: DoctorsActionType.FETCH_DOCTORS_SUCCESS;
-  payload: IDoctorsData[];
+  payload: [];
 }
 
 interface FetchDoctorsError {

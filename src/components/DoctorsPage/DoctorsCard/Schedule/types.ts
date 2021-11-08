@@ -3,15 +3,15 @@ export interface IScheduleInitialState {
     date: string;
     time: string;
   };
-  disabletItem: null | number;
+  disabledItem: null | number;
   zeroing: boolean;
-  viewSeccessMessage: boolean;
+  viewSuccessMessage: boolean;
 }
 
 export enum ScheduleActionTypes {
   SET_CHOICE_WORK_TIME = 'SET_CHOICE_WORK_TIME',
   SET_DISABLED_ITEM = 'SET_DISABLED_ITEM',
-  SECCESS_MESSAGE = 'SECCESS_MESSAGE',
+  SUCCESS_MESSAGE = 'SUCCESS_MESSAGE',
 }
 
 interface SetChoiceWorkTime {
@@ -24,11 +24,11 @@ interface SetChoiceWorkTime {
 interface SetDisabledItem {
   type: ScheduleActionTypes.SET_DISABLED_ITEM;
   payload: {
-    disabletItem: null | number;
+    disabledItem: null | number;
   };
 }
-interface SeccessMessage {
-  type: ScheduleActionTypes.SECCESS_MESSAGE;
+interface SuccessMessage {
+  type: ScheduleActionTypes.SUCCESS_MESSAGE;
 }
 
-export type ActionType = SetChoiceWorkTime | SetDisabledItem | SeccessMessage;
+export type ActionType = SetChoiceWorkTime | SetDisabledItem | SuccessMessage;

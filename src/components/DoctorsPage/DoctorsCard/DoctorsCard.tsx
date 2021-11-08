@@ -5,7 +5,7 @@ import {
   ContainerTwo,
   ContainerOne,
   NameSurname,
-  Expiriens,
+  Experience,
   DoctorsDirection,
   Description,
 } from './DoctorsCardStyle';
@@ -14,48 +14,49 @@ import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ROUTS } from '@constants/routs';
 import Modal from '@components/common/Modal/Modal';
 import Portal from '@components/common/Portal/Portal';
-import Shedule from './Schedule/Shedule';
+import Schedule from './Schedule/Schedule';
 
 interface IProps {
+  experience: string;
   direction: string;
-  name: string;
-  lastName: string;
-  expiriens: string;
   description: string;
-  photo: string;
+
   workTime: { date: string; time: string }[];
+  userData: {
+    name: string;
+    lastName: string;
+    photo: string;
+  };
 }
 
 const DoctorsCard: React.FC<IProps> = ({
+  userData,
   direction,
-  name,
-  lastName,
-  expiriens,
+  experience,
   description,
-  photo,
   workTime,
 }) => {
   const [modalActive, setModalActive] = useState(false);
-  const state = useTypesSelector((state) => state.auth);
+  const state = useTypesSelector((state) => state.user);
   const history = useHistory();
 
   const showSchedule = (): void => {
     setModalActive(true);
-    if (!state.authedUser) history.push(ROUTS.SIGNIN_FORM);
+    if (!state.isAuth) history.push(ROUTS.SIGNIN_FORM);
   };
   return (
     <Card>
       <ContainerOne>
-        <img src={photo} alt="foto" />
+        <img src={userData.photo} alt="photo" />
         <DoctorsDirection>{direction}</DoctorsDirection>
       </ContainerOne>
 
       <ContainerTwo>
         <NameSurname>
-          {name} {lastName}
+          {userData.name} {userData.lastName}
         </NameSurname>
 
-        <Expiriens>Expiriens: {expiriens}</Expiriens>
+        <Experience>Experience: {experience}</Experience>
 
         <Description>{description}</Description>
         <Button round onClick={() => showSchedule()} variant="contained">
@@ -65,7 +66,7 @@ const DoctorsCard: React.FC<IProps> = ({
 
       <Portal>
         <Modal active={modalActive} setActive={setModalActive}>
-          <Shedule workTimeData={workTime} />
+          <Schedule workTimeData={workTime} />
         </Modal>
       </Portal>
     </Card>

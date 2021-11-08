@@ -56,7 +56,7 @@ export const ContainerTwo = styled.div`
   }
 `;
 
-export const Expiriens = styled.span`
+export const Experience = styled.span`
   color: ${STYLE_CONSTANTS.COLORS.pearl};
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   margin-bottom: 10px;

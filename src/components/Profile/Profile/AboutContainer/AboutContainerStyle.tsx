@@ -22,7 +22,7 @@ export const UserName = styled.div`
 
   img {
     width: 100px;
-    margin-right: 10px;
+    margin-right: 25px;
     @media (min-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
       display: none;
     }

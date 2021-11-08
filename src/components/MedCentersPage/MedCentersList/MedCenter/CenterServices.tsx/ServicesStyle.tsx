@@ -18,9 +18,8 @@ export const CenterServices = styled.div`
 
 export const ServicesWrapper = styled.div`
   width: 100%;
-  /* height: 180px; */
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: space-between;
 
   padding: 0 10px;
@@ -31,7 +30,7 @@ export const ServicesWrapper = styled.div`
 `;
 
 export const ServiceItem = styled.div`
-  width: 45%;
+  width: 90%;
   height: 40px;
   background: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   display: flex;
@@ -41,4 +40,5 @@ export const ServiceItem = styled.div`
   border-radius: 5px;
   cursor: pointer;
   margin: 10px 0;
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
 `;

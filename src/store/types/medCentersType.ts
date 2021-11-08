@@ -1,5 +1,5 @@
 export interface IMedcenterData {
-  id_medcenter: string;
+  _id: string;
   name: string;
   address: string;
   photo: string;

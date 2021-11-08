@@ -6,44 +6,68 @@ import {
   DescriptionLabel,
   InfoLabel,
   ProfileInfoRow,
-  UserName
+  UserName,
 } from './AboutContainerStyle';
-import Avatar from '@assets/NoAvatar.png';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { USER_ROLE } from '@constants/userRole';
 
-const AboutContainer = () => (
-  <Container>
-    <UserName>
-      <img src={Avatar} alt="avatar" />
-      <span>{usersData.name}</span> <span>{usersData.lastName}</span>
-    </UserName>
+const AboutContainer: React.FC = () => {
+  const profileData = useTypesSelector((state) => state.profile.profileData);
+  const user = useTypesSelector((state) => state.user.currentUser);
+  return (
+    <Container>
+      <UserName>
+        <span>{profileData?.name}</span> <span>{profileData?.lastName}</span>
+      </UserName>
 
-    <AboutUser>
-      <ProfileInfoRow>
-        <InfoLabel>Birthday: </InfoLabel>
-        <DescriptionLabel>{usersData.birthday}</DescriptionLabel>
-      </ProfileInfoRow>
+      <AboutUser>
+        <ProfileInfoRow>
+          <InfoLabel>Email: </InfoLabel>
+          <DescriptionLabel>{profileData?.email}</DescriptionLabel>
+        </ProfileInfoRow>
 
-      <ProfileInfoRow>
-        <InfoLabel>Email: </InfoLabel>
-        <DescriptionLabel>{usersData.email}</DescriptionLabel>
-      </ProfileInfoRow>
+        <ProfileInfoRow>
+          <InfoLabel>Phone Number: </InfoLabel>
+          <DescriptionLabel>{profileData?.phone}</DescriptionLabel>
+        </ProfileInfoRow>
 
-      <ProfileInfoRow>
-        <InfoLabel>Phone Number: </InfoLabel>
-        <DescriptionLabel>{usersData.phone}</DescriptionLabel>
-      </ProfileInfoRow>
+        {user.userRole === USER_ROLE.patient && (
+          <>
+            <ProfileInfoRow>
+              <InfoLabel>Birthday: </InfoLabel>
+              <DescriptionLabel>{profileData?.birthday}</DescriptionLabel>
+            </ProfileInfoRow>
 
-      {/* <ProfileInfoRow>
-        <InfoLabel>Work Place: </InfoLabel>
-        <DescriptionLabel>{usersData.workPlace}</DescriptionLabel>
-      </ProfileInfoRow> */}
+            <ProfileInfoRow>
+              <InfoLabel>Address: </InfoLabel>
+              <DescriptionLabel>{profileData?.address}</DescriptionLabel>
+            </ProfileInfoRow>
+          </>
+        )}
 
-      <ProfileInfoRow>
-        <InfoLabel>Address: </InfoLabel>
-        <DescriptionLabel>{usersData.address}</DescriptionLabel>
-      </ProfileInfoRow>
-    </AboutUser>
-  </Container>
-);
+        {user.userRole === USER_ROLE.doctor && (
+          <>
+            <ProfileInfoRow>
+              <InfoLabel>Experience: </InfoLabel>
+              <DescriptionLabel>{profileData?.experience} years.</DescriptionLabel>
+            </ProfileInfoRow>
+
+            <ProfileInfoRow>
+              <InfoLabel>Direction: </InfoLabel>
+              <DescriptionLabel>{profileData?.direction}</DescriptionLabel>
+            </ProfileInfoRow>
+
+            <ProfileInfoRow>
+              <InfoLabel>Work Place: </InfoLabel>
+              <DescriptionLabel>
+                "{profileData?.workPlace?.name}", {profileData?.workPlace?.address}
+              </DescriptionLabel>
+            </ProfileInfoRow>
+          </>
+        )}
+      </AboutUser>
+    </Container>
+  );
+};
 
 export default AboutContainer;

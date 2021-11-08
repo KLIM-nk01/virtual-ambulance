@@ -1,7 +1,7 @@
 import React, { useReducer, useState } from 'react';
 import Button from '@components/common/Button/Button';
-import SheduleItem from './SheduleItem/SheduleItem';
-import { ScheduleWrapper, WrapperHeader, ItemWrapper, SeccessMessage } from './SheduleStyle';
+import ScheduleItem from './ScheduleItem/ScheduleItem';
+import { ScheduleWrapper, WrapperHeader, ItemWrapper, SuccessMessage } from './ScheduleStyle';
 import { ActionType, IScheduleInitialState, ScheduleActionTypes } from './types';
 
 export interface IScheduleProps {
@@ -13,9 +13,9 @@ const initialState = {
     date: '',
     time: '',
   },
-  disabletItem: null,
+  disabledItem: null,
   zeroing: false,
-  viewSeccessMessage: false,
+  viewSuccessMessage: false,
 };
 
 const reducer = (state: IScheduleInitialState, action: ActionType): IScheduleInitialState => {
@@ -23,38 +23,38 @@ const reducer = (state: IScheduleInitialState, action: ActionType): IScheduleIni
     case ScheduleActionTypes.SET_CHOICE_WORK_TIME:
       return { ...state, choiceWorkTime: { date: action.payload.date, time: action.payload.time } };
     case ScheduleActionTypes.SET_DISABLED_ITEM:
-      return { ...state, disabletItem: action.payload.disabletItem };
-    case ScheduleActionTypes.SECCESS_MESSAGE:
-      return { ...state, viewSeccessMessage: true };
+      return { ...state, disabledItem: action.payload.disabledItem };
+    case ScheduleActionTypes.SUCCESS_MESSAGE:
+      return { ...state, viewSuccessMessage: true };
     default:
       return state;
   }
 };
 
-const Shedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
-  const [stateShedule, dispatch] = useReducer(reducer, initialState);
+const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
+  const [stateSchedule, dispatch] = useReducer(reducer, initialState);
 
   const sendWorkTime = () => {
-    dispatch({ type: ScheduleActionTypes.SECCESS_MESSAGE });
+    dispatch({ type: ScheduleActionTypes.SUCCESS_MESSAGE });
   };
 
   const renderItem = () =>
     workTimeData.map((wortTimeItem, index) => {
-      if (stateShedule.disabletItem === null) {
+      if (stateSchedule.disabledItem === null) {
         return (
-          <SheduleItem
+          <ScheduleItem
             key={wortTimeItem.date + wortTimeItem.time}
-            stateShedule={stateShedule}
+            stateSchedule={stateSchedule}
             wortTimeItem={wortTimeItem}
             index={index}
             dispatch={dispatch}
           />
         );
-      } else if (index === stateShedule.disabletItem) {
+      } else if (index === stateSchedule.disabledItem) {
         return (
-          <SheduleItem
+          <ScheduleItem
             key={wortTimeItem.date + wortTimeItem.time}
-            stateShedule={stateShedule}
+            stateSchedule={stateSchedule}
             wortTimeItem={wortTimeItem}
             index={index}
             dispatch={dispatch}
@@ -62,10 +62,10 @@ const Shedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
         );
       } else {
         return (
-          <SheduleItem
+          <ScheduleItem
             key={wortTimeItem.date + wortTimeItem.time}
             disabled
-            stateShedule={stateShedule}
+            stateSchedule={stateSchedule}
             wortTimeItem={wortTimeItem}
             index={index}
             dispatch={dispatch}
@@ -81,11 +81,11 @@ const Shedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
       </WrapperHeader>
       {workTimeData.length == 0 && <span>The doctor hasn't added a schedule yet.</span>}
       <ItemWrapper>{renderItem()}</ItemWrapper>
-      {stateShedule.viewSeccessMessage && (
-        <SeccessMessage>
-          You have booked a ticket for {stateShedule.choiceWorkTime.time} on {stateShedule.choiceWorkTime.date}.
-          Be healthy!
-        </SeccessMessage>
+      {stateSchedule.viewSuccessMessage && (
+        <SuccessMessage>
+          You have booked a ticket for {stateSchedule.choiceWorkTime.time} on{' '}
+          {stateSchedule.choiceWorkTime.date}. Be healthy!
+        </SuccessMessage>
       )}
       <Button onClick={() => sendWorkTime()} round variant="contained">
         Sign Up
@@ -94,4 +94,4 @@ const Shedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
   );
 };
 
-export default Shedule;
+export default Schedule;

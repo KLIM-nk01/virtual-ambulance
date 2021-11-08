@@ -95,11 +95,10 @@ export const validationRules = {
         'The birthday is not valid. Please use valid format ( DD/MM/YYYY )'
     }
   },
-  expiriens: {
+  experience: {
     required: {
       value: true,
       message: 'Please indicate the number of years. (Round up: 21 years).'
     }
   }
-  // etc
 };

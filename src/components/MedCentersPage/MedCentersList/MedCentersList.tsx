@@ -9,7 +9,7 @@ interface IMedCenterListPros {
   error: null | string;
   loading: boolean;
   medCenters: {
-    id_medcenter: string;
+    _id: string;
     name: string;
     address: string;
     photo: string;

@@ -7,7 +7,7 @@ import {
   ItemDescription,
   Title,
   SubTitle,
-  ItemMore
+  ItemMore,
 } from './MedCenterStyle';
 import Services from './CenterServices.tsx/Services';
 import Staff from './CenterStaff/CenterStaff';
@@ -18,6 +18,7 @@ interface IMedCenter {
   photo: string;
   description: string;
   services: string[];
+  medStaff: any;
 }
 
 const MedCenter: React.FC<IMedCenter> = ({
@@ -25,7 +26,8 @@ const MedCenter: React.FC<IMedCenter> = ({
   address,
   photo,
   description,
-  services
+  services,
+  medStaff,
 }) => {
   const [hidden, setHidden] = useState<boolean>(true);
   return (
@@ -48,14 +50,15 @@ const MedCenter: React.FC<IMedCenter> = ({
           hidden={hidden}
           onClick={() => {
             hidden ? setHidden(false) : setHidden(true);
-          }}>
+          }}
+        >
           more...
         </span>
       </ItemDescription>
 
       <ItemMore hidden={hidden}>
         <Services services={services} />
-        <Staff services={services} />
+        <Staff medStaff={medStaff} />
       </ItemMore>
     </MedCenterItem>
   );

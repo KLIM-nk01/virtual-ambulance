@@ -14,10 +14,9 @@ interface IState {
 
 interface IMedCenterMap {
   medCenters: {
-    id_medcenter: string;
+    _id: string;
     name: string;
     address: string;
-    // photo: photo.NORDIN;
     description: string;
     services: string[];
     medStaff: string[];

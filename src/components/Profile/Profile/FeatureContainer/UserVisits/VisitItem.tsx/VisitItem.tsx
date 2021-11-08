@@ -10,7 +10,7 @@ import {
   Date,
   DoctorsInformation,
   DoctorsInfo,
-  DoctorsСabinet
+  DoctorsСabinet,
 } from './VisitItemStyle';
 
 const VisitItem: React.FC = () => {
@@ -22,14 +22,8 @@ const VisitItem: React.FC = () => {
           <p>Minsk, Independence, 58A</p>
         </MedCenterInformation>
         <GeneralInformation>
-          <TicketInfo>
-            <p>Doctor's appointment ticket №234567</p>
-          </TicketInfo>
           <Date>
-            <span>29th November 2021, </span>
-            <span>Wednesday</span>
-            <span>8.30am</span>
-            <span></span>
+            <span>date time</span>
           </Date>
         </GeneralInformation>
         <DoctorsInformation>

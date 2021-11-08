@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { InputGroup } from './InputStyle';
 
 interface IInput {
@@ -16,7 +16,9 @@ interface IInput {
       message: string;
     };
   };
-  ref?: any;
+  id?: string;
+  for?: string;
+  fileName?: string;
 }
 
 const Input: React.FC<IInput> = ({
@@ -28,18 +30,21 @@ const Input: React.FC<IInput> = ({
   name,
   placeholder,
   accept,
-  ref,
+  id,
+  fileName,
 }) => {
+
   return (
-    <InputGroup primary={primary} type={type}>
-      <label>{label}</label>
+    <InputGroup fileName={fileName} primary={primary} type={type}>
+      <label htmlFor={id}>{fileName ? fileName : label}</label>
       <input
+        id={id}
         name={name}
-        ref={ref}
         accept={accept}
         placeholder={placeholder}
-        {...register}
         type={type}
+        {...register}
+        
       />
       {errors && errors[name] && <p>{errors[name]?.message}</p>}
     </InputGroup>

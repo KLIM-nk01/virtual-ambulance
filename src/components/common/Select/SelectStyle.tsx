@@ -7,6 +7,4 @@ export const SelectWrapper = styled.div`
   div {
     margin: 0;
   }
-
-  
 `;

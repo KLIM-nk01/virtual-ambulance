@@ -46,7 +46,7 @@ export const ContainerFooter = styled.div`
 export const Item = styled.div`
   width: 90%;
   height: 45px;
-  border-bottom: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
+  border: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,7 +63,6 @@ export const RemoveButton = styled.div`
   position: relative;
   width: 21px;
   height: 20px;
-  border: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
   border-radius: 50px;
   cursor: pointer;
 
@@ -73,7 +72,7 @@ export const RemoveButton = styled.div`
     content: '';
     width: 15px;
     height: 2px;
-    background: ${STYLE_CONSTANTS.COLORS.black};
+    background: ${STYLE_CONSTANTS.COLORS.lightGrey};
   }
   :before {
     left: 2px;
@@ -82,7 +81,7 @@ export const RemoveButton = styled.div`
   }
   :after {
     left: 2px;
-    bottom: 8px;
+    bottom: 10px;
     transform: rotate(-45deg);
   }
 `;

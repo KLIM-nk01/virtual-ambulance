@@ -2,14 +2,6 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import { SelectWrapper } from './SelectStyle';
 
-// interface ISelectProps {
-//     options: {
-//         value: string,
-//         label: string
-//     }[],
-
-// }
-
 const SelectComponent = (props: any) => {
   const [optionsValue, setOptionsValue] = useState(props.options[0]);
 
