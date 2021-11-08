@@ -9,6 +9,7 @@ import {
   UserName,
 } from './AboutContainerStyle';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { USER_ROLE } from '@constants/userRole';
 
 const AboutContainer: React.FC = () => {
   const profileData = useTypesSelector((state) => state.profile.profileData);
@@ -30,7 +31,7 @@ const AboutContainer: React.FC = () => {
           <DescriptionLabel>{profileData?.phone}</DescriptionLabel>
         </ProfileInfoRow>
 
-        {user.userRole === 'patient' && (
+        {user.userRole === USER_ROLE.patient && (
           <>
             <ProfileInfoRow>
               <InfoLabel>Birthday: </InfoLabel>
@@ -44,7 +45,7 @@ const AboutContainer: React.FC = () => {
           </>
         )}
 
-        {user.userRole === 'doctor' && (
+        {user.userRole === USER_ROLE.doctor && (
           <>
             <ProfileInfoRow>
               <InfoLabel>Experience: </InfoLabel>
@@ -59,7 +60,7 @@ const AboutContainer: React.FC = () => {
             <ProfileInfoRow>
               <InfoLabel>Work Place: </InfoLabel>
               <DescriptionLabel>
-                {profileData?.workPlace?.name} Address: {profileData?.workPlace?.address}
+                "{profileData?.workPlace?.name}", {profileData?.workPlace?.address}
               </DescriptionLabel>
             </ProfileInfoRow>
           </>

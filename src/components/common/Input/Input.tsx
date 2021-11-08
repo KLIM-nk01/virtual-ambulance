@@ -16,7 +16,6 @@ interface IInput {
       message: string;
     };
   };
-  ref?: any;
   id?: string;
   for?: string;
   fileName?: string;
@@ -34,7 +33,7 @@ const Input: React.FC<IInput> = ({
   id,
   fileName,
 }) => {
-  // const [fileName, setFileName] = useState('');
+
   return (
     <InputGroup fileName={fileName} primary={primary} type={type}>
       <label htmlFor={id}>{fileName ? fileName : label}</label>

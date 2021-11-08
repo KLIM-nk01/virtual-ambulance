@@ -17,6 +17,7 @@ export const signInReducer = (state = SignInState, action: SignInActionsType): I
       return {
         ...state,
         signInLoading: false,
+        errorMessage: '',
       };
     case ActionsType.SIGNIN_ERROR:
       return {

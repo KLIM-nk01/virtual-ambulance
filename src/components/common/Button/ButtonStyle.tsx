@@ -30,7 +30,12 @@ export const ButtonStyle = styled.button<IProps>`
       case 'outlined':
         return `
         background: ${STYLE_CONSTANTS.COLORS.white};
-        
+        :disabled {
+        cursor: default;
+        background: inherit;
+        color: #7f8e9d;
+        border: 1px solid ${STYLE_CONSTANTS.COLORS.lightGrey};
+        }
         `;
         break;
 
@@ -63,7 +68,8 @@ export const ButtonStyle = styled.button<IProps>`
         break;
 
       default:
-        return `background: ${STYLE_CONSTANTS.COLORS.white}; color: ${STYLE_CONSTANTS.COLORS.blue}`;
+        return `background: ${STYLE_CONSTANTS.COLORS.white}; 
+        color: ${STYLE_CONSTANTS.COLORS.blue}`;
     }
   }};
 
@@ -98,6 +104,4 @@ export const ButtonStyle = styled.button<IProps>`
         `;
     }
   }};
-
- 
 `;

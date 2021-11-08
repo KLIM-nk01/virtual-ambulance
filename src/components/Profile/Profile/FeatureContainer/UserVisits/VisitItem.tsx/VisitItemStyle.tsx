@@ -55,7 +55,6 @@ export const GeneralInformation = styled.div`
   display: flex;
   align-items: center;
   padding: 0 10px;
-  /* justify-content: space-around; */
   margin-top: 10px;
 `;
 

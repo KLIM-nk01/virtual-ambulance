@@ -10,11 +10,11 @@ import { fetchProfileData } from '@store/actionCreators/profileData';
 
 const ProfilePage: React.FC = () => {
   const dispatch = useDispatch();
-  const user = useTypesSelector((state) => state.user);
+  const { currentUser } = useTypesSelector((state) => state.user);
   const profileData = useTypesSelector((state) => state.profile);
 
   useEffect(() => {
-    dispatch(fetchProfileData(user.currentUser.userRole));
+    dispatch(fetchProfileData(currentUser.userRole));
   }, []);
 
   const { isAuth } = useTypesSelector((state) => state.user);

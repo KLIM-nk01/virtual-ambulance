@@ -7,11 +7,6 @@ export const LogOutWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  img {
-    height: 100%;
-    border-radius: 50px;
-    margin-right: 10px;
-  }
 
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     margin: 10px 0;

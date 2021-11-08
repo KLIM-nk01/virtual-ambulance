@@ -1,8 +1,8 @@
-import { ERROR_MESSAGE } from '@constants/errorMessage';
 import { Dispatch } from 'redux';
-import { IMedcenterData, MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
 import axios from 'axios';
 import { API_URL } from '@constants/apiUrl';
+import { ERROR_MESSAGE } from '@constants/errorMessage';
+import { IMedcenterData, MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
 
 export const fetchMedCenters = () => {
   return  (dispatch: Dispatch<MedCenterAction>) => {

@@ -34,7 +34,7 @@ const DoctorsPage: React.FC = () => {
             ? doctors.doctors.map((doctor) => <DoctorsCard key={uniqid()} {...doctor} />)
             : doctors.doctors
                 .filter((doctor) => doctor.direction === choiseDirection)
-                .map((doctor) => <DoctorsCard key={uniqid()} {...doctor} />)}
+                .map((doctor) => <DoctorsCard key={doctor._id} {...doctor} />)}
         </DoctorsWrapper>
       )}
     </DoctorsPageWrapper>

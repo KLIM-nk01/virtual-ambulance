@@ -27,7 +27,7 @@ export const ModalWrapper = styled.div<IProps>`
 
 export const ModalContent = styled.div`
   position: relative;
-  padding: 20px;
+  padding: 15px;
   border-radius: 15px;
   background: ${STYLE_CONSTANTS.COLORS.white};
 `;

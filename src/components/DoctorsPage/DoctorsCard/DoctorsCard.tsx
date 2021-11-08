@@ -5,7 +5,7 @@ import {
   ContainerTwo,
   ContainerOne,
   NameSurname,
-  Expiriens,
+  Experience,
   DoctorsDirection,
   Description,
 } from './DoctorsCardStyle';
@@ -14,7 +14,7 @@ import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ROUTS } from '@constants/routs';
 import Modal from '@components/common/Modal/Modal';
 import Portal from '@components/common/Portal/Portal';
-import Shedule from './Schedule/Shedule';
+import Schedule from './Schedule/Schedule';
 
 interface IProps {
   experience: string;
@@ -29,7 +29,13 @@ interface IProps {
   };
 }
 
-const DoctorsCard: React.FC<IProps> = (props) => {
+const DoctorsCard: React.FC<IProps> = ({
+  userData,
+  direction,
+  experience,
+  description,
+  workTime,
+}) => {
   const [modalActive, setModalActive] = useState(false);
   const state = useTypesSelector((state) => state.user);
   const history = useHistory();
@@ -41,18 +47,18 @@ const DoctorsCard: React.FC<IProps> = (props) => {
   return (
     <Card>
       <ContainerOne>
-        <img src={props.userData.photo} alt="foto" />
-        <DoctorsDirection>{props.direction}</DoctorsDirection>
+        <img src={userData.photo} alt="photo" />
+        <DoctorsDirection>{direction}</DoctorsDirection>
       </ContainerOne>
 
       <ContainerTwo>
         <NameSurname>
-          {props.userData.name} {props.userData.lastName}
+          {userData.name} {userData.lastName}
         </NameSurname>
 
-        <Expiriens>Expiriens: {props.experience}</Expiriens>
+        <Experience>Experience: {experience}</Experience>
 
-        <Description>{props.description}</Description>
+        <Description>{description}</Description>
         <Button round onClick={() => showSchedule()} variant="contained">
           Sign up
         </Button>
@@ -60,7 +66,7 @@ const DoctorsCard: React.FC<IProps> = (props) => {
 
       <Portal>
         <Modal active={modalActive} setActive={setModalActive}>
-          <Shedule workTimeData={props.workTime} />
+          <Schedule workTimeData={workTime} />
         </Modal>
       </Portal>
     </Card>

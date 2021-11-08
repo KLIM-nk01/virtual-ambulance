@@ -18,7 +18,6 @@ export const CenterServices = styled.div`
 
 export const ServicesWrapper = styled.div`
   width: 100%;
-  /* height: 180px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;

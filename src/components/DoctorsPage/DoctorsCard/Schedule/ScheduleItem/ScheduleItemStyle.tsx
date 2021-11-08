@@ -6,7 +6,7 @@ interface IChoiceState {
   disabled?: boolean;
 }
 
-export const ScheduleItem = styled.div<IChoiceState>`
+export const ScheduleItemWrapper = styled.div<IChoiceState>`
   width: 170px;
   height: 70px;
   margin: 10px;

@@ -22,9 +22,6 @@ const VisitItem: React.FC = () => {
           <p>Minsk, Independence, 58A</p>
         </MedCenterInformation>
         <GeneralInformation>
-          {/* <TicketInfo>
-            <p>Doctor's appointment ticket №234567</p>
-          </TicketInfo> */}
           <Date>
             <span>date time</span>
           </Date>

@@ -1,4 +1,4 @@
-import { setUser } from './user';
+import { IUserAuth, setUser } from './user';
 import { UserActionType } from '@store/types/user';
 import { Dispatch } from 'redux';
 import axios, { AxiosResponse } from 'axios';
@@ -9,7 +9,7 @@ export const userAuth = () => {
   return async (dispatch: Dispatch<UserActionType | UserActionType>) => {
     
     try {
-      const response: AxiosResponse<{ user: any; token: string }> = await axios.get(
+      const response: AxiosResponse<{ user: IUserAuth; token: string }> = await axios.get(
         API_URL.USER_AUTHORIZATION,
         { headers: { Authorization: `Bearer ${cookies.getCookie('token')}` } }
       );

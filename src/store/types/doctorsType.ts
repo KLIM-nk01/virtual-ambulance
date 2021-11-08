@@ -2,6 +2,7 @@ import { IDoctorsData } from "types/IDoctorData";
 
 export interface IDoctorsState {
   doctors: {
+    _id: string,
     experience: string,
     direction: string,
     description: string,

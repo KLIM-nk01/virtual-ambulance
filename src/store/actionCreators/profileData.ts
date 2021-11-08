@@ -4,13 +4,14 @@ import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
 import { ProfileAction, ProfileActionTypes } from '@store/types/profileData';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
+import { USER_ROLE } from '@constants/userRole';
 
 export const fetchProfileData = (userRole: string) => {
   return async (dispatch: Dispatch<ProfileAction>) => {
     dispatch({ type: ProfileActionTypes.FETCH_PROFILE });
 
     try {
-      if (userRole === 'patient') {
+      if (userRole === USER_ROLE.patient) {
         const response = await axios.get(API_URL.PROFILE_PATIENT, {
           headers: { Authorization: `Bearer ${cookies.getCookie('token')}` },
         });
@@ -22,7 +23,7 @@ export const fetchProfileData = (userRole: string) => {
           });
         }
       }
-      if (userRole === 'doctor') {
+      if (userRole === USER_ROLE.doctor) {
         const response = await axios.get(API_URL.PROFILE_DOCTOR, {
           headers: { Authorization: `Bearer ${cookies.getCookie('token')}` },
         });

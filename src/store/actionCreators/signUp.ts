@@ -8,7 +8,7 @@ import { ERROR_MESSAGE } from '@constants/errorMessage';
 import { UserActionType } from '@store/types/user';
 import { setUser } from './user';
 
-type IUserData = string | {value: string}
+type IUserData = string | { value: string };
 
 export const registrationUser = (userData: { [key: string]: any; photo?: any }) => {
   return async (dispatch: Dispatch<ActionType | UserActionType>) => {
@@ -18,13 +18,14 @@ export const registrationUser = (userData: { [key: string]: any; photo?: any }) 
     const arr = Object.keys(userData);
 
     arr.forEach((el) => {
-      el === 'photo'
-        ? form.append(el, userData[el][0])
-        : el === 'direction' || el === 'workPlace'
-        ? form.append(el, userData[el].value)
-        : form.append(el, userData[el]);
+      if (el === 'photo') form.append(el, userData[el][0]);
+      else {
+        if (el === 'direction' || el === 'workPlace') {
+          form.append(el, userData[el].value);
+        } else form.append(el, userData[el]);
+      }
     });
-    
+
     try {
       const response: AxiosResponse<{
         user: any;

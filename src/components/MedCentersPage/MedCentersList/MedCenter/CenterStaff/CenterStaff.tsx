@@ -20,15 +20,15 @@ const Staff: React.FC<IStaff> = ({ medStaff }) => {
     <CenterStaff>
       <span>Our staff: </span>
       <StaffWrapper>
-        {medStaff.map((person) => {
+        {medStaff.map(({userData, direction}) => {
           return (
             <StaffItem key={uniqid()}>
-              <img src={person.userData.photo || NoAva} alt="doctors avatar" />
+              <img src={userData.photo || NoAva} alt="doctors avatar" />
               <Information>
                 <span>
-                  {person.userData.name} {person.userData.lastName}
+                  {userData.name} {userData.lastName}
                 </span>
-                <span>{person.direction}</span>
+                <span>{direction}</span>
               </Information>
             </StaffItem>
           );

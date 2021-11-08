@@ -7,7 +7,6 @@ import WorkTimeManagement from './WorkTimeManagement/WorkTimeManagement';
 const DoctorsFeature: React.FC = () => {
   return (
     <DoctorsFeatureWrapper>
-      <ContainerName>My Function</ContainerName>
       <WorkTimeManagement />
       <OrderManagement />
     </DoctorsFeatureWrapper>

@@ -17,7 +17,6 @@ interface IMedCenterMap {
     _id: string;
     name: string;
     address: string;
-    // photo: photo.NORDIN;
     description: string;
     services: string[];
     medStaff: string[];
