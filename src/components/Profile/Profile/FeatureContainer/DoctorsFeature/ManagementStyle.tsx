@@ -50,12 +50,11 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 10px;
 
   span {
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
-    font-weight: 600;
   }
 `;
 
@@ -83,5 +82,12 @@ export const RemoveButton = styled.div`
     left: 2px;
     bottom: 10px;
     transform: rotate(-45deg);
+  }
+
+  :hover {
+    :before,
+    :after {
+      background: ${STYLE_CONSTANTS.COLORS.blue};
+    }
   }
 `;

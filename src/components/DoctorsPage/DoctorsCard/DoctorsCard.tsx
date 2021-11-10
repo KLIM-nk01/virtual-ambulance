@@ -21,7 +21,7 @@ interface IProps {
   direction: string;
   description: string;
 
-  workTime: { date: string; time: string }[];
+  workTime: { date: string; time: string; _id: string }[];
   userData: {
     name: string;
     lastName: string;

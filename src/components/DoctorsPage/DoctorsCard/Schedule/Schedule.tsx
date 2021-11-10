@@ -3,15 +3,17 @@ import Button from '@components/common/Button/Button';
 import ScheduleItem from './ScheduleItem/ScheduleItem';
 import { ScheduleWrapper, WrapperHeader, ItemWrapper, SuccessMessage } from './ScheduleStyle';
 import { ActionType, IScheduleInitialState, ScheduleActionTypes } from './types';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
 
 export interface IScheduleProps {
-  workTimeData: { date: string; time: string }[];
+  workTimeData: { date: string; time: string; _id: string }[];
 }
 
 const initialState = {
   choiceWorkTime: {
     date: '',
     time: '',
+    _id: '',
   },
   disabledItem: null,
   zeroing: false,
@@ -21,9 +23,17 @@ const initialState = {
 const reducer = (state: IScheduleInitialState, action: ActionType): IScheduleInitialState => {
   switch (action.type) {
     case ScheduleActionTypes.SET_CHOICE_WORK_TIME:
-      return { ...state, choiceWorkTime: { date: action.payload.date, time: action.payload.time } };
+      return {
+        ...state,
+        viewSuccessMessage: false,
+        choiceWorkTime: {
+          date: action.payload.date,
+          time: action.payload.time,
+          _id: action.payload._id,
+        },
+      };
     case ScheduleActionTypes.SET_DISABLED_ITEM:
-      return { ...state, disabledItem: action.payload.disabledItem };
+      return { ...state, viewSuccessMessage: false, disabledItem: action.payload.disabledItem };
     case ScheduleActionTypes.SUCCESS_MESSAGE:
       return { ...state, viewSuccessMessage: true };
     default:
@@ -33,29 +43,26 @@ const reducer = (state: IScheduleInitialState, action: ActionType): IScheduleIni
 
 const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
   const [stateSchedule, dispatch] = useReducer(reducer, initialState);
-
+  const [disabledButton, setDisabledButton] = useState<boolean>(false);
   const sendWorkTime = () => {
     dispatch({ type: ScheduleActionTypes.SUCCESS_MESSAGE });
   };
 
+  const viewDate = (idDateTime?: string) => {
+    console.log(stateSchedule.choiceWorkTime);
+    sendWorkTime();
+  };
+
   const renderItem = () =>
-    workTimeData.map((wortTimeItem, index) => {
-      if (stateSchedule.disabledItem === null) {
+    workTimeData.map((workTimeItem, index) => {
+      if (stateSchedule.disabledItem === null || index === stateSchedule.disabledItem) {
         return (
           <ScheduleItem
-            key={wortTimeItem.date + wortTimeItem.time}
+            disabledButton={disabledButton}
+            setDisabledButton={setDisabledButton}
+            key={workTimeItem._id}
             stateSchedule={stateSchedule}
-            wortTimeItem={wortTimeItem}
-            index={index}
-            dispatch={dispatch}
-          />
-        );
-      } else if (index === stateSchedule.disabledItem) {
-        return (
-          <ScheduleItem
-            key={wortTimeItem.date + wortTimeItem.time}
-            stateSchedule={stateSchedule}
-            wortTimeItem={wortTimeItem}
+            workTimeItem={workTimeItem}
             index={index}
             dispatch={dispatch}
           />
@@ -63,10 +70,12 @@ const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
       } else {
         return (
           <ScheduleItem
-            key={wortTimeItem.date + wortTimeItem.time}
+            disabledButton={disabledButton}
+            setDisabledButton={setDisabledButton}
+            key={workTimeItem._id}
             disabled
             stateSchedule={stateSchedule}
-            wortTimeItem={wortTimeItem}
+            workTimeItem={workTimeItem}
             index={index}
             dispatch={dispatch}
           />
@@ -87,9 +96,15 @@ const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
           {stateSchedule.choiceWorkTime.date}. Be healthy!
         </SuccessMessage>
       )}
-      <Button onClick={() => sendWorkTime()} round variant="contained">
-        Sign Up
-      </Button>
+      {disabledButton ? (
+        <Button onClick={() => viewDate()} round variant="contained">
+          Sign Up
+        </Button>
+      ) : (
+        <Button disabled onClick={() => viewDate()} round variant="contained">
+          Sign Up
+        </Button>
+      )}
     </ScheduleWrapper>
   );
 };

@@ -1,7 +1,26 @@
+import { IProfile } from './../types/profileData';
 import { IInitialProfileData, ProfileAction, ProfileActionTypes } from '@store/types/profileData';
 
 export const InitialState: IInitialProfileData = {
-  profileData: null,
+  profileData: {
+    name: '',
+    lastName: '',
+    photo: '',
+    phone: '',
+    email: '',
+    visit: [],
+    birthday: '',
+    address: '',
+
+    experience: '',
+    direction: '',
+    workPlace: {
+      name: '',
+      address: '',
+    },
+    workTime: [],
+    patients: [],
+  },
   loading: false,
   error: '',
 };
@@ -28,6 +47,25 @@ export const profileReducer = (
         profileData: action.payload,
         loading: false,
       };
+    case ProfileActionTypes.PROFILE_DOCTOR_ADD_TIME:
+      return {
+        ...state,
+        profileData: {
+          ...state.profileData,
+          workTime: [...state.profileData.workTime, action.payload],
+        },
+        loading: false,
+      };
+    case ProfileActionTypes.PROFILE_DOCTOR_DELETE_TIME:
+      return {
+        ...state,
+        profileData: {
+          ...state.profileData,
+          workTime: state.profileData.workTime.filter(time => time._id !== action.payload),
+        },
+        loading: false,
+      };
+
     case ProfileActionTypes.FETCH_PROFILE_ERROR: {
       return {
         ...state,

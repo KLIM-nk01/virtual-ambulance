@@ -6,4 +6,6 @@ export const API_URL = {
   USER_AUTHORIZATION: `${process.env.HOST}/userAuth`,
   PROFILE_PATIENT: `${process.env.HOST}/profile/patient`,
   PROFILE_DOCTOR: `${process.env.HOST}/profile/doctor`,
+  PROFILE_DOCTOR_ADD_DATE: `${process.env.HOST}/profile/addDate`,
+  PROFILE_DOCTOR_DELETE_DATE: `${process.env.HOST}/profile/deleteDate`,
 };

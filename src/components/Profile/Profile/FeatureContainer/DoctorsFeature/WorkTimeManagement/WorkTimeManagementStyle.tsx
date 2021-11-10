@@ -1,3 +1,4 @@
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
 import { Container } from '../ManagementStyle';
 
@@ -15,11 +16,12 @@ export const DateTimePickerWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 13px 0 13px;
   position: relative;
-  button {
-    width: 100%;
-    margin-top: 10px;
+  span {
+    margin-top: 5px;
+    color: ${STYLE_CONSTANTS.COLORS.red};
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   }
 `;
 

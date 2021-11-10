@@ -2,6 +2,7 @@ export interface IScheduleInitialState {
   choiceWorkTime: {
     date: string;
     time: string;
+    _id: string;
   };
   disabledItem: null | number;
   zeroing: boolean;
@@ -19,6 +20,7 @@ interface SetChoiceWorkTime {
   payload: {
     date: string;
     time: string;
+    _id: string;
   };
 }
 interface SetDisabledItem {

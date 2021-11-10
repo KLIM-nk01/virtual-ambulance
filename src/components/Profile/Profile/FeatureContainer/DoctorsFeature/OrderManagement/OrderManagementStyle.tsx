@@ -6,4 +6,5 @@ export const OrderManagementContainer = styled(Container)`
   @media (max-width: 900px) {
     width: 100%;
   }
+  border-radius: 5px;
 `;

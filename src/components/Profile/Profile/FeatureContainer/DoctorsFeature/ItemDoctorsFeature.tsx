@@ -1,14 +1,20 @@
 import React from 'react';
 import { Item, RemoveButton } from './ManagementStyle';
+interface IItemDoctorsProps {
+  date: string;
+  time: string;
+  _id: string;
+  deleteDate: (value: string) => void;
+}
 
-const ItemDoctorsFeature = () => {
-    return (
-        <Item>
-          <span>8.30am</span>
-          <span>10.10.2021</span>
-          <RemoveButton/>
-        </Item>
-    );
+const ItemDoctorsFeature: React.FC<IItemDoctorsProps> = ({ _id, date, time, deleteDate }) => {
+  return (
+    <Item>
+      <span>{time}</span>
+      <span>{date}</span>
+      <RemoveButton onClick={() => deleteDate(_id)} />
+    </Item>
+  );
 };
 
 export default ItemDoctorsFeature;

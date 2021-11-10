@@ -54,7 +54,7 @@ export const InfoLabel = styled.span`
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.medium};
   color: ${STYLE_CONSTANTS.COLORS.lightGrey};
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
-    width: 75px;
+    width: 100px;
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   }
 `;

@@ -48,6 +48,12 @@ export const ButtonStyle = styled.button<IProps>`
           background: ${STYLE_CONSTANTS.COLORS.darkBlue};
           box-shadow: 0px 0px 7px 0px #7f8e9d;
         }
+        :disabled {
+        cursor: default;
+        background: inherit;
+        color: #7f8e9d;
+        border: 1px solid ${STYLE_CONSTANTS.COLORS.lightGrey};
+        }
         `;
         break;
 
