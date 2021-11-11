@@ -1,7 +1,21 @@
 export interface IDoctorWorkTime {
   date: string;
   time: string;
-  _id: string;
+  idWorkTime: string;
+  patientName?: string;
+  patientLastName?: string;
+  patientPhoto?: string;
+}
+
+export interface IPatientVisit {
+  doctorName: string;
+  doctorLastName: string;
+  doctorDirection: string;
+  medCenterName: string;
+  medCenterAddress: string;
+  date: string;
+  time: string;
+  _idDate: string;
 }
 export interface IProfile {
   name?: string;
@@ -10,7 +24,7 @@ export interface IProfile {
   phone?: string;
   email?: string;
 
-  visit?: {}[];
+  visit: IPatientVisit[];
   birthday?: string;
   address?: string;
 
@@ -37,6 +51,8 @@ export enum ProfileActionTypes {
   FETCH_PROFILE_ERROR = 'FETCH_PROFILE_ERROR',
   PROFILE_DOCTOR_ADD_TIME = 'PROFILE_DOCTOR_ADD_TIME',
   PROFILE_DOCTOR_DELETE_TIME = 'PROFILE_DOCTOR_DELETE_TIME',
+  PROFILE_PATIENT_ADD_APPOINTMENT = 'PROFILE_PATIENT_ADD_APPOINTMENT',
+  PROFILE_PATIENT_DELETE_APPOINTMENT = 'PROFILE_PATIENT_DELETE_APPOINTMENT',
 }
 interface FetchProfile {
   type: ProfileActionTypes.FETCH_PROFILE;
@@ -66,10 +82,22 @@ interface ProfileDoctorDeleteTime {
   payload: string;
 }
 
+interface ProfilePatientAddAppointment {
+  type: ProfileActionTypes.PROFILE_PATIENT_ADD_APPOINTMENT;
+  payload: IPatientVisit;
+}
+
+interface ProfilePatientDeleteAppointment {
+  type: ProfileActionTypes.PROFILE_PATIENT_DELETE_APPOINTMENT;
+  payload: string;
+}
+
 export type ProfileAction =
   | FetchProfileError
   | FetchProfileDoctorSuccess
   | FetchProfilePatientSuccess
   | FetchProfile
   | ProfileDoctorAddTime
-  | ProfileDoctorDeleteTime;
+  | ProfileDoctorDeleteTime
+  | ProfilePatientAddAppointment
+  | ProfilePatientDeleteAppointment;

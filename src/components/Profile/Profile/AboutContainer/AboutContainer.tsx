@@ -1,5 +1,4 @@
 import React from 'react';
-import { usersData } from '@data/usersData';
 import {
   AboutUser,
   Container,
@@ -10,6 +9,7 @@ import {
 } from './AboutContainerStyle';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { USER_ROLE } from '@constants/userRole';
+import Avatar from '@mui/material/Avatar';
 
 const AboutContainer: React.FC = () => {
   const profileData = useTypesSelector((state) => state.profile.profileData);
@@ -17,6 +17,7 @@ const AboutContainer: React.FC = () => {
   return (
     <Container>
       <UserName>
+        <Avatar sx={{ width: 56, height: 56 }} src={user.photo} />
         <span>{profileData?.name}</span> <span>{profileData?.lastName}</span>
       </UserName>
 

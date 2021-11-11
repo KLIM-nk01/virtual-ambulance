@@ -26,10 +26,12 @@ const WorkTimeManagement: React.FC = () => {
     let repeat = false;
     if (date) {
       workTime.map((time) => {
-        time.time.split(':')[1] ===
-          `${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}` &&
-          time.date.split('.')[0] === `${date.getDate()}` &&
-          (repeat = true);
+        if (
+          time.time.split(':')[1] ===
+            `${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}` &&
+          time.date.split('.')[0] === `${date.getDate()}`
+        )
+          repeat = true;
       });
       if (repeat) setAddDateError(ERROR_MESSAGE.ADD_DATE_ERROR);
       else {
@@ -49,15 +51,21 @@ const WorkTimeManagement: React.FC = () => {
   const deleteDate = (idDate: string) => {
     dispatch(profileDoctorDelete(idDate));
   };
-
   return (
     <TimeManagementContainer>
       <ContainersName>Work Time</ContainersName>
 
       <ContainerContent>
-        {workTime.map((dateTime) => (
-          <ItemDoctorsFeature deleteDate={deleteDate} {...dateTime} />
-        ))}
+        {!workTime || workTime.length === 0 ? (
+          <span>Have not added time yet</span>
+        ) : (
+          workTime.map((dateTime) => {
+            console.log(dateTime);
+            return (
+              <ItemDoctorsFeature key={dateTime.idWorkTime} deleteDate={deleteDate} {...dateTime} />
+            );
+          })
+        )}
       </ContainerContent>
 
       <DateTimePickerWrapper>

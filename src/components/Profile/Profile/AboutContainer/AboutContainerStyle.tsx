@@ -19,9 +19,7 @@ export const UserName = styled.div`
   display: flex;
   border-bottom: 1px solid ${STYLE_CONSTANTS.COLORS.gray};
   padding-bottom: 10px;
-
-  img {
-    width: 100px;
+  div {
     margin-right: 25px;
     @media (min-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
       display: none;

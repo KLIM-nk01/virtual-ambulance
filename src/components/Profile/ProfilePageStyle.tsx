@@ -10,7 +10,7 @@ export const ProfilePageWrapper = styled.div`
   background: ${STYLE_CONSTANTS.COLORS.lavender};
   overflow: auto;
   padding: 50px;
-  @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     padding: 15px;
   }
 `;

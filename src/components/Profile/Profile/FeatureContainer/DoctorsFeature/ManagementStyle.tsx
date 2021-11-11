@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
+interface IRemoveButton {
+  disabled?: boolean;
+}
+
+interface IItemProps {
+  patientName?: string;
+}
+
 export const Container = styled.div`
   position: relative;
   width: 30%;
@@ -43,10 +51,11 @@ export const ContainerFooter = styled.div`
   justify-content: flex-end;
 `;
 
-export const Item = styled.div`
+export const Item = styled.div<IItemProps>`
   width: 90%;
   height: 45px;
   border: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
+
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -58,7 +67,7 @@ export const Item = styled.div`
   }
 `;
 
-export const RemoveButton = styled.div`
+export const RemoveButton = styled.div<IRemoveButton>`
   position: relative;
   width: 21px;
   height: 20px;
@@ -87,7 +96,23 @@ export const RemoveButton = styled.div`
   :hover {
     :before,
     :after {
-      background: ${STYLE_CONSTANTS.COLORS.blue};
+      background: ${STYLE_CONSTANTS.COLORS.red};
     }
   }
+
+  ${({ disabled }) =>
+    disabled &&
+    `
+    cursor: default;
+    :before,
+    :after {
+      background: ${STYLE_CONSTANTS.COLORS.gray};
+    }
+    :hover {
+    :before,
+    :after {
+      background: ${STYLE_CONSTANTS.COLORS.gray};
+    }
+  }
+    `};
 `;
