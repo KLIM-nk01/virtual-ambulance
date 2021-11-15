@@ -19,18 +19,18 @@ const DoctorsPage: React.FC = () => {
 
   const conditionRendering = () => {
     if (doctors.loading) return <Loader />;
-    else if (doctors.error) return <Error errorMessage={doctors.error} />;
-    else {
-      return (
-        <DoctorsWrapper>
-          {choiseDirection.length === 1 && choiseDirection[0] === 'All Doctors'
-            ? doctors.doctors.map((doctor) => <DoctorsCard key={uniqid()} {...doctor} />)
-            : doctors.doctors
-                .filter((doctor) => choiseDirection.indexOf(doctor.direction) > -1)
-                .map((doctor) => <DoctorsCard key={doctor._id} {...doctor} />)}
-        </DoctorsWrapper>
-      );
-    }
+
+    if (doctors.error) return <Error errorMessage={doctors.error} />;
+
+    return (
+      <DoctorsWrapper>
+        {choiseDirection.length === 1
+          ? doctors.doctors.map((doctor) => <DoctorsCard key={doctor._id} {...doctor} />)
+          : doctors.doctors
+              .filter((doctor) => choiseDirection.indexOf(doctor.direction) > -1)
+              .map((doctor) => <DoctorsCard key={doctor._id} {...doctor} />)}
+      </DoctorsWrapper>
+    );
   };
   const [choiseDirection, setChoiseDirection] = useState(['All Doctors']);
 
@@ -42,7 +42,6 @@ const DoctorsPage: React.FC = () => {
       />
 
       {conditionRendering()}
-      
     </DoctorsPageWrapper>
   );
 };
