@@ -3,7 +3,6 @@ import {
   BurgerMenuWrapper,
   BurgerMenuContent,
   MenuHeader,
-  MenuItemWrapper
 } from './BurgerMenuStyle';
 
 interface IBurgerMenuProps {
@@ -22,7 +21,7 @@ const BurgerMenu: React.FC<IBurgerMenuProps> = ({
       onClick={() => setMenuActive(!menuActive)}>
       <BurgerMenuContent>
         <MenuHeader>Menu</MenuHeader>
-        <MenuItemWrapper>{children}</MenuItemWrapper>
+        <div>{children}</div>
       </BurgerMenuContent>
     </BurgerMenuWrapper>
   );

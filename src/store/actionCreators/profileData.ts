@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import axios, { AxiosResponse } from 'axios';
 import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
-import { IPatientVisit, ProfileAction, ProfileActionTypes } from '@store/types/profileData';
+import { ProfileAction, ProfileActionTypes } from '@store/types/profileData';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
 import { USER_ROLE } from '@constants/userRole';
 
@@ -54,7 +54,7 @@ export const fetchProfileData = (userRole: string) => {
 
 export const profileDoctorAddDate = (date: string) => {
   return async (dispatch: Dispatch<ProfileAction>) => {
-    // dispatch({ type: ProfileActionTypes.FETCH_PROFILE });
+    
     try {
       const response: AxiosResponse<{ date: string; time: string; idWorkTime: string }> =
         await axios.put(
@@ -91,7 +91,6 @@ export const profileDoctorAddDate = (date: string) => {
 
 export const profileDoctorDelete = (idDate: string) => {
   return async (dispatch: Dispatch<ProfileAction>) => {
-    // dispatch({ type: ProfileActionTypes.FETCH_PROFILE });
 
     try {
       const response = await axios.delete(`${API_URL.PROFILE_DOCTOR_DELETE_DATE}/${idDate}`, {

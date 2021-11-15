@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { USER_ROLE } from '@constants/userRole';
 import {
   AboutUser,
   Container,
@@ -7,8 +9,6 @@ import {
   ProfileInfoRow,
   UserName,
 } from './AboutContainerStyle';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { USER_ROLE } from '@constants/userRole';
 import Avatar from '@mui/material/Avatar';
 
 const AboutContainer: React.FC = () => {

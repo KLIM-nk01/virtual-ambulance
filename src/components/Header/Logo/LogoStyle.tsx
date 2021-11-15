@@ -32,6 +32,7 @@ export const Container = styled.div`
     left: 40%;
     top: 0;
   }
+  
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.mobileL}) {
     left: 30%;
   }

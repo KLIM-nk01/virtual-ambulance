@@ -10,16 +10,18 @@ export const NavWrapper = styled.div`
 
   a {
     display: block;
-    height: 55%;
+    height: 60%;
     min-height: 300px;
     text-decoration: none;
     color: ${STYLE_CONSTANTS.COLORS.white};
   }
+
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     height: fit-content;
     align-items: flex-start;
     flex-direction: column;
     margin: 20px;
+
     a {
       height: 325px;
       margin-bottom: 20px;
@@ -54,6 +56,7 @@ export const NavItem = styled.div`
     font-weight: 600;
     height: 65px;
   }
+  
   p {
     margin-top: 20px;
     width: 95%;

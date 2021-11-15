@@ -1,12 +1,12 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useReducer } from 'react';
+import { DirectionActionType, IDirection, IDirectionInitialState } from './types';
+import { directionReducer } from './directionReducer';
 import { DirectionWrapper } from './DirectionStyle';
 
-interface IDirection {
-  src?: string;
-  direction: string;
-  setChoiseDirection: (value: string) => void;
-  choiseDirection: string;
-}
+const initialState: IDirectionInitialState = {
+  enableDirection: false,
+  allDoctors: false,
+};
 
 const Direction: React.FC<IDirection> = ({
   direction,
@@ -14,21 +14,29 @@ const Direction: React.FC<IDirection> = ({
   setChoiseDirection,
   choiseDirection,
 }) => {
-  const [enable, setEnable] = useState<boolean>(false);
-  const [allDoctors, setAllDoctors] = useState<boolean>(false);
+  const [directionState, dispatchLock] = useReducer(directionReducer, initialState);
+
   const clickDirection = () => {
-    setEnable(!enable),
-      choiseDirection === direction
-        ? setChoiseDirection('All Doctors')
-        : setChoiseDirection(direction);
+    dispatchLock({ type: DirectionActionType.SET_ENABLE_DIRECTION });
+    choiseDirection.indexOf(direction) > -1
+      ? setChoiseDirection(choiseDirection.filter((direc) => direc !== direction))
+      : setChoiseDirection([...choiseDirection, direction]);
   };
+
   useMemo(
-    () => direction === 'All Doctors' && (setAllDoctors(true), setEnable(!enable)),
+    () =>
+      direction === 'All Doctors' &&
+      (dispatchLock({ type: DirectionActionType.SET_ALL_DOCTORS_DIRECTION }),
+      dispatchLock({ type: DirectionActionType.SET_ENABLE_DIRECTION })),
     [direction]
   );
 
   return (
-    <DirectionWrapper allDoctors={allDoctors} enable={enable} onClick={() => clickDirection()}>
+    <DirectionWrapper
+      allDoctors={directionState.allDoctors}
+      enable={directionState.enableDirection}
+      onClick={() => clickDirection()}
+    >
       <img src={src} alt="direction logo" />
       <span>{direction}</span>
     </DirectionWrapper>

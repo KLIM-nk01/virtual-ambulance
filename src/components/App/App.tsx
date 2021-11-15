@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import GlobalStyle from '@styleMixin/globalstyle';
-import { AppWrapper, Main } from './AppStyle';
-import Header from '../Header/Header';
-import Routs from '@components/Routs/Routs';
 import { useDispatch } from 'react-redux';
+import GlobalStyle from '@styleMixin/globalstyle';
 import { userAuth } from '@store/actionCreators/userAuth';
+import { AppWrapper, Main } from './AppStyle';
+import Header from '@components/Header/Header';
+import Routs from '@components/Routs/Routs';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(userAuth());
   }, []);
+
   return (
     <BrowserRouter>
       <React.Suspense fallback={() => <div>loading</div>}>
         <GlobalStyle />
         <AppWrapper>
           <Header />
-         
           <Main>
             <Routs />
           </Main>

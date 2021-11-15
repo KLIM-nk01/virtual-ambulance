@@ -3,10 +3,10 @@ import { Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ROUTS } from '@constants/routs';
+import { fetchProfileData } from '@store/actionCreators/profileData';
 import Profile from './Profile/Profile';
 import { ProfilePageWrapper } from './ProfilePageStyle';
 import Loader from '@components/common/Loader/Loader';
-import { fetchProfileData } from '@store/actionCreators/profileData';
 
 const ProfilePage: React.FC = () => {
   const dispatch = useDispatch();

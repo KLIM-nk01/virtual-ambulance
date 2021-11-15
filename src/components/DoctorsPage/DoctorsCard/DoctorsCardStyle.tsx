@@ -31,7 +31,7 @@ export const ContainerOne = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin-right: 10px;
+  margin-right: 15px;
 
   img {
     width: 120px;

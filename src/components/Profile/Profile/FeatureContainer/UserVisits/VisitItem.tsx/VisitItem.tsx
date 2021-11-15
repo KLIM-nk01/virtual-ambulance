@@ -1,5 +1,7 @@
 import React from 'react';
-import Button from '@components/common/Button/Button';
+import { useDispatch } from 'react-redux';
+import { IPatientVisit } from '@store/types/profileData';
+import { profilePatientDeleteAppointment } from '@store/actionCreators/profileData';
 import {
   VisitItemContainer,
   ContainerFooter,
@@ -10,9 +12,7 @@ import {
   DoctorsInformation,
   DoctorsInfo,
 } from './VisitItemStyle';
-import { IPatientVisit } from '@store/types/profileData';
-import { useDispatch } from 'react-redux';
-import { profilePatientDeleteAppointment } from '@store/actionCreators/profileData';
+import Button from '@components/common/Button/Button';
 
 const VisitItem: React.FC<IPatientVisit> = ({
   doctorName,

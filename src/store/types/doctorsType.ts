@@ -13,6 +13,10 @@ export interface IDoctorsState {
       lastName: string;
       photo: string;
     };
+    workPlace: {
+      name: string;
+      address: string;
+    };
   }[];
 
   loading: boolean;

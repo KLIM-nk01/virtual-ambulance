@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import Button from '@components/common/Button/Button';
-import ItemDoctorsFeature from '../ItemDoctorsFeature';
-import { ContainersName, ContainerFooter, ContainerContent } from '../ManagementStyle';
-import { TimeManagementContainer, DateTimePickerWrapper } from './WorkTimeManagementStyle';
+import { useDispatch } from 'react-redux';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { ERROR_MESSAGE } from '@constants/errorMessage';
+import { profileDoctorAddDate, profileDoctorDelete } from '@store/actionCreators/profileData';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
-import { useDispatch } from 'react-redux';
-import { profileDoctorAddDate, profileDoctorDelete } from '@store/actionCreators/profileData';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { ERROR_MESSAGE } from '@constants/errorMessage';
+import Button from '@components/common/Button/Button';
+import ItemDoctorsFeature from '../ItemDoctorsFeature';
+import { ContainersName, ContainerContent } from '../ManagementStyle';
+import { TimeManagementContainer, DateTimePickerWrapper } from './WorkTimeManagementStyle';
 
 const WorkTimeManagement: React.FC = () => {
   const dispatch = useDispatch();
@@ -56,11 +56,10 @@ const WorkTimeManagement: React.FC = () => {
       <ContainersName>Work Time</ContainersName>
 
       <ContainerContent>
-        {!workTime || workTime.length === 0 ? (
+        {!workTime ? (
           <span>Have not added time yet</span>
         ) : (
           workTime.map((dateTime) => {
-            console.log(dateTime);
             return (
               <ItemDoctorsFeature key={dateTime.idWorkTime} deleteDate={deleteDate} {...dateTime} />
             );

@@ -1,8 +1,7 @@
 import React from 'react';
-
+import uniqid from 'uniqid';
 import { CenterStaff, StaffItem, StaffWrapper, Information } from './CenterStaffStyle';
 import NoAva from '@assets/NoAvatar.png';
-import uniqid from 'uniqid';
 
 interface IStaff {
   medStaff: {

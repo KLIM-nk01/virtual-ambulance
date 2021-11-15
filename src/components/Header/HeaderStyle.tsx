@@ -20,6 +20,7 @@ export const HeaderContainerStyle = styled.div`
   align-items: center;
   justify-content: space-between;
   position: relative;
+  
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     position: relative;
     flex-direction: row-reverse;

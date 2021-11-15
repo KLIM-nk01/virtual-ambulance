@@ -1,6 +1,6 @@
 import React from 'react';
 import { Item, RemoveButton } from './ManagementStyle';
-import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
+import Tooltip from '@mui/material/Tooltip';
 
 interface IItemDoctorsProps {
   date: string;

@@ -17,26 +17,32 @@ const DoctorsPage: React.FC = () => {
     dispatch(fetchDoctors());
   }, []);
 
-  const [choiseDirection, setChoiseDirection] = useState<string>('All Doctors');
+  const conditionRendering = () => {
+    if (doctors.loading) return <Loader />;
+    else if (doctors.error) return <Error errorMessage={doctors.error} />;
+    else {
+      return (
+        <DoctorsWrapper>
+          {choiseDirection.length === 1 && choiseDirection[0] === 'All Doctors'
+            ? doctors.doctors.map((doctor) => <DoctorsCard key={uniqid()} {...doctor} />)
+            : doctors.doctors
+                .filter((doctor) => choiseDirection.indexOf(doctor.direction) > -1)
+                .map((doctor) => <DoctorsCard key={doctor._id} {...doctor} />)}
+        </DoctorsWrapper>
+      );
+    }
+  };
+  const [choiseDirection, setChoiseDirection] = useState(['All Doctors']);
+
   return (
     <DoctorsPageWrapper>
       <DoctorsPageNavBar
         setChoiseDirection={setChoiseDirection}
         choiseDirection={choiseDirection}
       />
-      {doctors.loading ? (
-        <Loader />
-      ) : doctors.error ? (
-        <Error errorMessage={doctors.error} />
-      ) : (
-        <DoctorsWrapper>
-          {choiseDirection === 'All Doctors'
-            ? doctors.doctors.map((doctor) => <DoctorsCard key={uniqid()} {...doctor} />)
-            : doctors.doctors
-                .filter((doctor) => doctor.direction === choiseDirection)
-                .map((doctor) => <DoctorsCard key={doctor._id} {...doctor} />)}
-        </DoctorsWrapper>
-      )}
+
+      {conditionRendering()}
+      
     </DoctorsPageWrapper>
   );
 };

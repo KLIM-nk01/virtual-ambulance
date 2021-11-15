@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 interface IProps {
   active: boolean;
@@ -18,6 +18,7 @@ export const ModalWrapper = styled.div<IProps>`
   justify-content: center;
   opacity: 0;
   pointer-events: none;
+
   ${(props) =>
     props.active &&
     `opacity: 1; 
@@ -53,6 +54,7 @@ export const CloseButton = styled.div`
     z-index: 1;
     transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
     transform: scale(0.01);
+
     :hover {
       transform: scale(1);
     }
@@ -69,6 +71,7 @@ export const CloseButton = styled.div`
     top: -235px;
     left: 5px;
     transition: all 0.3s cubic-bezier(0.77, 0, 0.2, 0.85);
+
     :hover {
       transform: scale(0.8) rotate(45deg);
       color: #fff;

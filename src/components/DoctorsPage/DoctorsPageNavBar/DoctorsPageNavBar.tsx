@@ -1,11 +1,11 @@
 import React from 'react';
-import { DoctorsPageNavBarWrapper } from './DoctorsPageNavBarStyle';
 import { doctorsDirection } from '@data/doctorsDirection';
+import { DoctorsPageNavBarWrapper } from './DoctorsPageNavBarStyle';
 import Direction from './Direction/Direction';
 
 interface IDoctorsPageNavBarProps {
-  setChoiseDirection: (value: string) => void;
-  choiseDirection: string;
+  setChoiseDirection: any;
+  choiseDirection: string[];
 }
 
 const DoctorsPageNavBar: React.FC<IDoctorsPageNavBarProps> = ({

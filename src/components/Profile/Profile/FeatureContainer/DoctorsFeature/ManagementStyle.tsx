@@ -17,9 +17,9 @@ export const Container = styled.div`
   justify-content: space-between;
   flex-direction: column;
   padding: 10px 0;
-
   box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.lightGrey};
   margin-bottom: 30px;
+
   button {
     position: relative;
     bottom: 0;
@@ -55,7 +55,6 @@ export const Item = styled.div<IItemProps>`
   width: 90%;
   height: 45px;
   border: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,11 +81,13 @@ export const RemoveButton = styled.div<IRemoveButton>`
     height: 2px;
     background: ${STYLE_CONSTANTS.COLORS.lightGrey};
   }
+
   :before {
     left: 2px;
     top: 8px;
     transform: rotate(45deg);
   }
+
   :after {
     left: 2px;
     bottom: 10px;
@@ -104,10 +105,12 @@ export const RemoveButton = styled.div<IRemoveButton>`
     disabled &&
     `
     cursor: default;
+    
     :before,
     :after {
       background: ${STYLE_CONSTANTS.COLORS.gray};
     }
+
     :hover {
     :before,
     :after {

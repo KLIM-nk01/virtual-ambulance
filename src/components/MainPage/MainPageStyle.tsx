@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Back from '@assets/Back.jpg';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
+import Back from '@assets/Back.jpg';
 
 export const MainPageWrapper = styled.div`
   width: 100%;

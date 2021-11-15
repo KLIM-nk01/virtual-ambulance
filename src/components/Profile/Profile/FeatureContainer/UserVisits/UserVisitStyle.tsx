@@ -10,11 +10,8 @@ export const VisitContainer = styled.div`
   flex-wrap: wrap;
 
   span {
-    text-align: center;
-    margin: 0 auto;
     a {
       color: ${STYLE_CONSTANTS.COLORS.blue};
-      
     }
   }
 `;
@@ -35,10 +32,12 @@ export const ErrorMessage = styled.span`
   margin: 0 auto;
   text-align: center;
   color: ${STYLE_CONSTANTS.COLORS.red};
+
   a {
     color: ${STYLE_CONSTANTS.COLORS.red};
     text-decoration: underline;
     padding-bottom: 5px;
+    
     :hover {
       color: ${STYLE_CONSTANTS.COLORS.blue};
     }

@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Redirect } from 'react-router';
-import { userSignIn, userUnAuth } from '@store/actionCreators/signIn';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ROUTS } from '@constants/routs';
+import { userSignIn } from '@store/actionCreators/signIn';
+import { ISignInData } from '@store/types/signIn';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { FormContainer, FormName, Form, ButtonBar } from './FormStyle';
 import { Email, Password } from '@components/Form/SignInUp/formValidationConstants';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import Loader from '@components/common/Loader/Loader';
-import { FormContainer, FormName, Form, ButtonBar } from './FormStyle';
-import { ISignInData } from '@store/types/signIn';
 import Error from '@components/common/Error/Error';
 
 const SingInForm: React.FC = () => {

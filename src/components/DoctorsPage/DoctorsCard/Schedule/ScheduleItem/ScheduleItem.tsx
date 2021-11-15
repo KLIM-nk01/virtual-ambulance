@@ -9,7 +9,7 @@ interface IScheduleItemProps {
   dispatch: (value: ActionType) => void;
   stateSchedule: IScheduleInitialState;
   disabledButton: boolean;
-  setDisabledButton: (value: boolean) => void;
+  setDisabledButton: React.Dispatch<ActionType>;
 }
 
 const ScheduleItem: React.FC<IScheduleItemProps> = ({
@@ -18,7 +18,6 @@ const ScheduleItem: React.FC<IScheduleItemProps> = ({
   dispatch,
   stateSchedule,
   disabled,
-  disabledButton,
   setDisabledButton,
 }) => {
   const [choiceDate, setChoiceDate] = useState<boolean>(false);
@@ -29,9 +28,7 @@ const ScheduleItem: React.FC<IScheduleItemProps> = ({
     dispatch({
       type: ScheduleActionTypes.SET_CHOICE_WORK_TIME,
       payload: {
-        date: workTimeItem.date,
-        time: workTimeItem.time,
-        _id: workTimeItem._id,
+        ...workTimeItem,
       },
     });
 
@@ -40,15 +37,17 @@ const ScheduleItem: React.FC<IScheduleItemProps> = ({
       : dispatch({ type: ScheduleActionTypes.SET_DISABLED_ITEM, payload: { disabledItem: null } });
   };
 
+  const chooseScheduleItem = () => {
+    itemSelected();
+    setDisabledButton({ type: ScheduleActionTypes.SET_DISABLED_BUTTON });
+  };
+
   useMemo(() => stateSchedule.zeroing && setChoiceDate(choiceDate), [stateSchedule.zeroing]);
 
   return (
     <ScheduleItemWrapper
       disabled={disabled}
-      onClick={() => {
-        itemSelected();
-        setDisabledButton(!disabledButton);
-      }}
+      onClick={() => chooseScheduleItem()}
       choice={choiceDate}
     >
       <span>

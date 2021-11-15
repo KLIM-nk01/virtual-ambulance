@@ -26,7 +26,9 @@ export const STYLE_CONSTANTS = {
     lightGrey: '#818C99',
     whiteGrey: '#e1e5e6',
     blue: '#007fff',
-    darkBlue: '#0072E5'
+    darkBlue: '#0072E5',
+    buttonDisabledColor: '#7f8e9d',
+    buttonHoverColor: '#d0deec'
   },
   SCREEN: {
     laptop: '1024px',

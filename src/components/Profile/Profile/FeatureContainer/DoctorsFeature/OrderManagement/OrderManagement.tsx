@@ -1,19 +1,17 @@
-import { useTypesSelector } from '@hooks/UseTypedSelector';
 import React from 'react';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ContainersName, Item, ContainerContent } from '../ManagementStyle';
 import { OrderManagementContainer } from './OrderManagementStyle';
-import Error from '@components/common/Error/Error';
 import Avatar from '@mui/material/Avatar';
 
 const WorkTimeManagement: React.FC = () => {
   const { workTime } = useTypesSelector((state) => state.profile.profileData);
-
   return (
     <OrderManagementContainer>
       <ContainersName>Patient</ContainersName>
-    
+
       <ContainerContent>
-        {!workTime || workTime.length === 0 ? (
+        {!workTime ? (
           <span>At the moment, no one has signed up to you yet.</span>
         ) : (
           workTime.map((appointment) => {

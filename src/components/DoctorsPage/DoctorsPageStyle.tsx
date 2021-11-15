@@ -17,6 +17,7 @@ export const DoctorsWrapper = styled.div`
   ${flex};
 
   border-radius: 15px;
+  
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     flex-wrap: nowrap;
     flex-direction: column;

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { fetchMedCenters } from '@store/actionCreators/medCenters';
 import { MedCentersPageWrapper } from './MedcentersPageStyle';
 import MedCentersList from './MedCentersList/MedCentersList';
 import MedCentersMap from './MedCentersMap/MedCentersMap';
-import { useDispatch } from 'react-redux';
-import { fetchMedCenters } from '@store/actionCreators/medCenters';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
 
 const MedCentersPage: React.FC = () => {
   const dispatch = useDispatch();
