@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { setChoiceWorkTime, setDisabledItem } from '../ScheduleReducer';
 import { ActionType, IScheduleInitialState, ScheduleActionTypes } from '../types';
 import { ScheduleItemWrapper } from './ScheduleItemStyle';
 
@@ -25,16 +26,11 @@ const ScheduleItem: React.FC<IScheduleItemProps> = ({
   const itemSelected = () => {
     setChoiceDate(!choiceDate);
 
-    dispatch({
-      type: ScheduleActionTypes.SET_CHOICE_WORK_TIME,
-      payload: {
-        ...workTimeItem,
-      },
-    });
+    dispatch(setChoiceWorkTime(workTimeItem));
 
     stateSchedule.disabledItem === null
-      ? dispatch({ type: ScheduleActionTypes.SET_DISABLED_ITEM, payload: { disabledItem: index } })
-      : dispatch({ type: ScheduleActionTypes.SET_DISABLED_ITEM, payload: { disabledItem: null } });
+      ? dispatch(setDisabledItem(index))
+      : dispatch(setDisabledItem(null));
   };
 
   const chooseScheduleItem = () => {

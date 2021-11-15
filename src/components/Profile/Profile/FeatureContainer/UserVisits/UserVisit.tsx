@@ -11,7 +11,7 @@ const UserVisit: React.FC = () => {
   return (
     <VisitContainer>
       <ContainerName>My visit</ContainerName>
-      {!visit ? (
+      {!visit?.length ? (
         <span>
           Please create an appointment with the doctor on the{' '}
           <NavLink to={ROUTS.DOCTORS_PAGE_PATH}>doctor's appointment</NavLink> page.

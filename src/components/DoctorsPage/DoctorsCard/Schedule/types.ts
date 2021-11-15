@@ -17,7 +17,7 @@ export enum ScheduleActionTypes {
   SUCCESS_MESSAGE = 'SUCCESS_MESSAGE',
 }
 
-interface SetChoiceWorkTime {
+export interface SetChoiceWorkTime {
   type: ScheduleActionTypes.SET_CHOICE_WORK_TIME;
   payload: {
     date: string;
@@ -25,11 +25,9 @@ interface SetChoiceWorkTime {
     _id: string;
   };
 }
-interface SetDisabledItem {
+export interface SetDisabledItem {
   type: ScheduleActionTypes.SET_DISABLED_ITEM;
-  payload: {
-    disabledItem: null | number;
-  };
+  payload: null | number;
 }
 interface SuccessMessage {
   type: ScheduleActionTypes.SUCCESS_MESSAGE;

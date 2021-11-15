@@ -11,7 +11,7 @@ const WorkTimeManagement: React.FC = () => {
       <ContainersName>Patient</ContainersName>
 
       <ContainerContent>
-        {!workTime ? (
+        {!workTime?.length ? (
           <span>At the moment, no one has signed up to you yet.</span>
         ) : (
           workTime.map((appointment) => {

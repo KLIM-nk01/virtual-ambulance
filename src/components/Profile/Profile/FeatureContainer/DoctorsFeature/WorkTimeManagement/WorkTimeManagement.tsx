@@ -56,7 +56,7 @@ const WorkTimeManagement: React.FC = () => {
       <ContainersName>Work Time</ContainersName>
 
       <ContainerContent>
-        {!workTime ? (
+        {!workTime?.length ? (
           <span>Have not added time yet</span>
         ) : (
           workTime.map((dateTime) => {
@@ -85,15 +85,9 @@ const WorkTimeManagement: React.FC = () => {
         {addDateError && <span>{addDateError}</span>}
       </DateTimePickerWrapper>
 
-      {date ? (
-        <Button onClick={() => addNewDate()} round size="small" variant="outlined">
-          add
-        </Button>
-      ) : (
-        <Button disabled round size="small" variant="outlined">
-          add
-        </Button>
-      )}
+      <Button disabled={!date} onClick={() => addNewDate()} round size="small" variant="outlined">
+        add
+      </Button>
     </TimeManagementContainer>
   );
 };
