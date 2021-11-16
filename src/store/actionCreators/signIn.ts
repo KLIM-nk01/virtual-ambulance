@@ -1,10 +1,10 @@
-import axios, { AxiosResponse } from 'axios';
 import { Dispatch } from 'redux';
-import { ActionsType, SignInActionsType } from '@store/types/signIn';
-import * as cookies from '@core/cookies/cookies';
+import axios, { AxiosResponse } from 'axios';
 import { API_URL } from '@constants/apiUrl';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
+import { ActionsType, SignInActionsType } from '@store/types/signIn';
 import { UserActionType } from '@store/types/user';
+import * as cookies from '@core/cookies/cookies';
 import { setUser } from './user';
 
 export const userSignIn = (dataAuth: { password: string; email: string }) => {

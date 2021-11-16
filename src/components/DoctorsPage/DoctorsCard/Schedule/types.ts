@@ -33,7 +33,7 @@ interface SuccessMessage {
   type: ScheduleActionTypes.SUCCESS_MESSAGE;
 }
 
-interface SetDisabledButton {
+export interface SetDisabledButton {
   type: ScheduleActionTypes.SET_DISABLED_BUTTON;
 }
 

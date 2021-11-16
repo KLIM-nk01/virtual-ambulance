@@ -4,6 +4,7 @@ import {
   ScheduleActionTypes,
   SetChoiceWorkTime,
   SetDisabledItem,
+  SetDisabledButton,
 } from './types';
 
 export const initialState = {
@@ -18,25 +19,25 @@ export const initialState = {
   viewSuccessMessage: false,
 };
 
-export const setDisabledItem = (payload: null | number): SetDisabledItem => {
-  return {
-    type: ScheduleActionTypes.SET_DISABLED_ITEM,
-    payload: payload,
-  };
-};
+export const setDisabledItem = (payload: null | number): SetDisabledItem => ({
+  type: ScheduleActionTypes.SET_DISABLED_ITEM,
+  payload: payload,
+});
 
 export const setChoiceWorkTime = (workTime: {
   date: string;
   time: string;
   _id: string;
-}): SetChoiceWorkTime => {
-  return {
-    type: ScheduleActionTypes.SET_CHOICE_WORK_TIME,
-    payload: workTime,
-  };
-};
+}): SetChoiceWorkTime => ({
+  type: ScheduleActionTypes.SET_CHOICE_WORK_TIME,
+  payload: workTime,
+});
 
-export const reducer = (
+export const serDisabledButton = (): SetDisabledButton => ({
+  type: ScheduleActionTypes.SET_DISABLED_BUTTON,
+});
+
+export const scheduleReducer = (
   state: IScheduleInitialState,
   action: ActionType
 ): IScheduleInitialState => {

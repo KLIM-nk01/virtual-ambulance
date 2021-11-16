@@ -66,7 +66,7 @@ const DoctorsCard: React.FC<IProps> = ({
           Work Place: {workPlace.name} Address: {workPlace.address}
         </Experience>
         <Description>{description}</Description>
-        <Button round onClick={() => showSchedule()} variant="contained">
+        <Button round onClick={showSchedule} variant="contained">
           Sign up
         </Button>
       </ContainerTwo>

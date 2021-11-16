@@ -1,4 +1,19 @@
-import { IDoctorsData } from 'types/IDoctorData';
+interface IWorkTime {
+  date: string;
+  time: string;
+  _id: string;
+}
+
+interface IUserData {
+  name: string;
+  lastName: string;
+  photo: string;
+}
+
+interface IWorkPlace {
+  name: string;
+  address: string;
+}
 
 export interface IDoctorsState {
   doctors: {
@@ -7,16 +22,9 @@ export interface IDoctorsState {
     direction: string;
     description: string;
 
-    workTime: { date: string; time: string; _id: string }[];
-    userData: {
-      name: string;
-      lastName: string;
-      photo: string;
-    };
-    workPlace: {
-      name: string;
-      address: string;
-    };
+    workTime: IWorkTime[];
+    userData: IUserData;
+    workPlace: IWorkPlace;
   }[];
 
   loading: boolean;

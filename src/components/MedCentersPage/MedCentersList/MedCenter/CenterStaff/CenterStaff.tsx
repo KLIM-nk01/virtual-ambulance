@@ -19,9 +19,9 @@ const Staff: React.FC<IStaff> = ({ medStaff }) => {
     <CenterStaff>
       <span>Our staff: </span>
       <StaffWrapper>
-        {medStaff.map(({userData, direction}) => {
+        {medStaff.map(({ userData, direction }) => {
           return (
-            <StaffItem key={uniqid()}>
+            <StaffItem key={`${userData.name} + ${userData.lastName}`}>
               <img src={userData.photo || NoAva} alt="doctors avatar" />
               <Information>
                 <span>

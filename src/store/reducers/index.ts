@@ -1,5 +1,5 @@
-import { medCenterReducer } from './medCenterReducer';
 import { combineReducers } from 'redux';
+import { medCenterReducer } from './medCenterReducer';
 import { doctorsReducer } from './doctorsReducer';
 import { signInReducer } from './signInReducer';
 import { doctorsDirectionReducer } from './doctorsDirectionReducer';

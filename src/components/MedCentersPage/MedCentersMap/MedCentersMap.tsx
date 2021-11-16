@@ -48,14 +48,14 @@ const MedCentersMap: React.FC<IMedCenterMap> = ({ medCenters }) => {
       >
         {medCenters.map((medCenter) => (
           <Marker
-            key={uniqid()}
+            key={medCenter._id}
             latitude={medCenter.location.lat}
             longitude={medCenter.location.lon}
             offsetLeft={-20}
             offsetTop={-10}
           >
             <Tooltip placement="top" title={`${medCenter.name} ${medCenter.address}`}>
-              <MarkerStyle src={marker} alt={''}></MarkerStyle>
+              <MarkerStyle src={marker} alt='Map Marker'></MarkerStyle>
             </Tooltip>
           </Marker>
         ))}

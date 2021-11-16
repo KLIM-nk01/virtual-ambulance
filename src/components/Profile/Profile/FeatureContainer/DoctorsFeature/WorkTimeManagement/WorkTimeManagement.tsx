@@ -71,21 +71,19 @@ const WorkTimeManagement: React.FC = () => {
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DateTimePicker
             renderInput={(props) => <TextField {...props} />}
-            label="Сhoose date and time:"
+            label="Select date and time:"
             value={date}
             onChange={(newValue: Date | null) => {
               setDate(newValue);
             }}
             inputFormat="dd.MM.yyyy HH:mm a"
             shouldDisableDate={disableWeekends}
-            minTime={new Date('01/01/2021 08:00 AM')}
-            maxTime={new Date('01/01/2021 06:00 PM')}
           />
         </LocalizationProvider>
         {addDateError && <span>{addDateError}</span>}
       </DateTimePickerWrapper>
 
-      <Button disabled={!date} onClick={() => addNewDate()} round size="small" variant="outlined">
+      <Button disabled={!date} onClick={addNewDate} round size="small" variant="outlined">
         add
       </Button>
     </TimeManagementContainer>

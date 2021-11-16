@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { setChoiceWorkTime, setDisabledItem } from '../ScheduleReducer';
+import { serDisabledButton, setChoiceWorkTime, setDisabledItem } from '../ScheduleReducer';
 import { ActionType, IScheduleInitialState, ScheduleActionTypes } from '../types';
 import { ScheduleItemWrapper } from './ScheduleItemStyle';
 
@@ -19,7 +19,6 @@ const ScheduleItem: React.FC<IScheduleItemProps> = ({
   dispatch,
   stateSchedule,
   disabled,
-  setDisabledButton,
 }) => {
   const [choiceDate, setChoiceDate] = useState<boolean>(false);
 
@@ -35,17 +34,13 @@ const ScheduleItem: React.FC<IScheduleItemProps> = ({
 
   const chooseScheduleItem = () => {
     itemSelected();
-    setDisabledButton({ type: ScheduleActionTypes.SET_DISABLED_BUTTON });
+    dispatch(serDisabledButton());
   };
 
   useMemo(() => stateSchedule.zeroing && setChoiceDate(choiceDate), [stateSchedule.zeroing]);
 
   return (
-    <ScheduleItemWrapper
-      disabled={disabled}
-      onClick={() => chooseScheduleItem()}
-      choice={choiceDate}
-    >
+    <ScheduleItemWrapper disabled={disabled} onClick={chooseScheduleItem} choice={choiceDate}>
       <span>
         <b>Date:</b> {workTimeItem.date}
       </span>

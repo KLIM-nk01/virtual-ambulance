@@ -30,7 +30,7 @@ const MedCentersList: React.FC<IMedCenterListPros> = ({ error, medCenters, loadi
     error
       ? errorMessage(error)
       : medCenters.map((medCenter) => {
-          return <MedCenter key={uniqid()} {...medCenter} />;
+          return <MedCenter key={medCenter._id} {...medCenter} />;
         });
   };
 
@@ -42,7 +42,7 @@ const MedCentersList: React.FC<IMedCenterListPros> = ({ error, medCenters, loadi
         <Error errorMessage={error} />
       ) : (
         medCenters.map((medCenter) => {
-          return <MedCenter key={uniqid()} {...medCenter} />;
+          return <MedCenter key={medCenter._id} {...medCenter} />;
         })
       )}
     </MedCentersListWrapper>

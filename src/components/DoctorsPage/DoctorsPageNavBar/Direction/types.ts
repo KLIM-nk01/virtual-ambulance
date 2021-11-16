@@ -1,9 +1,4 @@
-export interface IDirection {
-  src?: string;
-  direction: string;
-  setChoiseDirection: any;
-  choiseDirection: string[];
-}
+
 
 export interface IDirectionInitialState {
   enableDirection: boolean;

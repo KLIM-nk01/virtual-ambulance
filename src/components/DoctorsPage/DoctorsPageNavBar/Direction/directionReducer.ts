@@ -1,4 +1,4 @@
-import { ActionType, DirectionActionType, IDirection, IDirectionInitialState } from './types';
+import { ActionType, DirectionActionType, IDirectionInitialState } from './types';
 
 export const directionReducer = (
   state: IDirectionInitialState,

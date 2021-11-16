@@ -10,7 +10,7 @@ const Error: React.FC<IErrorProps> = ({ errorMessage }) => {
   return (
     <ErrorWrapper>
       <ErrorContent>
-        <img src={ErrorImg} alt="Error" />
+        <img src={ErrorImg} alt="Error icon" />
         <span>{errorMessage}</span>
       </ErrorContent>
     </ErrorWrapper>

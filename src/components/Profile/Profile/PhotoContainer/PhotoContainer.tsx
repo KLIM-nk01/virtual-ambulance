@@ -7,7 +7,7 @@ const PhotoContainer = () => {
   const user = useTypesSelector((state) => state.user);
   return (
     <Container>
-      <img src={user.currentUser.photo} alt="avatar" />
+      <img src={user.currentUser.photo} alt="Avatar" />
     </Container>
   );
 };

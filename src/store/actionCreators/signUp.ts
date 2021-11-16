@@ -1,11 +1,10 @@
-import { ActionsType, SignInActionsType } from '@store/types/signIn';
-import { ActionType, SignUpActionsType } from '@store/types/signUp';
 import axios, { AxiosResponse } from 'axios';
 import { Dispatch } from 'redux';
+import { ActionType, SignUpActionsType } from '@store/types/signUp';
+import { UserActionType } from '@store/types/user';
 import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
-import { UserActionType } from '@store/types/user';
 import { setUser } from './user';
 
 type IUserData = string | { value: string };

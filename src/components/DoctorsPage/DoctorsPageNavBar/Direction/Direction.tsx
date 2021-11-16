@@ -1,7 +1,14 @@
 import React, { useMemo, useReducer } from 'react';
-import { DirectionActionType, IDirection, IDirectionInitialState } from './types';
+import { DirectionActionType, IDirectionInitialState } from './types';
 import { directionReducer } from './directionReducer';
 import { DirectionWrapper } from './DirectionStyle';
+
+export interface IDirection {
+  src?: string;
+  direction: string;
+  setSelectedDirection: any;
+  selectedDirection: string[];
+}
 
 const initialState: IDirectionInitialState = {
   enableDirection: false,
@@ -11,23 +18,23 @@ const initialState: IDirectionInitialState = {
 const Direction: React.FC<IDirection> = ({
   direction,
   src,
-  setChoiseDirection,
-  choiseDirection,
+  setSelectedDirection,
+  selectedDirection,
 }) => {
-  const [directionState, dispatchLock] = useReducer(directionReducer, initialState);
+  const [directionState, setDirectionState] = useReducer(directionReducer, initialState);
 
   const clickDirection = () => {
-    dispatchLock({ type: DirectionActionType.SET_ENABLE_DIRECTION });
-    choiseDirection.indexOf(direction) > -1
-      ? setChoiseDirection(choiseDirection.filter((direc) => direc !== direction))
-      : setChoiseDirection([...choiseDirection, direction]);
+    setDirectionState({ type: DirectionActionType.SET_ENABLE_DIRECTION });
+    selectedDirection.indexOf(direction) > -1
+      ? setSelectedDirection(selectedDirection.filter((direc) => direc !== direction))
+      : setSelectedDirection([...selectedDirection, direction]);
   };
 
   useMemo(
     () =>
       direction === 'All Doctors' &&
-      (dispatchLock({ type: DirectionActionType.SET_ALL_DOCTORS_DIRECTION }),
-      dispatchLock({ type: DirectionActionType.SET_ENABLE_DIRECTION })),
+      (setDirectionState({ type: DirectionActionType.SET_ALL_DOCTORS_DIRECTION }),
+      setDirectionState({ type: DirectionActionType.SET_ENABLE_DIRECTION })),
     [direction]
   );
 
@@ -35,7 +42,7 @@ const Direction: React.FC<IDirection> = ({
     <DirectionWrapper
       allDoctors={directionState.allDoctors}
       enable={directionState.enableDirection}
-      onClick={() => clickDirection()}
+      onClick={clickDirection}
     >
       <img src={src} alt="direction logo" />
       <span>{direction}</span>

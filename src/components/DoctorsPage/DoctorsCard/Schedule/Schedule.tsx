@@ -3,23 +3,28 @@ import { useDispatch } from 'react-redux';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ScheduleActionTypes } from './types';
 import { profilePatientAddAppointment } from '@store/actionCreators/profileData';
-import { ScheduleWrapper, WrapperHeader, ItemWrapper, SuccessMessage } from './ScheduleStyle';
+import {
+  ScheduleWrapper,
+  WrapperHeader,
+  ItemWrapper,
+  SuccessOrErrorMessage,
+} from './ScheduleStyle';
 import Button from '@components/common/Button/Button';
 import ScheduleItem from './ScheduleItem/ScheduleItem';
 import Error from '@components/common/Error/Error';
-import { initialState, reducer } from './ScheduleReducer';
+import { initialState, scheduleReducer } from './ScheduleReducer';
 
 export interface IScheduleProps {
   workTimeData: { date: string; time: string; _id: string }[];
 }
 
 const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
-  const [stateSchedule, dispatchLock] = useReducer(reducer, initialState);
+  const [stateSchedule, scheduleDispatch] = useReducer(scheduleReducer, initialState);
   const { error } = useTypesSelector((state) => state.profile);
   const dispatch = useDispatch();
-  
+
   const sendWorkTime = () => {
-    dispatchLock({ type: ScheduleActionTypes.SUCCESS_MESSAGE });
+    scheduleDispatch({ type: ScheduleActionTypes.SUCCESS_MESSAGE });
   };
 
   const viewDate = () => {
@@ -27,32 +32,31 @@ const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
     sendWorkTime();
   };
 
-
   const renderItem = () =>
     workTimeData.map((workTimeItem, index) => {
       if (stateSchedule.disabledItem === null || index === stateSchedule.disabledItem) {
         return (
           <ScheduleItem
             disabledButton={stateSchedule.disabledButton}
-            setDisabledButton={dispatchLock}
+            setDisabledButton={scheduleDispatch}
             key={workTimeItem._id}
             stateSchedule={stateSchedule}
             workTimeItem={workTimeItem}
             index={index}
-            dispatch={dispatchLock}
+            dispatch={scheduleDispatch}
           />
         );
       } else {
         return (
           <ScheduleItem
             disabledButton={stateSchedule.disabledButton}
-            setDisabledButton={dispatchLock}
+            setDisabledButton={scheduleDispatch}
             key={workTimeItem._id}
             disabled
             stateSchedule={stateSchedule}
             workTimeItem={workTimeItem}
             index={index}
-            dispatch={dispatchLock}
+            dispatch={scheduleDispatch}
           />
         );
       }
@@ -69,24 +73,17 @@ const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
       <ItemWrapper>{renderItem()}</ItemWrapper>
 
       {stateSchedule.viewSuccessMessage && (
-        <SuccessMessage>
+        <SuccessOrErrorMessage>
           {error ? (
             <Error errorMessage={error} />
           ) : (
             `You have booked a ticket for ${stateSchedule.choiceWorkTime.time} on
             ${stateSchedule.choiceWorkTime.date}. Be healthy!`
           )}
-        </SuccessMessage>
+        </SuccessOrErrorMessage>
       )}
 
-      <Button
-        onClick={() => {
-          viewDate();
-        }}
-        disabled={!stateSchedule.disabledButton}
-        round
-        variant="contained"
-      >
+      <Button onClick={viewDate} disabled={!stateSchedule.disabledButton} round variant="contained">
         Sign Up
       </Button>
     </ScheduleWrapper>

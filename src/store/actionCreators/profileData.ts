@@ -2,9 +2,9 @@ import { Dispatch } from 'redux';
 import axios, { AxiosResponse } from 'axios';
 import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
-import { ProfileAction, ProfileActionTypes } from '@store/types/profileData';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
 import { USER_ROLE } from '@constants/userRole';
+import { ProfileAction, ProfileActionTypes } from '@store/types/profileData';
 
 export const fetchProfileData = (userRole: string) => {
   return async (dispatch: Dispatch<ProfileAction>) => {
@@ -37,7 +37,6 @@ export const fetchProfileData = (userRole: string) => {
       }
     } catch (error) {
       if (error.response) {
-        error.response.status >= 400 &&
           dispatch({
             type: ProfileActionTypes.FETCH_PROFILE_ERROR,
             errorMessage: error.response.data.message,
@@ -74,7 +73,7 @@ export const profileDoctorAddDate = (date: string) => {
       }
     } catch (error) {
       if (error.response) {
-        error.response.status >= 400 &&
+
           dispatch({
             type: ProfileActionTypes.FETCH_PROFILE_ERROR,
             errorMessage: error.response.data.message,
@@ -102,7 +101,6 @@ export const profileDoctorDelete = (idDate: string) => {
       }
     } catch (error) {
       if (error.response) {
-        error.response.status >= 400 &&
           dispatch({
             type: ProfileActionTypes.FETCH_PROFILE_ERROR,
             errorMessage: error.response.data.message,
@@ -119,7 +117,6 @@ export const profileDoctorDelete = (idDate: string) => {
 
 export const profilePatientAddAppointment = (idDate: string) => {
   return async (dispatch: Dispatch<ProfileAction>) => {
-    // dispatch({ type: ProfileActionTypes.FETCH_PROFILE });
     dispatch({
       type: ProfileActionTypes.FETCH_PROFILE_ERROR,
       errorMessage: '',
@@ -152,7 +149,6 @@ export const profilePatientAddAppointment = (idDate: string) => {
       }
     } catch (error) {
       if (error.response) {
-        error.response.status >= 400 &&
           dispatch({
             type: ProfileActionTypes.FETCH_PROFILE_ERROR,
             errorMessage: error.response.data.message,
@@ -185,7 +181,6 @@ export const profilePatientDeleteAppointment = (idDate: string) => {
       }
     } catch (error) {
       if (error.response) {
-        error.response.status >= 400 &&
           dispatch({
             type: ProfileActionTypes.FETCH_PROFILE_ERROR,
             errorMessage: error.response.data.message,
