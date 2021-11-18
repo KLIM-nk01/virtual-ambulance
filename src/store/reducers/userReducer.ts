@@ -6,7 +6,7 @@ export const initialState: IUserState = {
     id_user: '',
     userRole: '',
     name: '',
-    photo: ''
+    photo: '',
   },
   isAuth: false,
 };
@@ -20,14 +20,14 @@ export const userReducer = (state = initialState, action: UserActionType): IUser
         isAuth: true,
       };
     case userActionType.LOGOUT:
-      cookies.deleteCookie(['id', 'userRole', 'token']);
+      cookies.deleteCookie(['id', 'userRole', 'token', 'refreshToken']);
       return {
         ...state,
         currentUser: {
           id_user: '',
           userRole: '',
           name: '',
-          photo: ''
+          photo: '',
         },
         isAuth: false,
       };

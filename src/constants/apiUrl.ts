@@ -4,6 +4,7 @@ export const API_URL = {
   MEDCENTERS: `${process.env.HOST}/medCenters`,
   DOCTORS: `${process.env.HOST}/doctors`,
   USER_AUTHORIZATION: `${process.env.HOST}/userAuth`,
+  USER_REFRESH: `${process.env.HOST}/refreshToken`,
   PROFILE_PATIENT: `${process.env.HOST}/profile/patient`,
   PROFILE_DOCTOR: `${process.env.HOST}/profile/doctor`,
   PROFILE_DOCTOR_ADD_DATE: `${process.env.HOST}/profile/addDate`,

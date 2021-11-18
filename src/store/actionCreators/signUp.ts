@@ -28,7 +28,7 @@ export const registrationUser = (userData: { [key: string]: any; photo?: any }) 
     try {
       const response: AxiosResponse<{
         user: any;
-        token: string;
+        tokens: { accessToken: string; refreshToken: string };
       }> = await axios.post(API_URL.REGISTRATION, form, {
         headers: {
           'Content-Type': 'multipart/form-data',
@@ -42,9 +42,10 @@ export const registrationUser = (userData: { [key: string]: any; photo?: any }) 
       if (response.data && response.data.user) {
         dispatch(setUser(response.data.user));
 
-        cookies.setCookie('id', response.data.user.id, {});
+        cookies.setCookie('id_user', response.data.user.id_user, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
-        cookies.setCookie('token', response.data.token, {});
+        cookies.setCookie('token', response.data.tokens.accessToken, {});
+        cookies.setCookie('refreshToken', response.data.tokens.refreshToken, {});
       }
     } catch (error) {
       if (error.response) {

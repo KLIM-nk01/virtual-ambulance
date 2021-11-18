@@ -37,10 +37,10 @@ export const fetchProfileData = (userRole: string) => {
       }
     } catch (error) {
       if (error.response) {
-          dispatch({
-            type: ProfileActionTypes.FETCH_PROFILE_ERROR,
-            errorMessage: error.response.data.message,
-          });
+        dispatch({
+          type: ProfileActionTypes.FETCH_PROFILE_ERROR,
+          errorMessage: error.response.data.message,
+        });
       } else if (error.request) {
         dispatch({
           type: ProfileActionTypes.FETCH_PROFILE_ERROR,
@@ -53,7 +53,6 @@ export const fetchProfileData = (userRole: string) => {
 
 export const profileDoctorAddDate = (date: string) => {
   return async (dispatch: Dispatch<ProfileAction>) => {
-    
     try {
       const response: AxiosResponse<{ date: string; time: string; idWorkTime: string }> =
         await axios.put(
@@ -73,11 +72,10 @@ export const profileDoctorAddDate = (date: string) => {
       }
     } catch (error) {
       if (error.response) {
-
-          dispatch({
-            type: ProfileActionTypes.FETCH_PROFILE_ERROR,
-            errorMessage: error.response.data.message,
-          });
+        dispatch({
+          type: ProfileActionTypes.FETCH_PROFILE_ERROR,
+          errorMessage: error.response.data.message,
+        });
       } else if (error.request) {
         dispatch({
           type: ProfileActionTypes.FETCH_PROFILE_ERROR,
@@ -90,7 +88,6 @@ export const profileDoctorAddDate = (date: string) => {
 
 export const profileDoctorDelete = (idDate: string) => {
   return async (dispatch: Dispatch<ProfileAction>) => {
-
     try {
       const response = await axios.delete(`${API_URL.PROFILE_DOCTOR_DELETE_DATE}/${idDate}`, {
         data: idDate,
@@ -101,10 +98,10 @@ export const profileDoctorDelete = (idDate: string) => {
       }
     } catch (error) {
       if (error.response) {
-          dispatch({
-            type: ProfileActionTypes.FETCH_PROFILE_ERROR,
-            errorMessage: error.response.data.message,
-          });
+        dispatch({
+          type: ProfileActionTypes.FETCH_PROFILE_ERROR,
+          errorMessage: error.response.data.message,
+        });
       } else if (error.request) {
         dispatch({
           type: ProfileActionTypes.FETCH_PROFILE_ERROR,
@@ -149,10 +146,10 @@ export const profilePatientAddAppointment = (idDate: string) => {
       }
     } catch (error) {
       if (error.response) {
-          dispatch({
-            type: ProfileActionTypes.FETCH_PROFILE_ERROR,
-            errorMessage: error.response.data.message,
-          });
+        dispatch({
+          type: ProfileActionTypes.FETCH_PROFILE_ERROR,
+          errorMessage: error.response.data.message,
+        });
       } else if (error.request) {
         dispatch({
           type: ProfileActionTypes.FETCH_PROFILE_ERROR,
@@ -181,10 +178,10 @@ export const profilePatientDeleteAppointment = (idDate: string) => {
       }
     } catch (error) {
       if (error.response) {
-          dispatch({
-            type: ProfileActionTypes.FETCH_PROFILE_ERROR,
-            errorMessage: error.response.data.message,
-          });
+        dispatch({
+          type: ProfileActionTypes.FETCH_PROFILE_ERROR,
+          errorMessage: error.response.data.message,
+        });
       } else if (error.request) {
         dispatch({
           type: ProfileActionTypes.FETCH_PROFILE_ERROR,

@@ -12,21 +12,25 @@ export const userSignIn = (dataAuth: { password: string; email: string }) => {
     dispatch({ type: ActionsType.SIGNIN_LOADING });
 
     try {
-      const response: AxiosResponse<{ user: any; token: string }> = await axios.post(
-        API_URL.AUTHORIZATION,
-        dataAuth
-      );
+      const response: AxiosResponse<{
+        user: any;
+        tokens: { accessToken: string; refreshToken: string };
+      }> = await axios.post(API_URL.AUTHORIZATION, dataAuth, {
+        headers: {
+          cookies: `${cookies.getCookie("refreshToken")}`
+        }
+      });
 
       if (response.data && response.data.user) {
         dispatch(setUser(response.data.user));
         dispatch({ type: ActionsType.SIGNIN_SUCCESS });
         cookies.setCookie('id_user', response.data.user.id_user, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
-        cookies.setCookie('token', response.data.token, {});
+        cookies.setCookie('token', response.data.tokens.accessToken, {});
+        cookies.setCookie('refreshToken', response.data.tokens.refreshToken, {});
       }
     } catch (error) {
       if (error.response) {
-        error.response.status >= 400 &&
           dispatch({
             type: ActionsType.SIGNIN_ERROR,
             errorMessage: error.response.data.message,
