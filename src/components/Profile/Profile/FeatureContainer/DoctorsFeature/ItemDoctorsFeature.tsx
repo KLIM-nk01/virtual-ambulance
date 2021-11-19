@@ -7,16 +7,22 @@ interface IItemDoctorsProps {
   time: string;
   idWorkTime: string;
   patientName?: string;
+  _id: string;
   deleteDate: (value: string) => void;
 }
 
 const ItemDoctorsFeature: React.FC<IItemDoctorsProps> = ({
   idWorkTime,
+  _id,
   date,
   time,
   deleteDate,
   patientName,
 }) => {
+  
+  const deleteDateTime = () => {
+    idWorkTime ? deleteDate(idWorkTime) : deleteDate(_id);
+  };
   return (
     <Item>
       <span>{time}</span>
@@ -29,7 +35,7 @@ const ItemDoctorsFeature: React.FC<IItemDoctorsProps> = ({
           <RemoveButton disabled />
         </Tooltip>
       ) : (
-        <RemoveButton onClick={() => deleteDate(idWorkTime)} />
+        <RemoveButton onClick={deleteDateTime} />
       )}
     </Item>
   );

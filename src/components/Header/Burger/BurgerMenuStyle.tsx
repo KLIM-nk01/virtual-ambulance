@@ -12,12 +12,12 @@ export const BurgerMenuWrapper = styled.div<IBurgerMenu>`
   height: 100vh;
   top: 80px;
   right: 0;
-  display: flex;
+
   transform: ${(props) => (!props.menuActive ? 'translateX(-130%);' : 'translateX(0);')};
   transition: all 0.2s;
-  
-  @media (min-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
-    display: none;
+  display: none;
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    display: flex;
   }
 `;
 
@@ -39,11 +39,11 @@ export const BurgerMenuContent = styled.div`
   flex-direction: column;
   align-items: center;
   transition: all 0.2s;
-  
+
   a {
     width: 100%;
   }
-  
+
   button {
     width: 100%;
     margin: 0;
@@ -58,9 +58,9 @@ export const BurgerButtonWrapper = styled.div`
   display: none;
   width: 20px;
   height: 20px;
-  position: relative;
+  position: absolute;
   cursor: pointer;
-  
+  left: 0;
   :before,
   :after,
   span {
@@ -71,19 +71,19 @@ export const BurgerButtonWrapper = styled.div`
     height: 2px;
     border: 50px;
   }
-  
+
   :before {
     top: 0;
   }
-  
+
   span {
     top: 9px;
   }
-  
+
   :after {
     bottom: 0;
   }
-  
+
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     display: block;
   }

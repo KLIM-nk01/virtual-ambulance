@@ -51,6 +51,7 @@ const WorkTimeManagement: React.FC = () => {
   const deleteDate = (idDate: string) => {
     dispatch(profileDoctorDelete(idDate));
   };
+
   return (
     <TimeManagementContainer>
       <ContainersName>Work Time</ContainersName>
@@ -61,7 +62,11 @@ const WorkTimeManagement: React.FC = () => {
         ) : (
           workTime.map((dateTime) => {
             return (
-              <ItemDoctorsFeature key={dateTime.idWorkTime} deleteDate={deleteDate} {...dateTime} />
+              <ItemDoctorsFeature
+                key={dateTime.idWorkTime && dateTime._id}
+                deleteDate={deleteDate}
+                {...dateTime}
+              />
             );
           })
         )}

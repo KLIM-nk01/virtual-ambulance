@@ -1,5 +1,4 @@
 import React from 'react';
-import uniqid from 'uniqid';
 import { MedCentersListWrapper } from './MedCentersListStyle';
 import MedCenter from './MedCenter/MedCenter';
 import Loader from '@components/common/Loader/Loader';

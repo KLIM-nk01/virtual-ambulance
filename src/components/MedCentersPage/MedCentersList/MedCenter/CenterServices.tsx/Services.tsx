@@ -1,5 +1,4 @@
 import React from 'react';
-import uniqid from 'uniqid';
 import { CenterServices, ServiceItem, ServicesWrapper } from './ServicesStyle';
 
 interface IServices {

@@ -1,5 +1,3 @@
-
-
 export interface IDirectionInitialState {
   enableDirection: boolean;
   allDoctors: boolean;

@@ -13,7 +13,10 @@ export const fetchProfileData = (userRole: string) => {
     try {
       if (userRole === USER_ROLE.patient) {
         const response = await axios.get(API_URL.PROFILE_PATIENT, {
-          headers: { Authorization: `Bearer ${cookies.getCookie('token')}` },
+          headers: {
+            Authorization: `Bearer ${cookies.getCookie('token')}`,
+            cookies: `${cookies.getCookie('refreshToken')}`,
+          },
         });
 
         if (response.data) {
@@ -24,8 +27,12 @@ export const fetchProfileData = (userRole: string) => {
         }
       }
       if (userRole === USER_ROLE.doctor) {
+        console.log(cookies.getCookie('token'));
         const response = await axios.get(API_URL.PROFILE_DOCTOR, {
-          headers: { Authorization: `Bearer ${cookies.getCookie('token')}` },
+          headers: {
+            Authorization: `Bearer ${cookies.getCookie('token')}`,
+            cookies: `${cookies.getCookie('refreshToken')}`,
+          },
         });
 
         if (response.data) {
@@ -54,16 +61,23 @@ export const fetchProfileData = (userRole: string) => {
 export const profileDoctorAddDate = (date: string) => {
   return async (dispatch: Dispatch<ProfileAction>) => {
     try {
-      const response: AxiosResponse<{ date: string; time: string; idWorkTime: string }> =
-        await axios.put(
-          API_URL.PROFILE_DOCTOR_ADD_DATE,
-          {
-            date,
+      const response: AxiosResponse<{
+        date: string;
+        time: string;
+        idWorkTime: string;
+        _id: string;
+      }> = await axios.put(
+        API_URL.PROFILE_DOCTOR_ADD_DATE,
+        {
+          date,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${cookies.getCookie('token')}`,
+            cookies: `${cookies.getCookie('refreshToken')}`,
           },
-          {
-            headers: { Authorization: `Bearer ${cookies.getCookie('token')}` },
-          }
-        );
+        }
+      );
       if (response.data) {
         dispatch({
           type: ProfileActionTypes.PROFILE_DOCTOR_ADD_TIME,
@@ -91,7 +105,10 @@ export const profileDoctorDelete = (idDate: string) => {
     try {
       const response = await axios.delete(`${API_URL.PROFILE_DOCTOR_DELETE_DATE}/${idDate}`, {
         data: idDate,
-        headers: { Authorization: `Bearer ${cookies.getCookie('token')}` },
+        headers: {
+          Authorization: `Bearer ${cookies.getCookie('token')}`,
+          cookies: `${cookies.getCookie('refreshToken')}`,
+        },
       });
       if (response.data) {
         dispatch({ type: ProfileActionTypes.PROFILE_DOCTOR_DELETE_TIME, payload: response.data });
@@ -135,7 +152,10 @@ export const profilePatientAddAppointment = (idDate: string) => {
           data: idDate,
         },
         {
-          headers: { Authorization: `Bearer ${cookies.getCookie('token')}` },
+          headers: {
+            Authorization: `Bearer ${cookies.getCookie('token')}`,
+            cookies: `${cookies.getCookie('refreshToken')}`,
+          },
         }
       );
       if (response) {
@@ -167,7 +187,10 @@ export const profilePatientDeleteAppointment = (idDate: string) => {
         `${API_URL.PROFILE_PATIENT_DELETE_APPOINTMENT}/${idDate}`,
         {
           data: idDate,
-          headers: { Authorization: `Bearer ${cookies.getCookie('token')}` },
+          headers: {
+            Authorization: `Bearer ${cookies.getCookie('token')}`,
+            cookies: `${cookies.getCookie('refreshToken')}`,
+          },
         }
       );
       if (response.data) {

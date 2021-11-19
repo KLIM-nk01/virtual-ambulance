@@ -5,6 +5,7 @@ export interface IDoctorWorkTime {
   patientName?: string;
   patientLastName?: string;
   patientPhoto?: string;
+  _id: string;
 }
 
 export interface IPatientVisit {

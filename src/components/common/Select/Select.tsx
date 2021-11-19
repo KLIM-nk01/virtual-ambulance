@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import { SelectWrapper } from './SelectStyle';
 
-const SelectComponent = (props: any) => {
+const SelectComponent = (props: { options: string[]; getOptionValue: (value: string) => void }) => {
   const [optionsValue, setOptionsValue] = useState(props.options[0]);
 
   const onChange = (selectedOption: any) => {
@@ -12,11 +12,7 @@ const SelectComponent = (props: any) => {
 
   return (
     <SelectWrapper>
-      <Select
-        options={props.options}
-        onChange={onChange}
-        value={optionsValue}
-      />
+      <Select options={props.options} onChange={onChange} value={optionsValue} />
     </SelectWrapper>
   );
 };

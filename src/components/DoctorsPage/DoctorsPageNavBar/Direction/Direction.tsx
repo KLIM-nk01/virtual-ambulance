@@ -6,7 +6,7 @@ import { DirectionWrapper } from './DirectionStyle';
 export interface IDirection {
   src?: string;
   direction: string;
-  setSelectedDirection: any;
+  setSelectedDirection: (value: string[]) => void;
   selectedDirection: string[];
 }
 

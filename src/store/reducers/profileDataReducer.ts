@@ -63,11 +63,12 @@ export const profileReducer = (
         loading: false,
       };
     case ProfileActionTypes.PROFILE_DOCTOR_DELETE_TIME:
+      console.log;
       return {
         ...state,
         profileData: {
           ...state.profileData,
-          workTime: state.profileData.workTime.filter((time) => time.idWorkTime !== action.payload),
+          workTime: state.profileData.workTime.filter((time) => time._id !== action.payload),
         },
         loading: false,
       };

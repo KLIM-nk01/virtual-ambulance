@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
-import uniqid from 'uniqid';
 import Tooltip from '@mui/material/Tooltip';
 import marker from '@assets/marker.png';
 import { MarkerStyle, MedCentersMapStyle } from './MedCentersMapStyle';

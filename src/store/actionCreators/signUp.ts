@@ -40,12 +40,11 @@ export const registrationUser = (userData: { [key: string]: any; photo?: any }) 
           type: SignUpActionsType.REGISTRATION_USER_SUCCESS,
         });
       if (response.data && response.data.user) {
-        dispatch(setUser(response.data.user));
-
         cookies.setCookie('id_user', response.data.user.id_user, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
         cookies.setCookie('token', response.data.tokens.accessToken, {});
         cookies.setCookie('refreshToken', response.data.tokens.refreshToken, {});
+        dispatch(setUser(response.data.user));
       }
     } catch (error) {
       if (error.response) {
