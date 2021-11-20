@@ -17,7 +17,7 @@ const UserVisit: React.FC = () => {
           <NavLink to={ROUTS.DOCTORS_PAGE_PATH}>doctor's appointment</NavLink> page.
         </span>
       ) : (
-        visit.map((visitItem) => <VisitItem {...visitItem} />)
+        visit.map((visitItem) => <VisitItem key={visitItem._idDate} {...visitItem} />)
       )}
     </VisitContainer>
   );

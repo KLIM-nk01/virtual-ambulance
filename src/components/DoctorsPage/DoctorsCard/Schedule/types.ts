@@ -4,7 +4,7 @@ export interface IScheduleInitialState {
     time: string;
     _id: string;
   };
-  disabledItem: null | number;
+  disabledItem: string;
   disabledButton: boolean;
   zeroing: boolean;
   viewSuccessMessage: boolean;
@@ -27,7 +27,7 @@ export interface SetChoiceWorkTime {
 }
 export interface SetDisabledItem {
   type: ScheduleActionTypes.SET_DISABLED_ITEM;
-  payload: null | number;
+  payload: string;
 }
 interface SuccessMessage {
   type: ScheduleActionTypes.SUCCESS_MESSAGE;

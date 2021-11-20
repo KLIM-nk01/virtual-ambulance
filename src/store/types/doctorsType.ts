@@ -2,6 +2,7 @@ interface IWorkTime {
   date: string;
   time: string;
   _id: string;
+  patientData: string;
 }
 
 interface IUserData {

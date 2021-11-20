@@ -16,10 +16,9 @@ export const Container = styled.div`
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
     display: none;
   }
-  
+
   img {
-    max-width: 90%;
-    height: 230px;
+    width: 80%;
     border: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
     border-radius: 5px;
   }

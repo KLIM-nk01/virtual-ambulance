@@ -20,12 +20,12 @@ export const ScheduleItemWrapper = styled.div<IChoiceState>`
   border-radius: 5px;
   box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.darkGrey};
   background: ${({ choice }) => choice && STYLE_CONSTANTS.COLORS.whiteGrey};
-  
+
   span {
     font-size: ${STYLE_CONSTANTS.COLORS.black};
     font-family: ${STYLE_CONSTANTS.FONT_SIZE.medium};
   }
-  
+
   :hover {
     background: ${STYLE_CONSTANTS.COLORS.whiteGrey};
   }
@@ -41,8 +41,8 @@ export const ScheduleItemWrapper = styled.div<IChoiceState>`
   ${({ disabled }) =>
     disabled &&
     `
-    pointer-events: none;
+    // pointer-events: none;
     opacity: 0.4;
-    cursor: none;
+    // cursor: none;
   `}
 `;

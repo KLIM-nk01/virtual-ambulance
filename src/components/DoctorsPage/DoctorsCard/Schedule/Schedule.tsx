@@ -13,9 +13,10 @@ import Button from '@components/common/Button/Button';
 import ScheduleItem from './ScheduleItem/ScheduleItem';
 import Error from '@components/common/Error/Error';
 import { initialState, scheduleReducer } from './ScheduleReducer';
+import Tooltip from '@mui/material/Tooltip';
 
 export interface IScheduleProps {
-  workTimeData: { date: string; time: string; _id: string }[];
+  workTimeData: { date: string; time: string; _id: string; patientData: string }[];
 }
 
 const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
@@ -33,33 +34,21 @@ const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
   };
 
   const renderItem = () =>
-    workTimeData.map((workTimeItem, index) => {
-      if (stateSchedule.disabledItem === null || index === stateSchedule.disabledItem) {
-        return (
-          <ScheduleItem
-            disabledButton={stateSchedule.disabledButton}
-            setDisabledButton={scheduleDispatch}
-            key={workTimeItem._id}
-            stateSchedule={stateSchedule}
-            workTimeItem={workTimeItem}
-            index={index}
-            dispatch={scheduleDispatch}
-          />
-        );
-      } else {
-        return (
-          <ScheduleItem
-            disabledButton={stateSchedule.disabledButton}
-            setDisabledButton={scheduleDispatch}
-            key={workTimeItem._id}
-            disabled
-            stateSchedule={stateSchedule}
-            workTimeItem={workTimeItem}
-            index={index}
-            dispatch={scheduleDispatch}
-          />
-        );
-      }
+    workTimeData.map((workTimeItem) => {
+      return (
+        <ScheduleItem
+          disabledButton={stateSchedule.disabledButton}
+          setDisabledButton={scheduleDispatch}
+          key={workTimeItem._id}
+          stateSchedule={stateSchedule}
+          workTimeItem={workTimeItem}
+          scheduleDispatch={scheduleDispatch}
+          disabled={
+            (!!stateSchedule.disabledItem && stateSchedule.disabledItem !== workTimeItem._id) ||
+            !!workTimeItem.patientData
+          }
+        />
+      );
     });
 
   return (

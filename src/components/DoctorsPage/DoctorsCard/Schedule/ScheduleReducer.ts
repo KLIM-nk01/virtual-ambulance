@@ -13,13 +13,13 @@ export const initialState = {
     time: '',
     _id: '',
   },
-  disabledItem: null,
+  disabledItem: '',
   disabledButton: false,
   zeroing: false,
   viewSuccessMessage: false,
 };
 
-export const setDisabledItem = (payload: null | number): SetDisabledItem => ({
+export const setDisabledItem = (payload: string): SetDisabledItem => ({
   type: ScheduleActionTypes.SET_DISABLED_ITEM,
   payload: payload,
 });
