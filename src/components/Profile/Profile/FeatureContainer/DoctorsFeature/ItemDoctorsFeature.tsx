@@ -5,14 +5,12 @@ import Tooltip from '@mui/material/Tooltip';
 interface IItemDoctorsProps {
   date: string;
   time: string;
-  idWorkTime: string;
   patientName?: string;
   _id: string;
   deleteDate: (value: string) => void;
 }
 
 const ItemDoctorsFeature: React.FC<IItemDoctorsProps> = ({
-  idWorkTime,
   _id,
   date,
   time,
@@ -20,9 +18,6 @@ const ItemDoctorsFeature: React.FC<IItemDoctorsProps> = ({
   patientName,
 }) => {
   
-  const deleteDateTime = () => {
-    idWorkTime ? deleteDate(idWorkTime) : deleteDate(_id);
-  };
   return (
     <Item>
       <span>{time}</span>
@@ -35,7 +30,7 @@ const ItemDoctorsFeature: React.FC<IItemDoctorsProps> = ({
           <RemoveButton disabled />
         </Tooltip>
       ) : (
-        <RemoveButton onClick={deleteDateTime} />
+        <RemoveButton onClick={() => deleteDate(_id)} />
       )}
     </Item>
   );

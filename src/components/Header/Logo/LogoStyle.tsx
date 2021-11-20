@@ -29,10 +29,6 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
   }
-
-  /* @media (max-width: ${STYLE_CONSTANTS.SCREEN.mobileL}) {
-    left: 30%;
-  } */
 `;
 
 export const LogoStyle = styled.img`

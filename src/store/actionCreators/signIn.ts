@@ -16,9 +16,7 @@ export const userSignIn = (dataAuth: { password: string; email: string }) => {
         user: any;
         tokens: { accessToken: string; refreshToken: string };
       }> = await axios.post(API_URL.AUTHORIZATION, dataAuth, {
-        headers: {
-          cookies: `${cookies.getCookie("refreshToken")}`
-        }
+        withCredentials: true,
       });
 
       if (response.data && response.data.user) {
@@ -26,15 +24,13 @@ export const userSignIn = (dataAuth: { password: string; email: string }) => {
         dispatch({ type: ActionsType.SIGNIN_SUCCESS });
         cookies.setCookie('id_user', response.data.user.id_user, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
-        cookies.setCookie('token', response.data.tokens.accessToken, {});
-        cookies.setCookie('refreshToken', response.data.tokens.refreshToken, {});
       }
     } catch (error) {
       if (error.response) {
-          dispatch({
-            type: ActionsType.SIGNIN_ERROR,
-            errorMessage: error.response.data.message,
-          });
+        dispatch({
+          type: ActionsType.SIGNIN_ERROR,
+          errorMessage: error.response.data.message,
+        });
       } else if (error.request) {
         dispatch({
           type: ActionsType.SIGNIN_ERROR,

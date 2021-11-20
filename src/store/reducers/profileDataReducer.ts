@@ -63,7 +63,6 @@ export const profileReducer = (
         loading: false,
       };
     case ProfileActionTypes.PROFILE_DOCTOR_DELETE_TIME:
-      console.log;
       return {
         ...state,
         profileData: {

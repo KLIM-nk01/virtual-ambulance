@@ -61,13 +61,7 @@ const WorkTimeManagement: React.FC = () => {
           <span>Have not added time yet</span>
         ) : (
           workTime.map((dateTime) => {
-            return (
-              <ItemDoctorsFeature
-                key={dateTime.idWorkTime && dateTime._id}
-                deleteDate={deleteDate}
-                {...dateTime}
-              />
-            );
+            return <ItemDoctorsFeature key={dateTime._id} deleteDate={deleteDate} {...dateTime} />;
           })
         )}
       </ContainerContent>

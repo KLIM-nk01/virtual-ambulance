@@ -10,7 +10,7 @@ export const NavWrapper = styled.div`
 
   a {
     display: block;
-    height: 60%;
+    height: 350px;
     min-height: 300px;
     text-decoration: none;
     color: ${STYLE_CONSTANTS.COLORS.white};
@@ -56,7 +56,7 @@ export const NavItem = styled.div`
     font-weight: 600;
     height: 65px;
   }
-  
+
   p {
     margin-top: 20px;
     width: 95%;
