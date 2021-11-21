@@ -4,7 +4,7 @@ import { DoctorsPageNavBarWrapper } from './DoctorsPageNavBarStyle';
 import Direction from './Direction/Direction';
 
 interface IDoctorsPageNavBarProps {
-  setSelectedDirection: any;
+  setSelectedDirection: (value: string[]) => void;
   selectedDirection: string[];
 }
 

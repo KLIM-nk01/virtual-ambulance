@@ -122,3 +122,13 @@ export const MedCentersSelect = styled.div`
   height: 50px;
   border: 1px solid ${STYLE_CONSTANTS.COLORS.gray};
 `;
+
+export const SelectWrapper = styled.div`
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  
+  div {
+    margin: 0;
+  }
+`;

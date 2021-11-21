@@ -1,3 +1,10 @@
+export interface IUserResponse {
+  id_user: string;
+  name: string;
+  photo: string;
+  userRole: string;
+}
+
 export interface ISignInData {
   password: string;
   email: string;
