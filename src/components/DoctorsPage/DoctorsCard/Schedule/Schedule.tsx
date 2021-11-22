@@ -56,10 +56,9 @@ const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
 
       {stateSchedule.viewSuccessMessage && (
         <Message>
-          {error
-            ? `${error}`
-            : `You have booked a ticket for ${stateSchedule.choiceWorkTime.time} on
-            ${stateSchedule.choiceWorkTime.date}. Be healthy!`}
+          {error ||
+            `You have booked a ticket for ${stateSchedule.choiceWorkTime.time} on
+                  ${stateSchedule.choiceWorkTime.date}. Be healthy!`}
         </Message>
       )}
 
