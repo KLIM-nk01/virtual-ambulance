@@ -28,7 +28,6 @@ export const registrationUser = (userData: { [key: string]: any; photo?: any }) 
     try {
       const response: AxiosResponse<{
         user: any;
-        tokens: { accessToken: string; refreshToken: string };
       }> = await axios.post(API_URL.REGISTRATION, form, {
         headers: {
           'Content-Type': 'multipart/form-data',
