@@ -12,38 +12,54 @@ import ItemDoctorsFeature from '../ItemDoctorsFeature';
 import { ContainersName, ContainerContent } from '../ManagementStyle';
 import { TimeManagementContainer, DateTimePickerWrapper } from './WorkTimeManagementStyle';
 
+interface ILocState {
+  date: Date | null;
+  addDateError: string;
+}
 const WorkTimeManagement: React.FC = () => {
   const dispatch = useDispatch();
-  const [date, setDate] = React.useState<Date | null>(null);
   const { workTime } = useTypesSelector((state) => state.profile.profileData);
-  const [addDateError, setAddDateError] = useState<string>('');
 
-  const disableWeekends = (date: Date) => {
-    return date.getDay() === 0 || date.getDay() === 6;
-  };
+  const [locState, setLocState] = useState<ILocState>({
+    date: null,
+    addDateError: '',
+  });
+
+  const disableWeekends = (date: Date) => date.getDay() === 0 || date.getDay() === 6;
 
   const addNewDate = () => {
     let repeat = false;
-    if (date) {
+    if (locState.date) {
       workTime.map((time) => {
         if (
           time.time.split(':')[1] ===
-            `${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}` &&
-          time.date.split('.')[0] === `${date.getDate()}`
+            `${
+              locState.date!.getMinutes() < 10
+                ? '0' + locState.date!.getMinutes()
+                : locState.date!.getMinutes()
+            }` &&
+          time.date.split('.')[0] === `${locState.date!.getDate()}`
         )
           repeat = true;
       });
-      if (repeat) setAddDateError(ERROR_MESSAGE.ADD_DATE_ERROR);
+      if (repeat) setLocState({ ...locState, addDateError: ERROR_MESSAGE.ADD_DATE_ERROR });
       else {
         dispatch(
           profileDoctorAddDate(
-            `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${
-              date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
-            }:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}`
+            `${locState.date.getDate()}.${
+              locState.date.getMonth() + 1
+            }.${locState.date.getFullYear()} ${
+              locState.date.getHours() < 10
+                ? '0' + locState.date.getHours()
+                : locState.date.getHours()
+            }:${
+              locState.date.getMinutes() < 10
+                ? '0' + locState.date.getMinutes()
+                : locState.date.getMinutes()
+            }`
           )
         );
-        setDate(null);
-        setAddDateError('');
+        setLocState({ ...locState, date: null, addDateError: '' });
       }
     }
   };
@@ -60,9 +76,9 @@ const WorkTimeManagement: React.FC = () => {
         {!workTime?.length ? (
           <span>Have not added time yet</span>
         ) : (
-          workTime.map((dateTime) => {
-            return <ItemDoctorsFeature key={dateTime._id} deleteDate={deleteDate} {...dateTime} />;
-          })
+          workTime.map((dateTime) => (
+            <ItemDoctorsFeature key={dateTime._id} deleteDate={deleteDate} {...dateTime} />
+          ))
         )}
       </ContainerContent>
 
@@ -71,18 +87,18 @@ const WorkTimeManagement: React.FC = () => {
           <DateTimePicker
             renderInput={(props) => <TextField {...props} />}
             label="Select date and time:"
-            value={date}
+            value={locState.date}
             onChange={(newValue: Date | null) => {
-              setDate(newValue);
+              setLocState({ ...locState, date: newValue });
             }}
             inputFormat="dd.MM.yyyy HH:mm a"
             shouldDisableDate={disableWeekends}
           />
         </LocalizationProvider>
-        {addDateError && <span>{addDateError}</span>}
+        {locState.addDateError && <span>{locState.addDateError}</span>}
       </DateTimePickerWrapper>
 
-      <Button disabled={!date} onClick={addNewDate} round size="small" variant="outlined">
+      <Button disabled={!locState.date} onClick={addNewDate} round size="small" variant="outlined">
         add
       </Button>
     </TimeManagementContainer>
