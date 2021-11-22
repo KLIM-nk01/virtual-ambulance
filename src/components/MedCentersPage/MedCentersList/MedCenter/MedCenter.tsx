@@ -30,7 +30,6 @@ const MedCenter: React.FC<IMedCenter> = ({
   services,
   medStaff,
 }) => {
-  console.log(medStaff);
   const [hidden, setHidden] = useState<boolean>(true);
   return (
     <MedCenterItem>
