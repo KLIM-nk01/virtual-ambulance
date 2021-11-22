@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Redirect } from 'react-router';
 import { useDispatch } from 'react-redux';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { IPatientSubmitData, IUserRole } from './types';
+import { IUserRole } from './types';
 import { FormContainer, FormName, Form, ButtonBar, DoctorCheckButton } from './FormStyle';
 import { registrationUser } from '@store/actionCreators/signUp';
 import { IUserData } from '@store/types/signUp';
@@ -118,7 +118,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
             register={register('photo')}
             label="Photo"
             errors={errors}
-            id='photo'
+            id="photo"
           />
 
           <Input

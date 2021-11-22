@@ -10,7 +10,6 @@ export const userAuth = () => {
     try {
       const response: AxiosResponse<{
         user: IUserAuth;
-        tokens: { accessToken: string; refreshToken: string };
       }> = await axios.get(API_URL.USER_AUTHORIZATION, { withCredentials: true });
       if (response.data && response.data.user) {
         dispatch(setUser(response.data.user));

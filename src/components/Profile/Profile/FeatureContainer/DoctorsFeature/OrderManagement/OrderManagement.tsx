@@ -6,12 +6,13 @@ import Avatar from '@mui/material/Avatar';
 
 const WorkTimeManagement: React.FC = () => {
   const { workTime } = useTypesSelector((state) => state.profile.profileData);
+  const filterByPatientName = workTime?.filter((appointment) => appointment.patientName);
   return (
     <OrderManagementContainer>
       <ContainersName>Patient</ContainersName>
 
       <ContainerContent>
-        {!workTime?.length ? (
+        {!filterByPatientName.length ? (
           <span>At the moment, no one has signed up to you yet.</span>
         ) : (
           workTime.map((appointment) => {

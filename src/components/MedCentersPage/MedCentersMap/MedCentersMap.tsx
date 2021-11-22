@@ -3,6 +3,7 @@ import ReactMapGL, { Marker } from 'react-map-gl';
 import Tooltip from '@mui/material/Tooltip';
 import marker from '@assets/marker.png';
 import { MarkerStyle, MedCentersMapStyle } from './MedCentersMapStyle';
+import { IMedStaff } from '../MedCentersList/MedCentersList';
 
 interface IState {
   latitude: number;
@@ -19,7 +20,7 @@ interface IMedCenterMap {
     address: string;
     description: string;
     services: string[];
-    medStaff: string[];
+    medStaff: IMedStaff[];
     location: {
       lat: number;
       lon: number;
