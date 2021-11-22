@@ -1,17 +1,18 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { render, screen, within } from '@testing-library/react';
 import MainPage from './MainPage';
 import { Provider } from 'react-redux';
 import { store } from '@store/store';
 
-test('App render', () => {
+test('MainPage render', () => {
   render(
     <Provider store={store}>
-      <MainPage />
+      <BrowserRouter>
+        <MainPage />
+      </BrowserRouter>
     </Provider>
   );
-  const list = screen.getByRole('list');
-  const { getAllByRole } = within(list);
-  const items = getAllByRole('listitem');
-  expect(items.length).toBe(3);
+
+  screen.debug();
 });
