@@ -6,5 +6,6 @@
               "fileName": false
             }
           ]
-    ]
+    ],
+    "presets": ["@babel/preset-env"]
   }

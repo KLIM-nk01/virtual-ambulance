@@ -13,8 +13,8 @@ export const ProfileInformation = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
-    height: 900px;
     justify-content: center;
   }
 `;

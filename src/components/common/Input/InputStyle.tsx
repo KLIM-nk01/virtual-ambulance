@@ -29,6 +29,7 @@ export const InputGroup = styled.div<IStyleProps>`
     color: ${(props) =>
       props.primary ? STYLE_CONSTANTS.COLORS.black : STYLE_CONSTANTS.COLORS.white};
     z-index: 1;
+
     ${(props) =>
       props.type === 'file' &&
       `
@@ -40,10 +41,12 @@ export const InputGroup = styled.div<IStyleProps>`
       z-index: -1;
 
     `};
+
     ::placeholder {
       color: ${(props) =>
         props.primary ? STYLE_CONSTANTS.COLORS.black : STYLE_CONSTANTS.COLORS.white};
     }
+
     :focus {
       border-color: ${(props) =>
         props.primary ? STYLE_CONSTANTS.COLORS.blue : STYLE_CONSTANTS.COLORS.white};
@@ -60,6 +63,7 @@ export const InputGroup = styled.div<IStyleProps>`
     transition: all 200ms ease;
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
     margin-left: 10px;
+
     ${(props) =>
       props.type === 'file' &&
       `
@@ -82,6 +86,7 @@ export const InputGroup = styled.div<IStyleProps>`
     color: ${STYLE_CONSTANTS.COLORS.red};
     margin-top: 5px;
     margin-left: 10px;
+    
     ::before {
       display: inline;
       content: '⚠ ';

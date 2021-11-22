@@ -2,10 +2,11 @@ import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { Redirect } from 'react-router';
 import { useDispatch } from 'react-redux';
-import Button from '@components/common/Button/Button';
-import Input from '@components/common/Input/Input';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { IUserRole } from './types';
 import { FormContainer, FormName, Form, ButtonBar, DoctorCheckButton } from './FormStyle';
-import { IPatientSubmitData, IUserRole } from './types';
+import { registrationUser } from '@store/actionCreators/signUp';
+import { IUserData } from '@store/types/signUp';
 import {
   Email,
   Required,
@@ -13,13 +14,11 @@ import {
   PhoneNumber,
   Password,
 } from '@components/Form/SignInUp/formValidationConstants';
-import { registrationUser } from '@store/actionCreators/signUp';
-import { userSignIn } from '@store/actionCreators/signIn';
-import { ROUTS } from '@constants/routs';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';
-import { IUserData } from '@store/types/signUp';
+import Button from '@components/common/Button/Button';
+import Input from '@components/common/Input/Input';
+import Loader from '@components/common/Loader/Loader';
+import { ROUTS } from '@constants/routs';
 
 const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();
@@ -119,7 +118,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
             register={register('photo')}
             label="Photo"
             errors={errors}
-            id='photo'
+            id="photo"
           />
 
           <Input

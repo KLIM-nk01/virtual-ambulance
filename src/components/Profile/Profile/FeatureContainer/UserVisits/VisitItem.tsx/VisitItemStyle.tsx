@@ -3,7 +3,7 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const VisitItemContainer = styled.div`
   width: 240px;
-  height: 210px;
+  height: 165px;
   margin: 0 10px 20px 10px;
   display: flex;
   align-items: flex-start;
@@ -12,6 +12,7 @@ export const VisitItemContainer = styled.div`
   box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.lightGrey};
   border-radius: 5px;
   padding: 5px 0;
+
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.mobileL}) {
     width: 100%;
   }
@@ -32,6 +33,9 @@ export const ContainerFooter = styled.div`
 export const VisitInformation = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 export const MedCenterInformation = styled.div`
@@ -68,12 +72,10 @@ export const TicketInfo = styled.div`
 export const Date = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+  justify-content: space-around;
 
   span {
-    font-weight: 600;
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLittle};
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   }
 `;
 
@@ -81,10 +83,8 @@ export const DoctorsInformation = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
-  flex-direction: column;
-
-  margin: 0 10px;
-  margin-top: 10px;
+  flex-wrap: wrap;
+  margin-left: 10px;
 
   img {
     height: 100%;
@@ -93,6 +93,7 @@ export const DoctorsInformation = styled.div`
 `;
 
 export const DoctorsInfo = styled.span`
+  margin: 0;
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
 `;
 

@@ -1,13 +1,12 @@
 import React from 'react';
-import * as cookies from '@core/cookies/cookies';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { NavLink } from 'react-router-dom';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ROUTS } from '@constants/routs';
+import { USER_ROLE } from '@constants/userRole';
+import { NavWrapper, NavItem } from './NavStyle';
 import CenterLogo from '@assets/Center.svg';
 import DoctorsLogo from '@assets/doctorsLogo.svg';
 import UserAccount from '@assets/Account.svg';
-import { NavWrapper, NavItem } from './NavStyle';
-import { USER_ROLE } from '@constants/userRole';
 
 const Nav: React.FC = () => {
   const user = useTypesSelector((state) => state.user);

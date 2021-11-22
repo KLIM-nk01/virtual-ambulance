@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { userUnAuth } from '@store/actionCreators/signIn';
-import Button from '@components/common/Button/Button';
-import { LogOutWrapper } from './LogOutStyle';
-import { logOut } from '@store/actionCreators/user';
+import { NavLink } from 'react-router-dom';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
-import AvatarR from 'react-avatar';
-import AvatarM from '@mui/material/Avatar';
+import { ROUTS } from '@constants/routs';
+import { logOut } from '@store/actionCreators/user';
+import { LogOutWrapper } from './LogOutStyle';
+import Button from '@components/common/Button/Button';
+import Avatar from '@mui/material/Avatar';
 
 const LogOut: React.FC = () => {
   const dispatch = useDispatch();
@@ -14,8 +14,10 @@ const LogOut: React.FC = () => {
   const avatar = useTypesSelector((state) => state.user.currentUser.photo);
   return (
     <LogOutWrapper>
-      <AvatarM sx={{ width: 56, height: 56 }} src={avatar}/>
-      <Button onClick={() => dispatch(logOut())} round variant='outlined'>
+      <NavLink to={ROUTS.PERSONAL_ACCOUNT}>
+        <Avatar sx={{ width: 56, height: 56 }} src={avatar} />
+      </NavLink>
+      <Button onClick={() => dispatch(logOut())} round variant="outlined">
         Sign out
       </Button>
     </LogOutWrapper>

@@ -5,6 +5,7 @@ import { FormPageContainer } from './FormPageStyle';
 import SignUpDoctor from './SignInUp/SignUpDoctor';
 import SingInForm from './SignInUp/SingIn';
 import SignUpUser from './SignInUp/SignUpPatient';
+
 const FormPage: React.FC = () => {
   const [userRole, setUserRole] = useState('patient');
   return (

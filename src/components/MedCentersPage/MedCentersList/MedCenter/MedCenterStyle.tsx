@@ -4,14 +4,11 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 export const MedCenterItem = styled.div`
   width: 90%;
   height: fit-content;
-
   margin: 20px auto;
   background-color: ${STYLE_CONSTANTS.COLORS.white};
   border-radius: 5px;
-
   padding: 15px;
   box-shadow: 0px 0px 15px 0px ${STYLE_CONSTANTS.COLORS.darkGrey};
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,7 +29,6 @@ export const SubTitle = styled.span`
 
 export const ItemHeader = styled.div`
   width: 100%;
-
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -49,20 +45,24 @@ export const ItemPhoto = styled.div`
   img {
     width: 100%;
   }
+
   overflow: hidden;
   margin-bottom: 5px;
 `;
 
 export const ItemDescription = styled.div`
   width: 100%;
+
   p {
     color: ${STYLE_CONSTANTS.COLORS.darkGrey};
   }
+
   span {
     display: block;
     color: ${STYLE_CONSTANTS.COLORS.darkGrey};
     margin: 10px 0;
     cursor: pointer;
+    
     :hover {
       color: ${STYLE_CONSTANTS.COLORS.blue};
     }

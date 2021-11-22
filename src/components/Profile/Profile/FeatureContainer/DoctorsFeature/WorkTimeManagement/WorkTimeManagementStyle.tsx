@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import { Container } from '../ManagementStyle';
 
 export const TimeManagementContainer = styled(Container)`
   width: 35%;
   border-radius: 5px;
+
   @media (max-width: 900px) {
     width: 100%;
   }
@@ -15,11 +17,13 @@ export const DateTimePickerWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  padding: 10px;
+  padding: 13px 0;
   position: relative;
-  button {
-    width: 100%;
-    margin-top: 10px;
+
+  span {
+    margin-top: 5px;
+    color: ${STYLE_CONSTANTS.COLORS.red};
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   }
 `;
 

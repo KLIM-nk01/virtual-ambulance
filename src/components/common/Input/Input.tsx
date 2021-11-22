@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { InputGroup } from './InputStyle';
 
 interface IInput {
@@ -32,19 +32,17 @@ const Input: React.FC<IInput> = ({
   accept,
   id,
   fileName,
+  ...props
 }) => {
-
   return (
     <InputGroup fileName={fileName} primary={primary} type={type}>
       <label htmlFor={id}>{fileName ? fileName : label}</label>
       <input
         id={id}
         name={name}
-        accept={accept}
-        placeholder={placeholder}
         type={type}
         {...register}
-        
+        {...props}
       />
       {errors && errors[name] && <p>{errors[name]?.message}</p>}
     </InputGroup>

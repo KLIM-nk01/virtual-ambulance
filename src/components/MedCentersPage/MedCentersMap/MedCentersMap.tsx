@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import ReactMapGL, { Marker } from 'react-map-gl';
-import uniqid from 'uniqid';
+import Tooltip from '@mui/material/Tooltip';
 import marker from '@assets/marker.png';
 import { MarkerStyle, MedCentersMapStyle } from './MedCentersMapStyle';
+import { IMedStaff } from '../MedCentersList/MedCentersList';
 
 interface IState {
   latitude: number;
@@ -19,7 +20,7 @@ interface IMedCenterMap {
     address: string;
     description: string;
     services: string[];
-    medStaff: string[];
+    medStaff: IMedStaff[];
     location: {
       lat: number;
       lon: number;
@@ -47,13 +48,15 @@ const MedCentersMap: React.FC<IMedCenterMap> = ({ medCenters }) => {
       >
         {medCenters.map((medCenter) => (
           <Marker
-            key={uniqid()}
+            key={medCenter._id}
             latitude={medCenter.location.lat}
             longitude={medCenter.location.lon}
             offsetLeft={-20}
             offsetTop={-10}
           >
-            <MarkerStyle src={marker} alt={''}></MarkerStyle>
+            <Tooltip placement="top" title={`${medCenter.name} ${medCenter.address}`}>
+              <MarkerStyle src={marker} alt='Map Marker'></MarkerStyle>
+            </Tooltip>
           </Marker>
         ))}
       </ReactMapGL>

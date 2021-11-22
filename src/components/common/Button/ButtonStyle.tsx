@@ -22,7 +22,7 @@ export const ButtonStyle = styled.button<IProps>`
   padding: 5px;
 
   :hover {
-    background: #d0deec;
+    background: ${STYLE_CONSTANTS.COLORS.buttonHoverColor};
   }
 
   ${(props) => {
@@ -33,7 +33,7 @@ export const ButtonStyle = styled.button<IProps>`
         :disabled {
         cursor: default;
         background: inherit;
-        color: #7f8e9d;
+        color: ${STYLE_CONSTANTS.COLORS.buttonDisabledColor};
         border: 1px solid ${STYLE_CONSTANTS.COLORS.lightGrey};
         }
         `;
@@ -46,7 +46,14 @@ export const ButtonStyle = styled.button<IProps>`
   
         :hover {
           background: ${STYLE_CONSTANTS.COLORS.darkBlue};
-          box-shadow: 0px 0px 7px 0px #7f8e9d;
+          box-shadow: 0px 0px 7px 0px ${STYLE_CONSTANTS.COLORS.buttonDisabledColor};
+        }
+
+        :disabled {
+        cursor: default;
+        background: inherit;
+        color: ${STYLE_CONSTANTS.COLORS.buttonDisabledColor};
+        border: 1px solid ${STYLE_CONSTANTS.COLORS.lightGrey};
         }
         `;
         break;
@@ -55,13 +62,15 @@ export const ButtonStyle = styled.button<IProps>`
         return `
         background: ${STYLE_CONSTANTS.COLORS.blue};
         color: ${STYLE_CONSTANTS.COLORS.white};
+
         :hover {
           background: ${STYLE_CONSTANTS.COLORS.darkBlue};
         }
+        
         :disabled {
         cursor: default;
         background: inherit;
-        color: #7f8e9d;
+        color: ${STYLE_CONSTANTS.COLORS.buttonDisabledColor};
         border: none;
         }
         `;

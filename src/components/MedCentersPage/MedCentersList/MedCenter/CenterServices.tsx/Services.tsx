@@ -1,10 +1,5 @@
 import React from 'react';
-import uniqid from 'uniqid';
-import {
-  CenterServices,
-  ServiceItem,
-  ServicesWrapper
-} from './ServicesStyle';
+import { CenterServices, ServiceItem, ServicesWrapper } from './ServicesStyle';
 
 interface IServices {
   services: string[];
@@ -15,8 +10,8 @@ const Services: React.FC<IServices> = ({ services }) => {
     <CenterServices>
       <span>Our services: </span>
       <ServicesWrapper>
-        {services?.map((sevice) => (
-          <ServiceItem key={uniqid()} >{sevice}</ServiceItem>
+        {services?.map((service) => (
+          <ServiceItem key={service}>{service}</ServiceItem>
         ))}
       </ServicesWrapper>
     </CenterServices>

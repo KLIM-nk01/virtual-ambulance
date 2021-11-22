@@ -9,6 +9,7 @@ export const CenterServices = styled.div`
   flex-direction: column;
   background: ${STYLE_CONSTANTS.COLORS.white};
   margin-bottom: 30px;
+
   span {
     margin-left: 10px;
     color: ${STYLE_CONSTANTS.COLORS.blue};
@@ -24,6 +25,7 @@ export const ServicesWrapper = styled.div`
 
   padding: 0 10px;
   overflow: auto;
+  
   ::-webkit-scrollbar {
     width: 0;
   }

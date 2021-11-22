@@ -1,10 +1,10 @@
+import { Dispatch } from 'redux';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
 import { doctorsDirection } from '@data/doctorsDirection';
 import {
   DirectionActionsType,
   DirectionActionType
 } from '@store/types/doctorsDirection';
-import { Dispatch } from 'redux';
 
 export const fetchDoctorsDirection = () => {
   return async (dispatch: Dispatch<DirectionActionsType>) => {

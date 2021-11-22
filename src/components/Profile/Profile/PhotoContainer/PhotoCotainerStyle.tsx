@@ -12,12 +12,13 @@ export const Container = styled.div`
   background: ${STYLE_CONSTANTS.COLORS.white};
   box-shadow: 0px 0px 10px 1px ${STYLE_CONSTANTS.COLORS.gray};
   border-radius: 5px;
+
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
     display: none;
   }
+
   img {
-    max-width: 90%;
-    height: 230px;
+    width: 80%;
     border: 2px solid ${STYLE_CONSTANTS.COLORS.gray};
     border-radius: 5px;
   }

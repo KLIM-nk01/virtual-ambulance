@@ -8,6 +8,10 @@ export const LogOutWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  div {
+    margin-right: 10px;
+  }
+
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     margin: 10px 0;
     width: 160px;

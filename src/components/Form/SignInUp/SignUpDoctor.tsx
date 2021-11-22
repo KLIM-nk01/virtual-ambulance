@@ -3,7 +3,21 @@ import { useForm, Controller } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import { Redirect } from 'react-router-dom';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { IUserRole } from './types';
+import { fetchMedCenters } from '@store/actionCreators/medCenters';
+import { IUserData } from '@store/types/signUp';
+import { fetchDoctorsDirection } from '@store/actionCreators/doctorsDirection';
+import { registrationUser } from '@store/actionCreators/signUp';
+import {
+  FormContainer,
+  FormName,
+  Form,
+  ButtonBar,
+  DoctorCheckButton,
+  QuestionWrapper,
+  SelectWrapper,
+} from './FormStyle';
 import {
   Email,
   Experience,
@@ -13,23 +27,9 @@ import {
 } from '@components/Form/SignInUp/formValidationConstants';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
-import {
-  FormContainer,
-  FormName,
-  Form,
-  ButtonBar,
-  DoctorCheckButton,
-  QuestionWrapper,
-} from './FormStyle';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { fetchMedCenters } from '@store/actionCreators/medCenters';
-import { SelectWrapper } from '@components/common/Select/SelectStyle';
-import { fetchDoctorsDirection } from '@store/actionCreators/doctorsDirection';
-import { registrationUser } from '@store/actionCreators/signUp';
 import { ROUTS } from '@constants/routs';
 import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';
-import { IUserData } from '@store/types/signUp';
 
 const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();

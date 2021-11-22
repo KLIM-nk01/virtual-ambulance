@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { ROUTS } from '@constants/routs';
 import {
   Card,
   ContainerTwo,
@@ -10,8 +12,6 @@ import {
   Description,
 } from './DoctorsCardStyle';
 import Button from '@components/common/Button/Button';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { ROUTS } from '@constants/routs';
 import Modal from '@components/common/Modal/Modal';
 import Portal from '@components/common/Portal/Portal';
 import Schedule from './Schedule/Schedule';
@@ -21,11 +21,15 @@ interface IProps {
   direction: string;
   description: string;
 
-  workTime: { date: string; time: string }[];
+  workTime: { date: string; time: string; _id: string, patientData: string }[];
   userData: {
     name: string;
     lastName: string;
     photo: string;
+  };
+  workPlace: {
+    name: string;
+    address: string;
   };
 }
 
@@ -35,6 +39,7 @@ const DoctorsCard: React.FC<IProps> = ({
   experience,
   description,
   workTime,
+  workPlace,
 }) => {
   const [modalActive, setModalActive] = useState(false);
   const state = useTypesSelector((state) => state.user);
@@ -57,9 +62,11 @@ const DoctorsCard: React.FC<IProps> = ({
         </NameSurname>
 
         <Experience>Experience: {experience}</Experience>
-
+        <Experience>
+          Work Place: {workPlace.name} Address: {workPlace.address}
+        </Experience>
         <Description>{description}</Description>
-        <Button round onClick={() => showSchedule()} variant="contained">
+        <Button round onClick={showSchedule} variant="contained">
           Sign up
         </Button>
       </ContainerTwo>

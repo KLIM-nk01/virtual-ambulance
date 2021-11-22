@@ -1,20 +1,33 @@
-import { IDoctorsData } from "types/IDoctorData";
+interface IWorkTime {
+  date: string;
+  time: string;
+  _id: string;
+  patientData: string;
+}
+
+interface IUserData {
+  name: string;
+  lastName: string;
+  photo: string;
+}
+
+interface IWorkPlace {
+  name: string;
+  address: string;
+}
 
 export interface IDoctorsState {
   doctors: {
-    _id: string,
-    experience: string,
-    direction: string,
-    description: string,
-  
-    workTime: { date: string; time: string }[],
-    userData: {
-      name: string;
-      lastName: string;
-      photo: string;
-    }
-  }[]
-    
+    _id: string;
+    experience: string;
+    direction: string;
+    description: string;
+
+    workTime: IWorkTime[];
+    userData: IUserData;
+    workPlace: IWorkPlace;
+  }[];
+
   loading: boolean;
   error: null | string;
 }

@@ -47,6 +47,7 @@ export const DirectionWrapper = styled.div<IDirectionWrapperProps>`
     -ms-transform: scale(0.9);
     transform: scale(0.9);
     border: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
+    
     :hover {
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);

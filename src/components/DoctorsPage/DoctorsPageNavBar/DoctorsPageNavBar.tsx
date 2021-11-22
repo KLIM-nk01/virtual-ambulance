@@ -1,24 +1,24 @@
 import React from 'react';
-import { DoctorsPageNavBarWrapper } from './DoctorsPageNavBarStyle';
 import { doctorsDirection } from '@data/doctorsDirection';
+import { DoctorsPageNavBarWrapper } from './DoctorsPageNavBarStyle';
 import Direction from './Direction/Direction';
 
 interface IDoctorsPageNavBarProps {
-  setChoiseDirection: (value: string) => void;
-  choiseDirection: string;
+  setSelectedDirection: (value: string[]) => void;
+  selectedDirection: string[];
 }
 
 const DoctorsPageNavBar: React.FC<IDoctorsPageNavBarProps> = ({
-  setChoiseDirection,
-  choiseDirection,
+  setSelectedDirection,
+  selectedDirection,
 }) => {
   return (
     <DoctorsPageNavBarWrapper>
       {doctorsDirection.map((directionItem) => {
         return (
           <Direction
-            choiseDirection={choiseDirection}
-            setChoiseDirection={setChoiseDirection}
+            selectedDirection={selectedDirection}
+            setSelectedDirection={setSelectedDirection}
             key={directionItem.direction}
             direction={directionItem.direction}
             src={directionItem.iconSrc}

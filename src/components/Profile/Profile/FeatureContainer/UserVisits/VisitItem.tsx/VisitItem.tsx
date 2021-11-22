@@ -1,39 +1,61 @@
 import React from 'react';
-import Button from '@components/common/Button/Button';
+import { useDispatch } from 'react-redux';
+import { IPatientVisit } from '@store/types/profileData';
+import { profilePatientDeleteAppointment } from '@store/actionCreators/profileData';
 import {
   VisitItemContainer,
   ContainerFooter,
   VisitInformation,
   MedCenterInformation,
   GeneralInformation,
-  TicketInfo,
   Date,
   DoctorsInformation,
   DoctorsInfo,
-  DoctorsСabinet,
 } from './VisitItemStyle';
+import Button from '@components/common/Button/Button';
 
-const VisitItem: React.FC = () => {
+const VisitItem: React.FC<IPatientVisit> = ({
+  doctorName,
+  doctorLastName,
+  doctorDirection,
+  medCenterName,
+  medCenterAddress,
+  date,
+  time,
+  _idDate,
+}) => {
+  const dispatch = useDispatch();
+
   return (
     <VisitItemContainer>
       <VisitInformation>
         <MedCenterInformation>
-          <h2>Lode</h2>
-          <p>Minsk, Independence, 58A</p>
+          <h2>{medCenterName}</h2>
+          <p>{medCenterAddress}</p>
         </MedCenterInformation>
         <GeneralInformation>
           <Date>
-            <span>date time</span>
+            <span>
+              <b>Date:</b> {date}
+            </span>
+            <span>
+              <b>Time:</b> {time}
+            </span>
           </Date>
         </GeneralInformation>
         <DoctorsInformation>
-          <DoctorsInfo>Allergolod</DoctorsInfo>
-          <DoctorsInfo>Moiseichuk Olga Valerievna</DoctorsInfo>
-          <DoctorsСabinet>Cab. 512</DoctorsСabinet>
+          <DoctorsInfo>{doctorDirection}</DoctorsInfo>
+          <DoctorsInfo>
+            {doctorLastName} {doctorName}
+          </DoctorsInfo>
         </DoctorsInformation>
       </VisitInformation>
       <ContainerFooter>
-        <Button size="small" round>
+        <Button
+          onClick={() => dispatch(profilePatientDeleteAppointment(_idDate))}
+          size="small"
+          round
+        >
           Cancel
         </Button>
       </ContainerFooter>

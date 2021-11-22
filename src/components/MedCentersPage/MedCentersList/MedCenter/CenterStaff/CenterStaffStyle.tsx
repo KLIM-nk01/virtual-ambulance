@@ -9,6 +9,7 @@ export const CenterStaff = styled.div`
   flex-direction: column;
   background: ${STYLE_CONSTANTS.COLORS.white};
   margin-bottom: 30px;
+
   span {
     margin-left: 10px;
     color: ${STYLE_CONSTANTS.COLORS.blue};
@@ -22,8 +23,8 @@ export const StaffWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding: 0 10px;
+
   ::-webkit-scrollbar {
     width: 0;
   }
@@ -48,6 +49,7 @@ export const Information = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  
   span {
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
     color: ${STYLE_CONSTANTS.COLORS.black};

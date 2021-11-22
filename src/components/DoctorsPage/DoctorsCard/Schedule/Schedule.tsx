@@ -1,77 +1,47 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
+import { useDispatch } from 'react-redux';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { ScheduleActionTypes } from './types';
+import { profilePatientAddAppointment } from '@store/actionCreators/profileData';
+import { ScheduleWrapper, WrapperHeader, ItemWrapper, Message } from './ScheduleStyle';
 import Button from '@components/common/Button/Button';
 import ScheduleItem from './ScheduleItem/ScheduleItem';
-import { ScheduleWrapper, WrapperHeader, ItemWrapper, SuccessMessage } from './ScheduleStyle';
-import { ActionType, IScheduleInitialState, ScheduleActionTypes } from './types';
+import { initialState, scheduleReducer } from './ScheduleReducer';
 
 export interface IScheduleProps {
-  workTimeData: { date: string; time: string }[];
+  workTimeData: { date: string; time: string; _id: string; patientData: string }[];
 }
 
-const initialState = {
-  choiceWorkTime: {
-    date: '',
-    time: '',
-  },
-  disabledItem: null,
-  zeroing: false,
-  viewSuccessMessage: false,
-};
-
-const reducer = (state: IScheduleInitialState, action: ActionType): IScheduleInitialState => {
-  switch (action.type) {
-    case ScheduleActionTypes.SET_CHOICE_WORK_TIME:
-      return { ...state, choiceWorkTime: { date: action.payload.date, time: action.payload.time } };
-    case ScheduleActionTypes.SET_DISABLED_ITEM:
-      return { ...state, disabledItem: action.payload.disabledItem };
-    case ScheduleActionTypes.SUCCESS_MESSAGE:
-      return { ...state, viewSuccessMessage: true };
-    default:
-      return state;
-  }
-};
-
 const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
-  const [stateSchedule, dispatch] = useReducer(reducer, initialState);
+  const [stateSchedule, scheduleDispatch] = useReducer(scheduleReducer, initialState);
+  const { error } = useTypesSelector((state) => state.profile);
+  const dispatch = useDispatch();
 
   const sendWorkTime = () => {
-    dispatch({ type: ScheduleActionTypes.SUCCESS_MESSAGE });
+    scheduleDispatch({ type: ScheduleActionTypes.SUCCESS_MESSAGE });
+  };
+
+  const viewDate = () => {
+    dispatch(profilePatientAddAppointment(stateSchedule.choiceWorkTime._id));
+    sendWorkTime();
   };
 
   const renderItem = () =>
-    workTimeData.map((wortTimeItem, index) => {
-      if (stateSchedule.disabledItem === null) {
-        return (
-          <ScheduleItem
-            key={wortTimeItem.date + wortTimeItem.time}
-            stateSchedule={stateSchedule}
-            wortTimeItem={wortTimeItem}
-            index={index}
-            dispatch={dispatch}
-          />
-        );
-      } else if (index === stateSchedule.disabledItem) {
-        return (
-          <ScheduleItem
-            key={wortTimeItem.date + wortTimeItem.time}
-            stateSchedule={stateSchedule}
-            wortTimeItem={wortTimeItem}
-            index={index}
-            dispatch={dispatch}
-          />
-        );
-      } else {
-        return (
-          <ScheduleItem
-            key={wortTimeItem.date + wortTimeItem.time}
-            disabled
-            stateSchedule={stateSchedule}
-            wortTimeItem={wortTimeItem}
-            index={index}
-            dispatch={dispatch}
-          />
-        );
-      }
+    workTimeData.map((workTimeItem) => {
+      return (
+        <ScheduleItem
+          disabledButton={stateSchedule.disabledButton}
+          setDisabledButton={scheduleDispatch}
+          key={workTimeItem._id}
+          stateSchedule={stateSchedule}
+          workTimeItem={workTimeItem}
+          scheduleDispatch={scheduleDispatch}
+          disabled={
+            (!!stateSchedule.disabledItem && stateSchedule.disabledItem !== workTimeItem._id) ||
+            !!workTimeItem.patientData
+          }
+        />
+      );
     });
 
   return (
@@ -79,15 +49,20 @@ const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
       <WrapperHeader>
         <span>Doctors schedule</span>
       </WrapperHeader>
-      {workTimeData.length == 0 && <span>The doctor hasn't added a schedule yet.</span>}
+
+      {!workTimeData?.length && <span>The doctor hasn't added a schedule yet.</span>}
+
       <ItemWrapper>{renderItem()}</ItemWrapper>
+
       {stateSchedule.viewSuccessMessage && (
-        <SuccessMessage>
-          You have booked a ticket for {stateSchedule.choiceWorkTime.time} on{' '}
-          {stateSchedule.choiceWorkTime.date}. Be healthy!
-        </SuccessMessage>
+        <Message>
+          {error ||
+            `You have booked a ticket for ${stateSchedule.choiceWorkTime.time} on
+                  ${stateSchedule.choiceWorkTime.date}. Be healthy!`}
+        </Message>
       )}
-      <Button onClick={() => sendWorkTime()} round variant="contained">
+
+      <Button onClick={viewDate} disabled={!stateSchedule.disabledButton} round variant="contained">
         Sign Up
       </Button>
     </ScheduleWrapper>

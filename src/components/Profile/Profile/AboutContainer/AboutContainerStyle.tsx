@@ -8,6 +8,7 @@ export const Container = styled.div`
   background: ${STYLE_CONSTANTS.COLORS.white};
   box-shadow: 0px 0px 10px 1px ${STYLE_CONSTANTS.COLORS.gray};
   border-radius: 5px;
+
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
     width: 100%;
   }
@@ -20,9 +21,9 @@ export const UserName = styled.div`
   border-bottom: 1px solid ${STYLE_CONSTANTS.COLORS.gray};
   padding-bottom: 10px;
 
-  img {
-    width: 100px;
+  div {
     margin-right: 25px;
+
     @media (min-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
       display: none;
     }
@@ -53,8 +54,9 @@ export const InfoLabel = styled.span`
 
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.medium};
   color: ${STYLE_CONSTANTS.COLORS.lightGrey};
+
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
-    width: 75px;
+    width: 100px;
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   }
 `;
@@ -65,6 +67,7 @@ export const DescriptionLabel = styled.span`
   display: flex;
   align-items: center;
   color: ${STYLE_CONSTANTS.COLORS.black};
+  
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   }

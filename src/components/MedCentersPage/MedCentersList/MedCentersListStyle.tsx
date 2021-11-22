@@ -16,6 +16,7 @@ export const MedCentersListWrapper = styled.div<IProps>`
   justify-content: flex-start;
   overflow: auto;
   padding: 20px 0;
+  
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     width: 100%;
   }

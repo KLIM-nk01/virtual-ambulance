@@ -1,9 +1,9 @@
-import { useTypesSelector } from '@hooks/UseTypedSelector';
 import React, { useEffect } from 'react';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { ProfileWrapper, ProfileInformation, ProfileFeature } from './ProfileStyle';
 import AboutContainer from './AboutContainer/AboutContainer';
 import FeatureContainer from './FeatureContainer/FeatureContainer';
 import PhotoContainer from './PhotoContainer/PhotoContainer';
-import { ProfileWrapper, ProfileInformation, ProfileFeature } from './ProfileStyle';
 
 const Profile: React.FC = () => {
   return (

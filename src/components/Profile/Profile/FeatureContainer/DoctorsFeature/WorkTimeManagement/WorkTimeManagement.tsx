@@ -1,66 +1,106 @@
 import React, { useState } from 'react';
-import Button from '@components/common/Button/Button';
-import ItemDoctorsFeature from '../ItemDoctorsFeature';
-import { ContainersName, ContainerFooter, ContainerContent } from '../ManagementStyle';
-import {
-  TimeManagementContainer,
-  DateTimePickerWrapper,
-  AddButton,
-} from './WorkTimeManagementStyle';
-
+import { useDispatch } from 'react-redux';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { ERROR_MESSAGE } from '@constants/errorMessage';
+import { profileDoctorAddDate, profileDoctorDelete } from '@store/actionCreators/profileData';
 import TextField from '@mui/material/TextField';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DateTimePicker from '@mui/lab/DateTimePicker';
+import Button from '@components/common/Button/Button';
+import ItemDoctorsFeature from '../ItemDoctorsFeature';
+import { ContainersName, ContainerContent } from '../ManagementStyle';
+import { TimeManagementContainer, DateTimePickerWrapper } from './WorkTimeManagementStyle';
 
+interface ILocState {
+  date: Date | null;
+  addDateError: string;
+}
 const WorkTimeManagement: React.FC = () => {
-  const [date, setDate] = React.useState<Date | null>(null);
-  const [dateItem, setDateItem] = useState()
-  
-  const minTime: Date = new Date('01/01/2021 08:30 AM');
-  const maxTime: Date = new Date('01/01/2021 06:00 PM');
-  
-  const addDate = () => {
-    date ? console.log(date) : console.log('Select time!');
+  const dispatch = useDispatch();
+  const { workTime } = useTypesSelector((state) => state.profile.profileData);
+
+  const [locState, setLocState] = useState<ILocState>({
+    date: null,
+    addDateError: '',
+  });
+
+  const disableWeekends = (date: Date) => date.getDay() === 0 || date.getDay() === 6;
+
+  const addNewDate = () => {
+    let repeat = false;
+    if (locState.date) {
+      workTime.map((time) => {
+        if (
+          time.time.split(':')[1] ===
+            `${
+              locState.date!.getMinutes() < 10
+                ? '0' + locState.date!.getMinutes()
+                : locState.date!.getMinutes()
+            }` &&
+          time.date.split('.')[0] === `${locState.date!.getDate()}`
+        )
+          repeat = true;
+      });
+      if (repeat) setLocState({ ...locState, addDateError: ERROR_MESSAGE.ADD_DATE_ERROR });
+      else {
+        dispatch(
+          profileDoctorAddDate(
+            `${locState.date.getDate()}.${
+              locState.date.getMonth() + 1
+            }.${locState.date.getFullYear()} ${
+              locState.date.getHours() < 10
+                ? '0' + locState.date.getHours()
+                : locState.date.getHours()
+            }:${
+              locState.date.getMinutes() < 10
+                ? '0' + locState.date.getMinutes()
+                : locState.date.getMinutes()
+            }`
+          )
+        );
+        setLocState({ ...locState, date: null, addDateError: '' });
+      }
+    }
   };
-  const disableWeekends = (date: Date) => {
-    return date.getDay() === 0 || date.getDay() === 6;
+
+  const deleteDate = (idDate: string) => {
+    dispatch(profileDoctorDelete(idDate));
   };
- 
+
   return (
     <TimeManagementContainer>
       <ContainersName>Work Time</ContainersName>
 
       <ContainerContent>
-        <ItemDoctorsFeature />
+        {!workTime?.length ? (
+          <span>Have not added time yet</span>
+        ) : (
+          workTime.map((dateTime) => (
+            <ItemDoctorsFeature key={dateTime._id} deleteDate={deleteDate} {...dateTime} />
+          ))
+        )}
       </ContainerContent>
 
       <DateTimePickerWrapper>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DateTimePicker
             renderInput={(props) => <TextField {...props} />}
-            label="Сhoose date and time:"
-            value={date}
+            label="Select date and time:"
+            value={locState.date}
             onChange={(newValue: Date | null) => {
-              setDate(newValue);
+              setLocState({ ...locState, date: newValue });
             }}
-            inputFormat="dd.MM.yyyy hh:mm a"
-            minutesStep={5}
+            inputFormat="dd.MM.yyyy HH:mm a"
             shouldDisableDate={disableWeekends}
-            minTime={minTime}
-            maxTime={maxTime}
           />
         </LocalizationProvider>
-        {date ? (
-          <Button onClick={() => addDate()} round size="small" variant="outlined">
-            add
-          </Button>
-        ) : (
-          <Button disabled onClick={() => addDate()} round size="small" variant="outlined">
-            add
-          </Button>
-        )}
+        {locState.addDateError && <span>{locState.addDateError}</span>}
       </DateTimePickerWrapper>
+
+      <Button disabled={!locState.date} onClick={addNewDate} round size="small" variant="outlined">
+        add
+      </Button>
     </TimeManagementContainer>
   );
 };

@@ -1,6 +1,6 @@
-import { ROUTS } from '@constants/routs';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { ROUTS } from '@constants/routs';
 
 const Routs: React.FC = () => {
   return (
@@ -29,12 +29,6 @@ const Routs: React.FC = () => {
       <Route
         path={ROUTS.FORM_PAGE}
         component={React.lazy(() => import('@containers/FormPageContainer'))}
-      />
-
-      <Route
-        exact
-        path={ROUTS.SERVICES_PATH}
-        component={React.lazy(() => import('@containers/ServicesPageContainer'))}
       />
     </Switch>
   );

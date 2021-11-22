@@ -1,8 +1,8 @@
 import { Dispatch } from 'redux';
 import axios from 'axios';
-import { DoctorsActionType, ActionType } from '@store/types/doctorsType';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
 import { API_URL } from '@constants/apiUrl';
+import { DoctorsActionType, ActionType } from '@store/types/doctorsType';
 
 export const fetchDoctors = () => {
   return (dispatch: Dispatch<ActionType>) => {

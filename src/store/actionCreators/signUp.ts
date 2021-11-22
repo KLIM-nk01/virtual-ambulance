@@ -1,11 +1,10 @@
-import { ActionsType, SignInActionsType } from '@store/types/signIn';
-import { ActionType, SignUpActionsType } from '@store/types/signUp';
 import axios, { AxiosResponse } from 'axios';
 import { Dispatch } from 'redux';
+import { ActionType, SignUpActionsType } from '@store/types/signUp';
+import { UserActionType } from '@store/types/user';
 import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
-import { UserActionType } from '@store/types/user';
 import { setUser } from './user';
 
 type IUserData = string | { value: string };
@@ -29,11 +28,11 @@ export const registrationUser = (userData: { [key: string]: any; photo?: any }) 
     try {
       const response: AxiosResponse<{
         user: any;
-        token: string;
       }> = await axios.post(API_URL.REGISTRATION, form, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
+        withCredentials: true,
       });
 
       response.status >= 200 &&
@@ -41,11 +40,9 @@ export const registrationUser = (userData: { [key: string]: any; photo?: any }) 
           type: SignUpActionsType.REGISTRATION_USER_SUCCESS,
         });
       if (response.data && response.data.user) {
-        dispatch(setUser(response.data.user));
-
-        cookies.setCookie('id', response.data.user.id, {});
+        cookies.setCookie('id_user', response.data.user.id_user, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
-        cookies.setCookie('token', response.data.token, {});
+        dispatch(setUser(response.data.user));
       }
     } catch (error) {
       if (error.response) {

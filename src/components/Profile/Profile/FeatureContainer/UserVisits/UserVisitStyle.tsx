@@ -8,6 +8,12 @@ export const VisitContainer = styled.div`
   padding: 25px 10px;
   display: flex;
   flex-wrap: wrap;
+
+  span {
+    a {
+      color: ${STYLE_CONSTANTS.COLORS.blue};
+    }
+  }
 `;
 
 export const ContainerName = styled.span`
@@ -20,4 +26,20 @@ export const ContainerName = styled.span`
   background: ${STYLE_CONSTANTS.COLORS.white};
   padding: 0 20px;
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
+`;
+
+export const ErrorMessage = styled.span`
+  margin: 0 auto;
+  text-align: center;
+  color: ${STYLE_CONSTANTS.COLORS.red};
+
+  a {
+    color: ${STYLE_CONSTANTS.COLORS.red};
+    text-decoration: underline;
+    padding-bottom: 5px;
+    
+    :hover {
+      color: ${STYLE_CONSTANTS.COLORS.blue};
+    }
+  }
 `;
