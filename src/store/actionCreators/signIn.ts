@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import axios, { AxiosResponse } from 'axios';
 import { API_URL } from '@constants/apiUrl';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
-import { ActionsType, SignInActionsType } from '@store/types/signIn';
+import { ActionsType, SignInActionsType, IUserResponse } from '@store/types/signIn';
 import { UserActionType } from '@store/types/user';
 import * as cookies from '@core/cookies/cookies';
 import { setUser } from './user';
@@ -13,8 +13,7 @@ export const userSignIn = (dataAuth: { password: string; email: string }) => {
 
     try {
       const response: AxiosResponse<{
-        user: any;
-        tokens: { accessToken: string; refreshToken: string };
+        user: IUserResponse;
       }> = await axios.post(API_URL.AUTHORIZATION, dataAuth, {
         withCredentials: true,
       });

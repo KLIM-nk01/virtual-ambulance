@@ -1,3 +1,12 @@
+export interface IMedStaff {
+  userData: {
+    name: string;
+    lastName: string;
+    photo: string;
+  };
+  direction: string;
+}
+
 export interface IMedcenterData {
   _id: string;
   name: string;
@@ -5,7 +14,7 @@ export interface IMedcenterData {
   photo: string;
   description: string;
   services: string[];
-  medStaff: string[];
+  medStaff: IMedStaff[];
   location: {
     lat: number;
     lon: number;

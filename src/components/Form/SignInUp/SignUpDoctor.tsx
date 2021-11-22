@@ -16,6 +16,7 @@ import {
   ButtonBar,
   DoctorCheckButton,
   QuestionWrapper,
+  SelectWrapper,
 } from './FormStyle';
 import {
   Email,
@@ -26,7 +27,6 @@ import {
 } from '@components/Form/SignInUp/formValidationConstants';
 import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
-import { SelectWrapper } from '@components/common/Select/SelectStyle';
 import { ROUTS } from '@constants/routs';
 import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';

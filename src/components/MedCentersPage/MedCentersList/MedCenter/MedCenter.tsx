@@ -11,6 +11,7 @@ import {
 } from './MedCenterStyle';
 import Services from './CenterServices.tsx/Services';
 import Staff from './CenterStaff/CenterStaff';
+import { IMedStaff } from '../MedCentersList';
 
 interface IMedCenter {
   name: string;
@@ -18,7 +19,7 @@ interface IMedCenter {
   photo: string;
   description: string;
   services: string[];
-  medStaff: any;
+  medStaff: IMedStaff[];
 }
 
 const MedCenter: React.FC<IMedCenter> = ({
