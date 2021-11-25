@@ -30,6 +30,11 @@ const Routs: React.FC = () => {
         path={ROUTS.FORM_PAGE}
         component={React.lazy(() => import('@containers/FormPageContainer'))}
       />
+       <Route
+        exact
+        path={ROUTS.ADMIN_PANEL}
+        component={React.lazy(() => import('@containers/AdminPanelContainer'))}
+      />
     </Switch>
   );
 };

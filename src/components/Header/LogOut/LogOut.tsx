@@ -10,13 +10,17 @@ import Avatar from '@mui/material/Avatar';
 
 const LogOut: React.FC = () => {
   const dispatch = useDispatch();
-
+  const { userRole } = useTypesSelector((state) => state.user.currentUser);
   const avatar = useTypesSelector((state) => state.user.currentUser.photo);
   return (
     <LogOutWrapper>
-      <NavLink to={ROUTS.PERSONAL_ACCOUNT}>
-        <Avatar sx={{ width: 56, height: 56 }} src={avatar} />
-      </NavLink>
+      {userRole === 'admin' ? (
+        <span>Admin</span>
+      ) : (
+        <NavLink to={ROUTS.PERSONAL_ACCOUNT}>
+          <Avatar sx={{ width: 56, height: 56 }} src={avatar} />
+        </NavLink>
+      )}
       <Button onClick={() => dispatch(logOut())} round variant="outlined">
         Sign out
       </Button>
