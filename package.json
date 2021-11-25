@@ -23,7 +23,8 @@
     "port": 3000
   },
   "jest": {
-    "transform": {}
+    "transform": {},
+    "testEnvironment": "node"
   },
   "author": "Nikita Klimovich",
   "license": "ISC",
