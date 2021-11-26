@@ -6,21 +6,30 @@ export const MedCenterWrapper = styled.div`
   height: fit-content;
   background: ${STYLE_CONSTANTS.COLORS.white};
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   padding: 20px;
 `;
 
 export const MedCentersListWrapper = styled.div`
-  width: 400px;
+  width: 90%;
   height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 `;
 
 export const CenterWrapper = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.darkGrey};
-  margin-bottom: 20px;
+
   padding-bottom: 20px;
 `;
 
@@ -36,3 +45,11 @@ export const FormWrapper = styled.div`
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
   }
 `;
+
+export const MedCentersFormWrapper = styled.div`
+  width: 100%;
+  height: 400px;
+  border: 1px solid blue;
+`;
+
+export const MedCentersHeaderWrapper = styled.div``

@@ -9,7 +9,7 @@ import { MedCentersListWrapper, CenterWrapper } from './MedCentersStyle';
 const MedCentersList: React.FC = () => {
   const dispatch = useDispatch();
   const { medCenters } = useTypesSelector((state) => state.medCenter);
-  console.log(medCenters);
+
   useEffect(() => {
     dispatch(fetchMedCenters());
   }, []);
@@ -19,8 +19,12 @@ const MedCentersList: React.FC = () => {
         <CenterWrapper>
           <MedCenter key={medCenter._id} adminPanel {...medCenter} />
           <div>
-            <Button round variant="outlined">Edit</Button>
-            <Button round variant="outlined">Delete</Button>
+            <Button round variant="outlined">
+              Edit
+            </Button>
+            <Button round variant="outlined">
+              Delete
+            </Button>
           </div>
         </CenterWrapper>
       ))}

@@ -8,6 +8,7 @@ export const AdminNavWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background: ${STYLE_CONSTANTS.COLORS.white};
+  border-right: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
 `;
 
 export const NavLinkStyled = styled(NavLink)`
