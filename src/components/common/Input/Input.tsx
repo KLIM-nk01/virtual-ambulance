@@ -19,6 +19,7 @@ interface IInput {
   id?: string;
   for?: string;
   fileName?: string;
+  value?: string;
 }
 
 const Input: React.FC<IInput> = ({
@@ -32,18 +33,13 @@ const Input: React.FC<IInput> = ({
   accept,
   id,
   fileName,
+  value,
   ...props
 }) => {
   return (
     <InputGroup fileName={fileName} primary={primary} type={type}>
       <label htmlFor={id}>{fileName ? fileName : label}</label>
-      <input
-        id={id}
-        name={name}
-        type={type}
-        {...register}
-        {...props}
-      />
+      <input id={id} name={name} type={type} value={value} {...register} {...props} />
       {errors && errors[name] && <p>{errors[name]?.message}</p>}
     </InputGroup>
   );

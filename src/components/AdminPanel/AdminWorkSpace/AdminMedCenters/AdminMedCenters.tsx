@@ -1,13 +1,12 @@
 import React from 'react';
 import { AdminMedCentersWrapper } from './AdminMedCentersStyle';
-import MedCenterAddForm from './MedCenterAddForm/MedCenterAddForm';
-import MedCenterList from './MedCenterList/MedCenterList';
+import MedCenterAddForm from './MedCenters/MedCenterAddForm/MedCenterAddForm';
+import MedCenters from './MedCenters/MedCenters';
 
 const AdminMedCenters: React.FC = () => {
   return (
     <AdminMedCentersWrapper>
-      {/* <MedCenterAddForm /> */}
-      <MedCenterList></MedCenterList>
+      <MedCenters></MedCenters>
     </AdminMedCentersWrapper>
   );
 };
