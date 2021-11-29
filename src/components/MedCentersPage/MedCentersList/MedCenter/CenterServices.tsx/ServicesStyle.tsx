@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
+interface IServiceProps {
+  adminPanel?: boolean;
+}
+
 export const CenterServices = styled.div`
   position: relative;
   width: 90%;
@@ -17,21 +21,28 @@ export const CenterServices = styled.div`
   }
 `;
 
-export const ServicesWrapper = styled.div`
+export const ServicesWrapper = styled.div<IServiceProps>`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   padding: 0 10px;
-  overflow: auto;
-  
+
   ::-webkit-scrollbar {
     width: 0;
   }
+  ${({ adminPanel }) =>
+    adminPanel &&
+    `
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  `}
 `;
 
-export const ServiceItem = styled.div`
+export const ServiceItem = styled.div<IServiceProps>`
   width: 90%;
   height: 40px;
   background: ${STYLE_CONSTANTS.COLORS.smokyWhite};
@@ -43,4 +54,10 @@ export const ServiceItem = styled.div`
   cursor: pointer;
   margin: 10px 0;
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+
+  ${({ adminPanel }) =>
+    adminPanel &&
+    `
+    margin: 0;
+  `}
 `;

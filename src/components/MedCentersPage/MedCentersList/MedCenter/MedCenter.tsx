@@ -20,7 +20,7 @@ interface IMedCenter {
   description: string;
   services: string[];
   medStaff: IMedStaff[];
-  adminPanel?: boolean
+  adminPanel?: boolean;
 }
 
 const MedCenter: React.FC<IMedCenter> = ({
@@ -30,11 +30,11 @@ const MedCenter: React.FC<IMedCenter> = ({
   description,
   services,
   medStaff,
-  adminPanel
+  adminPanel,
 }) => {
   const [hidden, setHidden] = useState<boolean>(true);
   return (
-    <MedCenterItem adminPanel>
+    <MedCenterItem adminPanel={adminPanel}>
       <ItemHeader>
         <NavLink to="#">
           <Title>{name}</Title>
@@ -49,18 +49,21 @@ const MedCenter: React.FC<IMedCenter> = ({
       </ItemPhoto>
       <ItemDescription>
         <p>{description}</p>
-        <span
-          hidden={hidden}
-          onClick={() => {
-            hidden ? setHidden(false) : setHidden(true);
-          }}
-        >
-          more...
-        </span>
+
+        {!adminPanel && (
+          <span
+            hidden={hidden}
+            onClick={() => {
+              hidden ? setHidden(false) : setHidden(true);
+            }}
+          >
+            more...
+          </span>
+        )}
       </ItemDescription>
 
-      <ItemMore hidden={hidden}>
-        <Services services={services} />
+      <ItemMore adminPanel={adminPanel} hidden={hidden}>
+        <Services adminPanel={adminPanel} services={services} />
         <Staff medStaff={medStaff} />
       </ItemMore>
     </MedCenterItem>
