@@ -7,7 +7,7 @@ export interface IMedStaff {
   direction: string;
 }
 
-export interface IMedcenterData {
+export interface IMedCenterData {
   _id: string;
   name: string;
   address: string;
@@ -22,7 +22,7 @@ export interface IMedcenterData {
 }
 
 export interface IMedCenterState {
-  medCenters: IMedcenterData[];
+  medCenters: IMedCenterData[];
   loading: boolean;
   error: null | string;
 }
@@ -38,7 +38,7 @@ interface FeetchMedCenter {
 
 interface FeetchMedCenterSuccess {
   type: MedCenterActionTypes.FETCH_MEDCENTERS_SUCCESS;
-  payload: IMedcenterData[];
+  payload: IMedCenterData[];
 }
 
 interface FeetchMedCenterError {

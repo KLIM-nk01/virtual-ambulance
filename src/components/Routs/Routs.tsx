@@ -1,40 +1,59 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ROUTS } from '@constants/routs';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import { USER_ROLE } from '@constants/userRole';
+import AdminMedCenters from '@components/AdminPanel/AdminMedCenters/AdminMedCenters';
+
+const userRouts = [
+  {
+    path: ROUTS.MAIN_PAGE_PATH,
+    exact: true,
+    component: React.lazy(() => import('@containers/MainPageContainer')),
+  },
+  {
+    path: ROUTS.MEDCENTERS_PAGE_PATH,
+    exact: true,
+    component: React.lazy(() => import('@containers/MedCentersPageContainer')),
+  },
+  {
+    path: ROUTS.DOCTORS_PAGE_PATH,
+    exact: true,
+    component: React.lazy(() => import('@containers/DoctorsPageContainer')),
+  },
+  {
+    path: ROUTS.PERSONAL_ACCOUNT,
+    exact: true,
+    component: React.lazy(() => import('@containers/ProfilePageContainer')),
+  },
+  {
+    path: ROUTS.FORM_PAGE,
+    exact: false,
+    component: React.lazy(() => import('@containers/FormPageContainer')),
+  },
+];
+
+const adminRouts = [
+  // {
+  //   path: ROUTS.ADMIN_PANEL,
+  //   exact: false,
+  //   component: React.lazy(() => import('@containers/AdminPanelContainer')),
+  // },
+  {
+    path: ROUTS.ADMIN_PANEL_MED_CENTERS_LIST,
+    exact: true,
+    component: React.lazy(() => import('@containers/AdminMedCentersContainer')),
+  },
+];
 
 const Routs: React.FC = () => {
+  const { userRole } = useTypesSelector((state) => state.user.currentUser);
+  console.log(userRole);
   return (
     <Switch>
-      <Route
-        exact
-        path={ROUTS.MAIN_PAGE_PATH}
-        component={React.lazy(() => import('@containers/MainPageContainer'))}
-      />
-      <Route
-        exact
-        path={ROUTS.MEDCENTERS_PAGE_PATH}
-        component={React.lazy(() => import('@containers/MedCentersPageContainer'))}
-      />
-      <Route
-        exact
-        path={ROUTS.DOCTORS_PAGE_PATH}
-        component={React.lazy(() => import('@containers/DoctorsPageContainer'))}
-      />
-      <Route
-        exact
-        path={ROUTS.PERSONAL_ACCOUNT}
-        component={React.lazy(() => import('@containers/ProfilePageContainer'))}
-      />
-
-      <Route
-        path={ROUTS.FORM_PAGE}
-        component={React.lazy(() => import('@containers/FormPageContainer'))}
-      />
-       <Route
-        exact
-        path={ROUTS.ADMIN_PANEL}
-        component={React.lazy(() => import('@containers/AdminPanelContainer'))}
-      />
+      {userRole === USER_ROLE.admin
+        ? adminRouts.map((rout) => <Route {...rout} />)
+        : userRouts.map((rout) => <Route {...rout} />)}
     </Switch>
   );
 };

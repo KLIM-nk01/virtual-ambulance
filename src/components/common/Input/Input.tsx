@@ -19,7 +19,7 @@ interface IInput {
   id?: string;
   for?: string;
   fileName?: string;
-  value?: string;
+  value?: string | number;
   onChange?: any;
 }
 

@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const FormWrapper = styled.div`
-  width: 55%;
+  width: 450px;
   height: fit-content;
 `;
 
 export const Form = styled.form`
   display: grid;
   grid-template-rows: repeat(1fr);
-  row-gap: 15px;
+  row-gap: 20px;
 `;
 
 export const FormSelect = styled.div`
@@ -31,5 +31,15 @@ export const FormButtonBar = styled.div`
   margin-top: 20px;
   button {
     width: 100%;
+  }
+`;
+
+export const MedCenterPhotoWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  img {
+    width: 255px;
+    margin-right: 20px;
   }
 `;

@@ -13,7 +13,7 @@ export const Main = styled.main`
   width: 100%;
   height: calc(100% - 80px);
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
 `;

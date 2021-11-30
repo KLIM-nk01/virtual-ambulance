@@ -1,14 +1,14 @@
 import { Dispatch } from 'redux';
 import axios from 'axios';
-import { IMedcenterData, MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
+import { MedCenterAction, MedCenterActionTypes } from '@store/types/medCentersType';
 import { API_URL } from '@constants/apiUrl';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
 
 export const fetchMedCenters = () => {
-  return  (dispatch: Dispatch<MedCenterAction>) => {
+  return (dispatch: Dispatch<MedCenterAction>) => {
     dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTERS });
 
-     axios
+    axios
       .get(API_URL.MEDCENTERS)
       .then((response) => {
         dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTERS_SUCCESS, payload: response.data });
@@ -24,7 +24,7 @@ export const fetchMedCenters = () => {
             type: MedCenterActionTypes.FETCH_MEDCENTERS_ERROR,
             errorMessage: ERROR_MESSAGE.SERVER_ERROR,
           });
-        } 
+        }
       });
   };
 };

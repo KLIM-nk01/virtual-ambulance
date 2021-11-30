@@ -6,8 +6,8 @@ import AdminNav from './AdminNav/AdminNav';
 const AdminPanel: React.FC = () => {
   return (
     <AdminPanelWrapper>
-      <AdminNav />
-      <AdminWorkSpace />
+      {/* <AdminNav /> */}
+      {/* <AdminWorkSpace /> */}
     </AdminPanelWrapper>
   );
 };

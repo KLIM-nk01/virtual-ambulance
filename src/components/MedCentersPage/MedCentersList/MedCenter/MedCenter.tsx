@@ -63,8 +63,8 @@ const MedCenter: React.FC<IMedCenter> = ({
       </ItemDescription>
 
       <ItemMore adminPanel={adminPanel} hidden={hidden}>
-        <Services adminPanel={adminPanel} services={services} />
-        <Staff medStaff={medStaff} />
+        <Services medCenterName={name} adminPanel={adminPanel} services={services} />
+        <Staff  medStaff={medStaff} />
       </ItemMore>
     </MedCenterItem>
   );

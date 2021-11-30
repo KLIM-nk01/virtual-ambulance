@@ -4,8 +4,9 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 export const MedCentersEditFormWrapper = styled.div`
   width: 100%;
   height: 100%;
-  padding: 25px;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const FormName = styled.span`
@@ -15,7 +16,7 @@ export const FormName = styled.span`
 `;
 
 export const MedCentersFormWrapper = styled.div`
-  width: 100%;
+  width: 600px;
   height: fit-content;
   background: ${STYLE_CONSTANTS.COLORS.white};
 
@@ -24,8 +25,4 @@ export const MedCentersFormWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   padding: 20px;
-  /* span {
-    color: ${STYLE_CONSTANTS.COLORS.blue};
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.medium};
-  } */
 `;
