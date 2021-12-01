@@ -34,15 +34,15 @@ const userRouts = [
 ];
 
 const adminRouts = [
-  // {
-  //   path: ROUTS.ADMIN_PANEL,
-  //   exact: false,
-  //   component: React.lazy(() => import('@containers/AdminPanelContainer')),
-  // },
   {
     path: ROUTS.ADMIN_PANEL_MED_CENTERS_LIST,
     exact: true,
     component: React.lazy(() => import('@containers/AdminMedCentersContainer')),
+  },
+  {
+    path: ROUTS.ADMIN_PANEL_MED_CENTERS_EDIT,
+    exact: true,
+    component: React.lazy(() => import('@containers/AdminMedCentersEditFormContainer')),
   },
 ];
 

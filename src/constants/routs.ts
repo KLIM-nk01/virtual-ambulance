@@ -9,8 +9,7 @@ export const ROUTS = {
   SINGUP_FORM: '/formPage/signUpForm',
 
   ADMIN_PANEL: '/',
-  // ADMIN_PANEL_MED_CENTERS: '/medCenters',
-  ADMIN_PANEL_MED_CENTERS_LIST: '/',
+  ADMIN_PANEL_MED_CENTERS_LIST: '/list',
   ADMIN_PANEL_MED_CENTERS_EDIT: '/editForm',
   ADMIN_PANEL_DOCTORS: '/doctors',
   ADMIN_PANEL_PATIENTS: '/patients',

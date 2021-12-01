@@ -3,10 +3,11 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const AdminNavWrapper = styled.div`
-  width: 240px;
-  height: 100%;
+  width: 100%;
+  /* height: 100%; */
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  /* flex-direction: column; */
   background: ${STYLE_CONSTANTS.COLORS.white};
 `;
 
@@ -16,10 +17,10 @@ export const NavLinkStyled = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
+  /* border-bottom: 1px solid ${STYLE_CONSTANTS.COLORS.blue}; */
 
   &.active {
-    border-left: 5px solid ${STYLE_CONSTANTS.COLORS.blue};
+    border-bottom: 2px solid ${STYLE_CONSTANTS.COLORS.blue};
   }
 `;
 

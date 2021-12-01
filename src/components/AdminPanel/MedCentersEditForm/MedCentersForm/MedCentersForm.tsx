@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import Input from '@components/common/Input/Input';
 import { Required } from './FormValidationConst';
 import {
@@ -17,24 +17,16 @@ import { doctorsDirection } from '@data/doctorsDirection';
 import Chip from '@mui/material/Chip';
 import FormControl from '@mui/material/FormControl';
 import Button from '@components/common/Button/Button';
-import { IEditForm } from '../../AdminMedCenters';
 import TextArea from '@components/common/TextArea/TextArea';
 
-interface IMedCentersForm {
-  editFormData: IEditForm;
-  setEditFormData: (value: IEditForm) => void;
-}
-
-const MedCentersForm: React.FC<IMedCentersForm> = ({ editFormData, setEditFormData }) => {
+const MedCentersForm: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const [services, setServices] = React.useState<string[]>(
-    editFormData.medCenterData?.services || []
-  );
+  const [services, setServices] = React.useState<string[]>([]);
 
   const handleChange = (event: SelectChangeEvent<typeof services>) => {
     const {
@@ -48,8 +40,7 @@ const MedCentersForm: React.FC<IMedCentersForm> = ({ editFormData, setEditFormDa
     console.log(data);
   };
 
-  const [formState, setFormState] = useState(editFormData.medCenterData);
- 
+
   return (
     <FormWrapper>
       <Form onSubmit={handleSubmit(onSubmit)}>
@@ -59,8 +50,8 @@ const MedCentersForm: React.FC<IMedCentersForm> = ({ editFormData, setEditFormDa
           name="name"
           register={register('name', Required)}
           errors={errors}
-          value={formState?.name}
-          // onChange={(event:  React.ChangeEvent<HTMLInputElement>) => 
+          // value={formState?.name}
+          // onChange={(event:  React.ChangeEvent<HTMLInputElement>) =>
           //   setFormState({...formState, name: event.target.value})}
         />
         <Input
@@ -69,7 +60,7 @@ const MedCentersForm: React.FC<IMedCentersForm> = ({ editFormData, setEditFormDa
           name="address"
           register={register('address', Required)}
           errors={errors}
-          value={editFormData.medCenterData?.address}
+          // value={editFormData.medCenterData?.address}
         />
         <Input
           primary
@@ -77,7 +68,7 @@ const MedCentersForm: React.FC<IMedCentersForm> = ({ editFormData, setEditFormDa
           name="latitude"
           register={register('latitude', Required)}
           errors={errors}
-          value={editFormData.medCenterData?.location.lat}
+          // value={editFormData.medCenterData?.location.lat}
         />
         <Input
           primary
@@ -85,13 +76,13 @@ const MedCentersForm: React.FC<IMedCentersForm> = ({ editFormData, setEditFormDa
           name="longitude"
           register={register('longitude', Required)}
           errors={errors}
-          value={editFormData.medCenterData?.location.lon}
+          // value={editFormData.medCenterData?.location.lon}
         />
 
         <MedCenterPhotoWrapper>
-          {editFormData.medCenterData?.photo && (
+          {/* {editFormData.medCenterData?.photo && (
             <img src={editFormData.medCenterData?.photo} alt="MedCenterPhoto" />
-          )}
+          )} */}
 
           <Input
             primary
@@ -105,7 +96,7 @@ const MedCentersForm: React.FC<IMedCentersForm> = ({ editFormData, setEditFormDa
         </MedCenterPhotoWrapper>
 
         <TextArea
-          value={editFormData.medCenterData?.description}
+          // value={editFormData.medCenterData?.description}
           name="description"
           register={register('description', Required)}
           label="Description"

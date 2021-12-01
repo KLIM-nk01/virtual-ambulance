@@ -7,6 +7,9 @@ export const MedCentersEditFormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: ${STYLE_CONSTANTS.COLORS.lavender};
+  padding: 25px;
+  overflow: auto;
 `;
 
 export const FormName = styled.span`

@@ -9,6 +9,7 @@ import { CreateNewOrEditLink } from '../MedCentersStyle';
 import { ROUTS } from '@constants/routs';
 import { IMedCenterData } from '@store/types/medCentersType';
 import { IEditForm } from '../../AdminMedCenters';
+import { NavLink } from 'react-router-dom';
 
 interface IMedCentersListProps {
   searchValue: string;
@@ -31,15 +32,11 @@ const MedCentersList: React.FC<IMedCentersListProps> = ({ searchValue, setEditFo
           <CenterWrapper>
             <MedCenter key={medCenter._id} adminPanel {...medCenter} />
             <div>
-              <Button
-                onClick={() => {
-                  setEditFormData({ disabled: false, medCenterData: medCenter }); 
-                }}
-                round
-                variant="outlined"
-              >
-                Edit
-              </Button>
+              <NavLink to={ROUTS.ADMIN_PANEL_MED_CENTERS_EDIT}>
+                <Button round variant="outlined">
+                  Edit
+                </Button>
+              </NavLink>
 
               <Button round variant="outlined">
                 Delete
