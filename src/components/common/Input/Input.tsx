@@ -1,5 +1,5 @@
-import React from 'react';
-import { InputGroup } from './InputStyle';
+import React, { useState } from 'react';
+import { FileName, InputGroup } from './InputStyle';
 
 interface IInput {
   primary?: boolean;
@@ -20,7 +20,7 @@ interface IInput {
   for?: string;
   fileName?: string;
   value?: string | number;
-  onChange?: any;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input: React.FC<IInput> = ({
@@ -38,9 +38,13 @@ const Input: React.FC<IInput> = ({
   onChange,
   ...props
 }) => {
+  const [inputFileName, setInputFileName] = useState('Selected photo');
+  const fileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target?.files && setInputFileName(e.target.files[0].name);
+  };
   return (
-    <InputGroup fileName={fileName} primary={primary} type={type}>
-      <label htmlFor={id}>{fileName ? fileName : label}</label>
+    <InputGroup inputFileName={inputFileName} fileName={fileName} primary={primary} type={type}>
+      <label htmlFor={id}>{type === 'file' ? inputFileName : label}</label>
       <input
         placeholder={placeholder}
         id={id}
@@ -49,8 +53,9 @@ const Input: React.FC<IInput> = ({
         value={value}
         {...register}
         {...props}
-        onChange={onChange}
+        onChange={type === 'file' ? fileOnChange : onChange}
       />
+
       {errors && errors[name] && <p>{errors[name]?.message}</p>}
     </InputGroup>
   );

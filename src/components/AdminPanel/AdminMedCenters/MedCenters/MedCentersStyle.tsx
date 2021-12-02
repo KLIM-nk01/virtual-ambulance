@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MedCenterWrapper = styled.div`
-  width: 100%;
+  width: 90%;
   height: fit-content;
   background: ${STYLE_CONSTANTS.COLORS.white};
   display: flex;

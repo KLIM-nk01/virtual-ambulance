@@ -6,6 +6,7 @@ export const AdminMedCentersWrapper = styled.div`
   height: 100%;
   padding: 25px;
   display: flex;
+  justify-content: center;
   background-color: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   overflow: auto;
 `;

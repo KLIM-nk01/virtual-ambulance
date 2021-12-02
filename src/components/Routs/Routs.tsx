@@ -40,15 +40,25 @@ const adminRouts = [
     component: React.lazy(() => import('@containers/AdminMedCentersContainer')),
   },
   {
+    path: ROUTS.FORM_PAGE,
+    exact: false,
+    component: React.lazy(() => import('@containers/FormPageContainer')),
+  },
+  {
     path: ROUTS.ADMIN_PANEL_MED_CENTERS_EDIT,
-    exact: true,
+    exact: false,
     component: React.lazy(() => import('@containers/AdminMedCentersEditFormContainer')),
+  },
+  {
+    path: ROUTS.ADMIN_PANEL_MED_CENTERS_CREATE_NEW,
+    exact: false,
+    component: React.lazy(() => import('@containers/AdminCreateNewCenterFormContainer')),
   },
 ];
 
 const Routs: React.FC = () => {
   const { userRole } = useTypesSelector((state) => state.user.currentUser);
-  console.log(userRole);
+
   return (
     <Switch>
       {userRole === USER_ROLE.admin

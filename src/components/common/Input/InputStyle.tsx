@@ -7,6 +7,7 @@ interface IStyleProps {
   error?: boolean;
   for?: string;
   fileName?: string;
+  inputFileName?: string;
 }
 
 export const InputGroup = styled.div<IStyleProps>`
@@ -67,7 +68,9 @@ export const InputGroup = styled.div<IStyleProps>`
     ${(props) =>
       props.type === 'file' &&
       `
-      border: 1px ${!props.fileName ? `dashed` : 'solid'} ${STYLE_CONSTANTS.COLORS.blue};
+      border: 1px ${props.inputFileName === 'Selected photo' ? 'dashed' : 'solid'} ${
+        STYLE_CONSTANTS.COLORS.blue
+      };
       margin: 0 auto;
       font-size: 14px;
       
@@ -86,10 +89,16 @@ export const InputGroup = styled.div<IStyleProps>`
     color: ${STYLE_CONSTANTS.COLORS.red};
     margin-top: 5px;
     margin-left: 10px;
-    
+
     ::before {
       display: inline;
       content: '⚠ ';
     }
   }
+`;
+
+export const FileName = styled.span`
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+  color: ${STYLE_CONSTANTS.COLORS.blue};
+  margin-left: 10px;
 `;

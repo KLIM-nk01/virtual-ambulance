@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import MedCentersForm from '../MedCentersForm/MedCentersForm';
 import {
   FormName,
   MedCentersEditFormWrapper,
   MedCentersFormWrapper,
 } from './MedCentersEditFormStyle';
-import MedCentersForm from './MedCentersForm/MedCentersForm';
 
 const MedCentersEditForm: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+
   return (
     <MedCentersEditFormWrapper>
       <MedCentersFormWrapper>
-        <FormName>Edit or create new medical center.</FormName>
+        <FormName>Edit medical center.</FormName>
         <MedCentersForm />
       </MedCentersFormWrapper>
     </MedCentersEditFormWrapper>

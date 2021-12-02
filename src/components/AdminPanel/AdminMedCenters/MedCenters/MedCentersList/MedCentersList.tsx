@@ -3,13 +3,11 @@ import { useDispatch } from 'react-redux';
 import Button from '@components/common/Button/Button';
 import MedCenter from '@components/MedCentersPage/MedCentersList/MedCenter/MedCenter';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { fetchMedCenters } from '@store/actionCreators/medCenters';
+import { fetchMedCenters, medCenterDelete } from '@store/actionCreators/medCenters';
 import { MedCentersListWrapper, CenterWrapper } from './MedCentersListStyle';
-import { CreateNewOrEditLink } from '../MedCentersStyle';
 import { ROUTS } from '@constants/routs';
-import { IMedCenterData } from '@store/types/medCentersType';
 import { IEditForm } from '../../AdminMedCenters';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 interface IMedCentersListProps {
   searchValue: string;
@@ -20,6 +18,9 @@ const MedCentersList: React.FC<IMedCentersListProps> = ({ searchValue, setEditFo
   const dispatch = useDispatch();
   const { medCenters, error } = useTypesSelector((state) => state.medCenter);
 
+  const deleteMedCenter = (idMedCenter: string) => {
+    dispatch(medCenterDelete(idMedCenter));
+  };
   useEffect(() => {
     dispatch(fetchMedCenters());
   }, []);
@@ -32,13 +33,13 @@ const MedCentersList: React.FC<IMedCentersListProps> = ({ searchValue, setEditFo
           <CenterWrapper>
             <MedCenter key={medCenter._id} adminPanel {...medCenter} />
             <div>
-              <NavLink to={ROUTS.ADMIN_PANEL_MED_CENTERS_EDIT}>
+              <NavLink to={`/editMedCenter/${medCenter._id}`}>
                 <Button round variant="outlined">
                   Edit
                 </Button>
               </NavLink>
 
-              <Button round variant="outlined">
+              <Button onClick={() => deleteMedCenter(medCenter._id)} round variant="outlined">
                 Delete
               </Button>
             </div>

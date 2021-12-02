@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Input from '@components/common/Input/Input';
-import { Required } from './FormValidationConst';
+import { Photo, Required } from './FormValidationConst';
 import {
   Form,
   FormButtonBar,
@@ -18,28 +18,45 @@ import Chip from '@mui/material/Chip';
 import FormControl from '@mui/material/FormControl';
 import Button from '@components/common/Button/Button';
 import TextArea from '@components/common/TextArea/TextArea';
+import { useDispatch } from 'react-redux';
+import { INewMedCenterData } from '@store/types/medCentersType';
 
-const MedCentersForm: React.FC = () => {
+interface IMedCentersFormProps {
+  submitFunction?: any;
+}
+
+const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction }) => {
+  const [formState, setFormState] = useState<INewMedCenterData>({
+    name: '',
+    address: '',
+    photo: '',
+    description: '',
+    services: [],
+  });
+
+  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const [services, setServices] = React.useState<string[]>([]);
-
-  const handleChange = (event: SelectChangeEvent<typeof services>) => {
+  const handleChange = (event: SelectChangeEvent<typeof formState.services>) => {
     const {
       target: { value },
     } = event;
-    setServices(typeof value === 'string' ? value.split(',') : value);
+    setFormState({
+      ...formState,
+      services: typeof value === 'string' ? value.split(',') : value,
+    });
   };
 
-  const onSubmit = (data: any) => {
-    data.services = services;
-    console.log(data);
-  };
+  const onSubmit = (data: INewMedCenterData) => {
+    data.services = formState.services;
 
+    dispatch(submitFunction(data));
+  };
 
   return (
     <FormWrapper>
@@ -50,9 +67,10 @@ const MedCentersForm: React.FC = () => {
           name="name"
           register={register('name', Required)}
           errors={errors}
-          // value={formState?.name}
-          // onChange={(event:  React.ChangeEvent<HTMLInputElement>) =>
-          //   setFormState({...formState, name: event.target.value})}
+          value={formState.name}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setFormState({ ...formState, name: e.target.value })
+          }
         />
         <Input
           primary
@@ -60,35 +78,18 @@ const MedCentersForm: React.FC = () => {
           name="address"
           register={register('address', Required)}
           errors={errors}
-          // value={editFormData.medCenterData?.address}
-        />
-        <Input
-          primary
-          label="Latitude"
-          name="latitude"
-          register={register('latitude', Required)}
-          errors={errors}
-          // value={editFormData.medCenterData?.location.lat}
-        />
-        <Input
-          primary
-          label="Longitude"
-          name="longitude"
-          register={register('longitude', Required)}
-          errors={errors}
-          // value={editFormData.medCenterData?.location.lon}
+          value={formState.address}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setFormState({ ...formState, address: e.target.value })
+          }
         />
 
         <MedCenterPhotoWrapper>
-          {/* {editFormData.medCenterData?.photo && (
-            <img src={editFormData.medCenterData?.photo} alt="MedCenterPhoto" />
-          )} */}
-
           <Input
             primary
             type="file"
             name="photo"
-            register={register('photo')}
+            register={register('photo', Photo)}
             label="Select Photo"
             errors={errors}
             id={'photo'}
@@ -96,10 +97,12 @@ const MedCentersForm: React.FC = () => {
         </MedCenterPhotoWrapper>
 
         <TextArea
-          // value={editFormData.medCenterData?.description}
           name="description"
           register={register('description', Required)}
           label="Description"
+          onKeyUp={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setFormState({ ...formState, description: e.target.value })
+          }
         />
 
         <FormSelect>
@@ -107,7 +110,7 @@ const MedCentersForm: React.FC = () => {
           <FormControl sx={{ m: 1, width: 300 }}>
             <Select
               multiple
-              value={services}
+              value={formState.services}
               onChange={handleChange}
               renderValue={(selected) => (
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
@@ -123,32 +126,6 @@ const MedCentersForm: React.FC = () => {
                 </MenuItem>
               ))}
             </Select>
-            {/* <Controller
-              name="services"
-              control={control}
-              rules={{ required: 'Please select a place where you work.' }}
-              render={({ field }) => (
-                <Select
-                  {...field}
-                  multiple
-                  value={services}
-                  onChange={handleChange}
-                  renderValue={(selected) => (
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                      {selected.map((value) => (
-                        <Chip key={value} label={value} />
-                      ))}
-                    </Box>
-                  )}
-                >
-                  {doctorsDirection.map((direction) => (
-                    <MenuItem key={direction.id_direction} value={direction.direction}>
-                      {direction.direction}
-                    </MenuItem>
-                  ))}
-                </Select>
-              )}
-            /> */}
           </FormControl>
         </FormSelect>
 
