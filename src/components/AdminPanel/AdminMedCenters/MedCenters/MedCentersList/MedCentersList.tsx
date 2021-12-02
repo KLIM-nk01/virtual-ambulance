@@ -1,37 +1,38 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { fetchMedCenters, medCenterDelete } from '@store/actionCreators/medCenters';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
 import Button from '@components/common/Button/Button';
 import MedCenter from '@components/MedCentersPage/MedCentersList/MedCenter/MedCenter';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { fetchMedCenters, medCenterDelete } from '@store/actionCreators/medCenters';
 import { MedCentersListWrapper, CenterWrapper } from './MedCentersListStyle';
-import { ROUTS } from '@constants/routs';
-import { IEditForm } from '../../AdminMedCenters';
-import { NavLink, useLocation } from 'react-router-dom';
 
 interface IMedCentersListProps {
   searchValue: string;
-  setEditFormData: (value: IEditForm) => void;
 }
 
-const MedCentersList: React.FC<IMedCentersListProps> = ({ searchValue, setEditFormData }) => {
+const MedCentersList: React.FC<IMedCentersListProps> = ({ searchValue }) => {
   const dispatch = useDispatch();
-  const { medCenters, error } = useTypesSelector((state) => state.medCenter);
+  const { medCenters } = useTypesSelector((state) => state.medCenter);
 
   const deleteMedCenter = (idMedCenter: string) => {
     dispatch(medCenterDelete(idMedCenter));
   };
+  
   useEffect(() => {
     dispatch(fetchMedCenters());
   }, []);
 
+  const filtrationСondition = (medCenter: { name: string }) =>
+    medCenter.name.toLowerCase().includes(searchValue.toLowerCase());
+
   return (
     <MedCentersListWrapper>
       {medCenters
-        .filter((medCenter) => medCenter.name.toLowerCase().includes(searchValue.toLowerCase()))
+        .filter((medCenter) => filtrationСondition(medCenter))
         .map((medCenter) => (
-          <CenterWrapper>
-            <MedCenter key={medCenter._id} adminPanel {...medCenter} />
+          <CenterWrapper key={medCenter._id}>
+            <MedCenter adminPanel {...medCenter} />
             <div>
               <NavLink to={`/editMedCenter/${medCenter._id}`}>
                 <Button round variant="outlined">

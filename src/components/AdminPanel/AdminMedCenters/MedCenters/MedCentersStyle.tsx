@@ -1,5 +1,5 @@
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import { NavLink } from 'react-router-dom';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import styled from 'styled-components';
 
 export const MedCenterWrapper = styled.div`
@@ -20,6 +20,7 @@ export const FormWrapper = styled.div`
   align-items: center;
   margin: 0 50px;
   position: relative;
+
   span {
     color: ${STYLE_CONSTANTS.COLORS.blue};
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
@@ -46,6 +47,7 @@ export const MedCentersHeaderSearch = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
   span {
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   }
@@ -53,6 +55,7 @@ export const MedCentersHeaderSearch = styled.div`
 
 export const CreateNewOrEditLink = styled(NavLink)`
   padding-top: 10px;
+
   :hover {
     color: ${STYLE_CONSTANTS.COLORS.blue};
   }

@@ -62,8 +62,8 @@ const Routs: React.FC = () => {
   return (
     <Switch>
       {userRole === USER_ROLE.admin
-        ? adminRouts.map((rout) => <Route {...rout} />)
-        : userRouts.map((rout) => <Route {...rout} />)}
+        ? adminRouts.map((rout) => <Route key={rout.path} {...rout} />)
+        : userRouts.map((rout) => <Route key={rout.path} {...rout} />)}
     </Switch>
   );
 };

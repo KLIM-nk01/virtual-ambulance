@@ -22,6 +22,5 @@ export const CenterWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.darkGrey};
-
   padding-bottom: 20px;
 `;

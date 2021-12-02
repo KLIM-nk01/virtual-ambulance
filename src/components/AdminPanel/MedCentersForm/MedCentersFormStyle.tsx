@@ -29,6 +29,7 @@ export const FormButtonBar = styled.div`
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
   margin-top: 20px;
+
   button {
     width: 100%;
   }
@@ -38,6 +39,7 @@ export const MedCenterPhotoWrapper = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+
   img {
     width: 255px;
     margin-right: 20px;

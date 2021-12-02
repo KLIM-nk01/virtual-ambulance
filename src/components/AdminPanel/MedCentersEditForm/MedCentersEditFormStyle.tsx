@@ -22,7 +22,6 @@ export const MedCentersFormWrapper = styled.div`
   width: 600px;
   height: fit-content;
   background: ${STYLE_CONSTANTS.COLORS.white};
-
   display: flex;
   flex-direction: column;
   align-items: center;

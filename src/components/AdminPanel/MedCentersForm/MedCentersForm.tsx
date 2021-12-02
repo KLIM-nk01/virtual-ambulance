@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { INewMedCenterData } from '@store/types/medCentersType';
 import Input from '@components/common/Input/Input';
 import { Photo, Required } from './FormValidationConst';
 import {
@@ -18,8 +20,6 @@ import Chip from '@mui/material/Chip';
 import FormControl from '@mui/material/FormControl';
 import Button from '@components/common/Button/Button';
 import TextArea from '@components/common/TextArea/TextArea';
-import { useDispatch } from 'react-redux';
-import { INewMedCenterData } from '@store/types/medCentersType';
 
 interface IMedCentersFormProps {
   submitFunction?: any;
@@ -54,7 +54,6 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction }) => {
 
   const onSubmit = (data: INewMedCenterData) => {
     data.services = formState.services;
-
     dispatch(submitFunction(data));
   };
 
@@ -120,9 +119,9 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction }) => {
                 </Box>
               )}
             >
-              {doctorsDirection.map((direction) => (
-                <MenuItem key={direction.id_direction} value={direction.direction}>
-                  {direction.direction}
+              {doctorsDirection.map(({ direction, id_direction }) => (
+                <MenuItem key={id_direction} value={direction}>
+                  {direction}
                 </MenuItem>
               ))}
             </Select>

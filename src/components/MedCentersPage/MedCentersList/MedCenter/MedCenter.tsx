@@ -54,7 +54,7 @@ const MedCenter: React.FC<IMedCenter> = ({
           <span
             hidden={hidden}
             onClick={() => {
-              hidden ? setHidden(false) : setHidden(true);
+              setHidden(hidden ? false : true);
             }}
           >
             more...
@@ -64,7 +64,7 @@ const MedCenter: React.FC<IMedCenter> = ({
 
       <ItemMore adminPanel={adminPanel} hidden={hidden}>
         <Services medCenterName={name} adminPanel={adminPanel} services={services} />
-        <Staff  medStaff={medStaff} />
+        <Staff medStaff={medStaff} />
       </ItemMore>
     </MedCenterItem>
   );
