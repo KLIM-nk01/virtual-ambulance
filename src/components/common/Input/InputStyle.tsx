@@ -73,7 +73,7 @@ export const InputGroup = styled.div<IStyleProps>`
       };
       margin: 0 auto;
       font-size: 14px;
-      
+      min-width: 150px;
       display: inline-block;
       cursor: pointer;
       padding: 20px;

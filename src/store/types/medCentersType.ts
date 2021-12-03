@@ -22,6 +22,7 @@ export interface IMedCenterData {
 }
 
 export interface INewMedCenterData {
+  _id?: string;
   name: string;
   address: string;
   photo: string;
@@ -39,21 +40,28 @@ export enum MedCenterActionTypes {
   FETCH_MEDCENTERS = 'FETCH_MEDCENTERS',
   FETCH_MEDCENTERS_SUCCESS = 'FETCH_MEDCENTERS_SUCCESS',
   FETCH_MEDCENTERS_ERROR = 'FETCH_MEDCENTERS_ERROR',
+  FETCH_MEDCENTER = 'FETCH_MEDCENTER',
   CREATE_NEW_MEDCENTER = 'CREATE_NEW_MEDCENTER',
   CREATE_NEW_MEDCENTER_SUCCESS = 'CREATE_NEW_MEDCENTER_SUCCESS',
   CREATE_NEW_MEDCENTER_ERROR = 'CREATE_NEW_MEDCENTER_ERROR',
   DELETE_MEDCENTER = 'DELETE_MEDCENTER',
+  EDIT_MEDCENTER = 'EDIT_MEDCENTER',
 }
-interface FetchMedCenter {
+interface FetchMedCenters {
   type: MedCenterActionTypes.FETCH_MEDCENTERS;
 }
 
-interface FetchMedCenterSuccess {
+interface FetchMedCenterWithId {
+  type: MedCenterActionTypes.FETCH_MEDCENTER;
+  payload: IMedCenterData[];
+}
+
+interface FetchMedCentersSuccess {
   type: MedCenterActionTypes.FETCH_MEDCENTERS_SUCCESS;
   payload: IMedCenterData[];
 }
 
-interface FetchMedCenterError {
+interface FetchMedCentersError {
   type: MedCenterActionTypes.FETCH_MEDCENTERS_ERROR;
   errorMessage: string;
 }
@@ -77,11 +85,17 @@ interface DeleteMedCenter {
   payload: string;
 }
 
+interface EditMedCenter {
+  type: MedCenterActionTypes.EDIT_MEDCENTER;
+}
+
 export type MedCenterAction =
-  | FetchMedCenter
-  | FetchMedCenterSuccess
-  | FetchMedCenterError
+  | FetchMedCenters
+  | FetchMedCentersSuccess
+  | FetchMedCentersError
   | CreateNewMedCenter
   | CreateNewMedCenterSuccess
   | CreateNewMedCenterError
-  | DeleteMedCenter;
+  | DeleteMedCenter
+  | FetchMedCenterWithId
+  | EditMedCenter;

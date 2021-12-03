@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { INewMedCenterData } from '@store/types/medCentersType';
+import { IMedCenterData, INewMedCenterData } from '@store/types/medCentersType';
 import Input from '@components/common/Input/Input';
-import { Photo, Required } from './FormValidationConst';
+import { Photo, Required } from '@components/Form/SignInUp/formValidationConstants';
 import {
   Form,
   FormButtonBar,
@@ -23,16 +23,21 @@ import TextArea from '@components/common/TextArea/TextArea';
 
 interface IMedCentersFormProps {
   submitFunction?: any;
+  isEdit?: IMedCenterData;
 }
 
-const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction }) => {
-  const [formState, setFormState] = useState<INewMedCenterData>({
-    name: '',
-    address: '',
-    photo: '',
-    description: '',
-    services: [],
-  });
+const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit }) => {
+  const [formState, setFormState] = useState<INewMedCenterData>(
+    isEdit
+      ? isEdit
+      : {
+          name: '',
+          address: '',
+          photo: '',
+          description: '',
+          services: [],
+        }
+  );
 
   const dispatch = useDispatch();
 
@@ -52,14 +57,20 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction }) => {
     });
   };
 
-  const onSubmit = (data: INewMedCenterData) => {
-    data.services = formState.services;
-    dispatch(submitFunction(data));
+  const createNewCenter = (submitData: INewMedCenterData) => {
+    submitData.services = formState.services;
+    dispatch(submitFunction(submitData));
+  };
+
+  const editMedCenter = (submitData: INewMedCenterData) => {
+    submitData.services = formState.services;
+    submitData._id = isEdit?._id;
+    dispatch(submitFunction(submitData));
   };
 
   return (
     <FormWrapper>
-      <Form onSubmit={handleSubmit(onSubmit)}>
+      <Form onSubmit={handleSubmit(isEdit ? editMedCenter : createNewCenter)}>
         <Input
           primary
           label="Name"
@@ -88,18 +99,20 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction }) => {
             primary
             type="file"
             name="photo"
-            register={register('photo', Photo)}
+            register={register('photo', isEdit ? undefined : Photo)}
             label="Select Photo"
             errors={errors}
             id={'photo'}
           />
+          {isEdit && <img src={isEdit.photo} alt="medCenter Photo" />}
         </MedCenterPhotoWrapper>
 
         <TextArea
           name="description"
           register={register('description', Required)}
           label="Description"
-          onKeyUp={(e: React.ChangeEvent<HTMLInputElement>) =>
+          value={formState.description}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setFormState({ ...formState, description: e.target.value })
           }
         />
@@ -130,10 +143,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction }) => {
 
         <FormButtonBar>
           <Button round type="submit">
-            Edit
-          </Button>
-          <Button round type="submit">
-            Create new
+            {isEdit ? 'Edit' : 'Create new'}
           </Button>
         </FormButtonBar>
       </Form>

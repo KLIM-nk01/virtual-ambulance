@@ -10,7 +10,7 @@ export const AdminNavWrapper = styled.div`
 `;
 
 export const NavLinkStyled = styled(NavLink)`
-  width: 100%;
+  width: 250px;
   height: 50px;
   display: flex;
   align-items: center;

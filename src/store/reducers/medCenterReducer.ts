@@ -23,6 +23,13 @@ export const medCenterReducer = (
     case MedCenterActionTypes.FETCH_MEDCENTERS_ERROR:
       return { loading: false, error: action.errorMessage, medCenters: [] };
 
+    case MedCenterActionTypes.FETCH_MEDCENTER:
+      return {
+        loading: false,
+        error: null,
+        medCenters: action.payload,
+      };
+
     case MedCenterActionTypes.CREATE_NEW_MEDCENTER:
       return { ...state, loading: true, error: null };
     case MedCenterActionTypes.CREATE_NEW_MEDCENTER_SUCCESS:
@@ -36,6 +43,9 @@ export const medCenterReducer = (
         error: null,
         medCenters: state.medCenters.filter((center) => action.payload !== center._id),
       };
+
+      case MedCenterActionTypes.EDIT_MEDCENTER:
+        {}
     default:
       return state;
   }

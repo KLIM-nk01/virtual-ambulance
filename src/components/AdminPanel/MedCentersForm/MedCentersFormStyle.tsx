@@ -24,11 +24,10 @@ export const FormSelectName = styled.span`
 `;
 
 export const FormButtonBar = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
-  margin-top: 20px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   button {
     width: 100%;

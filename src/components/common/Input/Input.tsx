@@ -30,11 +30,9 @@ const Input: React.FC<IInput> = ({
   register,
   errors,
   name,
-  placeholder,
   accept,
   id,
   fileName,
-  value,
   onChange,
   ...props
 }) => {
@@ -46,11 +44,9 @@ const Input: React.FC<IInput> = ({
     <InputGroup inputFileName={inputFileName} fileName={fileName} primary={primary} type={type}>
       <label htmlFor={id}>{type === 'file' ? inputFileName : label}</label>
       <input
-        placeholder={placeholder}
         id={id}
         name={name}
         type={type}
-        value={value}
         {...register}
         {...props}
         onChange={type === 'file' ? fileOnChange : onChange}

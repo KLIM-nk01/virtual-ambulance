@@ -10,7 +10,7 @@ export const ROUTS = {
 
   ADMIN_PANEL: '/',
   ADMIN_PANEL_MED_CENTERS_LIST: '/list',
-  ADMIN_PANEL_MED_CENTERS_EDIT: '/editMedCenter/:id',
+  ADMIN_PANEL_MED_CENTERS_EDIT: '/editMedCenter/:idMedCenter',
   ADMIN_PANEL_MED_CENTERS_CREATE_NEW: '/createNewCenter',
   ADMIN_PANEL_DOCTORS: '/doctors',
   ADMIN_PANEL_PATIENTS: '/patients',
