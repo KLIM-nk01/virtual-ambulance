@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
+import { Box } from '@mui/system';
+import { FormControl } from '@mui/material';
 
 export const FormWrapper = styled.div`
   width: 450px;
@@ -42,5 +44,18 @@ export const MedCenterPhotoWrapper = styled.div`
   img {
     width: 255px;
     margin-right: 20px;
+  }
+`;
+
+export const FormControlWrapper = styled(FormControl)`
+  width: 320px;
+`;
+
+export const BoxWrapper = styled(Box)`
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    margin: 3px 5px;
   }
 `;

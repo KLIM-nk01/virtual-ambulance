@@ -5,8 +5,10 @@ import { IMedCenterData, INewMedCenterData } from '@store/types/medCentersType';
 import Input from '@components/common/Input/Input';
 import { Photo, Required } from '@components/Form/SignInUp/formValidationConstants';
 import {
+  BoxWrapper,
   Form,
   FormButtonBar,
+  FormControlWrapper,
   FormSelect,
   FormSelectName,
   FormWrapper,
@@ -14,10 +16,8 @@ import {
 } from './MedCentersFormStyle';
 import MenuItem from '@mui/material/MenuItem';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Box from '@mui/material/Box';
 import { doctorsDirection } from '@data/doctorsDirection';
 import Chip from '@mui/material/Chip';
-import FormControl from '@mui/material/FormControl';
 import Button from '@components/common/Button/Button';
 import TextArea from '@components/common/TextArea/TextArea';
 import Portal from '@components/common/Portal/Portal';
@@ -45,7 +45,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
   );
   const [modalActive, setModalActive] = useState(false);
   const dispatch = useDispatch();
-  const { error, loading } = useTypesSelector((state) => state.medCenter);
+  const { loading } = useTypesSelector((state) => state.medCenter);
   const {
     register,
     handleSubmit,
@@ -67,8 +67,10 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
 
     if (isEdit) {
       submitData._id = isEdit?._id;
+
       dispatch(submitFunction(submitData));
     } else dispatch(submitFunction(submitData));
+
     if (!loading) {
       setModalActive(!modalActive);
     }
@@ -88,6 +90,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
             setFormState({ ...formState, name: e.target.value })
           }
         />
+
         <Input
           primary
           label="Address"
@@ -110,9 +113,10 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
             errors={errors}
             id={'photo'}
           />
+
           {isEdit && <img src={isEdit.photo} alt="medCenter Photo" />}
         </MedCenterPhotoWrapper>
-        {loading && <Loader />}
+
         <TextArea
           name="description"
           register={register('description', Required)}
@@ -125,17 +129,17 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
 
         <FormSelect>
           <FormSelectName>Services: </FormSelectName>
-          <FormControl sx={{ m: 1, width: 300 }}>
+          <FormControlWrapper>
             <Select
               multiple
               value={formState.services}
               onChange={handleChange}
               renderValue={(selected) => (
-                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                <BoxWrapper>
                   {selected.map((value) => (
                     <Chip key={value} label={value} />
                   ))}
-                </Box>
+                </BoxWrapper>
               )}
             >
               {doctorsDirection.map(({ direction, id_direction }) => (
@@ -144,7 +148,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
                 </MenuItem>
               ))}
             </Select>
-          </FormControl>
+          </FormControlWrapper>
         </FormSelect>
 
         <FormButtonBar>
@@ -152,6 +156,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
             {isEdit ? 'Edit' : 'Create new'}
           </Button>
         </FormButtonBar>
+        <Portal>{loading && <Loader />}</Portal>
       </Form>
 
       <Portal>

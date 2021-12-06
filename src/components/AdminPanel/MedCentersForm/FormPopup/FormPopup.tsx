@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { EditPopupWrapper, PopupContent } from './FormPopupStyle';
-import Error from '@components/common/Error/Error';
 import { NavLink, useHistory } from 'react-router-dom';
 import { ROUTS } from '@constants/routs';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import Error from '@components/common/Error/Error';
+import { EditPopupWrapper, PopupContent } from './FormPopupStyle';
 
 interface IFormPopupProps {
   message: string;
