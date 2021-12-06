@@ -6,15 +6,14 @@ interface ITextAreaProps {
   register?: any;
   label: string;
   name: string;
-  onKeyUp?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const TextArea: React.FC<ITextAreaProps> = ({ register, label, ...props }) => {
+const TextArea: React.FC<ITextAreaProps> = ({ register, onChange, label, ...props }) => {
   return (
     <TextAreaWrapper>
       <TextAreaLabel>{label}</TextAreaLabel>
-      <TextAreaContainer {...props} {...register} />
+      <textarea {...props} {...register} onChange={onChange} />
     </TextAreaWrapper>
   );
 };

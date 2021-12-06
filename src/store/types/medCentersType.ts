@@ -46,6 +46,8 @@ export enum MedCenterActionTypes {
   CREATE_NEW_MEDCENTER_ERROR = 'CREATE_NEW_MEDCENTER_ERROR',
   DELETE_MEDCENTER = 'DELETE_MEDCENTER',
   EDIT_MEDCENTER = 'EDIT_MEDCENTER',
+  EDIT_MEDCENTER_SUCCESS = 'EDIT_MEDCENTER_SUCCESS',
+  EDIT_MEDCENTER_ERROR = 'EDIT_MEDCENTER_ERROR',
 }
 interface FetchMedCenters {
   type: MedCenterActionTypes.FETCH_MEDCENTERS;
@@ -88,6 +90,13 @@ interface DeleteMedCenter {
 interface EditMedCenter {
   type: MedCenterActionTypes.EDIT_MEDCENTER;
 }
+interface EditMedCenterSuccess {
+  type: MedCenterActionTypes.EDIT_MEDCENTER_SUCCESS;
+}
+interface EditMedCenterError {
+  type: MedCenterActionTypes.EDIT_MEDCENTER_ERROR;
+  errorMessage: string;
+}
 
 export type MedCenterAction =
   | FetchMedCenters
@@ -98,4 +107,6 @@ export type MedCenterAction =
   | CreateNewMedCenterError
   | DeleteMedCenter
   | FetchMedCenterWithId
-  | EditMedCenter;
+  | EditMedCenter
+  | EditMedCenterSuccess
+  | EditMedCenterError;

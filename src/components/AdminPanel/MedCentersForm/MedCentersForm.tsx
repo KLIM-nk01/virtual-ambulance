@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { IMedCenterData, INewMedCenterData } from '@store/types/medCentersType';
@@ -20,6 +20,11 @@ import Chip from '@mui/material/Chip';
 import FormControl from '@mui/material/FormControl';
 import Button from '@components/common/Button/Button';
 import TextArea from '@components/common/TextArea/TextArea';
+import Portal from '@components/common/Portal/Portal';
+import Modal from '@components/common/Modal/Modal';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
+import EditFormPopup from './FormPopup/FormPopup';
+import Loader from '@components/common/Loader/Loader';
 
 interface IMedCentersFormProps {
   submitFunction?: any;
@@ -38,9 +43,9 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
           services: [],
         }
   );
-
+  const [modalActive, setModalActive] = useState(false);
   const dispatch = useDispatch();
-
+  const { error, loading } = useTypesSelector((state) => state.medCenter);
   const {
     register,
     handleSubmit,
@@ -57,20 +62,21 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
     });
   };
 
-  const createNewCenter = (submitData: INewMedCenterData) => {
+  const submitForm = (submitData: INewMedCenterData) => {
     submitData.services = formState.services;
-    dispatch(submitFunction(submitData));
-  };
 
-  const editMedCenter = (submitData: INewMedCenterData) => {
-    submitData.services = formState.services;
-    submitData._id = isEdit?._id;
-    dispatch(submitFunction(submitData));
+    if (isEdit) {
+      submitData._id = isEdit?._id;
+      dispatch(submitFunction(submitData));
+    } else dispatch(submitFunction(submitData));
+    if (!loading) {
+      setModalActive(!modalActive);
+    }
   };
 
   return (
     <FormWrapper>
-      <Form onSubmit={handleSubmit(isEdit ? editMedCenter : createNewCenter)}>
+      <Form onSubmit={handleSubmit(submitForm)}>
         <Input
           primary
           label="Name"
@@ -106,13 +112,13 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
           />
           {isEdit && <img src={isEdit.photo} alt="medCenter Photo" />}
         </MedCenterPhotoWrapper>
-
+        {loading && <Loader />}
         <TextArea
           name="description"
           register={register('description', Required)}
           label="Description"
           value={formState.description}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
             setFormState({ ...formState, description: e.target.value })
           }
         />
@@ -147,6 +153,16 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
           </Button>
         </FormButtonBar>
       </Form>
+
+      <Portal>
+        <Modal active={modalActive} setActive={setModalActive}>
+          <EditFormPopup
+            message={
+              isEdit ? 'Data saved successfully!' : 'The medical center was created successfully!'
+            }
+          />
+        </Modal>
+      </Portal>
     </FormWrapper>
   );
 };

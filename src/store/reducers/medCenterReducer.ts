@@ -3,6 +3,7 @@ import {
   IMedCenterState,
   MedCenterAction,
   MedCenterActionTypes,
+  IMedCenterData,
 } from '@store/types/medCentersType';
 
 export const initialState: IMedCenterState = {
@@ -25,7 +26,7 @@ export const medCenterReducer = (
 
     case MedCenterActionTypes.FETCH_MEDCENTER:
       return {
-        loading: false,
+        ...state,
         error: null,
         medCenters: action.payload,
       };
@@ -44,8 +45,25 @@ export const medCenterReducer = (
         medCenters: state.medCenters.filter((center) => action.payload !== center._id),
       };
 
-      case MedCenterActionTypes.EDIT_MEDCENTER:
-        {}
+    case MedCenterActionTypes.EDIT_MEDCENTER:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
+
+    case MedCenterActionTypes.EDIT_MEDCENTER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
+    case MedCenterActionTypes.EDIT_MEDCENTER_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.errorMessage,
+      };
     default:
       return state;
   }

@@ -6,6 +6,18 @@ export const TextAreaWrapper = styled.div`
   height: 200px;
   display: flex;
   flex-direction: column;
+  textarea {
+    resize: none;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+
+    border: 1px solid ${STYLE_CONSTANTS.COLORS.gray};
+    border-radius: 10px;
+    :focus {
+      border: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
+    }
+  }
 `;
 
 export const TextAreaContainer = styled.textarea`

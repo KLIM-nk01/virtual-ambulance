@@ -36,15 +36,16 @@ export const fetchMedCenters = () => {
 
 export const fetchMedCenterWithId = (idMedCenter: string) => {
   return async (dispatch: Dispatch<MedCenterAction>) => {
-    dispatch({ type: MedCenterActionTypes.FETCH_MEDCENTERS });
 
     try {
-      const response: AxiosResponse<IMedCenterData[]> = await axios.get(API_URL.MEDCENTERS);
+      const response: AxiosResponse<IMedCenterData[]> = await axios.get(
+        `${API_URL.MEDCENTERS}/${idMedCenter}`
+      );
 
       response.status >= 200 &&
         dispatch({
           type: MedCenterActionTypes.FETCH_MEDCENTER,
-          payload: response.data.filter((center) => center._id === idMedCenter),
+          payload: response.data,
         });
     } catch (error) {
       if (error.response) {
@@ -77,19 +78,21 @@ export const createNewMedCenter = (medCenterData: { [key: string]: string; photo
     });
 
     try {
-      const response: AxiosResponse<{
-        data: IMedCenterData;
-      }> = await axios.post(API_URL.CREATE_NEW_MEDCENTER, form, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        withCredentials: true,
-      });
+      const response: AxiosResponse<IMedCenterData> = await axios.post(
+        API_URL.CREATE_NEW_MEDCENTER,
+        form,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          withCredentials: true,
+        }
+      );
 
       response.status >= 200 &&
         dispatch({
           type: MedCenterActionTypes.CREATE_NEW_MEDCENTER_SUCCESS,
-          payload: response.data.data,
+          payload: response.data,
         });
     } catch (error) {
       if (error.response) {
@@ -151,29 +154,30 @@ export const editMedCenter = (medCenterData: { [key: string]: string; photo: any
     });
 
     try {
-      const response: AxiosResponse<{
-        data: IMedCenterData;
-      }> = await axios.patch(API_URL.EDIT_MEDCENTER, form, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        withCredentials: true,
-      });
+      const response: AxiosResponse<IMedCenterData[]> = await axios.patch(
+        API_URL.EDIT_MEDCENTER,
+        form,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          withCredentials: true,
+        }
+      );
 
-      // response.status >= 200 &&
-      //   dispatch({
-      //     type: MedCenterActionTypes.CREATE_NEW_MEDCENTER_SUCCESS,
-      //     payload: response.data.data,
-      //   });
+      response.status >= 200 &&
+        dispatch({
+          type: MedCenterActionTypes.EDIT_MEDCENTER_SUCCESS,
+        });
     } catch (error) {
       if (error.response) {
         dispatch({
-          type: MedCenterActionTypes.CREATE_NEW_MEDCENTER_ERROR,
+          type: MedCenterActionTypes.EDIT_MEDCENTER_ERROR,
           errorMessage: ERROR_MESSAGE.FAILED_DATA_LOAD,
         });
       } else if (error.request) {
         dispatch({
-          type: MedCenterActionTypes.CREATE_NEW_MEDCENTER_ERROR,
+          type: MedCenterActionTypes.EDIT_MEDCENTER_ERROR,
           errorMessage: ERROR_MESSAGE.SERVER_ERROR,
         });
       }

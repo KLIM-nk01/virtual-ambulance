@@ -1,4 +1,3 @@
-import Error from '@components/common/Error/Error';
 import Loader from '@components/common/Loader/Loader';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { editMedCenter, fetchMedCenterWithId } from '@store/actionCreators/medCenters';
@@ -11,6 +10,7 @@ import {
   MedCentersEditFormWrapper,
   MedCentersFormWrapper,
 } from './MedCentersEditFormStyle';
+import Error from '@components/common/Error/Error';
 
 const MedCentersEditForm: React.FC = () => {
   const { idMedCenter } = useParams<{ idMedCenter: string }>();
@@ -27,15 +27,15 @@ const MedCentersEditForm: React.FC = () => {
 
   return (
     <MedCentersEditFormWrapper>
-      {loading ? (
-        <Loader />
-      ) : error ? (
+      {error ? (
         <Error errorMessage={error} />
       ) : (
-        <MedCentersFormWrapper>
-          <FormName>Edit medical center</FormName>
-          <MedCentersForm submitFunction={editMedCenter} isEdit={medCenter} />
-        </MedCentersFormWrapper>
+        medCenter && (
+          <MedCentersFormWrapper>
+            <FormName>Edit medical center</FormName>
+            <MedCentersForm submitFunction={editMedCenter} isEdit={medCenter} />
+          </MedCentersFormWrapper>
+        )
       )}
     </MedCentersEditFormWrapper>
   );
