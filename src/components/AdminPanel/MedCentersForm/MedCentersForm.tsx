@@ -23,7 +23,7 @@ import TextArea from '@components/common/TextArea/TextArea';
 import Portal from '@components/common/Portal/Portal';
 import Modal from '@components/common/Modal/Modal';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
-import EditFormPopup from './FormPopup/FormPopup';
+import FormPopup from './FormPopup/FormPopup';
 import Loader from '@components/common/Loader/Loader';
 
 interface IMedCentersFormProps {
@@ -63,6 +63,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
   };
 
   const submitForm = (submitData: INewMedCenterData) => {
+    console.log('+');
     submitData.services = formState.services;
 
     if (isEdit) {
@@ -161,7 +162,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
 
       <Portal>
         <Modal active={modalActive} setActive={setModalActive}>
-          <EditFormPopup
+          <FormPopup
             message={
               isEdit ? 'Data saved successfully!' : 'The medical center was created successfully!'
             }

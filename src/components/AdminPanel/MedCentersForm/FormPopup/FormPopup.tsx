@@ -12,13 +12,14 @@ interface IFormPopupProps {
 const FormPopup: React.FC<IFormPopupProps> = ({ message }) => {
   const { error } = useTypesSelector((state) => state.medCenter);
   const history = useHistory();
-  const [seconds, setSeconds] = useState(30);
+  const [seconds, setSeconds] = useState(10);
 
   useEffect(() => {
     seconds > 0
       ? setTimeout(() => setSeconds(seconds - 1), 1000)
       : history.push(ROUTS.ADMIN_PANEL_MED_CENTERS_LIST);
   });
+  
   return (
     <EditPopupWrapper>
       {error ? (
