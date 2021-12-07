@@ -63,7 +63,6 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
   };
 
   const submitForm = (submitData: INewMedCenterData) => {
-    console.log('+');
     submitData.services = formState.services;
 
     if (isEdit) {
