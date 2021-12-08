@@ -1,6 +1,6 @@
 import React from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
-import { TextAreaWrapper, TextAreaLabel, TextAreaContainer } from './TextAreaStyle';
+import { TextAreaWrapper, TextAreaLabel, TextAreaStyled } from './TextAreaStyle';
 
 interface ITextAreaProps {
   value?: string;
@@ -11,11 +11,10 @@ interface ITextAreaProps {
 }
 
 const TextArea: React.FC<ITextAreaProps> = ({ register, onChange, label, ...props }) => {
-  console.log(register);
   return (
     <TextAreaWrapper>
       <TextAreaLabel>{label}</TextAreaLabel>
-      <TextAreaContainer {...props} {...register} onChange={onChange} />
+      <TextAreaStyled {...props} {...register} onChange={onChange} />
     </TextAreaWrapper>
   );
 };

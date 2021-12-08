@@ -8,7 +8,7 @@ export const TextAreaWrapper = styled.div`
   flex-direction: column;
   `;
 
-export const TextAreaContainer = styled.textarea`
+export const TextAreaStyled = styled.textarea`
   resize: none;
   width: 100%;
   height: 100%;

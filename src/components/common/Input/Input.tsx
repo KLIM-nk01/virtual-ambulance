@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
-import { FileName, InputGroup } from './InputStyle';
+import { InputGroup } from './InputStyle';
 
-interface IInput {
+interface IInput
+  extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  ref?:
+    | ((instance: HTMLInputElement | null) => void)
+    | React.RefObject<HTMLInputElement>
+    | null
+    | undefined;
+
   primary?: boolean;
   label?: string;
-  placeholder?: string;
-  type?: string;
-  checkbox?: boolean;
   name: string;
   register?: UseFormRegisterReturn;
-  accept?: string;
   errors?: {
     [key: string]: {
       type: string;
@@ -18,10 +21,7 @@ interface IInput {
     };
   };
   id?: string;
-  for?: string;
   fileName?: string;
-  value?: string | number;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input: React.FC<IInput> = ({
@@ -31,7 +31,6 @@ const Input: React.FC<IInput> = ({
   register,
   errors,
   name,
-  accept,
   id,
   fileName,
   onChange,
