@@ -1,12 +1,9 @@
 import React from 'react';
-import { ChangeHandler, UseFormRegisterReturn } from 'react-hook-form';
+import { UseFormRegisterReturn } from 'react-hook-form';
 import { TextAreaWrapper, TextAreaLabel, TextAreaContainer } from './TextAreaStyle';
 
 interface ITextAreaProps {
   value?: string;
-  // register?: (
-  //   name: string,
-  // ) => { onChange: ChangeHandler; onBlur: ChangeHandler; name: string; ref: React.Ref<any> };
   register?: UseFormRegisterReturn;
   label: string;
   name: string;
@@ -18,7 +15,7 @@ const TextArea: React.FC<ITextAreaProps> = ({ register, onChange, label, ...prop
   return (
     <TextAreaWrapper>
       <TextAreaLabel>{label}</TextAreaLabel>
-      <textarea {...props} {...register} onChange={onChange} />
+      <TextAreaContainer {...props} {...register} onChange={onChange} />
     </TextAreaWrapper>
   );
 };
