@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 import { FileName, InputGroup } from './InputStyle';
 
 interface IInput {
@@ -8,7 +9,7 @@ interface IInput {
   type?: string;
   checkbox?: boolean;
   name: string;
-  register?: any;
+  register?: UseFormRegisterReturn;
   accept?: string;
   errors?: {
     [key: string]: {

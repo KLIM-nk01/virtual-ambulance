@@ -1,9 +1,8 @@
-import Loader from '@components/common/Loader/Loader';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { editMedCenter, fetchMedCenterWithId } from '@store/actionCreators/medCenters';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { editMedCenter, fetchMedCenterWithId } from '@store/actionCreators/medCenters';
+import { useTypesSelector } from '@hooks/UseTypedSelector';
 import MedCentersForm from '../MedCentersForm/MedCentersForm';
 import {
   FormName,
@@ -16,7 +15,6 @@ const MedCentersEditForm: React.FC = () => {
   const { idMedCenter } = useParams<{ idMedCenter: string }>();
   const {
     medCenters: [medCenter],
-    loading,
     error,
   } = useTypesSelector((state) => state.medCenter);
   const dispatch = useDispatch();

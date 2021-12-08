@@ -169,6 +169,7 @@ export const editMedCenter = (medCenterData: { [key: string]: string; photo: any
         dispatch({
           type: MedCenterActionTypes.EDIT_MEDCENTER_SUCCESS,
         });
+        
     } catch (error) {
       if (error.response) {
         dispatch({

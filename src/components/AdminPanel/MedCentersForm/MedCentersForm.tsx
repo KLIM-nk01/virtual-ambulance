@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { IMedCenterData, INewMedCenterData } from '@store/types/medCentersType';
@@ -65,15 +65,9 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
   const submitForm = (submitData: INewMedCenterData) => {
     submitData.services = formState.services;
 
-    if (isEdit) {
-      submitData._id = isEdit?._id;
+    isEdit && (submitData._id = isEdit?._id);
 
-      dispatch(submitFunction(submitData));
-    } else dispatch(submitFunction(submitData));
-
-    if (!loading) {
-      setModalActive(!modalActive);
-    }
+    dispatch(submitFunction(submitData));
   };
 
   return (

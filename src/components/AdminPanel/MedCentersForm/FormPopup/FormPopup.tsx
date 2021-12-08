@@ -1,38 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { ROUTS } from '@constants/routs';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import Error from '@components/common/Error/Error';
 import { EditPopupWrapper, PopupContent } from './FormPopupStyle';
 
 interface IFormPopupProps {
-  message: string;
+  message?: string;
+  error?: string;
 }
 
 const FormPopup: React.FC<IFormPopupProps> = ({ message }) => {
-  const { error } = useTypesSelector((state) => state.medCenter);
-  const history = useHistory();
-  const [seconds, setSeconds] = useState(10);
-
-  useEffect(() => {
-    seconds > 0
-      ? setTimeout(() => setSeconds(seconds - 1), 1000)
-      : history.push(ROUTS.ADMIN_PANEL_MED_CENTERS_LIST);
-  });
-  
   return (
     <EditPopupWrapper>
-      {error ? (
-        <Error errorMessage={error} />
-      ) : (
-        <PopupContent>
-          <span>{message}</span>
-          <NavLink to={ROUTS.ADMIN_PANEL_MED_CENTERS_LIST}>
-            You will be redirected to the page of views of medical centers automatically, through{' '}
-            {seconds}
-          </NavLink>
-        </PopupContent>
-      )}
+      <PopupContent>
+        <span>{message}</span>
+        <NavLink to={ROUTS.ADMIN_PANEL_MED_CENTERS_LIST}>
+          You will be redirected to the page of views of medical centers automatically, through{' '}
+        </NavLink>
+      </PopupContent>
     </EditPopupWrapper>
   );
 };
