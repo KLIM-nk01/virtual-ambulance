@@ -13,6 +13,8 @@ import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';
+import { USER_ROLE } from '@constants/userRole';
+import { isAdmin } from '@components/Helpers/AdminHelper';
 
 const SingInForm: React.FC = () => {
   const {
@@ -22,14 +24,16 @@ const SingInForm: React.FC = () => {
   } = useForm();
   const dispatch = useDispatch();
   const { signInUser, signInLoading, errorMessage } = useTypesSelector((state) => state.signIn);
-  const isAuth = useTypesSelector((state) => state.user.isAuth)
+  const { isAuth, currentUser } = useTypesSelector((state) => state.user);
   const onSubmit = (data: ISignInData) => {
     dispatch(userSignIn(data));
   };
 
   return (
     <FormContainer>
-      {isAuth && <Redirect to={ROUTS.MAIN_PAGE_PATH} />}
+      {isAuth && (
+        <Redirect to={isAdmin() ? ROUTS.ADMIN_PANEL_MED_CENTERS_LIST : ROUTS.MAIN_PAGE_PATH} />
+      )}
 
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormName>Sin In to your account</FormName>

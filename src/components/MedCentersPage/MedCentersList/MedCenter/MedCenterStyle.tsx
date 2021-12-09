@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
-export const MedCenterItem = styled.div`
+interface IMedCenterProps {
+  adminPanel?: boolean;
+}
+
+export const MedCenterItem = styled.div<IMedCenterProps>`
   width: 90%;
   height: fit-content;
   margin: 20px auto;
@@ -13,6 +17,12 @@ export const MedCenterItem = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  ${({ adminPanel }) =>
+    adminPanel &&
+    `
+      box-shadow: none;
+      margin: 0;
+      `}
 `;
 
 export const Title = styled.span`
@@ -62,7 +72,7 @@ export const ItemDescription = styled.div`
     color: ${STYLE_CONSTANTS.COLORS.darkGrey};
     margin: 10px 0;
     cursor: pointer;
-    
+
     :hover {
       color: ${STYLE_CONSTANTS.COLORS.blue};
     }
@@ -76,9 +86,9 @@ export const ItemButtons = styled.div`
   justify-content: space-between;
 `;
 
-export const ItemMore = styled.div`
+export const ItemMore = styled.div<IMedCenterProps>`
   width: 100%;
-  display: ${({ hidden }) => (hidden ? 'none' : 'flex')};
+  display: ${({ hidden, adminPanel }) => (adminPanel ? 'flex' : hidden ? 'none' : 'flex')};
   flex-direction: column;
   align-items: center;
   justify-content: space-between;

@@ -7,14 +7,17 @@ import { NavWrapper, NavItem } from './NavStyle';
 import CenterLogo from '@assets/Center.svg';
 import DoctorsLogo from '@assets/doctorsLogo.svg';
 import UserAccount from '@assets/Account.svg';
+import AdminPanel from '@assets/Admin.svg';
+import { isAdmin } from '@components/Helpers/AdminHelper';
 
 const Nav: React.FC = () => {
   const user = useTypesSelector((state) => state.user);
+
   return (
     <NavWrapper>
       <NavLink to={ROUTS.MEDCENTERS_PAGE_PATH}>
         <NavItem>
-          <img src={CenterLogo} alt='medCenter' />
+          <img src={CenterLogo} alt="medCenter" />
           <span>Browse medical center</span>
           <p>Choose the right medical center for you.</p>
         </NavItem>
@@ -23,20 +26,29 @@ const Nav: React.FC = () => {
       {(!user.isAuth || user.currentUser.userRole === USER_ROLE.patient) && (
         <NavLink to={ROUTS.DOCTORS_PAGE_PATH}>
           <NavItem>
-            <img src={DoctorsLogo} alt='medCenter' />
+            <img src={DoctorsLogo} alt="medCenter" />
             <span>Choose doctor</span>
             <p>Make an appointment with the doctor, choose the date and time</p>
           </NavItem>
         </NavLink>
       )}
-
-      <NavLink to={ROUTS.PERSONAL_ACCOUNT}>
-        <NavItem>
-          <img src={UserAccount} alt='medCenter' />
-          <span>Personal Account</span>
-          <p>Personal account where all your information is stored.</p>
-        </NavItem>
-      </NavLink>
+      {isAdmin() ? (
+        <NavLink to={ROUTS.ADMIN_PANEL}>
+          <NavItem>
+            <img src={AdminPanel} alt="admin" />
+            <span>Admin Panel</span>
+            <p>Add and remove medical centers, edit information and more.</p>
+          </NavItem>
+        </NavLink>
+      ) : (
+        <NavLink to={ROUTS.PERSONAL_ACCOUNT}>
+          <NavItem>
+            <img src={UserAccount} alt="medCenter" />
+            <span>Personal Account</span>
+            <p>Personal account where all your information is stored.</p>
+          </NavItem>
+        </NavLink>
+      )}
     </NavWrapper>
   );
 };

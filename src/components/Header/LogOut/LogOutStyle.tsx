@@ -12,6 +12,10 @@ export const LogOutWrapper = styled.div`
     margin-right: 10px;
   }
 
+  span {
+    color: ${STYLE_CONSTANTS.COLORS.white};
+  }
+
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     margin: 10px 0;
     width: 160px;
