@@ -8,6 +8,7 @@ import CenterLogo from '@assets/Center.svg';
 import DoctorsLogo from '@assets/doctorsLogo.svg';
 import UserAccount from '@assets/Account.svg';
 import AdminPanel from '@assets/Admin.svg';
+import { isAdmin } from '@components/Helpers/AdminHelper';
 
 const Nav: React.FC = () => {
   const user = useTypesSelector((state) => state.user);
@@ -31,7 +32,7 @@ const Nav: React.FC = () => {
           </NavItem>
         </NavLink>
       )}
-      {user.currentUser.userRole === USER_ROLE.admin ? (
+      {isAdmin() ? (
         <NavLink to={ROUTS.ADMIN_PANEL}>
           <NavItem>
             <img src={AdminPanel} alt="admin" />

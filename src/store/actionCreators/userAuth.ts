@@ -12,9 +12,9 @@ export const userAuth = () => {
         user: IUserAuth;
       }> = await axios.get(API_URL.USER_AUTHORIZATION, { withCredentials: true });
       if (response.data && response.data.user) {
-        dispatch(setUser(response.data.user));
         cookies.setCookie('id_user', response.data.user.id_user, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
+        dispatch(setUser(response.data.user));
       }
     } catch (error) {
       cookies.deleteCookie(['id_user', 'userRole']);

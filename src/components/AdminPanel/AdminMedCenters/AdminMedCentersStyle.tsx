@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
-export const AdminPanelWrapper = styled.div`
+export const AdminMedCentersWrapper = styled.div`
   width: 100%;
   height: 100%;
+  padding: 25px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: ${STYLE_CONSTANTS.COLORS.lavender};
+  background-color: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   overflow: auto;
-  color: ${STYLE_CONSTANTS.COLORS.black};
 `;

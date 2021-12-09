@@ -3,15 +3,19 @@ import { CenterServices, ServiceItem, ServicesWrapper } from './ServicesStyle';
 
 interface IServices {
   services: string[];
+  adminPanel?: boolean;
+  medCenterName: string;
 }
 
-const Services: React.FC<IServices> = ({ services }) => {
+const Services: React.FC<IServices> = ({ services, adminPanel, medCenterName }) => {
   return (
     <CenterServices>
       <span>Our services: </span>
-      <ServicesWrapper>
+      <ServicesWrapper adminPanel={adminPanel}>
         {services?.map((service) => (
-          <ServiceItem key={service}>{service}</ServiceItem>
+          <ServiceItem adminPanel={adminPanel} key={service + medCenterName}>
+            {service}
+          </ServiceItem>
         ))}
       </ServicesWrapper>
     </CenterServices>

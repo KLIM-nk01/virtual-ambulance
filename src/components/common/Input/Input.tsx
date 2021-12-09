@@ -1,15 +1,19 @@
-import React from 'react';
-import { InputGroup } from './InputStyle';
+import React, { useState } from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
+import { InputGroup, InputStyled, LabelStyled, ErrorStyled } from './InputStyle';
 
-interface IInput {
+interface IInput
+  extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  ref?:
+    | ((instance: HTMLInputElement | null) => void)
+    | React.RefObject<HTMLInputElement>
+    | null
+    | undefined;
+
   primary?: boolean;
   label?: string;
-  placeholder?: string;
-  type?: string;
-  checkbox?: boolean;
   name: string;
-  register?: any;
-  accept?: string;
+  register?: UseFormRegisterReturn;
   errors?: {
     [key: string]: {
       type: string;
@@ -17,7 +21,6 @@ interface IInput {
     };
   };
   id?: string;
-  for?: string;
   fileName?: string;
 }
 
@@ -28,23 +31,32 @@ const Input: React.FC<IInput> = ({
   register,
   errors,
   name,
-  placeholder,
-  accept,
   id,
   fileName,
+  onChange,
   ...props
 }) => {
+  const [inputFileName, setInputFileName] = useState('Selected photo');
+  const fileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target?.files && setInputFileName(e.target.files[0].name);
+  };
+
   return (
-    <InputGroup fileName={fileName} primary={primary} type={type}>
-      <label htmlFor={id}>{fileName ? fileName : label}</label>
-      <input
+    <InputGroup>
+      <LabelStyled htmlFor={id} primary={primary} type={type} inputFileName={inputFileName}>
+        {type === 'file' ? inputFileName : label}
+      </LabelStyled>
+      <InputStyled
         id={id}
         name={name}
         type={type}
+        primary={primary}
         {...register}
         {...props}
+        onChange={type === 'file' ? fileOnChange : onChange}
       />
-      {errors && errors[name] && <p>{errors[name]?.message}</p>}
+
+      {errors && errors[name] && <ErrorStyled>{errors[name]?.message}</ErrorStyled>}
     </InputGroup>
   );
 };
