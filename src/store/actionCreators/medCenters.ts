@@ -36,7 +36,6 @@ export const fetchMedCenters = () => {
 
 export const fetchMedCenterWithId = (idMedCenter: string) => {
   return async (dispatch: Dispatch<MedCenterAction>) => {
-
     try {
       const response: AxiosResponse<IMedCenterData[]> = await axios.get(
         `${API_URL.MEDCENTERS}/${idMedCenter}`
@@ -78,7 +77,7 @@ export const createNewMedCenter = (medCenterData: { [key: string]: string; photo
     });
 
     try {
-      const response: AxiosResponse<IMedCenterData> = await axios.post(
+      const response: AxiosResponse<{ message: string }> = await axios.post(
         API_URL.CREATE_NEW_MEDCENTER,
         form,
         {
@@ -92,7 +91,7 @@ export const createNewMedCenter = (medCenterData: { [key: string]: string; photo
       response.status >= 200 &&
         dispatch({
           type: MedCenterActionTypes.CREATE_NEW_MEDCENTER_SUCCESS,
-          payload: response.data,
+          payload: response.data.message,
         });
     } catch (error) {
       if (error.response) {
@@ -117,6 +116,7 @@ export const medCenterDelete = (idMedCenter: string) => {
         data: idMedCenter,
         withCredentials: true,
       });
+
       if (response.data) {
         dispatch({
           type: MedCenterActionTypes.DELETE_MEDCENTER,
@@ -154,7 +154,7 @@ export const editMedCenter = (medCenterData: { [key: string]: string; photo: any
     });
 
     try {
-      const response: AxiosResponse<IMedCenterData[]> = await axios.patch(
+      const response: AxiosResponse<{ message: string }> = await axios.patch(
         API_URL.EDIT_MEDCENTER,
         form,
         {
@@ -165,11 +165,12 @@ export const editMedCenter = (medCenterData: { [key: string]: string; photo: any
         }
       );
 
-      response.status >= 200 &&
+      if (response.status >= 200) {
         dispatch({
           type: MedCenterActionTypes.EDIT_MEDCENTER_SUCCESS,
+          payload: response.data.message,
         });
-        
+      }
     } catch (error) {
       if (error.response) {
         dispatch({

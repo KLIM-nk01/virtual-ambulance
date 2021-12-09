@@ -25,15 +25,11 @@ const MedCentersEditForm: React.FC = () => {
 
   return (
     <MedCentersEditFormWrapper>
-      {error ? (
-        <Error errorMessage={error} />
-      ) : (
-        medCenter && (
-          <MedCentersFormWrapper>
-            <FormName>Edit medical center</FormName>
-            <MedCentersForm submitFunction={editMedCenter} isEdit={medCenter} />
-          </MedCentersFormWrapper>
-        )
+      {medCenter && (
+        <MedCentersFormWrapper>
+          <FormName>Edit medical center</FormName>
+          <MedCentersForm submitFunction={editMedCenter} isEdit={medCenter} />
+        </MedCentersFormWrapper>
       )}
     </MedCentersEditFormWrapper>
   );

@@ -10,6 +10,7 @@ export const initialState: IMedCenterState = {
   medCenters: [],
   loading: false,
   error: null,
+  successMessage: '',
 };
 
 export const medCenterReducer = (
@@ -34,7 +35,13 @@ export const medCenterReducer = (
     case MedCenterActionTypes.CREATE_NEW_MEDCENTER:
       return { ...state, loading: true, error: null };
     case MedCenterActionTypes.CREATE_NEW_MEDCENTER_SUCCESS:
-      return { loading: false, error: null, medCenters: [...state.medCenters, action.payload] };
+      return {
+        ...state,
+        loading: false,
+        error: null,
+        // medCenters: [...state.medCenters, action.payload.medCenterData],
+        successMessage: action.payload,
+      };
     case MedCenterActionTypes.CREATE_NEW_MEDCENTER_ERROR:
       return { loading: false, error: action.errorMessage, medCenters: [] };
 
@@ -57,6 +64,7 @@ export const medCenterReducer = (
         ...state,
         loading: false,
         error: null,
+        successMessage: action.payload,
       };
     case MedCenterActionTypes.EDIT_MEDCENTER_ERROR:
       return {

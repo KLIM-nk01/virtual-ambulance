@@ -34,6 +34,7 @@ export interface IMedCenterState {
   medCenters: IMedCenterData[];
   loading: boolean;
   error: null | string;
+  successMessage?: string;
 }
 
 export enum MedCenterActionTypes {
@@ -74,7 +75,7 @@ interface CreateNewMedCenter {
 
 interface CreateNewMedCenterSuccess {
   type: MedCenterActionTypes.CREATE_NEW_MEDCENTER_SUCCESS;
-  payload: IMedCenterData;
+  payload: string;
 }
 
 interface CreateNewMedCenterError {
@@ -92,6 +93,7 @@ interface EditMedCenter {
 }
 interface EditMedCenterSuccess {
   type: MedCenterActionTypes.EDIT_MEDCENTER_SUCCESS;
+  payload: string;
 }
 interface EditMedCenterError {
   type: MedCenterActionTypes.EDIT_MEDCENTER_ERROR;

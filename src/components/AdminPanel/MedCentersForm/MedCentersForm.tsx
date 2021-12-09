@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
 import { IMedCenterData, INewMedCenterData } from '@store/types/medCentersType';
 import Input from '@components/common/Input/Input';
 import { Photo, Required } from '@components/Form/SignInUp/formValidationConstants';
@@ -24,6 +25,9 @@ import Portal from '@components/common/Portal/Portal';
 import Modal from '@components/common/Modal/Modal';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import Loader from '@components/common/Loader/Loader';
+import Error from '@components/common/Error/Error';
+import Success from '@components/common/Success/Success';
+import { ROUTS } from '@constants/routs';
 
 interface IMedCentersFormProps {
   submitFunction?: any;
@@ -44,7 +48,8 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
   );
   const [modalActive, setModalActive] = useState(false);
   const dispatch = useDispatch();
-  const { loading } = useTypesSelector((state) => state.medCenter);
+  const { loading, error, successMessage } = useTypesSelector((state) => state.medCenter);
+  const history = useHistory();
   const {
     register,
     handleSubmit,
@@ -67,7 +72,14 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
     isEdit && (submitData._id = isEdit?._id);
 
     dispatch(submitFunction(submitData));
+
+    !loading && setModalActive(!modalActive);
   };
+
+  useEffect(() => {
+    successMessage?.length &&
+      setTimeout(() => history.push(ROUTS.ADMIN_PANEL_MED_CENTERS_LIST), 10000);
+  }, [successMessage]);
 
   return (
     <FormWrapper>
@@ -153,8 +165,16 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
       </Form>
 
       <Portal>
-        <Modal active={modalActive} setActive={setModalActive}>
-         { isEdit ? 'Data saved successfully!' : 'The medical center was created successfully!'}
+        <Modal active={modalActive} setActive={error ? setModalActive : undefined}>
+          {error ? (
+            <Error errorMessage={error} />
+          ) : (
+            <Success
+              successMessage={
+                'Data saved successfully! You will be redirected to the home page automatically.'
+              }
+            />
+          )}
         </Modal>
       </Portal>
     </FormWrapper>
