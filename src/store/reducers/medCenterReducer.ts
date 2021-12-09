@@ -39,7 +39,6 @@ export const medCenterReducer = (
         ...state,
         loading: false,
         error: null,
-        // medCenters: [...state.medCenters, action.payload.medCenterData],
         successMessage: action.payload,
       };
     case MedCenterActionTypes.CREATE_NEW_MEDCENTER_ERROR:
