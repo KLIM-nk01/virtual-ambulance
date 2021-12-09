@@ -14,20 +14,6 @@ export const InputGroup = styled.div`
   position: relative;
   width: 100%;
   z-index: 0;
-
-  p {
-    margin: 0;
-    padding: 0;
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLittle};
-    color: ${STYLE_CONSTANTS.COLORS.red};
-    margin-top: 5px;
-    margin-left: 10px;
-
-    ::before {
-      display: inline;
-      content: '⚠ ';
-    }
-  }
 `;
 
 export const InputStyled = styled.input<IStyleProps>`
@@ -35,7 +21,6 @@ export const InputStyled = styled.input<IStyleProps>`
   width: 100%;
   border: none;
   border: 1px solid
-
     ${(props) => (props.error ? STYLE_CONSTANTS.COLORS.red : STYLE_CONSTANTS.COLORS.gray)};
   border-radius: 50px;
   padding: 5px 20px;
@@ -45,7 +30,7 @@ export const InputStyled = styled.input<IStyleProps>`
   color: ${(props) =>
     props.primary ? STYLE_CONSTANTS.COLORS.black : STYLE_CONSTANTS.COLORS.white};
   z-index: 1;
-  
+
   ${(props) =>
     props.type === 'file' &&
     `
@@ -94,6 +79,19 @@ export const LabelStyled = styled.label<IStyleProps>`
     `};
 `;
 
+export const ErrorStyled = styled.p`
+  margin: 0;
+  padding: 0;
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLittle};
+  color: ${STYLE_CONSTANTS.COLORS.red};
+  margin-top: 5px;
+  margin-left: 10px;
+
+  ::before {
+    display: inline;
+    content: '⚠ ';
+  }
+`;
 export const FileName = styled.span`
   font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   color: ${STYLE_CONSTANTS.COLORS.blue};

@@ -4,6 +4,7 @@ import { ROUTS } from '@constants/routs';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { USER_ROLE } from '@constants/userRole';
 import AdminMedCenters from '@components/AdminPanel/AdminMedCenters/AdminMedCenters';
+import { isAdmin } from '@components/Helpers/AdminHelper';
 
 const userRouts = [
   {
@@ -61,7 +62,7 @@ const Routs: React.FC = () => {
 
   return (
     <Switch>
-      {userRole === USER_ROLE.admin
+      {isAdmin()
         ? adminRouts.map((rout) => <Route key={rout.path} {...rout} />)
         : userRouts.map((rout) => <Route key={rout.path} {...rout} />)}
     </Switch>

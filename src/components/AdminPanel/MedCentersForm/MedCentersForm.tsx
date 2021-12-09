@@ -28,9 +28,11 @@ import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';
 import Success from '@components/common/Success/Success';
 import { ROUTS } from '@constants/routs';
+import { EditMedCenterSuccess } from '@store/types/medCentersType';
 
 interface IMedCentersFormProps {
-  submitFunction?: any;
+  // submitFunction?: (value: INewMedCenterData) => EditMedCenterSuccess;
+  submitFunction: any;
   isEdit?: IMedCenterData;
 }
 

@@ -50,6 +50,7 @@ export enum MedCenterActionTypes {
   EDIT_MEDCENTER_SUCCESS = 'EDIT_MEDCENTER_SUCCESS',
   EDIT_MEDCENTER_ERROR = 'EDIT_MEDCENTER_ERROR',
 }
+
 interface FetchMedCenters {
   type: MedCenterActionTypes.FETCH_MEDCENTERS;
 }
@@ -91,10 +92,12 @@ interface DeleteMedCenter {
 interface EditMedCenter {
   type: MedCenterActionTypes.EDIT_MEDCENTER;
 }
-interface EditMedCenterSuccess {
+
+export interface EditMedCenterSuccess {
   type: MedCenterActionTypes.EDIT_MEDCENTER_SUCCESS;
   payload: string;
 }
+
 interface EditMedCenterError {
   type: MedCenterActionTypes.EDIT_MEDCENTER_ERROR;
   errorMessage: string;

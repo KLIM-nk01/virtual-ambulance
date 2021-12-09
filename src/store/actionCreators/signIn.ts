@@ -19,10 +19,10 @@ export const userSignIn = (dataAuth: { password: string; email: string }) => {
       });
 
       if (response.data && response.data.user) {
-        dispatch(setUser(response.data.user));
-        dispatch({ type: ActionsType.SIGNIN_SUCCESS });
         cookies.setCookie('id_user', response.data.user.id_user, {});
         cookies.setCookie('userRole', response.data.user.userRole, {});
+        dispatch(setUser(response.data.user));
+        dispatch({ type: ActionsType.SIGNIN_SUCCESS });
       }
     } catch (error) {
       if (error.response) {

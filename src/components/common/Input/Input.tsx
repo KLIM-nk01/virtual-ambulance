@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
-import { InputGroup, InputStyled, LabelStyled } from './InputStyle';
+import { InputGroup, InputStyled, LabelStyled, ErrorStyled } from './InputStyle';
 
 interface IInput
   extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
@@ -40,7 +40,7 @@ const Input: React.FC<IInput> = ({
   const fileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target?.files && setInputFileName(e.target.files[0].name);
   };
-  
+
   return (
     <InputGroup>
       <LabelStyled htmlFor={id} primary={primary} type={type} inputFileName={inputFileName}>
@@ -56,7 +56,7 @@ const Input: React.FC<IInput> = ({
         onChange={type === 'file' ? fileOnChange : onChange}
       />
 
-      {errors && errors[name] && <p>{errors[name]?.message}</p>}
+      {errors && errors[name] && <ErrorStyled>{errors[name]?.message}</ErrorStyled>}
     </InputGroup>
   );
 };

@@ -14,6 +14,7 @@ import Input from '@components/common/Input/Input';
 import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';
 import { USER_ROLE } from '@constants/userRole';
+import { isAdmin } from '@components/Helpers/AdminHelper';
 
 const SingInForm: React.FC = () => {
   const {
@@ -31,13 +32,7 @@ const SingInForm: React.FC = () => {
   return (
     <FormContainer>
       {isAuth && (
-        <Redirect
-          to={
-            currentUser.userRole === USER_ROLE.admin
-              ? ROUTS.ADMIN_PANEL_MED_CENTERS_LIST
-              : ROUTS.MAIN_PAGE_PATH
-          }
-        />
+        <Redirect to={isAdmin() ? ROUTS.ADMIN_PANEL_MED_CENTERS_LIST : ROUTS.MAIN_PAGE_PATH} />
       )}
 
       <Form onSubmit={handleSubmit(onSubmit)}>
