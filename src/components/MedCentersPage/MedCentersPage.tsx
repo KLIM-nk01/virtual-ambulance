@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { fetchMedCenters } from '@store/actionCreators/medCenters';
@@ -9,18 +9,23 @@ import MedCentersMap from './MedCentersMap/MedCentersMap';
 const MedCentersPage: React.FC = () => {
   const dispatch = useDispatch();
 
+  const [hoverMedCenter, setHoverMedCenter] = useState<string>('');
+
   useEffect(() => {
     dispatch(fetchMedCenters());
   }, []);
-  
-  const { error, medCenters, loading } = useTypesSelector(
-    (state) => state.medCenter
-  );
 
+  const { error, medCenters, loading } = useTypesSelector((state) => state.medCenter);
+ 
   return (
     <MedCentersPageWrapper>
-      <MedCentersList error={error} medCenters={medCenters} loading={loading} />
-      <MedCentersMap medCenters={medCenters}></MedCentersMap>
+      <MedCentersList
+        error={error}
+        medCenters={medCenters}
+        loading={loading}
+        setHoverMedCenter={setHoverMedCenter}
+      />
+      <MedCentersMap medCenters={medCenters} hoverMedCenter={hoverMedCenter}></MedCentersMap>
     </MedCentersPageWrapper>
   );
 };

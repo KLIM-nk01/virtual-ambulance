@@ -14,6 +14,7 @@ import Staff from './CenterStaff/CenterStaff';
 import { IMedStaff } from '../MedCentersList';
 
 interface IMedCenter {
+  _id: string;
   name: string;
   address: string;
   photo: string;
@@ -21,6 +22,7 @@ interface IMedCenter {
   services: string[];
   medStaff: IMedStaff[];
   adminPanel?: boolean;
+  setHoverMedCenter?: (value: string) => void;
 }
 
 const MedCenter: React.FC<IMedCenter> = ({
@@ -31,10 +33,21 @@ const MedCenter: React.FC<IMedCenter> = ({
   services,
   medStaff,
   adminPanel,
+  setHoverMedCenter,
+  _id,
 }) => {
   const [hidden, setHidden] = useState<boolean>(true);
+
+  const mouseEnter = () => {
+    setHoverMedCenter && setHoverMedCenter(_id);
+  };
+
+  const mouseLeave = () => {
+    setHoverMedCenter && setHoverMedCenter('');
+  };
+
   return (
-    <MedCenterItem adminPanel={adminPanel}>
+    <MedCenterItem onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} adminPanel={adminPanel}>
       <ItemHeader>
         <NavLink to="#">
           <Title>{name}</Title>

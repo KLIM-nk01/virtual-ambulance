@@ -29,18 +29,26 @@ interface IMedCenterListPros {
       lon: number;
     };
   }[];
+  setHoverMedCenter?: (value: string) => void ;
 }
 
-const MedCentersList: React.FC<IMedCenterListPros> = ({ error, medCenters, loading }) => {
+const MedCentersList: React.FC<IMedCenterListPros> = ({
+  error,
+  medCenters,
+  loading,
+  setHoverMedCenter,
+}) => {
   const errorMessage = (error: string) => <Error errorMessage={error} />;
 
-  const contentRender = () => {
-    error
-      ? errorMessage(error)
-      : medCenters.map((medCenter) => {
-          return <MedCenter key={medCenter._id} {...medCenter} />;
-        });
-  };
+  // const contentRender = () => {
+  //   error
+  //     ? errorMessage(error)
+  //     : medCenters.map((medCenter) => {
+  //         return (
+  //           <MedCenter key={medCenter._id} {...medCenter} setFocusMedCenter={setFocusMedCenter} />
+  //         );
+  //       });
+  // };
 
   return (
     <MedCentersListWrapper loading={loading}>
@@ -50,7 +58,9 @@ const MedCentersList: React.FC<IMedCenterListPros> = ({ error, medCenters, loadi
         <Error errorMessage={error} />
       ) : (
         medCenters.map((medCenter) => {
-          return <MedCenter key={medCenter._id} {...medCenter} />;
+          return (
+            <MedCenter key={medCenter._id} {...medCenter} setHoverMedCenter={setHoverMedCenter} />
+          );
         })
       )}
     </MedCentersListWrapper>
