@@ -27,4 +27,13 @@ export const MedCentersFormWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   padding: 20px;
+
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    width: 465px;
+  }
+  
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.mobileL}) {
+    width: 100%;
+    padding: 20px 0;
+  }
 `;
