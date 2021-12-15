@@ -3,7 +3,7 @@ import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const VisitItemContainer = styled.div`
   width: 240px;
-  height: 165px;
+  height: 190px;
   margin: 0 10px 20px 10px;
   display: flex;
   align-items: flex-start;
@@ -26,7 +26,9 @@ export const ContainerFooter = styled.div`
 
   button {
     min-width: 50px;
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.tiny};
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+    margin-bottom: 5px;
+    margin-right: 10px;
   }
 `;
 
@@ -62,13 +64,6 @@ export const GeneralInformation = styled.div`
   margin-top: 10px;
 `;
 
-export const TicketInfo = styled.div`
-  width: 100px;
-
-  p {
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLittle};
-  }
-`;
 export const Date = styled.div`
   width: 100%;
   display: flex;
@@ -82,9 +77,10 @@ export const Date = styled.div`
 export const DoctorsInformation = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  flex-wrap: wrap;
-  margin-left: 10px;
+
+  margin: 10px;
 
   img {
     height: 100%;

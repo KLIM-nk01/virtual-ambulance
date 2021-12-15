@@ -43,7 +43,7 @@ export const ServicesWrapper = styled.div<IServiceProps>`
 `;
 
 export const ServiceItem = styled.div<IServiceProps>`
-  width: 90%;
+  width: 100%;
   height: 40px;
   background: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   display: flex;
@@ -60,4 +60,8 @@ export const ServiceItem = styled.div<IServiceProps>`
     `
     margin: 0;
   `}
+
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
+  }
 `;

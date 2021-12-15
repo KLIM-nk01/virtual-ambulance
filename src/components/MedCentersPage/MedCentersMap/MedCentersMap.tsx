@@ -4,6 +4,7 @@ import Tooltip from '@mui/material/Tooltip';
 import marker from '@assets/marker.png';
 import { MarkerStyle, MedCentersMapStyle } from './MedCentersMapStyle';
 import { IMedStaff } from '../MedCentersList/MedCentersList';
+import markerHover from '@assets/markerHover.png';
 
 interface IState {
   latitude: number;
@@ -26,8 +27,9 @@ interface IMedCenterMap {
       lon: number;
     };
   }[];
+  hoverMedCenter: string;
 }
-const MedCentersMap: React.FC<IMedCenterMap> = ({ medCenters }) => {
+const MedCentersMap: React.FC<IMedCenterMap> = ({ medCenters, hoverMedCenter }) => {
   const [viewport, setViewPort] = useState<IState>({
     latitude: 53.900601,
     longitude: 27.558972,
@@ -55,7 +57,11 @@ const MedCentersMap: React.FC<IMedCenterMap> = ({ medCenters }) => {
             offsetTop={-10}
           >
             <Tooltip placement="top" title={`${medCenter.name} ${medCenter.address}`}>
-              <MarkerStyle src={marker} alt='Map Marker'></MarkerStyle>
+              <MarkerStyle
+                medCenterHover={hoverMedCenter === medCenter._id}
+                src={hoverMedCenter === medCenter._id ? markerHover : marker}
+                alt="Map Marker"
+              ></MarkerStyle>
             </Tooltip>
           </Marker>
         ))}

@@ -1,13 +1,9 @@
 export const STYLE_CONSTANTS = {
   FONT_SIZE: {
-    tiny: '10px',
-    veryLittle: '12px',
     little: '14px',
     small: '16px',
     medium: '18px',
-    large: '20px',
-    veryLarge: '24px',
-    mobileLarge: '30px'
+    large: '20px'
   },
   COLORS: {
     red: 'red',

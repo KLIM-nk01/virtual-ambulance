@@ -29,32 +29,24 @@ interface IMedCenterListPros {
       lon: number;
     };
   }[];
+  setHoverMedCenter?: (value: string) => void;
 }
 
-const MedCentersList: React.FC<IMedCenterListPros> = ({ error, medCenters, loading }) => {
-  const errorMessage = (error: string) => <Error errorMessage={error} />;
-
-  const contentRender = () => {
-    error
-      ? errorMessage(error)
-      : medCenters.map((medCenter) => {
-          return <MedCenter key={medCenter._id} {...medCenter} />;
-        });
+const MedCentersList: React.FC<IMedCenterListPros> = ({
+  error,
+  medCenters,
+  loading,
+  setHoverMedCenter,
+}) => {
+  const conditionalRender = () => {
+    if (loading) return <Loader />;
+    if (error) return <Error errorMessage={error} />;
+    return medCenters.map((medCenter) => {
+      return <MedCenter key={medCenter._id} {...medCenter} setHoverMedCenter={setHoverMedCenter} />;
+    });
   };
 
-  return (
-    <MedCentersListWrapper loading={loading}>
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <Error errorMessage={error} />
-      ) : (
-        medCenters.map((medCenter) => {
-          return <MedCenter key={medCenter._id} {...medCenter} />;
-        })
-      )}
-    </MedCentersListWrapper>
-  );
+  return <MedCentersListWrapper loading={loading}>{conditionalRender()}</MedCentersListWrapper>;
 };
 
 export default MedCentersList;

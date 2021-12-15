@@ -9,4 +9,9 @@ export const AdminMedCentersWrapper = styled.div`
   justify-content: center;
   background-color: ${STYLE_CONSTANTS.COLORS.smokyWhite};
   overflow: auto;
+
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    padding: 0;
+    padding: 25px 0 0;
+  }
 `;

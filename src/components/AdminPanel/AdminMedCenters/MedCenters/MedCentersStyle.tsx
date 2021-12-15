@@ -11,6 +11,11 @@ export const MedCenterWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   padding: 20px;
+
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
+    width: 100%;
+    padding: 0;
+  }
 `;
 
 export const FormWrapper = styled.div`
@@ -40,6 +45,11 @@ export const MedCentersHeaderWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
+
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    width: 100%;
+    margin-top: 10px;
+  }
 `;
 
 export const MedCentersHeaderSearch = styled.div`
@@ -58,5 +68,11 @@ export const CreateNewOrEditLink = styled(NavLink)`
 
   :hover {
     color: ${STYLE_CONSTANTS.COLORS.blue};
+  }
+
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    width: 150px;
+    margin-left: 20px;
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   }
 `;

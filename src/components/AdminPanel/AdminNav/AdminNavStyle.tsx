@@ -7,6 +7,8 @@ export const AdminNavWrapper = styled.div`
   display: flex;
   justify-content: center;
   background: ${STYLE_CONSTANTS.COLORS.white};
+  box-shadow: 0px 0px 5px 0px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  z-index: 1;
 `;
 
 export const NavLinkStyled = styled(NavLink)`

@@ -24,7 +24,7 @@ export const BurgerMenuWrapper = styled.div<IBurgerMenu>`
 export const MenuHeader = styled.div`
   width: 100%;
   padding: 10px;
-  font-size: ${STYLE_CONSTANTS.FONT_SIZE.mobileLarge};
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
   color: ${STYLE_CONSTANTS.COLORS.blue};
   border-bottom: 1px solid ${STYLE_CONSTANTS.COLORS.blue};
   text-align: center;

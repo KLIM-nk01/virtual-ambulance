@@ -30,6 +30,7 @@ import Input from '@components/common/Input/Input';
 import { ROUTS } from '@constants/routs';
 import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';
+import { ErrorStyled } from '@components/common/Input/InputStyle';
 
 const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
   const dispatch = useDispatch();
@@ -154,7 +155,10 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
                 </SelectWrapper>
               )}
             />
-            {errors && errors['direction'] && <p>{errors['direction']?.message}</p>}
+
+            {errors && errors['direction'] && (
+              <ErrorStyled>{errors['direction']?.message}</ErrorStyled>
+            )}
           </QuestionWrapper>
 
           <QuestionWrapper>
@@ -169,7 +173,7 @@ const SignUpDoctor: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
                 </SelectWrapper>
               )}
             />
-            {errors && errors['workPlace'] && <p>{errors['workPlace']?.message}</p>}
+            {errors && errors['workPlace'] && <ErrorStyled>{errors['workPlace']?.message}</ErrorStyled>}
           </QuestionWrapper>
 
           <Input
