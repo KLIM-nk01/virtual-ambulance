@@ -1,25 +1,64 @@
-import styled from 'styled-components';
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
+import React, { useState } from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
+import { InputGroup, InputStyled, LabelStyled, ErrorStyled } from './InputStyle';
 
-export const Input = styled.input`
-  height: 40px;
-  width: 25%; //
-  color: ${STYLE_CONSTANTS.COLORS.white};
-  background: inherit;
-  border-radius: 50px;
-  border: none;
-  box-shadow: 0 0 5px ${STYLE_CONSTANTS.COLORS.white};
-  padding: 20px;
-  font-size: 16px;
+interface IInput
+  extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+  ref?:
+    | ((instance: HTMLInputElement | null) => void)
+    | React.RefObject<HTMLInputElement>
+    | null
+    | undefined;
 
-  ::placeholder {
-    color: ${STYLE_CONSTANTS.COLORS.white};
-    opacity: 0.5;
-  }
+  primary?: boolean;
+  label?: string;
+  name: string;
+  register?: UseFormRegisterReturn;
+  errors?: {
+    [key: string]: {
+      type: string;
+      message: string;
+    };
+  };
+  id?: string;
+  fileName?: string;
+}
 
-  :focus {
-    ::placeholder {
-      color: transparent;
-    }
-  }
-`;
+const Input: React.FC<IInput> = ({
+  primary,
+  type,
+  label,
+  register,
+  errors,
+  name,
+  id,
+  fileName,
+  onChange,
+  ...props
+}) => {
+  const [inputFileName, setInputFileName] = useState('Selected photo');
+  const fileOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target?.files && setInputFileName(e.target.files[0].name);
+  };
+
+  return (
+    <InputGroup>
+      <LabelStyled htmlFor={id} primary={primary} type={type} inputFileName={inputFileName}>
+        {type === 'file' ? inputFileName : label}
+      </LabelStyled>
+      <InputStyled
+        id={id}
+        name={name}
+        type={type}
+        primary={primary}
+        {...register}
+        {...props}
+        onChange={type === 'file' ? fileOnChange : onChange}
+      />
+
+      {errors && errors[name] && <ErrorStyled>{errors[name]?.message}</ErrorStyled>}
+    </InputGroup>
+  );
+};
+
+export default Input;

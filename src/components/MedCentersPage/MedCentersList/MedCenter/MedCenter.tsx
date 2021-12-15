@@ -1,35 +1,84 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import {
-  Wrapper,
-  Container,
-  MedcenterAddress,
   MedCenterItem,
-  MedcenterName,
-  PhotoCard,
-  Description
+  ItemHeader,
+  ItemPhoto,
+  ItemDescription,
+  Title,
+  SubTitle,
+  ItemMore,
 } from './MedCenterStyle';
-import Button from '@components/common/Button/Button';
+import Services from './CenterServices.tsx/Services';
+import Staff from './CenterStaff/CenterStaff';
+import { IMedStaff } from '../MedCentersList';
 
-const MedCenter: React.FC = () => {
+interface IMedCenter {
+  _id: string;
+  name: string;
+  address: string;
+  photo: string;
+  description: string;
+  services: string[];
+  medStaff: IMedStaff[];
+  adminPanel?: boolean;
+  setHoverMedCenter?: (value: string) => void;
+}
+
+const MedCenter: React.FC<IMedCenter> = ({
+  name,
+  address,
+  photo,
+  description,
+  services,
+  medStaff,
+  adminPanel,
+  setHoverMedCenter,
+  _id,
+}) => {
+  const [hidden, setHidden] = useState<boolean>(true);
+
+  const mouseEnter = () => {
+    setHoverMedCenter && setHoverMedCenter(_id);
+  };
+
+  const mouseLeave = () => {
+    setHoverMedCenter && setHoverMedCenter('');
+  };
+
   return (
-    <MedCenterItem>
-      <MedcenterName>LODE</MedcenterName>
-      <MedcenterAddress>address</MedcenterAddress>
+    <MedCenterItem onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} adminPanel={adminPanel}>
+      <ItemHeader>
+        <NavLink to="#">
+          <Title>{name}</Title>
+        </NavLink>
+        <NavLink to="#">
+          <SubTitle>{address}</SubTitle>
+        </NavLink>
+      </ItemHeader>
 
-      <Container>
-        <Wrapper>
-          <PhotoCard>photo</PhotoCard>
-          <PhotoCard>photo</PhotoCard>
-          <PhotoCard>photo</PhotoCard>
-          <PhotoCard>photo</PhotoCard>
-        </Wrapper>
-        <Description>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Description>
-        <Wrapper>
-          <Button primary>Call</Button>
-          <Button styleButton={{ backgroundColor: '#9cdd05' }}>Sign up</Button>
-          <Button styleButton={{ backgroundColor: '#9cdd05' }}>Services</Button>
-        </Wrapper>
-      </Container>
+      <ItemPhoto>
+        <img src={photo} alt="Center Photo" />
+      </ItemPhoto>
+      <ItemDescription>
+        <p>{description}</p>
+
+        {!adminPanel && (
+          <span
+            hidden={hidden}
+            onClick={() => {
+              setHidden(hidden ? false : true);
+            }}
+          >
+            more...
+          </span>
+        )}
+      </ItemDescription>
+
+      <ItemMore adminPanel={adminPanel} hidden={hidden}>
+        <Services medCenterName={name} adminPanel={adminPanel} services={services} />
+        <Staff medStaff={medStaff} />
+      </ItemMore>
     </MedCenterItem>
   );
 };

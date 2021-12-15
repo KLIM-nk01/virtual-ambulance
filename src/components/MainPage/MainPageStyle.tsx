@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 import { STYLE_CONSTANTS } from '@constants/styleConstants';
+import Back from '@assets/Back.jpg';
 
 export const MainPageWrapper = styled.div`
   width: 100%;
-  height: 90%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: url(${Back}) 100% 100% no-repeat;
+  background-size: cover;
+  overflow: auto;
 
-  background: linear-gradient(
-    45deg,
-    ${STYLE_CONSTANTS.COLORS.basil},
-    ${STYLE_CONSTANTS.COLORS.slateBlue}
-  );
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    align-items: flex-start;
+  }
 `;

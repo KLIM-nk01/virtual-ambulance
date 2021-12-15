@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { STYLE_CONSTANTS } from '@constants/styleConstants';
 import { flex } from '@styleMixin/flex';
 import { fonts } from '@styleMixin/fonts';
-import { STYLE_CONSTANTS } from '@constants/styleConstants';
 
 export const Container = styled.div`
   width: 180px;
@@ -19,13 +19,15 @@ export const Container = styled.div`
 
   span {
     ${fonts};
-    font-family: 'Parisienne', cursive;
-    font-size: 24px;
+    font-family: 'Poppins';
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.medium};
     color: ${STYLE_CONSTANTS.COLORS.white};
   }
 
-  :hover {
-    box-shadow: 5px 5px 5px ${STYLE_CONSTANTS.COLORS.darkGrey};
+  @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
   }
 `;
 

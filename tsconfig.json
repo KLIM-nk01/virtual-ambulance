@@ -7,6 +7,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "useUnknownInCatchVariables": false,
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -21,6 +22,11 @@
       "@constants/*": ["./constants/*"],
       "@styleMixin/*": ["./styleMixin/*"],
       "@assets/*": ["./assets/*"],
+      "@data/*": ["./data/*"],
+      "@containers/*": ["./Containers/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@store/*": ["./store/*"],
+      "@core/*": ["./core/*"]
     }
   },
 
