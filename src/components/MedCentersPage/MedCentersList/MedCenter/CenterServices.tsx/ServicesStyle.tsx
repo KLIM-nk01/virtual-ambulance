@@ -61,10 +61,6 @@ export const ServiceItem = styled.div<IServiceProps>`
     margin: 0;
   `}
 
-  @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLittle};
-  }
-
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   }

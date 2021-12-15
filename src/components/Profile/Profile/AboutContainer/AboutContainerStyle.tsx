@@ -31,7 +31,7 @@ export const UserName = styled.div`
 
   span {
     color: ${STYLE_CONSTANTS.COLORS.black};
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLarge};
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.large};
     margin-right: 5px;
   }
 `;
@@ -67,7 +67,7 @@ export const DescriptionLabel = styled.span`
   display: flex;
   align-items: center;
   color: ${STYLE_CONSTANTS.COLORS.black};
-  
+
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.laptop}) {
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   }

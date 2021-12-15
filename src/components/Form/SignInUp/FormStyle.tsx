@@ -101,20 +101,6 @@ export const QuestionWrapper = styled.div`
     font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
     color: ${STYLE_CONSTANTS.COLORS.blue};
   }
-
-  p {
-    margin: 0;
-    padding: 0;
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLittle};
-    color: ${STYLE_CONSTANTS.COLORS.red};
-    margin-top: 5px;
-    margin-left: 10px;
-
-    ::before {
-      display: inline;
-      content: '⚠ ';
-    }
-  }
 `;
 
 export const MedCentersSelect = styled.div`

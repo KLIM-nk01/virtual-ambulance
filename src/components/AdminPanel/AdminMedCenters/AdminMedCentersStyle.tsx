@@ -12,6 +12,6 @@ export const AdminMedCentersWrapper = styled.div`
 
   @media (max-width: ${STYLE_CONSTANTS.SCREEN.tablet}) {
     padding: 0;
-    padding-top: 25px;
+    padding: 25px 0 0;
   }
 `;

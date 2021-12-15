@@ -41,6 +41,8 @@ export const ScheduleItemWrapper = styled.div<IChoiceState>`
   ${({ disabled }) =>
     disabled &&
     `
+    pointer-events: none;
     opacity: 0.4;
+    
   `}
 `;

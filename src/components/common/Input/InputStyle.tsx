@@ -82,7 +82,7 @@ export const LabelStyled = styled.label<IStyleProps>`
 export const ErrorStyled = styled.p`
   margin: 0;
   padding: 0;
-  font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLittle};
+  font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
   color: ${STYLE_CONSTANTS.COLORS.red};
   margin-top: 5px;
   margin-left: 10px;

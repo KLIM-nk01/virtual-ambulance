@@ -26,7 +26,7 @@ export const ContainerFooter = styled.div`
 
   button {
     min-width: 50px;
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.tiny};
+    font-size: ${STYLE_CONSTANTS.FONT_SIZE.little};
     margin-bottom: 5px;
     margin-right: 10px;
   }
@@ -64,13 +64,6 @@ export const GeneralInformation = styled.div`
   margin-top: 10px;
 `;
 
-export const TicketInfo = styled.div`
-  width: 100px;
-
-  p {
-    font-size: ${STYLE_CONSTANTS.FONT_SIZE.veryLittle};
-  }
-`;
 export const Date = styled.div`
   width: 100%;
   display: flex;
