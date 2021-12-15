@@ -32,12 +32,12 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Tech stack
 
-•	Webpack
-•	React 
-•	React-router-dom, React-hook 
-•	Redux, Redux-Thunk, Redux-hook
-•	Type Script 
-•	Styled Components 
-•	Material UI
-•	Axios 
-•	Form validation (react-hook-form
+1.	Webpack
+2.	React 
+3.	React-router-dom, React-hook 
+4.	Redux, Redux-Thunk, Redux-hook
+5.	Type Script 
+6.  Styled Components 
+7.	Material UI
+8.	Axios 
+9.	Form validation (react-hook-form
