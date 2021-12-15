@@ -30,3 +30,14 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## Tech stack
+
+•	Webpack
+•	React 
+•	React-router-dom, React-hook 
+•	Redux, Redux-Thunk, Redux-hook
+•	Type Script 
+•	Styled Components 
+•	Material UI
+•	Axios 
+•	Form validation (react-hook-form
