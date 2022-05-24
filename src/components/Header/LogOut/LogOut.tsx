@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink, Redirect, useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ROUTS } from '@constants/routs';
 import { logOut } from '@store/actionCreators/user';
 import { LogOutWrapper } from './LogOutStyle';
 import Button from '@components/common/Button/Button';
 import Avatar from '@mui/material/Avatar';
+import * as cookies from '@core/cookies/cookies';
 
 const LogOut: React.FC = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ const LogOut: React.FC = () => {
 
   const logOutAction = () => {
     dispatch(logOut());
+    cookies.deleteCookie(['token']);
+    console.log('выход');
     history.push('/');
   };
 

@@ -7,6 +7,7 @@ export const ROUTS = {
   FORM_PAGE: '/formPage',
   SIGNIN_FORM: '/formPage/signInForm',
   SINGUP_FORM: '/formPage/signUpForm',
+  ROOM: '/room/:id',
 
   ADMIN_PANEL: '/',
   ADMIN_PANEL_MED_CENTERS_LIST: '/list',

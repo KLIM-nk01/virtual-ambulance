@@ -8,6 +8,8 @@ import DoctorsPageNavBar from './DoctorsPageNavBar/DoctorsPageNavBar';
 import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';
 
+// import { v4 } from 'uuid';
+
 const DoctorsPage: React.FC = () => {
   const doctors = useTypesSelector((state) => state.doctors);
   const dispatch = useDispatch();
@@ -39,6 +41,34 @@ const DoctorsPage: React.FC = () => {
         setSelectedDirection={setSelectedDirection}
         selectedDirection={selectedDirection}
       />
+
+      {/* <div ref={rootNode}>
+        <h1>Available Rooms</h1>
+        <div>
+          <ul>
+            {rooms.map((roomID) => (
+              <li key={roomID}>
+                {roomID}
+                <button
+                  onClick={() => {
+                    history.push(`/room/${roomID}`);
+                  }}
+                >
+                  JOIN ROOMS
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            onClick={() => {
+              history.push(`/room/${v4()}`);
+            }}
+          >
+            Create new room
+          </button>
+        </div>
+      </div> */}
 
       {loaderOrErrorComponents()}
     </DoctorsPageWrapper>

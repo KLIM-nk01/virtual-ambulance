@@ -13,6 +13,7 @@ import {
   DoctorsInfo,
 } from './VisitItemStyle';
 import Button from '@components/common/Button/Button';
+import { useHistory } from 'react-router';
 
 const VisitItem: React.FC<IPatientVisit> = ({
   doctorName,
@@ -22,9 +23,11 @@ const VisitItem: React.FC<IPatientVisit> = ({
   medCenterAddress,
   date,
   time,
+  roomLink,
   _idDate,
 }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   return (
     <VisitItemContainer>
@@ -51,6 +54,9 @@ const VisitItem: React.FC<IPatientVisit> = ({
         </DoctorsInformation>
       </VisitInformation>
       <ContainerFooter>
+        <Button onClick={() => history.push(`${roomLink}`)} size="small" round>
+          Join to call
+        </Button>
         <Button
           onClick={() => dispatch(profilePatientDeleteAppointment(_idDate))}
           size="small"

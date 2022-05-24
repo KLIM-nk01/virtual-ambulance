@@ -3,10 +3,15 @@ import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ContainersName, Item, ContainerContent } from '../ManagementStyle';
 import { OrderManagementContainer } from './OrderManagementStyle';
 import Avatar from '@mui/material/Avatar';
+import { useHistory } from 'react-router';
+import Button from '@components/common/Button/Button';
 
 const WorkTimeManagement: React.FC = () => {
   const { workTime } = useTypesSelector((state) => state.profile.profileData);
+  const history = useHistory();
+
   const filterByPatientName = workTime?.filter((appointment) => appointment.patientName);
+
   return (
     <OrderManagementContainer>
       <ContainersName>Patient</ContainersName>
@@ -25,6 +30,14 @@ const WorkTimeManagement: React.FC = () => {
                   </span>
                   <span>{appointment.time}</span>
                   <span>{appointment.date}</span>
+
+                  <Button
+                    onClick={() => history.push(`${appointment.roomLink}`)}
+                    size="small"
+                    round
+                  >
+                    Join to call
+                  </Button>
                 </Item>
               );
             }

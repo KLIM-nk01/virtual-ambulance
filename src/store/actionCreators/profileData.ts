@@ -1,6 +1,5 @@
 import { Dispatch } from 'redux';
 import axios, { AxiosResponse } from 'axios';
-import * as cookies from '@core/cookies/cookies';
 import { API_URL } from '@constants/apiUrl';
 import { ERROR_MESSAGE } from '@constants/errorMessage';
 import { USER_ROLE } from '@constants/userRole';
@@ -51,18 +50,19 @@ export const fetchProfileData = (userRole: string) => {
   };
 };
 
-export const profileDoctorAddDate = (date: string) => {
+export const profileDoctorAddDate = (date: string, roomLink: string) => {
   return async (dispatch: Dispatch<ProfileAction>) => {
     try {
       const response: AxiosResponse<{
         date: string;
         time: string;
         idWorkTime: string;
+        roomLink: string;
         _id: string;
       }> = await axios.put(
         API_URL.PROFILE_DOCTOR_ADD_DATE,
         {
-          date,
+          date, roomLink
         },
         {
           withCredentials: true,
