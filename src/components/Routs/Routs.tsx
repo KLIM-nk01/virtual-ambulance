@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ROUTS } from '@constants/routs';
-import { useTypesSelector } from '@hooks/UseTypedSelector';
-import { USER_ROLE } from '@constants/userRole';
-import AdminMedCenters from '@components/AdminPanel/AdminMedCenters/AdminMedCenters';
+// import { useTypesSelector } from '@hooks/UseTypedSelector';
+// import { USER_ROLE } from '@constants/userRole';
+// import AdminMedCenters from '@components/AdminPanel/AdminMedCenters/AdminMedCenters';
 import { isAdmin } from '@components/Helpers/AdminHelper';
 
 const userRouts = [
@@ -32,6 +32,11 @@ const userRouts = [
     exact: false,
     component: React.lazy(() => import('@containers/FormPageContainer')),
   },
+  {
+    path: ROUTS.ROOM,
+    exact: false,
+    component: React.lazy(() => import('@containers/RoomPageContainer')),
+  },
 ];
 
 const adminRouts = [
@@ -58,7 +63,7 @@ const adminRouts = [
 ];
 
 const Routs: React.FC = () => {
-  const { userRole } = useTypesSelector((state) => state.user.currentUser);
+  // const { userRole } = useTypesSelector((state) => state.user.currentUser);
 
   return (
     <Switch>

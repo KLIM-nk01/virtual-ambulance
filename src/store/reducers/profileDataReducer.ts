@@ -1,4 +1,4 @@
-import { IProfile } from './../types/profileData';
+// import { IProfile } from './../types/profileData';
 import { IInitialProfileData, ProfileAction, ProfileActionTypes } from '@store/types/profileData';
 
 export const InitialState: IInitialProfileData = {

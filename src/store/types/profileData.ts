@@ -6,6 +6,7 @@ export interface IDoctorWorkTime {
   patientLastName?: string;
   patientPhoto?: string;
   _id: string;
+  roomLink?: string;
 }
 
 export interface IPatientVisit {
@@ -17,6 +18,7 @@ export interface IPatientVisit {
   date: string;
   time: string;
   _idDate: string;
+  roomLink?: string;
 }
 export interface IProfile {
   name?: string;

@@ -11,6 +11,7 @@ import Button from '@components/common/Button/Button';
 import ItemDoctorsFeature from '../ItemDoctorsFeature';
 import { ContainersName, ContainerContent } from '../ManagementStyle';
 import { TimeManagementContainer, DateTimePickerWrapper } from './WorkTimeManagementStyle';
+import {v4} from 'uuid'
 
 interface ILocState {
   date: Date | null;
@@ -56,9 +57,11 @@ const WorkTimeManagement: React.FC = () => {
               locState.date.getMinutes() < 10
                 ? '0' + locState.date.getMinutes()
                 : locState.date.getMinutes()
-            }`
-          )
+            }`,
+             `/room/${v4()}`)
         );
+        
+
         setLocState({ ...locState, date: null, addDateError: '' });
       }
     }
