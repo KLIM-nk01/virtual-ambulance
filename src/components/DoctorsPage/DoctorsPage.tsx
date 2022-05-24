@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { fetchDoctors } from '@store/actionCreators/doctors';
@@ -8,10 +8,7 @@ import DoctorsPageNavBar from './DoctorsPageNavBar/DoctorsPageNavBar';
 import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';
 
-import { socket } from '../../socket'
-import { ACTIONS } from '../../socket/actions'
-import {useHistory} from 'react-router'
-import {v4} from 'uuid'
+// import { v4 } from 'uuid';
 
 const DoctorsPage: React.FC = () => {
   const doctors = useTypesSelector((state) => state.doctors);
@@ -37,19 +34,7 @@ const DoctorsPage: React.FC = () => {
       </DoctorsWrapper>
     );
   };
-////////////////////////////////////////////////////////////////////////
-  const [rooms, updateRooms] = useState([])
-  const history = useHistory()
-  const rootNode = useRef<HTMLDivElement | null>(null)
 
-  useEffect(() => {
-    socket.on(ACTIONS.SHARE_ROOMS, ({rooms = []} = {}) => {
-      if (rootNode.current) {
-        updateRooms(rooms);
-      }
-    });
-  }, []);
-////////////////////////////////////////////////////////////////////////
   return (
     <DoctorsPageWrapper>
       <DoctorsPageNavBar
@@ -57,28 +42,33 @@ const DoctorsPage: React.FC = () => {
         selectedDirection={selectedDirection}
       />
 
-<div ref={rootNode}>
-<h1>Available Rooms</h1>
-      <div>
-     
-        <ul>
-          {rooms.map(roomID => (
-            <li key={roomID}>
-              {roomID}
-              <button onClick={() => {
-                history.push(`/room/${roomID}`)
-              }}>JOIN ROOMS</button>
-            </li>
-          ))}
-        </ul>
-     
-        <button onClick={() => {
-          history.push(`/room/${v4()}`)
-        }}>Create new room</button>
+      {/* <div ref={rootNode}>
+        <h1>Available Rooms</h1>
+        <div>
+          <ul>
+            {rooms.map((roomID) => (
+              <li key={roomID}>
+                {roomID}
+                <button
+                  onClick={() => {
+                    history.push(`/room/${roomID}`);
+                  }}
+                >
+                  JOIN ROOMS
+                </button>
+              </li>
+            ))}
+          </ul>
 
-      </div>
-</div>
-      
+          <button
+            onClick={() => {
+              history.push(`/room/${v4()}`);
+            }}
+          >
+            Create new room
+          </button>
+        </div>
+      </div> */}
 
       {loaderOrErrorComponents()}
     </DoctorsPageWrapper>

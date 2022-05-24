@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContainerName, DoctorsFeatureWrapper } from './DoctorsFeatureStyle';
+import { DoctorsFeatureWrapper } from './DoctorsFeatureStyle';
 import OrderManagement from './OrderManagement/OrderManagement';
 
 import WorkTimeManagement from './WorkTimeManagement/WorkTimeManagement';

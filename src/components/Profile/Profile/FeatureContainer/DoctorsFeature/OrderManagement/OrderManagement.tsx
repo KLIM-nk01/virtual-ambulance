@@ -3,22 +3,15 @@ import { useTypesSelector } from '@hooks/UseTypedSelector';
 import { ContainersName, Item, ContainerContent } from '../ManagementStyle';
 import { OrderManagementContainer } from './OrderManagementStyle';
 import Avatar from '@mui/material/Avatar';
-// import {useHistory} from 'react-router'
-
+import { useHistory } from 'react-router';
+import Button from '@components/common/Button/Button';
 
 const WorkTimeManagement: React.FC = () => {
   const { workTime } = useTypesSelector((state) => state.profile.profileData);
-  console.log(workTime)
-  const filterByPatientName = workTime?.filter((appointment) => appointment.patientName);
-  // const [roomLink, setRoomLink] = useState('')
-  // const dispatch = profileData();
+  const history = useHistory();
 
-  const createRoomToVideoChat = (idAppointment: string) => {
-    // const roomLink = `/room/${v4()}`
-    console.log(idAppointment)
-    // dispatch(createRoom(roomLink));
-  }
-  // console.log(workTime)
+  const filterByPatientName = workTime?.filter((appointment) => appointment.patientName);
+
   return (
     <OrderManagementContainer>
       <ContainersName>Patient</ContainersName>
@@ -38,9 +31,13 @@ const WorkTimeManagement: React.FC = () => {
                   <span>{appointment.time}</span>
                   <span>{appointment.date}</span>
 
-                 
-                  <button onClick={() => createRoomToVideoChat(appointment._id)}>Create new room</button>
-
+                  <Button
+                    onClick={() => history.push(`${appointment.roomLink}`)}
+                    size="small"
+                    round
+                  >
+                    Join to call
+                  </Button>
                 </Item>
               );
             }
