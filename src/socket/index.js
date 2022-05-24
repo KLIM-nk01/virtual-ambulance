@@ -7,6 +7,6 @@ import { io } from 'socket.io-client';
 //   transports: ['websocket'],
 // };
 
-export const socket = io('http://localhost:3000', {
+export const socket = io('https://virtual-ambulance-server.herokuapp.com/', {
   withCredentials: true,
 });
