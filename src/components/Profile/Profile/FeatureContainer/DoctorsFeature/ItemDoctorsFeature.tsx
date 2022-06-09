@@ -17,16 +17,12 @@ const ItemDoctorsFeature: React.FC<IItemDoctorsProps> = ({
   deleteDate,
   patientName,
 }) => {
-  
   return (
     <Item>
       <span>{time}</span>
       <span>{date}</span>
       {patientName ? (
-        <Tooltip
-          placement="top"
-          title="You cannot delete this time, since the patient has already been registered at this time."
-        >
+        <Tooltip placement="top" title="Вы не можете удалить врея на которое записан пациент.">
           <RemoveButton disabled />
         </Tooltip>
       ) : (

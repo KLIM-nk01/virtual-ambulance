@@ -23,24 +23,24 @@ const AboutContainer: React.FC = () => {
 
       <AboutUser>
         <ProfileInfoRow>
-          <InfoLabel>Email: </InfoLabel>
+          <InfoLabel>Почта: </InfoLabel>
           <DescriptionLabel>{profileData?.email}</DescriptionLabel>
         </ProfileInfoRow>
 
         <ProfileInfoRow>
-          <InfoLabel>Phone Number: </InfoLabel>
+          <InfoLabel>Номер телефона: </InfoLabel>
           <DescriptionLabel>{profileData?.phone}</DescriptionLabel>
         </ProfileInfoRow>
 
         {user.userRole === USER_ROLE.patient && (
           <>
             <ProfileInfoRow>
-              <InfoLabel>Birthday: </InfoLabel>
+              <InfoLabel>Дата рождения: </InfoLabel>
               <DescriptionLabel>{profileData?.birthday}</DescriptionLabel>
             </ProfileInfoRow>
 
             <ProfileInfoRow>
-              <InfoLabel>Address: </InfoLabel>
+              <InfoLabel>Адрес: </InfoLabel>
               <DescriptionLabel>{profileData?.address}</DescriptionLabel>
             </ProfileInfoRow>
           </>
@@ -49,17 +49,17 @@ const AboutContainer: React.FC = () => {
         {user.userRole === USER_ROLE.doctor && (
           <>
             <ProfileInfoRow>
-              <InfoLabel>Experience: </InfoLabel>
+              <InfoLabel>Опыт: </InfoLabel>
               <DescriptionLabel>{profileData?.experience} years.</DescriptionLabel>
             </ProfileInfoRow>
 
             <ProfileInfoRow>
-              <InfoLabel>Direction: </InfoLabel>
+              <InfoLabel>Описание: </InfoLabel>
               <DescriptionLabel>{profileData?.direction}</DescriptionLabel>
             </ProfileInfoRow>
 
             <ProfileInfoRow>
-              <InfoLabel>Work Place: </InfoLabel>
+              <InfoLabel>Место работы: </InfoLabel>
               <DescriptionLabel>
                 "{profileData?.workPlace?.name}", {profileData?.workPlace?.address}
               </DescriptionLabel>

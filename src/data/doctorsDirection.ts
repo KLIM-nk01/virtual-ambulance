@@ -9,148 +9,148 @@ interface IDirection {
 export const doctorsDirection: Array<IDirection> = [
   {
     id_direction: 'All Doctors',
-    direction: 'All Doctors',
-    iconSrc: icons.AllDoctors
+    direction: 'Все доктора',
+    iconSrc: icons.AllDoctors,
   },
   {
     id_direction: 'Allergist',
-    direction: 'Allergist',
-    iconSrc: icons.Allergist
+    direction: 'Аллергист',
+    iconSrc: icons.Allergist,
   },
   {
     id_direction: 'Anesthetist',
-    direction: 'Anesthetist',
-    iconSrc: icons.Anesthetist
+    direction: 'Анестезиолог',
+    iconSrc: icons.Anesthetist,
   },
   {
     id_direction: 'Venereologist',
-    direction: 'Venereologist',
-    iconSrc: icons.Venereologist
+    direction: 'Венеролог',
+    iconSrc: icons.Venereologist,
   },
   {
     id_direction: 'Virologist',
-    direction: 'Virologist',
-    iconSrc: icons.Virologist
+    direction: 'Вирусолог',
+    iconSrc: icons.Virologist,
   },
 
   {
     id_direction: 'Dermatologist',
-    direction: 'Dermatologist',
-    iconSrc: icons.Dermatologist
+    direction: 'Дермотолог',
+    iconSrc: icons.Dermatologist,
   },
   {
     id_direction: 'Nutritionist',
-    direction: 'Nutritionist',
-    iconSrc: icons.Nutritionist
+    direction: 'Диетолог',
+    iconSrc: icons.Nutritionist,
   },
   {
     id_direction: 'Cardiologist',
-    direction: 'Cardiologist',
-    iconSrc: icons.Cardiologist
+    direction: 'Кардиолог',
+    iconSrc: icons.Cardiologist,
   },
   {
     id_direction: 'SpeechTherapist',
-    direction: 'SpeechTherapist',
-    iconSrc: icons.SpeechTherapist
+    direction: 'Логопед',
+    iconSrc: icons.SpeechTherapist,
   },
   {
     id_direction: 'Neuropathologist',
-    direction: 'Neuropathologist',
-    iconSrc: icons.Neuropathologist
+    direction: 'Невропатолог',
+    iconSrc: icons.Neuropathologist,
   },
   {
     id_direction: 'Nephrologist',
-    direction: 'Nephrologist',
-    iconSrc: icons.Nephrologist
+    direction: 'Нефролог',
+    iconSrc: icons.Nephrologist,
   },
   {
     id_direction: 'Ophthalmologist',
-    direction: 'Ophthalmologist',
-    iconSrc: icons.Ophthalmologist
+    direction: 'Офтальмолог',
+    iconSrc: icons.Ophthalmologist,
   },
   {
     id_direction: 'Oncologist',
-    direction: 'Oncologist',
-    iconSrc: icons.Oncologist
+    direction: 'Околог',
+    iconSrc: icons.Oncologist,
   },
   {
     id_direction: 'Orthopedist',
-    direction: 'Orthopedist',
-    iconSrc: icons.Orthopedist
+    direction: 'Ортопед',
+    iconSrc: icons.Orthopedist,
   },
   {
     id_direction: 'Gynecologist',
-    direction: 'Gynecologist',
-    iconSrc: icons.Gynecologist
+    direction: 'Гинеколог',
+    iconSrc: icons.Gynecologist,
   },
   {
     id_direction: 'LOR',
-    direction: 'LOR',
-    iconSrc: icons.LOR
+    direction: 'ЛОР',
+    iconSrc: icons.LOR,
   },
   {
     id_direction: 'Pediatrician',
-    direction: 'Pediatrician',
-    iconSrc: icons.Pediatrician
+    direction: 'Педиатр',
+    iconSrc: icons.Pediatrician,
   },
   {
     id_direction: 'Podologist',
-    direction: 'Podologist',
-    iconSrc: icons.Podologist
+    direction: 'Подолог',
+    iconSrc: icons.Podologist,
   },
   {
     id_direction: 'Proctologist',
-    direction: 'Proctologist',
-    iconSrc: icons.Proctologist
+    direction: 'Проктолог',
+    iconSrc: icons.Proctologist,
   },
   {
     id_direction: 'Psychotherapist',
-    direction: 'Psychotherapist',
-    iconSrc: icons.Psychotherapist
+    direction: 'Психотерапевт',
+    iconSrc: icons.Psychotherapist,
   },
   {
     id_direction: 'Sexologist',
-    direction: 'Sexologist',
-    iconSrc: icons.Sexologist
+    direction: 'Сексолог',
+    iconSrc: icons.Sexologist,
   },
   {
     id_direction: 'Dentist',
-    direction: 'Dentist',
-    iconSrc: icons.Dentist
+    direction: 'Дантист',
+    iconSrc: icons.Dentist,
   },
   {
     id_direction: 'Therapist',
-    direction: 'Therapist',
-    iconSrc: icons.Therapist
+    direction: 'Терапевт',
+    iconSrc: icons.Therapist,
   },
   {
     id_direction: 'Traumatologist',
-    direction: 'Traumatologist',
-    iconSrc: icons.Traumatologist
+    direction: 'Травмотолог',
+    iconSrc: icons.Traumatologist,
   },
   {
     id_direction: 'Urologist',
-    direction: 'Urologist',
-    iconSrc: icons.Urologist
+    direction: 'Уролог',
+    iconSrc: icons.Urologist,
   },
   {
     id_direction: 'Surgeon',
-    direction: 'Surgeon',
-    iconSrc: icons.Surgeon
+    direction: 'Хирург',
+    iconSrc: icons.Surgeon,
   },
   {
     id_direction: 'Mammologist',
-    direction: 'Mammologist',
-    iconSrc: icons.Mammologist
+    direction: 'Маммолог',
+    iconSrc: icons.Mammologist,
   },
   {
     id_direction: 'Endocrinologist',
-    direction: 'Endocrinologist',
-    iconSrc: icons.Endocrinologist
+    direction: 'Ендокринолог',
+    iconSrc: icons.Endocrinologist,
   },
   {
     id_direction: 'Immunologist',
-    direction: 'Immunologist',
-    iconSrc: icons.Immunologist
-  }
+    direction: 'Иммунолог',
+    iconSrc: icons.Immunologist,
+  },
 ];

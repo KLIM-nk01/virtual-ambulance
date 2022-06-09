@@ -39,10 +39,10 @@ const VisitItem: React.FC<IPatientVisit> = ({
         <GeneralInformation>
           <Date>
             <span>
-              <b>Date:</b> {date}
+              <b>Дата:</b> {date}
             </span>
             <span>
-              <b>Time:</b> {time}
+              <b>Время:</b> {time}
             </span>
           </Date>
         </GeneralInformation>
@@ -55,14 +55,14 @@ const VisitItem: React.FC<IPatientVisit> = ({
       </VisitInformation>
       <ContainerFooter>
         <Button onClick={() => history.push(`${roomLink}`)} size="small" round>
-          Join to call
+          Звонок
         </Button>
         <Button
           onClick={() => dispatch(profilePatientDeleteAppointment(_idDate))}
           size="small"
           round
         >
-          Cancel
+          Отменить
         </Button>
       </ContainerFooter>
     </VisitItemContainer>

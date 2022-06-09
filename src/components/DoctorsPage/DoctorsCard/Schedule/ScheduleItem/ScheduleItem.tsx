@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { serDisabledButton, setChoiceWorkTime, setDisabledItem } from '../ScheduleReducer';
-import { ActionType, IScheduleInitialState, ScheduleActionTypes } from '../types';
+import { ActionType, IScheduleInitialState } from '../types';
 import { ScheduleItemWrapper } from './ScheduleItemStyle';
 import Tooltip from '@mui/material/Tooltip';
 
@@ -46,10 +46,10 @@ const ScheduleItem: React.FC<IScheduleItemProps> = ({
     >
       <ScheduleItemWrapper disabled={disabled} onClick={chooseScheduleItem} choice={choiceDate}>
         <span>
-          <b>Date:</b> {workTimeItem.date}
+          <b>Дата:</b> {workTimeItem.date}
         </span>
         <span>
-          <b>Time:</b> {workTimeItem.time}
+          <b>Время:</b> {workTimeItem.time}
         </span>
       </ScheduleItemWrapper>
     </Tooltip>

@@ -32,7 +32,7 @@ const LogOut: React.FC = () => {
         </NavLink>
       )}
       <Button onClick={logOutAction} round variant="outlined">
-        Sign out
+        Выйти
       </Button>
     </LogOutWrapper>
   );

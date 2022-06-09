@@ -7,15 +7,15 @@ import VisitItem from './VisitItem.tsx/VisitItem';
 
 const UserVisit: React.FC = () => {
   const { visit } = useTypesSelector((state) => state.profile.profileData);
-  console.log(visit)
+  console.log(visit);
 
   return (
     <VisitContainer>
-      <ContainerName>My visit</ContainerName>
+      <ContainerName>назначеные приемы</ContainerName>
       {!visit?.length ? (
         <span>
-          Please create an appointment with the doctor on the{' '}
-          <NavLink to={ROUTS.DOCTORS_PAGE_PATH}>doctor's appointment</NavLink> page.
+          Вы можете записаться на прием к врачу на странице
+          <NavLink to={ROUTS.DOCTORS_PAGE_PATH}> Медперсонал.</NavLink>
         </span>
       ) : (
         visit.map((visitItem) => <VisitItem key={visitItem._idDate} {...visitItem} />)

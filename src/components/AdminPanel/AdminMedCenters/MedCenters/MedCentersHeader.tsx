@@ -15,17 +15,17 @@ const MedCentersHeader: React.FC<IMedCentersHeaderProps> = ({ setSearchValue }) 
     <MedCentersHeaderWrapper>
       <MedCentersHeaderSearch>
         <Input
-          label="Search MedCenter"
+          label="Найти медцентр"
           primary
           name="Search MedCenter"
-          placeholder="Enter name"
+          placeholder="Введите название"
           onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
             setSearchValue(event.target.value)
           }
         />
       </MedCentersHeaderSearch>
       <CreateNewOrEditLink to={ROUTS.ADMIN_PANEL_MED_CENTERS_CREATE_NEW}>
-        Create new+
+        Добавить
       </CreateNewOrEditLink>
     </MedCentersHeaderWrapper>
   );

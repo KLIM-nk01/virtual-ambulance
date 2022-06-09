@@ -21,7 +21,7 @@ interface IProps {
   direction: string;
   description: string;
 
-  workTime: { date: string; time: string; _id: string, patientData: string }[];
+  workTime: { date: string; time: string; _id: string; patientData: string }[];
   userData: {
     name: string;
     lastName: string;
@@ -67,7 +67,7 @@ const DoctorsCard: React.FC<IProps> = ({
         </Experience>
         <Description>{description}</Description>
         <Button round onClick={showSchedule} variant="contained">
-          Sign up
+          Запись
         </Button>
       </ContainerTwo>
 

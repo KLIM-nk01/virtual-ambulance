@@ -9,12 +9,12 @@ const LogIn: React.FC = () => {
     <ButtonsWrapper>
       <NavLink to={ROUTS.SIGNIN_FORM}>
         <Button round variant={'outlined'}>
-          sign in
+          Войти
         </Button>
       </NavLink>
       <NavLink to={ROUTS.SINGUP_FORM}>
         <Button round variant={'outlined'}>
-          sign up
+          Регистр
         </Button>
       </NavLink>
     </ButtonsWrapper>

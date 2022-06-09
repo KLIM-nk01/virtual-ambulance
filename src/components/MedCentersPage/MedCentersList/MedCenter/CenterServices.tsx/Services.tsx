@@ -10,7 +10,7 @@ interface IServices {
 const Services: React.FC<IServices> = ({ services, adminPanel, medCenterName }) => {
   return (
     <CenterServices>
-      <span>Our services: </span>
+      <span>Направления</span>
       <ServicesWrapper adminPanel={adminPanel}>
         {services?.map((service) => (
           <ServiceItem adminPanel={adminPanel} key={service + medCenterName}>

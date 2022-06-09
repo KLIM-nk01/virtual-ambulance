@@ -18,8 +18,8 @@ const Nav: React.FC = () => {
       <NavLink to={ROUTS.MEDCENTERS_PAGE_PATH}>
         <NavItem>
           <img src={CenterLogo} alt="medCenter" />
-          <span>Browse medical center</span>
-          <p>Choose the right medical center for you.</p>
+          <span>Медцентры</span>
+          <p>Выберите нужный медцентр для себя.</p>
         </NavItem>
       </NavLink>
 
@@ -27,8 +27,8 @@ const Nav: React.FC = () => {
         <NavLink to={ROUTS.DOCTORS_PAGE_PATH}>
           <NavItem>
             <img src={DoctorsLogo} alt="medCenter" />
-            <span>Choose doctor</span>
-            <p>Make an appointment with the doctor, choose the date and time</p>
+            <span>Медперсонал</span>
+            <p>Запишитесь на прием к доктору</p>
           </NavItem>
         </NavLink>
       )}
@@ -36,16 +36,16 @@ const Nav: React.FC = () => {
         <NavLink to={ROUTS.ADMIN_PANEL}>
           <NavItem>
             <img src={AdminPanel} alt="admin" />
-            <span>Admin Panel</span>
-            <p>Add and remove medical centers, edit information and more.</p>
+            <span>Панель администратора</span>
+            <p>Добавьт или удалите медицинский центр</p>
           </NavItem>
         </NavLink>
       ) : (
         <NavLink to={ROUTS.PERSONAL_ACCOUNT}>
           <NavItem>
             <img src={UserAccount} alt="medCenter" />
-            <span>Personal Account</span>
-            <p>Personal account where all your information is stored.</p>
+            <span>Личный кабинет</span>
+            <p>Войдите в личный кабинет.</p>
           </NavItem>
         </NavLink>
       )}

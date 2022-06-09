@@ -78,7 +78,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
 
   useEffect(() => {
     successMessage?.length &&
-      setTimeout(() => history.push(ROUTS.ADMIN_PANEL_MED_CENTERS_LIST), 10000);
+      setTimeout(() => history.push(ROUTS.ADMIN_PANEL_MED_CENTERS_LIST), 1000);
   }, [successMessage]);
 
   return (
@@ -86,7 +86,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
       <Form onSubmit={handleSubmit(submitForm)}>
         <Input
           primary
-          label="Name"
+          label="Название"
           name="name"
           register={register('name', Required)}
           errors={errors}
@@ -98,7 +98,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
 
         <Input
           primary
-          label="Address"
+          label="Адрес"
           name="address"
           register={register('address', Required)}
           errors={errors}
@@ -114,7 +114,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
             type="file"
             name="photo"
             register={register('photo', isEdit ? undefined : Photo)}
-            label="Select Photo"
+            label="Добавить фото"
             errors={errors}
             id={'photo'}
           />
@@ -125,7 +125,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
         <TextArea
           name="description"
           register={register('description', Required)}
-          label="Description"
+          label="Описание"
           value={formState.description}
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
             setFormState({ ...formState, description: e.target.value })
@@ -133,7 +133,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
         />
 
         <FormSelect>
-          <FormSelectName>Services: </FormSelectName>
+          <FormSelectName>Направления </FormSelectName>
           <FormControlWrapper>
             <Select
               multiple
@@ -158,7 +158,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
 
         <FormButtonBar>
           <Button round type="submit">
-            {isEdit ? 'Edit' : 'Create new'}
+            {isEdit ? 'Редактировать' : 'Добавить новый'}
           </Button>
         </FormButtonBar>
         <Portal>{loading && <Loader />}</Portal>
@@ -169,11 +169,7 @@ const MedCentersForm: React.FC<IMedCentersFormProps> = ({ submitFunction, isEdit
           {error ? (
             <Error errorMessage={error} />
           ) : (
-            <Success
-              successMessage={
-                'Data saved successfully! You will be redirected to the home page automatically.'
-              }
-            />
+            <Success successMessage={'Медицинский центр успешно добавлен.'} />
           )}
         </Modal>
       </Portal>

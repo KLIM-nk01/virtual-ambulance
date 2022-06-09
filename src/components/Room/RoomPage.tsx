@@ -54,9 +54,9 @@ const RoomPage: React.FC = () => {
   const [muted, setMuted] = useState(false);
   const [viewVideo, setViewVideo] = useState(true);
 
-  const { isAuth } = useTypesSelector((state) => state.user);
-  if (!isAuth) return <Redirect to={ROUTS.SIGNIN_FORM} />;
-
+  // const { isAuth } = useTypesSelector((state) => state.user);
+  // if (!isAuth) return <Redirect to={ROUTS.SIGNIN_FORM} />;
+  console.log(clients);
   return (
     <RoomPageWrapper>
       <div

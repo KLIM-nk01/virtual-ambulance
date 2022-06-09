@@ -11,7 +11,7 @@ import Button from '@components/common/Button/Button';
 import ItemDoctorsFeature from '../ItemDoctorsFeature';
 import { ContainersName, ContainerContent } from '../ManagementStyle';
 import { TimeManagementContainer, DateTimePickerWrapper } from './WorkTimeManagementStyle';
-import {v4} from 'uuid'
+import { v4 } from 'uuid';
 
 interface ILocState {
   date: Date | null;
@@ -58,9 +58,9 @@ const WorkTimeManagement: React.FC = () => {
                 ? '0' + locState.date.getMinutes()
                 : locState.date.getMinutes()
             }`,
-             `/room/${v4()}`)
+            `/room/${v4()}`
+          )
         );
-        
 
         setLocState({ ...locState, date: null, addDateError: '' });
       }
@@ -73,11 +73,11 @@ const WorkTimeManagement: React.FC = () => {
 
   return (
     <TimeManagementContainer>
-      <ContainersName>Work Time</ContainersName>
+      <ContainersName>Рабочее время</ContainersName>
 
       <ContainerContent>
         {!workTime?.length ? (
-          <span>Have not added time yet</span>
+          <span>Время не добавлено</span>
         ) : (
           workTime.map((dateTime) => (
             <ItemDoctorsFeature key={dateTime._id} deleteDate={deleteDate} {...dateTime} />
@@ -89,7 +89,7 @@ const WorkTimeManagement: React.FC = () => {
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DateTimePicker
             renderInput={(props) => <TextField {...props} />}
-            label="Select date and time:"
+            label="Выберите дату и время"
             value={locState.date}
             onChange={(newValue: Date | null) => {
               setLocState({ ...locState, date: newValue });
@@ -102,7 +102,7 @@ const WorkTimeManagement: React.FC = () => {
       </DateTimePickerWrapper>
 
       <Button disabled={!locState.date} onClick={addNewDate} round size="small" variant="outlined">
-        add
+        Добавить
       </Button>
     </TimeManagementContainer>
   );

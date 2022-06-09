@@ -14,11 +14,11 @@ const WorkTimeManagement: React.FC = () => {
 
   return (
     <OrderManagementContainer>
-      <ContainersName>Patient</ContainersName>
+      <ContainersName>Пациент</ContainersName>
 
       <ContainerContent>
         {!filterByPatientName?.length ? (
-          <span>At the moment, no one has signed up to you yet.</span>
+          <span>Пока еще никто не записался на прием</span>
         ) : (
           workTime.map((appointment) => {
             if (appointment.patientName) {
@@ -36,7 +36,7 @@ const WorkTimeManagement: React.FC = () => {
                     size="small"
                     round
                   >
-                    Join to call
+                    Звонок
                   </Button>
                 </Item>
               );

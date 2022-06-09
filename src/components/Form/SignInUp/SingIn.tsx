@@ -13,7 +13,6 @@ import Button from '@components/common/Button/Button';
 import Input from '@components/common/Input/Input';
 import Loader from '@components/common/Loader/Loader';
 import Error from '@components/common/Error/Error';
-import { USER_ROLE } from '@constants/userRole';
 import { isAdmin } from '@components/Helpers/AdminHelper';
 
 const SingInForm: React.FC = () => {
@@ -23,8 +22,8 @@ const SingInForm: React.FC = () => {
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
-  const { signInUser, signInLoading, errorMessage } = useTypesSelector((state) => state.signIn);
-  const { isAuth, currentUser } = useTypesSelector((state) => state.user);
+  const {  signInLoading, errorMessage } = useTypesSelector((state) => state.signIn);
+  const { isAuth } = useTypesSelector((state) => state.user);
   const onSubmit = (data: ISignInData) => {
     dispatch(userSignIn(data));
   };
@@ -36,11 +35,11 @@ const SingInForm: React.FC = () => {
       )}
 
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormName>Sin In to your account</FormName>
+        <FormName>Войти</FormName>
 
         <Input
           primary
-          label="Email"
+          label="Почта"
           name="email"
           register={register('email', Email)}
           errors={errors}
@@ -48,7 +47,7 @@ const SingInForm: React.FC = () => {
 
         <Input
           primary
-          label="Password"
+          label="Пароль"
           type="password"
           name="password"
           register={register('password', Password)}
@@ -57,12 +56,12 @@ const SingInForm: React.FC = () => {
 
         <ButtonBar>
           <Button round type="submit">
-            Sign In
+            Войти
           </Button>
         </ButtonBar>
 
         <NavLink to={ROUTS.SINGUP_FORM}>
-          Don't have an account? Click <span>here</span> to registration
+         Нет аккаунта? Нажмите <span>здесь</span> для регистрации
         </NavLink>
         {signInLoading ? <Loader /> : errorMessage && <Error errorMessage={errorMessage} />}
       </Form>

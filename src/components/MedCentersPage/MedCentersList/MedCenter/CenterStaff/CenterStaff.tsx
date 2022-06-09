@@ -16,7 +16,7 @@ interface IStaff {
 const Staff: React.FC<IStaff> = ({ medStaff }) => {
   return (
     <CenterStaff>
-      <span>Our staff: </span>
+      <span>Персонал</span>
       <StaffWrapper>
         {medStaff.map(({ userData, direction }) => {
           return (

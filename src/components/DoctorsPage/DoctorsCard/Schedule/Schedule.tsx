@@ -47,23 +47,23 @@ const Schedule: React.FC<IScheduleProps> = ({ workTimeData }) => {
   return (
     <ScheduleWrapper>
       <WrapperHeader>
-        <span>Doctors schedule</span>
+        <span>Расписание</span>
       </WrapperHeader>
 
-      {!workTimeData?.length && <span>The doctor hasn't added a schedule yet.</span>}
+      {!workTimeData?.length && <span>К сожалению, доктор еще не добавил время.</span>}
 
       <ItemWrapper>{renderItem()}</ItemWrapper>
 
       {stateSchedule.viewSuccessMessage && (
         <Message>
           {error ||
-            `You have booked a ticket for ${stateSchedule.choiceWorkTime.time} on
-                  ${stateSchedule.choiceWorkTime.date}. Be healthy!`}
+            `Вы были записаны на прием к врачу на ${stateSchedule.choiceWorkTime.time},
+                  ${stateSchedule.choiceWorkTime.date}. Будьте здоровы!`}
         </Message>
       )}
 
       <Button onClick={viewDate} disabled={!stateSchedule.disabledButton} round variant="contained">
-        Sign Up
+        Прим
       </Button>
     </ScheduleWrapper>
   );

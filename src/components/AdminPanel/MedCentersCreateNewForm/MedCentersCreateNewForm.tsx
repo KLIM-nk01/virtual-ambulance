@@ -11,7 +11,7 @@ const MedCentersCreateNewForm: React.FC = () => {
   return (
     <MedCentersEditFormWrapper>
       <MedCentersFormWrapper>
-        <FormName>Create new medical center.</FormName>
+        <FormName>Добавить новый медцентр.</FormName>
         <MedCentersForm submitFunction={createNewMedCenter} />
       </MedCentersFormWrapper>
     </MedCentersEditFormWrapper>

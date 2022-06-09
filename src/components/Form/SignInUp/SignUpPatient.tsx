@@ -46,21 +46,21 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
         <Redirect to={ROUTS.PERSONAL_ACCOUNT} />
       ) : (
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <FormName>Сreate an account </FormName>
+          <FormName>Регистрация </FormName>
           <DoctorCheckButton>
-            Are you doctor?
+            Вы доктор?
             <span
               onClick={() => {
                 setUserRole('doctor');
               }}
             >
-              Click here.
+              Нажмите здесь
             </span>
           </DoctorCheckButton>
 
           <Input
             primary
-            label="Name"
+            label="Имя"
             type="text"
             name="name"
             register={register('name', Required)}
@@ -69,7 +69,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
 
           <Input
             primary
-            label="Last Name"
+            label="Фамилия"
             type="text"
             name="lastName"
             register={register('lastName', Required)}
@@ -78,7 +78,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
 
           <Input
             primary
-            label="Birthday"
+            label="Дата рождения"
             type="text"
             name="birthday"
             register={register('birthday', Birthday)}
@@ -90,7 +90,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
             type="text"
             name="email"
             register={register('email', Email)}
-            label="Email"
+            label="Почта"
             errors={errors}
           />
 
@@ -99,7 +99,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
             type="text"
             name="phone"
             register={register('phone', PhoneNumber)}
-            label="Phone number"
+            label="Номер телефона"
             errors={errors}
           />
 
@@ -108,7 +108,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
             type="text"
             name="address"
             register={register('address', Required)}
-            label="Address"
+            label="Адрес проживания"
             errors={errors}
           />
           <Input
@@ -116,7 +116,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
             type="file"
             name="photo"
             register={register('photo')}
-            label="Photo"
+            label="Фото"
             errors={errors}
             id="photo"
           />
@@ -125,7 +125,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
             primary
             name="password"
             type="password"
-            label="Password"
+            label="Пароль"
             register={register('password', Password)}
             errors={errors}
           />
@@ -134,7 +134,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
             primary
             name="password_repeat"
             type="password"
-            label="Repeat Password"
+            label="Повторите пароль"
             register={register('password_repeat', {
               validate: (value: string) => {
                 return value === password.current || 'The passwords do not match';
@@ -145,7 +145,7 @@ const SignUpPatient: React.FC<IUserRole> = ({ setUserRole, userRole }) => {
 
           <ButtonBar>
             <Button type="submit" round>
-              Sign Up
+              Зарегистрироваться
             </Button>
           </ButtonBar>
           {signUp.requestLoading ? (
